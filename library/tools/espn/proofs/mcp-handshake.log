@@ -1,0 +1,13 @@
+$ /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/espn/proofs/bin/espn mcp
+cwd: /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/espn
+status: 0
+signal: 
+
+stdout:
+Content-Length: 145
+
+{"id":1,"jsonrpc":"2.0","result":{"capabilities":{"tools":{}},"protocolVersion":"2024-11-05","serverInfo":{"name":"espn-mcp","version":"0.1.0"}}}Content-Length: 542
+
+{"id":2,"jsonrpc":"2.0","result":{"tools":[{"description":"List operations","inputSchema":{"properties":{},"type":"object"},"name":"espn_operations"},{"description":"Call an operation","inputSchema":{"properties":{"operationId":{"type":"string"},"params":{"type":"object"},"path":{"type":"object"},"yes":{"type":"boolean"}},"required":["operationId"],"type":"object"},"name":"espn_call"},{"description":"Search cache","inputSchema":{"properties":{"query":{"type":"string"}},"required":["query"],"type":"object"},"name":"espn_search_cache"}]}}
+
+stderr:

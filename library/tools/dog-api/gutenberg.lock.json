@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "gutenberg.lock.v1",
+  "generatedAt": "2026-05-16T10:54:15.812Z",
+  "gutenbergVersion": "0.1.0",
+  "name": "dog-api",
+  "spec": {
+    "path": "/tmp/dog-api.openapi.json",
+    "sha256": "5f5573c153113b5d455d0c2ad03eb5f5b78a5c10e5b994985ae33846efeae2d4",
+    "size": 26494
+  },
+  "recipe": null,
+  "targets": [
+    "go",
+    "mcp",
+    "skill",
+    "openclaw"
+  ]
+}

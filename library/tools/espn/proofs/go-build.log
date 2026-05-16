@@ -1,0 +1,9 @@
+$ /mnt/c/Users/sarah/Desktop/gutenberg/scripts/use-go.sh build -o /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/espn/proofs/bin/espn ./cmd/espn
+cwd: /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/espn
+status: 0
+signal: 
+
+stdout:
+
+
+stderr:

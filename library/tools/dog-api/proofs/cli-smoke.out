@@ -1,0 +1,50 @@
+[
+  {
+    "id": "getBreedsListAll",
+    "method": "GET",
+    "path": "/api/breeds/list/all",
+    "tag": "api",
+    "summary": "GET /api/breeds/list/all",
+    "description": "",
+    "parameters": [],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "read-list"
+  },
+  {
+    "id": "getBreedsImageRandom",
+    "method": "GET",
+    "path": "/api/breeds/image/random",
+    "tag": "api",
+    "summary": "GET /api/breeds/image/random",
+    "description": "",
+    "parameters": [],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "read-list"
+  },
+  {
+    "id": "getBreedHoundList",
+    "method": "GET",
+    "path": "/api/breed/hound/list",
+    "tag": "api",
+    "summary": "GET /api/breed/hound/list",
+    "description": "",
+    "parameters": [],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "read-list"
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "id": "getBasketballNbaScoreboard",
+    "method": "GET",
+    "path": "/apis/site/v2/sports/basketball/nba/scoreboard",
+    "tag": "apis",
+    "summary": "GET /apis/site/v2/sports/basketball/nba/scoreboard",
+    "description": "",
+    "parameters": [],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "read-list"
+  },
+  {
+    "id": "getSoccerIta1Scoreboard",
+    "method": "GET",
+    "path": "/apis/site/v2/sports/soccer/ita.1/scoreboard",
+    "tag": "apis",
+    "summary": "GET /apis/site/v2/sports/soccer/ita.1/scoreboard",
+    "description": "",
+    "parameters": [],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "read-list"
+  },
+  {
+    "id": "getFootballNflScoreboard",
+    "method": "GET",
+    "path": "/apis/site/v2/sports/football/nfl/scoreboard",
+    "tag": "apis",
+    "summary": "GET /apis/site/v2/sports/football/nfl/scoreboard",
+    "description": "",
+    "parameters": [],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "read-list"
+  },
+  {
+    "id": "getBaseballMlbScoreboard",
+    "method": "GET",
+    "path": "/apis/site/v2/sports/baseball/mlb/scoreboard",
+    "tag": "apis",
+    "summary": "GET /apis/site/v2/sports/baseball/mlb/scoreboard",
+    "description": "",
+    "parameters": [],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "read-list"
+  }
+]

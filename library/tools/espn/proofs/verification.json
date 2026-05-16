@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "gutenberg.verification.v1",
+  "projectDir": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/espn",
+  "tool": "espn",
+  "language": "go",
+  "startedAt": "2026-05-16T01:35:30.268Z",
+  "finishedAt": "2026-05-16T01:36:05.324Z",
+  "ok": true,
+  "checks": [
+    {
+      "id": "go-mod-tidy",
+      "label": "go mod tidy",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 2365,
+      "log": "proofs/go-mod-tidy.log",
+      "artifact": null
+    },
+    {
+      "id": "go-test",
+      "label": "go test ./...",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 17177,
+      "log": "proofs/go-test.log",
+      "artifact": null
+    },
+    {
+      "id": "go-build",
+      "label": "go build CLI binary",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 13373,
+      "log": "proofs/go-build.log",
+      "artifact": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/espn/proofs/bin/espn"
+    },
+    {
+      "id": "cli-smoke",
+      "label": "CLI operations smoke",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 737,
+      "log": "proofs/cli-smoke.log",
+      "artifact": null
+    },
+    {
+      "id": "mcp-handshake",
+      "label": "MCP initialize + tools/list",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 270,
+      "log": "proofs/mcp-handshake.log",
+      "artifact": null
+    }
+  ],
+  "artifacts": {
+    "proofDir": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/espn/proofs",
+    "manifest": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/espn/gutenberg.manifest.json",
+    "source": {
+      "path": "/tmp/espn-final.openapi.json",
+      "sha256": "6ee5120c224e6a77b24cce5a35e5b033e5ba0a470502818587267755ea1d24a2",
+      "size": 128297
+    },
+    "binary": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/espn/proofs/bin/espn",
+    "binarySha256": "6f9c789ebb45146fb2c804c8ac36c7df52f8e6079d3342d6c88b2b1becab7d25"
+  },
+  "badges": [
+    "Gutenberg Verified",
+    "Build Verified",
+    "MCP Ready",
+    "Risk Gated"
+  ]
+}

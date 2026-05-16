@@ -1,0 +1,11 @@
+$ /mnt/c/Users/sarah/Desktop/gutenberg/scripts/use-go.sh test ./...
+cwd: /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/espn
+status: 0
+signal: 
+
+stdout:
+?   	gutenberg.local/espn/cmd/espn	[no test files]
+ok  	gutenberg.local/espn/internal/forge	0.051s
+
+
+stderr:

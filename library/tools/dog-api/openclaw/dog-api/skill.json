@@ -1,0 +1,101 @@
+{
+  "schemaVersion": "openclaw.skill.v1",
+  "name": "dog-api",
+  "displayName": "dog-api",
+  "description": "dog-api should become a local, searchable operational workspace, not only an endpoint wrapper.",
+  "runtime": {
+    "cli": "dog-api",
+    "mcp": "dog-api mcp"
+  },
+  "auth": {
+    "mode": "none",
+    "oauth": false,
+    "env": null,
+    "setupCommand": null
+  },
+  "capabilities": {
+    "readOperations": 3,
+    "writeOperations": 0,
+    "destructiveOperations": 0,
+    "cacheable": 3,
+    "total": 3
+  },
+  "actions": [
+    {
+      "name": "all",
+      "operationId": "getBreedsListAll",
+      "summary": "GET /api/breeds/list/all",
+      "method": "GET",
+      "path": "/api/breeds/list/all",
+      "defaultParams": {},
+      "invoke": "dog-api all",
+      "safe": true
+    },
+    {
+      "name": "random",
+      "operationId": "getBreedsImageRandom",
+      "summary": "GET /api/breeds/image/random",
+      "method": "GET",
+      "path": "/api/breeds/image/random",
+      "defaultParams": {},
+      "invoke": "dog-api random",
+      "safe": true
+    },
+    {
+      "name": "list",
+      "operationId": "getBreedHoundList",
+      "summary": "GET /api/breed/hound/list",
+      "method": "GET",
+      "path": "/api/breed/hound/list",
+      "defaultParams": {},
+      "invoke": "dog-api list",
+      "safe": true
+    }
+  ],
+  "operations": [
+    {
+      "id": "getBreedsListAll",
+      "method": "GET",
+      "path": "/api/breeds/list/all",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /api/breeds/list/all",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "dog-api call getBreedsListAll"
+    },
+    {
+      "id": "getBreedsImageRandom",
+      "method": "GET",
+      "path": "/api/breeds/image/random",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /api/breeds/image/random",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "dog-api call getBreedsImageRandom"
+    },
+    {
+      "id": "getBreedHoundList",
+      "method": "GET",
+      "path": "/api/breed/hound/list",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /api/breed/hound/list",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "dog-api call getBreedHoundList"
+    }
+  ],
+  "baseUrl": "https://dog.ceo",
+  "safety": {
+    "writeRequiresConfirmation": true,
+    "confirmationFlag": "--yes",
+    "dryRunByDefault": true
+  },
+  "provenance": {
+    "generatedAt": "2026-05-16T10:54:15.812Z",
+    "gutenbergVersion": "0.1.0",
+    "specSha": "5f5573c15311"
+  }
+}

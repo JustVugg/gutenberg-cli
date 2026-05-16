@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "gutenberg.lock.v1",
+  "generatedAt": "2026-05-16T01:31:26.380Z",
+  "gutenbergVersion": "0.1.0",
+  "name": "espn",
+  "spec": {
+    "path": "/tmp/espn-final.openapi.json",
+    "sha256": "6ee5120c224e6a77b24cce5a35e5b033e5ba0a470502818587267755ea1d24a2",
+    "size": 128297
+  },
+  "recipe": null,
+  "targets": [
+    "go",
+    "mcp",
+    "skill",
+    "openclaw"
+  ]
+}

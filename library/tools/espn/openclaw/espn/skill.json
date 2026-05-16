@@ -1,0 +1,122 @@
+{
+  "schemaVersion": "openclaw.skill.v1",
+  "name": "espn",
+  "displayName": "espn",
+  "description": "espn should become a local, searchable operational workspace, not only an endpoint wrapper.",
+  "runtime": {
+    "cli": "espn",
+    "mcp": "espn mcp"
+  },
+  "auth": {
+    "mode": "none",
+    "oauth": false,
+    "env": null,
+    "setupCommand": null
+  },
+  "capabilities": {
+    "readOperations": 4,
+    "writeOperations": 0,
+    "destructiveOperations": 0,
+    "cacheable": 4,
+    "total": 4
+  },
+  "actions": [
+    {
+      "name": "nba",
+      "operationId": "getBasketballNbaScoreboard",
+      "summary": "GET /apis/site/v2/sports/basketball/nba/scoreboard",
+      "method": "GET",
+      "path": "/apis/site/v2/sports/basketball/nba/scoreboard",
+      "defaultParams": {},
+      "invoke": "espn nba",
+      "safe": true
+    },
+    {
+      "name": "ita-1",
+      "operationId": "getSoccerIta1Scoreboard",
+      "summary": "GET /apis/site/v2/sports/soccer/ita.1/scoreboard",
+      "method": "GET",
+      "path": "/apis/site/v2/sports/soccer/ita.1/scoreboard",
+      "defaultParams": {},
+      "invoke": "espn ita-1",
+      "safe": true
+    },
+    {
+      "name": "nfl",
+      "operationId": "getFootballNflScoreboard",
+      "summary": "GET /apis/site/v2/sports/football/nfl/scoreboard",
+      "method": "GET",
+      "path": "/apis/site/v2/sports/football/nfl/scoreboard",
+      "defaultParams": {},
+      "invoke": "espn nfl",
+      "safe": true
+    },
+    {
+      "name": "mlb",
+      "operationId": "getBaseballMlbScoreboard",
+      "summary": "GET /apis/site/v2/sports/baseball/mlb/scoreboard",
+      "method": "GET",
+      "path": "/apis/site/v2/sports/baseball/mlb/scoreboard",
+      "defaultParams": {},
+      "invoke": "espn mlb",
+      "safe": true
+    }
+  ],
+  "operations": [
+    {
+      "id": "getBasketballNbaScoreboard",
+      "method": "GET",
+      "path": "/apis/site/v2/sports/basketball/nba/scoreboard",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /apis/site/v2/sports/basketball/nba/scoreboard",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "espn call getBasketballNbaScoreboard"
+    },
+    {
+      "id": "getSoccerIta1Scoreboard",
+      "method": "GET",
+      "path": "/apis/site/v2/sports/soccer/ita.1/scoreboard",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /apis/site/v2/sports/soccer/ita.1/scoreboard",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "espn call getSoccerIta1Scoreboard"
+    },
+    {
+      "id": "getFootballNflScoreboard",
+      "method": "GET",
+      "path": "/apis/site/v2/sports/football/nfl/scoreboard",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /apis/site/v2/sports/football/nfl/scoreboard",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "espn call getFootballNflScoreboard"
+    },
+    {
+      "id": "getBaseballMlbScoreboard",
+      "method": "GET",
+      "path": "/apis/site/v2/sports/baseball/mlb/scoreboard",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /apis/site/v2/sports/baseball/mlb/scoreboard",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "espn call getBaseballMlbScoreboard"
+    }
+  ],
+  "baseUrl": "https://site.api.espn.com",
+  "safety": {
+    "writeRequiresConfirmation": true,
+    "confirmationFlag": "--yes",
+    "dryRunByDefault": true
+  },
+  "provenance": {
+    "generatedAt": "2026-05-16T01:31:26.380Z",
+    "gutenbergVersion": "0.1.0",
+    "specSha": "6ee5120c224e"
+  }
+}

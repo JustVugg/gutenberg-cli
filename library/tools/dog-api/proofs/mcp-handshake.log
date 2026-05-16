@@ -1,0 +1,13 @@
+$ /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/dog-api/proofs/bin/dog-api mcp
+cwd: /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/dog-api
+status: 0
+signal: 
+
+stdout:
+Content-Length: 148
+
+{"id":1,"jsonrpc":"2.0","result":{"capabilities":{"tools":{}},"protocolVersion":"2024-11-05","serverInfo":{"name":"dog-api-mcp","version":"0.1.0"}}}Content-Length: 551
+
+{"id":2,"jsonrpc":"2.0","result":{"tools":[{"description":"List operations","inputSchema":{"properties":{},"type":"object"},"name":"dog-api_operations"},{"description":"Call an operation","inputSchema":{"properties":{"operationId":{"type":"string"},"params":{"type":"object"},"path":{"type":"object"},"yes":{"type":"boolean"}},"required":["operationId"],"type":"object"},"name":"dog-api_call"},{"description":"Search cache","inputSchema":{"properties":{"query":{"type":"string"}},"required":["query"],"type":"object"},"name":"dog-api_search_cache"}]}}
+
+stderr:

@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "gutenberg.verification.v1",
+  "projectDir": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/dog-api",
+  "tool": "dog-api",
+  "language": "go",
+  "startedAt": "2026-05-16T11:11:09.241Z",
+  "finishedAt": "2026-05-16T11:11:22.064Z",
+  "ok": true,
+  "checks": [
+    {
+      "id": "go-mod-tidy",
+      "label": "go mod tidy",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 2717,
+      "log": "proofs/go-mod-tidy.log",
+      "artifact": null
+    },
+    {
+      "id": "go-test",
+      "label": "go test ./...",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 4758,
+      "log": "proofs/go-test.log",
+      "artifact": null
+    },
+    {
+      "id": "go-build",
+      "label": "go build CLI binary",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 3581,
+      "log": "proofs/go-build.log",
+      "artifact": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/dog-api/proofs/bin/dog-api"
+    },
+    {
+      "id": "cli-smoke",
+      "label": "CLI operations smoke",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 327,
+      "log": "proofs/cli-smoke.log",
+      "artifact": null
+    },
+    {
+      "id": "mcp-handshake",
+      "label": "MCP initialize + tools/list",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 229,
+      "log": "proofs/mcp-handshake.log",
+      "artifact": null
+    }
+  ],
+  "artifacts": {
+    "proofDir": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/dog-api/proofs",
+    "manifest": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/dog-api/gutenberg.manifest.json",
+    "source": {
+      "path": "/tmp/dog-api.openapi.json",
+      "sha256": "5f5573c153113b5d455d0c2ad03eb5f5b78a5c10e5b994985ae33846efeae2d4",
+      "size": 26494
+    },
+    "binary": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/dog-api/proofs/bin/dog-api",
+    "binarySha256": "4441c13648ce6640ee0b388bf83ae698999d33772996c1846e5078f4ccb7a2df"
+  },
+  "badges": [
+    "Gutenberg Verified",
+    "Build Verified",
+    "MCP Ready",
+    "Risk Gated"
+  ]
+}

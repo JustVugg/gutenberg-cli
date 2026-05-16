@@ -1,0 +1,9 @@
+$ /mnt/c/Users/sarah/Desktop/gutenberg/scripts/use-go.sh build -o /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/dog-api/proofs/bin/dog-api ./cmd/dog-api
+cwd: /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/dog-api
+status: 0
+signal: 
+
+stdout:
+
+
+stderr:

@@ -1,0 +1,322 @@
+{
+  "schemaVersion": "gutenberg.blueprint.v1",
+  "source": "/tmp/espn-final.openapi.json",
+  "name": "espn",
+  "slug": "espn",
+  "envPrefix": "ESPN",
+  "description": "Generated from a browser HAR capture by Gutenberg.",
+  "version": "0.1.0",
+  "baseUrls": [
+    "https://site.api.espn.com"
+  ],
+  "auth": {
+    "mode": "none",
+    "schemes": [],
+    "env": null
+  },
+  "tags": [
+    "apis"
+  ],
+  "operations": [
+    {
+      "id": "getBasketballNbaScoreboard",
+      "method": "GET",
+      "path": "/apis/site/v2/sports/basketball/nba/scoreboard",
+      "tag": "apis",
+      "summary": "GET /apis/site/v2/sports/basketball/nba/scoreboard",
+      "description": "",
+      "parameters": [],
+      "hasRequestBody": false,
+      "risk": "read",
+      "cacheable": true,
+      "responseCodes": [
+        "200"
+      ],
+      "inputHints": {
+        "path": [],
+        "query": [],
+        "headers": [],
+        "body": false
+      },
+      "graphql": null,
+      "kind": "read-list",
+      "pagination": null,
+      "related": []
+    },
+    {
+      "id": "getSoccerIta1Scoreboard",
+      "method": "GET",
+      "path": "/apis/site/v2/sports/soccer/ita.1/scoreboard",
+      "tag": "apis",
+      "summary": "GET /apis/site/v2/sports/soccer/ita.1/scoreboard",
+      "description": "",
+      "parameters": [],
+      "hasRequestBody": false,
+      "risk": "read",
+      "cacheable": true,
+      "responseCodes": [
+        "200"
+      ],
+      "inputHints": {
+        "path": [],
+        "query": [],
+        "headers": [],
+        "body": false
+      },
+      "graphql": null,
+      "kind": "read-list",
+      "pagination": null,
+      "related": []
+    },
+    {
+      "id": "getFootballNflScoreboard",
+      "method": "GET",
+      "path": "/apis/site/v2/sports/football/nfl/scoreboard",
+      "tag": "apis",
+      "summary": "GET /apis/site/v2/sports/football/nfl/scoreboard",
+      "description": "",
+      "parameters": [],
+      "hasRequestBody": false,
+      "risk": "read",
+      "cacheable": true,
+      "responseCodes": [
+        "200"
+      ],
+      "inputHints": {
+        "path": [],
+        "query": [],
+        "headers": [],
+        "body": false
+      },
+      "graphql": null,
+      "kind": "read-list",
+      "pagination": null,
+      "related": []
+    },
+    {
+      "id": "getBaseballMlbScoreboard",
+      "method": "GET",
+      "path": "/apis/site/v2/sports/baseball/mlb/scoreboard",
+      "tag": "apis",
+      "summary": "GET /apis/site/v2/sports/baseball/mlb/scoreboard",
+      "description": "",
+      "parameters": [],
+      "hasRequestBody": false,
+      "risk": "read",
+      "cacheable": true,
+      "responseCodes": [
+        "200"
+      ],
+      "inputHints": {
+        "path": [],
+        "query": [],
+        "headers": [],
+        "body": false
+      },
+      "graphql": null,
+      "kind": "read-list",
+      "pagination": null,
+      "related": []
+    }
+  ],
+  "heroes": [
+    {
+      "alias": "nba",
+      "operationId": "getBasketballNbaScoreboard",
+      "summary": "GET /apis/site/v2/sports/basketball/nba/scoreboard",
+      "method": "GET",
+      "path": "/apis/site/v2/sports/basketball/nba/scoreboard",
+      "defaultParams": {},
+      "explicit": false
+    },
+    {
+      "alias": "ita-1",
+      "operationId": "getSoccerIta1Scoreboard",
+      "summary": "GET /apis/site/v2/sports/soccer/ita.1/scoreboard",
+      "method": "GET",
+      "path": "/apis/site/v2/sports/soccer/ita.1/scoreboard",
+      "defaultParams": {},
+      "explicit": false
+    },
+    {
+      "alias": "nfl",
+      "operationId": "getFootballNflScoreboard",
+      "summary": "GET /apis/site/v2/sports/football/nfl/scoreboard",
+      "method": "GET",
+      "path": "/apis/site/v2/sports/football/nfl/scoreboard",
+      "defaultParams": {},
+      "explicit": false
+    },
+    {
+      "alias": "mlb",
+      "operationId": "getBaseballMlbScoreboard",
+      "summary": "GET /apis/site/v2/sports/baseball/mlb/scoreboard",
+      "method": "GET",
+      "path": "/apis/site/v2/sports/baseball/mlb/scoreboard",
+      "defaultParams": {},
+      "explicit": false
+    }
+  ],
+  "insights": {
+    "thesis": "espn should become a local, searchable operational workspace, not only an endpoint wrapper.",
+    "generatedAdvantages": [
+      "One command surface for humans and agents",
+      "Shared core between CLI and MCP server",
+      "Local cache with search and replay metadata",
+      "Risk-aware dry-run defaults for write/destructive calls",
+      "Machine-readable manifest for catalogs and scorecards"
+    ],
+    "recommendedCommands": [
+      "sync: cache list endpoints locally",
+      "search: query cached API responses offline"
+    ],
+    "domainMap": [
+      {
+        "tag": "apis",
+        "operations": 4
+      }
+    ],
+    "riskNotes": []
+  },
+  "generatedAt": "2026-05-16T01:31:26.364Z",
+  "provenance": {
+    "schemaVersion": "gutenberg.provenance.v1",
+    "generatedAt": "2026-05-16T01:31:26.380Z",
+    "gutenbergVersion": "0.1.0",
+    "name": "espn",
+    "spec": {
+      "path": "/tmp/espn-final.openapi.json",
+      "sha256": "6ee5120c224e6a77b24cce5a35e5b033e5ba0a470502818587267755ea1d24a2",
+      "size": 128297
+    },
+    "recipe": null,
+    "targets": [
+      "go",
+      "mcp",
+      "skill",
+      "openclaw"
+    ],
+    "scorecard": {
+      "score": 190,
+      "maxScore": 190,
+      "grade": "A",
+      "dimensions": {
+        "structure": {
+          "score": 55,
+          "max": 55,
+          "ratio": 1,
+          "count": 11,
+          "passed": 11
+        },
+        "manifest": {
+          "score": 45,
+          "max": 45,
+          "ratio": 1,
+          "count": 5,
+          "passed": 5
+        },
+        "runtime": {
+          "score": 40,
+          "max": 40,
+          "ratio": 1,
+          "count": 4,
+          "passed": 4
+        },
+        "verification": {
+          "score": 50,
+          "max": 50,
+          "ratio": 1,
+          "count": 5,
+          "passed": 5
+        },
+        "coverage": {
+          "score": 20,
+          "max": 30,
+          "ratio": 0.6666666666666666,
+          "operations": 4,
+          "cacheable": 4,
+          "reads": 4,
+          "tagged": 0
+        },
+        "safety": {
+          "score": 20,
+          "max": 20,
+          "ratio": 1,
+          "writes": 0,
+          "classified": true,
+          "guardSourcePresent": true
+        },
+        "examples": {
+          "score": 15,
+          "max": 15,
+          "ratio": 1
+        },
+        "skill": {
+          "score": 10,
+          "max": 10,
+          "ratio": 1,
+          "present": true
+        }
+      }
+    },
+    "verification": {
+      "schemaVersion": "gutenberg.verification.summary.v1",
+      "verifiedAt": "2026-05-16T01:36:05.324Z",
+      "ok": true,
+      "badges": [
+        "Gutenberg Verified",
+        "Build Verified",
+        "MCP Ready",
+        "Risk Gated"
+      ],
+      "proofFile": "proofs/verification.json"
+    }
+  },
+  "defaultHeaders": {},
+  "policy": {
+    "schemaVersion": "gutenberg.policy.v1",
+    "rules": [
+      {
+        "risk": "read",
+        "action": "allow",
+        "requiresYes": false
+      },
+      {
+        "risk": "write",
+        "action": "confirm",
+        "requiresYes": true
+      },
+      {
+        "risk": "destructive",
+        "action": "confirm",
+        "requiresYes": true
+      }
+    ],
+    "redaction": [
+      "authorization",
+      "cookie",
+      "token",
+      "secret",
+      "api-key",
+      "apikey",
+      "client-secret",
+      "session"
+    ]
+  },
+  "packageName": "gutenberg.local/espn",
+  "generatedBy": "gutenberg",
+  "generatedByVersion": "0.3.0",
+  "language": "go",
+  "verification": {
+    "schemaVersion": "gutenberg.verification.summary.v1",
+    "verifiedAt": "2026-05-16T01:36:05.324Z",
+    "ok": true,
+    "badges": [
+      "Gutenberg Verified",
+      "Build Verified",
+      "MCP Ready",
+      "Risk Gated"
+    ],
+    "proofFile": "proofs/verification.json"
+  }
+}
