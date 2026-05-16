@@ -1,0 +1,753 @@
+{
+  "schemaVersion": "gutenberg.registry.v1",
+  "generatedAt": "2026-05-16T12:44:38.562Z",
+  "source": "library/tools/*/gutenberg.manifest.json",
+  "tools": [
+    {
+      "slug": "catfact",
+      "name": "catfact",
+      "kind": "tool",
+      "package": "library/tools/catfact",
+      "status": "verified",
+      "description": "An API for facts about cats",
+      "categories": [
+        "tool",
+        "breeds",
+        "facts",
+        "gutenberg-verified",
+        "build-verified",
+        "mcp-ready",
+        "risk-gated"
+      ],
+      "operations": 3,
+      "heroes": 3,
+      "score": 100,
+      "grade": "A",
+      "badges": [
+        "Gutenberg Verified",
+        "Build Verified",
+        "MCP Ready",
+        "Risk Gated"
+      ],
+      "verified": true,
+      "proofFile": "proofs/verification.json",
+      "authRequired": null,
+      "entrypoints": {
+        "manifest": "library/tools/catfact/gutenberg.manifest.json",
+        "cli": "library/tools/catfact/cmd/catfact",
+        "mcp": "catfact mcp",
+        "install": "gutenberg install library/tools/catfact"
+      }
+    },
+    {
+      "slug": "coingecko",
+      "name": "coingecko",
+      "kind": "tool",
+      "package": "library/tools/coingecko",
+      "status": "verified",
+      "description": "Generated from a browser HAR capture by Gutenberg.",
+      "categories": [
+        "tool",
+        "api",
+        "gutenberg-verified",
+        "build-verified",
+        "mcp-ready",
+        "risk-gated"
+      ],
+      "operations": 4,
+      "heroes": 4,
+      "score": 100,
+      "grade": "A",
+      "badges": [
+        "Gutenberg Verified",
+        "Build Verified",
+        "MCP Ready",
+        "Risk Gated"
+      ],
+      "verified": true,
+      "proofFile": "proofs/verification.json",
+      "authRequired": null,
+      "entrypoints": {
+        "manifest": "library/tools/coingecko/gutenberg.manifest.json",
+        "cli": "library/tools/coingecko/cmd/coingecko",
+        "mcp": "coingecko mcp",
+        "install": "gutenberg install library/tools/coingecko"
+      }
+    },
+    {
+      "slug": "dev-pulse",
+      "name": "Dev Pulse aggregator",
+      "kind": "aggregator",
+      "package": "library/tools/dev-pulse",
+      "status": "verified",
+      "description": "Second real proof of the aggregator pattern: fan-out over GitHub REST and ESPN scoreboards. Demonstrates that the same generator handles wildly different source shapes.",
+      "categories": [
+        "aggregator",
+        "gutenberg-verified",
+        "build-verified",
+        "mcp-ready"
+      ],
+      "operations": 2,
+      "heroes": 0,
+      "score": 100,
+      "grade": "A",
+      "badges": [
+        "Gutenberg Verified",
+        "Build Verified",
+        "MCP Ready"
+      ],
+      "verified": true,
+      "proofFile": "proofs/verification.json",
+      "authRequired": null,
+      "entrypoints": {
+        "manifest": "library/tools/dev-pulse/gutenberg.manifest.json",
+        "cli": "library/tools/dev-pulse/cmd/dev-pulse",
+        "mcp": null,
+        "install": "gutenberg install library/tools/dev-pulse"
+      }
+    },
+    {
+      "slug": "dog-api",
+      "name": "dog-api",
+      "kind": "tool",
+      "package": "library/tools/dog-api",
+      "status": "verified",
+      "description": "Generated from a browser HAR capture by Gutenberg.",
+      "categories": [
+        "tool",
+        "api",
+        "gutenberg-verified",
+        "build-verified",
+        "mcp-ready",
+        "risk-gated"
+      ],
+      "operations": 3,
+      "heroes": 3,
+      "score": 100,
+      "grade": "A",
+      "badges": [
+        "Gutenberg Verified",
+        "Build Verified",
+        "MCP Ready",
+        "Risk Gated"
+      ],
+      "verified": true,
+      "proofFile": "proofs/verification.json",
+      "authRequired": null,
+      "entrypoints": {
+        "manifest": "library/tools/dog-api/gutenberg.manifest.json",
+        "cli": "library/tools/dog-api/cmd/dog-api",
+        "mcp": "dog-api mcp",
+        "install": "gutenberg install library/tools/dog-api"
+      }
+    },
+    {
+      "slug": "espn",
+      "name": "espn",
+      "kind": "tool",
+      "package": "library/tools/espn",
+      "status": "verified",
+      "description": "Generated from a browser HAR capture by Gutenberg.",
+      "categories": [
+        "tool",
+        "apis",
+        "gutenberg-verified",
+        "build-verified",
+        "mcp-ready",
+        "risk-gated"
+      ],
+      "operations": 4,
+      "heroes": 4,
+      "score": 100,
+      "grade": "A",
+      "badges": [
+        "Gutenberg Verified",
+        "Build Verified",
+        "MCP Ready",
+        "Risk Gated"
+      ],
+      "verified": true,
+      "proofFile": "proofs/verification.json",
+      "authRequired": null,
+      "entrypoints": {
+        "manifest": "library/tools/espn/gutenberg.manifest.json",
+        "cli": "library/tools/espn/cmd/espn",
+        "mcp": "espn mcp",
+        "install": "gutenberg install library/tools/espn"
+      }
+    },
+    {
+      "slug": "exchange-rates",
+      "name": "exchange-rates",
+      "kind": "tool",
+      "package": "library/tools/exchange-rates",
+      "status": "verified",
+      "description": "Generated from a browser HAR capture by Gutenberg.",
+      "categories": [
+        "tool",
+        "v6",
+        "gutenberg-verified",
+        "build-verified",
+        "mcp-ready",
+        "risk-gated"
+      ],
+      "operations": 2,
+      "heroes": 2,
+      "score": 100,
+      "grade": "A",
+      "badges": [
+        "Gutenberg Verified",
+        "Build Verified",
+        "MCP Ready",
+        "Risk Gated"
+      ],
+      "verified": true,
+      "proofFile": "proofs/verification.json",
+      "authRequired": null,
+      "entrypoints": {
+        "manifest": "library/tools/exchange-rates/gutenberg.manifest.json",
+        "cli": "library/tools/exchange-rates/cmd/exchange-rates",
+        "mcp": "exchange-rates mcp",
+        "install": "gutenberg install library/tools/exchange-rates"
+      }
+    },
+    {
+      "slug": "github",
+      "name": "github",
+      "kind": "tool",
+      "package": "library/tools/github",
+      "status": "verified",
+      "description": "GitHub's v3 REST API.",
+      "categories": [
+        "tool",
+        "actions",
+        "activity",
+        "agent-tasks",
+        "agents",
+        "apps",
+        "billing",
+        "campaigns",
+        "checks",
+        "classroom",
+        "code-scanning",
+        "code-security"
+      ],
+      "operations": 1183,
+      "heroes": 20,
+      "score": 100,
+      "grade": "A",
+      "badges": [
+        "Gutenberg Verified",
+        "Build Verified",
+        "MCP Ready",
+        "Risk Gated"
+      ],
+      "verified": true,
+      "proofFile": "proofs/verification.json",
+      "authRequired": null,
+      "entrypoints": {
+        "manifest": "library/tools/github/gutenberg.manifest.json",
+        "cli": "library/tools/github/cmd/github",
+        "mcp": "github mcp",
+        "install": "gutenberg install library/tools/github"
+      }
+    },
+    {
+      "slug": "hacker-news",
+      "name": "hacker-news",
+      "kind": "tool",
+      "package": "library/tools/hacker-news",
+      "status": "verified",
+      "description": "Generated from a browser HAR capture by Gutenberg.",
+      "categories": [
+        "tool",
+        "v0",
+        "gutenberg-verified",
+        "build-verified",
+        "mcp-ready",
+        "risk-gated"
+      ],
+      "operations": 5,
+      "heroes": 5,
+      "score": 100,
+      "grade": "A",
+      "badges": [
+        "Gutenberg Verified",
+        "Build Verified",
+        "MCP Ready",
+        "Risk Gated"
+      ],
+      "verified": true,
+      "proofFile": "proofs/verification.json",
+      "authRequired": null,
+      "entrypoints": {
+        "manifest": "library/tools/hacker-news/gutenberg.manifest.json",
+        "cli": "library/tools/hacker-news/cmd/hacker-news",
+        "mcp": "hacker-news mcp",
+        "install": "gutenberg install library/tools/hacker-news"
+      }
+    },
+    {
+      "slug": "multi-demo",
+      "name": "Multi-source demo aggregator",
+      "kind": "aggregator",
+      "package": "library/tools/multi-demo",
+      "status": "verified",
+      "description": "Real proof of the aggregator pattern: fan-out over ESPN scoreboards and Open-Meteo weather. Both sources are public, no auth. Generated to validate that gutenberg can fan-out N OpenAPI sources, merge results, and ship a compiling Go CLI.",
+      "categories": [
+        "aggregator",
+        "gutenberg-verified",
+        "build-verified",
+        "mcp-ready"
+      ],
+      "operations": 2,
+      "heroes": 0,
+      "score": 100,
+      "grade": "A",
+      "badges": [
+        "Gutenberg Verified",
+        "Build Verified",
+        "MCP Ready"
+      ],
+      "verified": true,
+      "proofFile": "proofs/verification.json",
+      "authRequired": null,
+      "entrypoints": {
+        "manifest": "library/tools/multi-demo/gutenberg.manifest.json",
+        "cli": "library/tools/multi-demo/cmd/multi-demo",
+        "mcp": null,
+        "install": "gutenberg install library/tools/multi-demo"
+      }
+    },
+    {
+      "slug": "npm-registry",
+      "name": "npm-registry",
+      "kind": "tool",
+      "package": "library/tools/npm-registry",
+      "status": "verified",
+      "description": "Generated from a browser HAR capture by Gutenberg.",
+      "categories": [
+        "tool",
+        "-",
+        "express",
+        "gutenberg-verified",
+        "build-verified",
+        "mcp-ready",
+        "risk-gated"
+      ],
+      "operations": 2,
+      "heroes": 2,
+      "score": 100,
+      "grade": "A",
+      "badges": [
+        "Gutenberg Verified",
+        "Build Verified",
+        "MCP Ready",
+        "Risk Gated"
+      ],
+      "verified": true,
+      "proofFile": "proofs/verification.json",
+      "authRequired": null,
+      "entrypoints": {
+        "manifest": "library/tools/npm-registry/gutenberg.manifest.json",
+        "cli": "library/tools/npm-registry/cmd/npm-registry",
+        "mcp": "npm-registry mcp",
+        "install": "gutenberg install library/tools/npm-registry"
+      }
+    },
+    {
+      "slug": "open-meteo",
+      "name": "open-meteo",
+      "kind": "tool",
+      "package": "library/tools/open-meteo",
+      "status": "verified",
+      "description": "Generated from a browser HAR capture by Gutenberg.",
+      "categories": [
+        "tool",
+        "v1",
+        "gutenberg-verified",
+        "build-verified",
+        "mcp-ready",
+        "risk-gated"
+      ],
+      "operations": 1,
+      "heroes": 1,
+      "score": 100,
+      "grade": "A",
+      "badges": [
+        "Gutenberg Verified",
+        "Build Verified",
+        "MCP Ready",
+        "Risk Gated"
+      ],
+      "verified": true,
+      "proofFile": "proofs/verification.json",
+      "authRequired": null,
+      "entrypoints": {
+        "manifest": "library/tools/open-meteo/gutenberg.manifest.json",
+        "cli": "library/tools/open-meteo/cmd/open-meteo",
+        "mcp": "open-meteo mcp",
+        "install": "gutenberg install library/tools/open-meteo"
+      }
+    },
+    {
+      "slug": "pokeapi",
+      "name": "pokeapi",
+      "kind": "tool",
+      "package": "library/tools/pokeapi",
+      "status": "verified",
+      "description": "Generated from a browser HAR capture by Gutenberg.",
+      "categories": [
+        "tool",
+        "api",
+        "gutenberg-verified",
+        "build-verified",
+        "mcp-ready",
+        "risk-gated"
+      ],
+      "operations": 4,
+      "heroes": 4,
+      "score": 100,
+      "grade": "A",
+      "badges": [
+        "Gutenberg Verified",
+        "Build Verified",
+        "MCP Ready",
+        "Risk Gated"
+      ],
+      "verified": true,
+      "proofFile": "proofs/verification.json",
+      "authRequired": null,
+      "entrypoints": {
+        "manifest": "library/tools/pokeapi/gutenberg.manifest.json",
+        "cli": "library/tools/pokeapi/cmd/pokeapi",
+        "mcp": "pokeapi mcp",
+        "install": "gutenberg install library/tools/pokeapi"
+      }
+    },
+    {
+      "slug": "public-holidays",
+      "name": "public-holidays",
+      "kind": "tool",
+      "package": "library/tools/public-holidays",
+      "status": "verified",
+      "description": "Generated from a browser HAR capture by Gutenberg.",
+      "categories": [
+        "tool",
+        "api",
+        "gutenberg-verified",
+        "build-verified",
+        "mcp-ready",
+        "risk-gated"
+      ],
+      "operations": 4,
+      "heroes": 2,
+      "score": 100,
+      "grade": "A",
+      "badges": [
+        "Gutenberg Verified",
+        "Build Verified",
+        "MCP Ready",
+        "Risk Gated"
+      ],
+      "verified": true,
+      "proofFile": "proofs/verification.json",
+      "authRequired": null,
+      "entrypoints": {
+        "manifest": "library/tools/public-holidays/gutenberg.manifest.json",
+        "cli": "library/tools/public-holidays/cmd/public-holidays",
+        "mcp": "public-holidays mcp",
+        "install": "gutenberg install library/tools/public-holidays"
+      }
+    },
+    {
+      "slug": "pypi",
+      "name": "pypi",
+      "kind": "tool",
+      "package": "library/tools/pypi",
+      "status": "verified",
+      "description": "Generated from a browser HAR capture by Gutenberg.",
+      "categories": [
+        "tool",
+        "pypi",
+        "gutenberg-verified",
+        "build-verified",
+        "mcp-ready",
+        "risk-gated"
+      ],
+      "operations": 2,
+      "heroes": 2,
+      "score": 100,
+      "grade": "A",
+      "badges": [
+        "Gutenberg Verified",
+        "Build Verified",
+        "MCP Ready",
+        "Risk Gated"
+      ],
+      "verified": true,
+      "proofFile": "proofs/verification.json",
+      "authRequired": null,
+      "entrypoints": {
+        "manifest": "library/tools/pypi/gutenberg.manifest.json",
+        "cli": "library/tools/pypi/cmd/pypi",
+        "mcp": "pypi mcp",
+        "install": "gutenberg install library/tools/pypi"
+      }
+    },
+    {
+      "slug": "randomuser",
+      "name": "randomuser",
+      "kind": "tool",
+      "package": "library/tools/randomuser",
+      "status": "verified",
+      "description": "Generated from a browser HAR capture by Gutenberg.",
+      "categories": [
+        "tool",
+        "api",
+        "gutenberg-verified",
+        "build-verified",
+        "mcp-ready",
+        "risk-gated"
+      ],
+      "operations": 1,
+      "heroes": 1,
+      "score": 100,
+      "grade": "A",
+      "badges": [
+        "Gutenberg Verified",
+        "Build Verified",
+        "MCP Ready",
+        "Risk Gated"
+      ],
+      "verified": true,
+      "proofFile": "proofs/verification.json",
+      "authRequired": null,
+      "entrypoints": {
+        "manifest": "library/tools/randomuser/gutenberg.manifest.json",
+        "cli": "library/tools/randomuser/cmd/randomuser",
+        "mcp": "randomuser mcp",
+        "install": "gutenberg install library/tools/randomuser"
+      }
+    },
+    {
+      "slug": "rest-countries",
+      "name": "rest-countries",
+      "kind": "tool",
+      "package": "library/tools/rest-countries",
+      "status": "verified",
+      "description": "Generated from a browser HAR capture by Gutenberg.",
+      "categories": [
+        "tool",
+        "v3.1",
+        "gutenberg-verified",
+        "build-verified",
+        "mcp-ready",
+        "risk-gated"
+      ],
+      "operations": 3,
+      "heroes": 3,
+      "score": 100,
+      "grade": "A",
+      "badges": [
+        "Gutenberg Verified",
+        "Build Verified",
+        "MCP Ready",
+        "Risk Gated"
+      ],
+      "verified": true,
+      "proofFile": "proofs/verification.json",
+      "authRequired": null,
+      "entrypoints": {
+        "manifest": "library/tools/rest-countries/gutenberg.manifest.json",
+        "cli": "library/tools/rest-countries/cmd/rest-countries",
+        "mcp": "rest-countries mcp",
+        "install": "gutenberg install library/tools/rest-countries"
+      }
+    },
+    {
+      "slug": "sentry",
+      "name": "sentry",
+      "kind": "tool",
+      "package": "library/tools/sentry",
+      "status": "verified",
+      "description": "Sentry Public API",
+      "categories": [
+        "tool",
+        "alerts",
+        "crons",
+        "dashboards",
+        "discover",
+        "environments",
+        "events",
+        "explore",
+        "integration",
+        "integrations",
+        "mobile builds",
+        "monitors"
+      ],
+      "operations": 209,
+      "heroes": 2,
+      "score": 100,
+      "grade": "A",
+      "badges": [
+        "Gutenberg Verified",
+        "Build Verified",
+        "MCP Ready",
+        "Risk Gated"
+      ],
+      "verified": true,
+      "proofFile": "proofs/verification.json",
+      "authRequired": null,
+      "entrypoints": {
+        "manifest": "library/tools/sentry/gutenberg.manifest.json",
+        "cli": "library/tools/sentry/cmd/sentry",
+        "mcp": "sentry mcp",
+        "install": "gutenberg install library/tools/sentry"
+      }
+    },
+    {
+      "slug": "stripe",
+      "name": "stripe",
+      "kind": "tool",
+      "package": "library/tools/stripe",
+      "status": "verified",
+      "description": "The Stripe REST API. Please see https://stripe.com/docs/api for more details.",
+      "categories": [
+        "tool",
+        "default",
+        "gutenberg-verified",
+        "build-verified",
+        "mcp-ready",
+        "risk-gated"
+      ],
+      "operations": 587,
+      "heroes": 20,
+      "score": 100,
+      "grade": "A",
+      "badges": [
+        "Gutenberg Verified",
+        "Build Verified",
+        "MCP Ready",
+        "Risk Gated"
+      ],
+      "verified": true,
+      "proofFile": "proofs/verification.json",
+      "authRequired": null,
+      "entrypoints": {
+        "manifest": "library/tools/stripe/gutenberg.manifest.json",
+        "cli": "library/tools/stripe/cmd/stripe",
+        "mcp": "stripe mcp",
+        "install": "gutenberg install library/tools/stripe"
+      }
+    },
+    {
+      "slug": "tvmaze",
+      "name": "tvmaze",
+      "kind": "tool",
+      "package": "library/tools/tvmaze",
+      "status": "verified",
+      "description": "Generated from a browser HAR capture by Gutenberg.",
+      "categories": [
+        "tool",
+        "people",
+        "schedule",
+        "search",
+        "shows",
+        "gutenberg-verified",
+        "build-verified",
+        "mcp-ready",
+        "risk-gated"
+      ],
+      "operations": 5,
+      "heroes": 2,
+      "score": 100,
+      "grade": "A",
+      "badges": [
+        "Gutenberg Verified",
+        "Build Verified",
+        "MCP Ready",
+        "Risk Gated"
+      ],
+      "verified": true,
+      "proofFile": "proofs/verification.json",
+      "authRequired": null,
+      "entrypoints": {
+        "manifest": "library/tools/tvmaze/gutenberg.manifest.json",
+        "cli": "library/tools/tvmaze/cmd/tvmaze",
+        "mcp": "tvmaze mcp",
+        "install": "gutenberg install library/tools/tvmaze"
+      }
+    },
+    {
+      "slug": "tvmaze-quick",
+      "name": "tvmaze-quick",
+      "kind": "tool",
+      "package": "library/tools/tvmaze-quick",
+      "status": "verified",
+      "description": "Generated from a browser HAR capture by Gutenberg.",
+      "categories": [
+        "tool",
+        "shows",
+        "gutenberg-verified",
+        "build-verified",
+        "mcp-ready",
+        "risk-gated"
+      ],
+      "operations": 1,
+      "heroes": 0,
+      "score": 100,
+      "grade": "A",
+      "badges": [
+        "Gutenberg Verified",
+        "Build Verified",
+        "MCP Ready",
+        "Risk Gated"
+      ],
+      "verified": true,
+      "proofFile": "proofs/verification.json",
+      "authRequired": null,
+      "entrypoints": {
+        "manifest": "library/tools/tvmaze-quick/gutenberg.manifest.json",
+        "cli": "library/tools/tvmaze-quick/cmd/tvmaze-quick",
+        "mcp": "tvmaze-quick mcp",
+        "install": "gutenberg install library/tools/tvmaze-quick"
+      }
+    },
+    {
+      "slug": "wikipedia-it",
+      "name": "wikipedia-it",
+      "kind": "tool",
+      "package": "library/tools/wikipedia-it",
+      "status": "verified",
+      "description": "Generated from a browser HAR capture by Gutenberg.",
+      "categories": [
+        "tool",
+        "api",
+        "gutenberg-verified",
+        "build-verified",
+        "mcp-ready",
+        "risk-gated"
+      ],
+      "operations": 5,
+      "heroes": 4,
+      "score": 100,
+      "grade": "A",
+      "badges": [
+        "Gutenberg Verified",
+        "Build Verified",
+        "MCP Ready",
+        "Risk Gated"
+      ],
+      "verified": true,
+      "proofFile": "proofs/verification.json",
+      "authRequired": null,
+      "entrypoints": {
+        "manifest": "library/tools/wikipedia-it/gutenberg.manifest.json",
+        "cli": "library/tools/wikipedia-it/cmd/wikipedia-it",
+        "mcp": "wikipedia-it mcp",
+        "install": "gutenberg install library/tools/wikipedia-it"
+      }
+    }
+  ]
+}
