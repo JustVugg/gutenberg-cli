@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "gutenberg.lock.v1",
+  "generatedAt": "2026-05-16T01:33:25.936Z",
+  "gutenbergVersion": "0.1.0",
+  "name": "sentry",
+  "spec": {
+    "path": "/tmp/sentry-api.json",
+    "sha256": "94d354dc45cf56de7ee81227925ab384c5e05ad0a1e9fc37778193764365043e",
+    "size": 3259546
+  },
+  "recipe": null,
+  "targets": [
+    "go",
+    "mcp",
+    "skill",
+    "openclaw"
+  ]
+}

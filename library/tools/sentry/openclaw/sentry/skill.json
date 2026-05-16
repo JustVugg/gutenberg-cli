@@ -1,0 +1,4604 @@
+{
+  "schemaVersion": "openclaw.skill.v1",
+  "name": "sentry",
+  "displayName": "sentry",
+  "description": "sentry should become a local, searchable operational workspace, not only an endpoint wrapper.",
+  "runtime": {
+    "cli": "sentry",
+    "mcp": "sentry mcp"
+  },
+  "auth": {
+    "mode": "detected",
+    "oauth": false,
+    "env": "API_KEY",
+    "setupCommand": "export SENTRY_API_KEY=<your-key>"
+  },
+  "capabilities": {
+    "readOperations": 112,
+    "writeOperations": 63,
+    "destructiveOperations": 34,
+    "cacheable": 112,
+    "total": 209
+  },
+  "actions": [
+    {
+      "name": "organizations",
+      "operationId": "List Your Organizations",
+      "summary": "Return a list of organizations available to the authenticated session in a region.\nThis is particularly useful for requests with a user bound context. For API key-based requests this will only return the organization that belongs to the key.",
+      "method": "GET",
+      "path": "/api/0/organizations/",
+      "defaultParams": {},
+      "invoke": "sentry organizations",
+      "safe": true
+    },
+    {
+      "name": "models",
+      "operationId": "List Seer AI Models",
+      "summary": "Get list of actively used LLM model names from Seer.\n\nReturns the list of AI models that are currently used in production in Seer.\nThis endpoint does not require authentication and can be used to discover which models Seer uses.\n\nRequests to this endpoint should use the region-specific domain\neg. `us.sentry.io` or `de.sentry.io`",
+      "method": "GET",
+      "path": "/api/0/seer/models/",
+      "defaultParams": {},
+      "invoke": "sentry models",
+      "safe": true
+    }
+  ],
+  "operations": [
+    {
+      "id": "List Your Organizations",
+      "method": "GET",
+      "path": "/api/0/organizations/",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "Return a list of organizations available to the authenticated session in a region.\nThis is particularly useful for requests with a user bound context. For API key-based requests this will only return the organization that belongs to the key.",
+      "requiredParams": [],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List Your Organizations"
+    },
+    {
+      "id": "Retrieve an Organization",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return details on an individual organization, including various details\nsuch as membership access and teams.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve an Organization"
+    },
+    {
+      "id": "Update an Organization",
+      "method": "PUT",
+      "path": "/api/0/organizations/{organization_id_or_slug}/",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Update various attributes and configurable settings for the given organization.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Update an Organization"
+    },
+    {
+      "id": "Get Integration Provider Information",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/config/integrations/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get integration provider information about all available integrations for an organization.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Get Integration Provider Information"
+    },
+    {
+      "id": "List an Organization's Custom Dashboards",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/dashboards/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Retrieve a list of custom dashboards that are associated with the given organization.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List an Organization's Custom Dashboards"
+    },
+    {
+      "id": "Create a New Dashboard for an Organization",
+      "method": "POST",
+      "path": "/api/0/organizations/{organization_id_or_slug}/dashboards/",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a new dashboard for the given Organization",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Create a New Dashboard for an Organization"
+    },
+    {
+      "id": "Retrieve an Organization's Custom Dashboard",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/dashboards/{dashboard_id}/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return details about an organization's custom dashboard.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "dashboard_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve an Organization's Custom Dashboard"
+    },
+    {
+      "id": "Edit an Organization's Custom Dashboard",
+      "method": "PUT",
+      "path": "/api/0/organizations/{organization_id_or_slug}/dashboards/{dashboard_id}/",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Edit an organization's custom dashboard as well as any bulk\nedits on widgets that may have been made. (For example, widgets\nthat have been rearranged, updated queries and fields, specific\ndisplay types, and so on.)",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "dashboard_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Edit an Organization's Custom Dashboard"
+    },
+    {
+      "id": "Delete an Organization's Custom Dashboard",
+      "method": "DELETE",
+      "path": "/api/0/organizations/{organization_id_or_slug}/dashboards/{dashboard_id}/",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete an organization's custom dashboard.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "dashboard_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Delete an Organization's Custom Dashboard"
+    },
+    {
+      "id": "Fetch an Organization's Monitors",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/detectors/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "⚠️ This endpoint is currently in **beta** and may be subject to change. It is supported by [New Monitors and Alerts](/product/new-monitors-and-alerts/) and may not be viewable in the UI today.\n\nList an Organization's Monitors",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Fetch an Organization's Monitors"
+    },
+    {
+      "id": "Mutate an Organization's Monitors",
+      "method": "PUT",
+      "path": "/api/0/organizations/{organization_id_or_slug}/detectors/",
+      "kind": "update",
+      "risk": "write",
+      "summary": "⚠️ This endpoint is currently in **beta** and may be subject to change. It is supported by [New Monitors and Alerts](/product/new-monitors-and-alerts/) and may not be viewable in the UI today.\n\nBulk enable or disable an Organization's Monitors",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Mutate an Organization's Monitors"
+    },
+    {
+      "id": "Bulk Delete Monitors",
+      "method": "DELETE",
+      "path": "/api/0/organizations/{organization_id_or_slug}/detectors/",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "⚠️ This endpoint is currently in **beta** and may be subject to change. It is supported by [New Monitors and Alerts](/product/new-monitors-and-alerts/) and may not be viewable in the UI today.\n\nBulk delete Monitors for a given organization",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Bulk Delete Monitors"
+    },
+    {
+      "id": "Fetch a Monitor",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/detectors/{detector_id}/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "⚠️ This endpoint is currently in **beta** and may be subject to change. It is supported by [New Monitors and Alerts](/product/new-monitors-and-alerts/) and may not be viewable in the UI today.\n\nReturn details on an individual monitor",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "detector_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Fetch a Monitor"
+    },
+    {
+      "id": "Update a Monitor by ID",
+      "method": "PUT",
+      "path": "/api/0/organizations/{organization_id_or_slug}/detectors/{detector_id}/",
+      "kind": "update",
+      "risk": "write",
+      "summary": "⚠️ This endpoint is currently in **beta** and may be subject to change. It is supported by [New Monitors and Alerts](/product/new-monitors-and-alerts/) and may not be viewable in the UI today.\n\nUpdate an existing monitor",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "detector_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Update a Monitor by ID"
+    },
+    {
+      "id": "Delete a Monitor",
+      "method": "DELETE",
+      "path": "/api/0/organizations/{organization_id_or_slug}/detectors/{detector_id}/",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "⚠️ This endpoint is currently in **beta** and may be subject to change. It is supported by [New Monitors and Alerts](/product/new-monitors-and-alerts/) and may not be viewable in the UI today.\n\nDelete a monitor",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "detector_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Delete a Monitor"
+    },
+    {
+      "id": "List an Organization's Discover Saved Queries",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/discover/saved/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Retrieve a list of saved queries that are associated with the given organization.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List an Organization's Discover Saved Queries"
+    },
+    {
+      "id": "Create a New Saved Query",
+      "method": "POST",
+      "path": "/api/0/organizations/{organization_id_or_slug}/discover/saved/",
+      "kind": "search",
+      "risk": "write",
+      "summary": "Create a new saved query for the given organization.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Create a New Saved Query"
+    },
+    {
+      "id": "Retrieve an Organization's Discover Saved Query",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/discover/saved/{query_id}/",
+      "kind": "search",
+      "risk": "read",
+      "summary": "Retrieve a saved query.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "query_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve an Organization's Discover Saved Query"
+    },
+    {
+      "id": "Edit an Organization's Discover Saved Query",
+      "method": "PUT",
+      "path": "/api/0/organizations/{organization_id_or_slug}/discover/saved/{query_id}/",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Modify a saved query.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "query_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Edit an Organization's Discover Saved Query"
+    },
+    {
+      "id": "Delete an Organization's Discover Saved Query",
+      "method": "DELETE",
+      "path": "/api/0/organizations/{organization_id_or_slug}/discover/saved/{query_id}/",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete a saved query.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "query_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Delete an Organization's Discover Saved Query"
+    },
+    {
+      "id": "List an Organization's Environments",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/environments/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Lists an organization's environments.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call List an Organization's Environments"
+    },
+    {
+      "id": "Resolve an Event ID",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/eventids/{event_id}/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "This resolves an event ID to the project slug and internal issue ID and internal event ID.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "event_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Resolve an Event ID"
+    },
+    {
+      "id": "Query Explore Events in Table Format",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/events/",
+      "kind": "search",
+      "risk": "read",
+      "summary": "Retrieves explore data for a given organization.\n\n**Note**: This endpoint is intended to get a table of results, and is not for doing a full export of data sent to\nSentry.\n\nThe `field` query parameter determines what fields will be selected in the `data` and `meta` keys of the endpoint response.\n- The `data` key contains a list of results row by row that match the `query` made\n- The `meta` key contains information about the response, including the unit or type of the fields requested",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "field",
+          "in": "query",
+          "type": "array"
+        },
+        {
+          "name": "dataset",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call Query Explore Events in Table Format"
+    },
+    {
+      "id": "Query Explore Events in Timeseries Format",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/events-timeseries/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Retrieves explore data for a given organization as a timeseries.\n\nThis endpoint can return timeseries for either 1 or many axis, and results grouped to the top events depending\non the parameters passed",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "dataset",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Query Explore Events in Timeseries Format"
+    },
+    {
+      "id": "Create an External User",
+      "method": "POST",
+      "path": "/api/0/organizations/{organization_id_or_slug}/external-users/",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Link a user from an external provider to a Sentry user.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Create an External User"
+    },
+    {
+      "id": "Update an External User",
+      "method": "PUT",
+      "path": "/api/0/organizations/{organization_id_or_slug}/external-users/{external_user_id}/",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Update a user in an external provider that is currently linked to a Sentry user.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "external_user_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Update an External User"
+    },
+    {
+      "id": "Delete an External User",
+      "method": "DELETE",
+      "path": "/api/0/organizations/{organization_id_or_slug}/external-users/{external_user_id}/",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete the link between a user from an external provider and a Sentry user.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "external_user_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Delete an External User"
+    },
+    {
+      "id": "Retrieve Data Forwarders for an Organization",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/forwarding/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Returns a list of data forwarders for an organization.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve Data Forwarders for an Organization"
+    },
+    {
+      "id": "Create a Data Forwarder for an Organization",
+      "method": "POST",
+      "path": "/api/0/organizations/{organization_id_or_slug}/forwarding/",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Creates a new data forwarder for an organization.\nOnly one data forwarder can be created per provider for a given organization.\n\nProject-specific overrides can only be created after creating the data forwarder.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Create a Data Forwarder for an Organization"
+    },
+    {
+      "id": "Update a Data Forwarder for an Organization",
+      "method": "PUT",
+      "path": "/api/0/organizations/{organization_id_or_slug}/forwarding/{data_forwarder_id}/",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Updates a data forwarder for an organization or update a project-specific override.\nUpdates to the data forwarder's configuration require `org:write` permissions, and the entire\nconfiguration to be provided, including the `project_ids` field.\n\nTo configure project-specific overrides, specify only the following fields:\n\n  - 'project_id': The ID of the project to create/modify the override for.\n  - 'overrides': Follows the same format as `config` but all provider fields are optional, since only specified fields are overridden.\n  - 'is_enabled': To enable/disable the forwarder for events on the specific project.\n\nOverrides can be performed with `project:write` permissions on the project being modified.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "data_forwarder_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Update a Data Forwarder for an Organization"
+    },
+    {
+      "id": "Delete a Data Forwarder for an Organization",
+      "method": "DELETE",
+      "path": "/api/0/organizations/{organization_id_or_slug}/forwarding/{data_forwarder_id}/",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Deletes a data forwarder for an organization. All project-specific overrides will be deleted as well.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "data_forwarder_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Delete a Data Forwarder for an Organization"
+    },
+    {
+      "id": "List an Organization's Available Integrations",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/integrations/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Lists all the available Integrations for an Organization.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List an Organization's Available Integrations"
+    },
+    {
+      "id": "Retrieve an Integration for an Organization",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/integrations/{integration_id}/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "OrganizationIntegrationBaseEndpoints expect both Integration and\nOrganizationIntegration DB entries to exist for a given organization and\nintegration_id.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "integration_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve an Integration for an Organization"
+    },
+    {
+      "id": "Delete an Integration for an Organization",
+      "method": "DELETE",
+      "path": "/api/0/organizations/{organization_id_or_slug}/integrations/{integration_id}/",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "OrganizationIntegrationBaseEndpoints expect both Integration and\nOrganizationIntegration DB entries to exist for a given organization and\nintegration_id.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "integration_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Delete an Integration for an Organization"
+    },
+    {
+      "id": "List an Organization's Issues",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/issues/",
+      "kind": "search",
+      "risk": "read",
+      "summary": "Return a list of issues for an organization. All parameters are supplied as query string parameters. A default query of `is:unresolved` is applied. To return all results, use an empty query value (i.e. ``?query=`). ",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List an Organization's Issues"
+    },
+    {
+      "id": "Bulk Mutate an Organization's Issues",
+      "method": "PUT",
+      "path": "/api/0/organizations/{organization_id_or_slug}/issues/",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Bulk mutate various attributes on a maxmimum of 1000 issues. \n- For non-status updates, the `id` query parameter is required. \n- For status updates, the `id` query parameter may be omitted to update issues that match the filtering. \nIf any IDs are out of scope, the data won't be mutated but the endpoint will still produce a successful response. For example, if no issues were found matching the criteria, a HTTP 204 is returned.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Bulk Mutate an Organization's Issues"
+    },
+    {
+      "id": "Bulk Remove an Organization's Issues",
+      "method": "DELETE",
+      "path": "/api/0/organizations/{organization_id_or_slug}/issues/",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Permanently remove the given issues. If IDs are provided, queries and filtering will be ignored. If any IDs are out of scope, the data won't be mutated but the endpoint will still produce a successful response. For example, if no issues were found matching the criteria, a HTTP 204 is returned.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Bulk Remove an Organization's Issues"
+    },
+    {
+      "id": "List an Organization's Members",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/members/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List all organization members.\n\nResponse includes pending invites that are approved by organization owners or managers but waiting to be accepted by the invitee.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List an Organization's Members"
+    },
+    {
+      "id": "Add a Member to an Organization",
+      "method": "POST",
+      "path": "/api/0/organizations/{organization_id_or_slug}/members/",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Add or invite a member to an organization.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Add a Member to an Organization"
+    },
+    {
+      "id": "Retrieve an Organization Member",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/members/{member_id}/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Retrieve an organization member's details.\n\nResponse will be a pending invite if it has been approved by organization owners or managers but is waiting to be accepted by the invitee.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "member_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve an Organization Member"
+    },
+    {
+      "id": "Update an Organization Member's Roles",
+      "method": "PUT",
+      "path": "/api/0/organizations/{organization_id_or_slug}/members/{member_id}/",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Update a member's [organization-level](https://docs.sentry.io/organization/membership/#organization-level-roles) and [team-level](https://docs.sentry.io/organization/membership/#team-level-roles) roles.\n\nNote that for changing organization-roles, this endpoint is restricted to\n[user auth tokens](https://docs.sentry.io/account/auth-tokens/#user-auth-tokens).\nAdditionally, both the original and desired organization role must have\nthe same or lower permissions than the role of the organization user making the request\n\nFor example, an organization Manager may change someone's role from\nMember to Manager, but not to Owner.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "member_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Update an Organization Member's Roles"
+    },
+    {
+      "id": "Delete an Organization Member",
+      "method": "DELETE",
+      "path": "/api/0/organizations/{organization_id_or_slug}/members/{member_id}/",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Remove an organization member.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "member_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Delete an Organization Member"
+    },
+    {
+      "id": "Add an Organization Member to a Team",
+      "method": "POST",
+      "path": "/api/0/organizations/{organization_id_or_slug}/members/{member_id}/teams/{team_id_or_slug}/",
+      "kind": "create",
+      "risk": "write",
+      "summary": "This request can return various success codes depending on the context of the team:\n- **`201`**: The member has been successfully added.\n- **`202`**: The member needs permission to join the team and an access request\nhas been generated.\n- **`204`**: The member is already on the team.\n\nIf the team is provisioned through an identity provider, the member cannot join the\nteam through Sentry.\n\nNote the permission scopes vary depending on the organization setting `\"Open Membership\"`\nand the type of authorization token. The following table outlines the accepted scopes.\n<table style=\"width: 100%;\">\n<thead>\n    <tr>\n    <th style=\"width: 33%;\"></th>\n    <th colspan=\"2\" style=\"text-align: center; font-weight: bold; width: 33%;\">Open Membership</th>\n    </tr>\n</thead>\n<tbody>\n    <tr>\n    <td style=\"width: 34%;\"></td>\n    <td style=\"text-align: center; font-weight: bold; width: 33%;\">On</td>\n    <td style=\"text-align: center; font-weight: bold; width: 33%;\">Off</td>\n    </tr>\n    <tr>\n    <td style=\"text-align: center; font-weight: bold; vertical-align: middle;\"><a\n    href=\"https://docs.sentry.io/account/auth-tokens/#internal-integrations\">Internal Integration Token</a></td>\n    <td style=\"text-align: left; width: 33%;\">\n        <ul style=\"list-style-type: none; padding-left: 0;\">\n        <li><strong style=\"color: #9c5f99;\">&bull; org:read</strong></li>\n        </ul>\n    </td>\n    <td style=\"text-align: left; width: 33%;\">\n        <ul style=\"list-style-type: none; padding-left: 0;\">\n        <li><strong style=\"color: #9c5f99;\">&bull; org:write</strong></li>\n        <li><strong style=\"color: #9c5f99;\">&bull; team:write</strong></li>\n        </ul>\n    </td>\n    </tr>\n    <tr>\n    <td style=\"text-align: center; font-weight: bold; vertical-align: middle;\"><a\n    href=\"https://docs.sentry.io/account/auth-tokens/#user-auth-tokens\">User Auth Token</a></td>\n    <td style=\"text-align: left; width: 33%;\">\n        <ul style=\"list-style-type: none; padding-left: 0;\">\n        <li><strong style=\"color: #9c5f99;\">&bull; org:read</strong></li>\n        </ul>\n    </td>\n    <td style=\"text-align: left; width: 33%;\">\n        <ul style=\"list-style-type: none; padding-left: 0;\">\n        <li><strong style=\"color: #9c5f99;\">&bull; org:read*</strong></li>\n        <li><strong style=\"color: #9c5f99;\">&bull; org:write</strong></li>\n        <li><strong style=\"color: #9c5f99;\">&bull; org:read +</strong></li>\n        <li><strong style=\"color: #9c5f99;\">&nbsp; &nbsp;team:write**</strong></li>\n        </ul>\n    </td>\n    </tr>\n</tbody>\n</table>\n\n\n*Organization members are restricted to this scope. When sending a request, it will always\nreturn a 202 and request an invite to the team.\n\n\n\\*\\*Team Admins must have both **`org:read`** and **`team:write`** scopes in their user\nauthorization token to add members to their teams.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "member_id",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "team_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Add an Organization Member to a Team"
+    },
+    {
+      "id": "Update an Organization Member's Team Role",
+      "method": "PUT",
+      "path": "/api/0/organizations/{organization_id_or_slug}/members/{member_id}/teams/{team_id_or_slug}/",
+      "kind": "update",
+      "risk": "write",
+      "summary": "The relevant organization member must already be a part of the team.\n\nNote that for organization admins, managers, and owners, they are\nautomatically granted a minimum team role of `admin` on all teams they\nare part of. Read more about [team roles](https://docs.sentry.io/product/teams/roles/).",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "member_id",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "team_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Update an Organization Member's Team Role"
+    },
+    {
+      "id": "Delete an Organization Member from a Team",
+      "method": "DELETE",
+      "path": "/api/0/organizations/{organization_id_or_slug}/members/{member_id}/teams/{team_id_or_slug}/",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete an organization member from a team.\n\nNote the permission scopes vary depending on the type of authorization token. The following\ntable outlines the accepted scopes.\n<table style=\"width: 100%;\">\n    <tr style=\"width: 50%;\">\n        <td style=\"width: 50%; text-align: center; font-weight: bold; vertical-align: middle;\"><a href=\"https://docs.sentry.io/api/auth/#auth-tokens\">Org Auth Token</a></td>\n        <td style=\"width: 50%; text-align: left;\">\n            <ul style=\"list-style-type: none; padding-left: 0;\">\n                <li><strong style=\"color: #9c5f99;\">&bull; org:write</strong></li>\n                <li><strong style=\"color: #9c5f99;\">&bull; org:admin</strong></li>\n                <li><strong style=\"color: #9c5f99;\">&bull; team:admin</strong></li>\n            </ul>\n        </td>\n    </tr>\n    <tr style=\"width: 50%;\">\n        <td style=\"width: 50%; text-align: center; font-weight: bold; vertical-align: middle;\"><a href=\"https://docs.sentry.io/api/auth/#user-authentication-tokens\">User Auth Token</a></td>\n        <td style=\"width: 50%; text-align: left;\">\n            <ul style=\"list-style-type: none; padding-left: 0;\">\n                <li><strong style=\"color: #9c5f99;\">&bull; org:read*</strong></li>\n                <li><strong style=\"color: #9c5f99;\">&bull; org:write</strong></li>\n                <li><strong style=\"color: #9c5f99;\">&bull; org:admin</strong></li>\n                <li><strong style=\"color: #9c5f99;\">&bull; team:admin</strong></li>\n                <li><strong style=\"color: #9c5f99;\">&bull; org:read + team:admin**</strong></li>\n            </ul>\n        </td>\n    </tr>\n</table>\n\n\n\\***`org:read`** can only be used to remove yourself from the teams you are a member of.\n\n\n\\*\\*Team Admins must have both **`org:read`** and **`team:admin`** scopes in their user\nauthorization token to delete members from their teams.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "member_id",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "team_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Delete an Organization Member from a Team"
+    },
+    {
+      "id": "Retrieve Monitors for an Organization",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/monitors/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Lists monitors, including nested monitor environments. May be filtered to a project or environment.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call Retrieve Monitors for an Organization"
+    },
+    {
+      "id": "Create a Monitor",
+      "method": "POST",
+      "path": "/api/0/organizations/{organization_id_or_slug}/monitors/",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a new monitor.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Create a Monitor"
+    },
+    {
+      "id": "Retrieve a Monitor",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/monitors/{monitor_id_or_slug}/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Retrieves details for a monitor.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "monitor_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve a Monitor"
+    },
+    {
+      "id": "Update a Monitor",
+      "method": "PUT",
+      "path": "/api/0/organizations/{organization_id_or_slug}/monitors/{monitor_id_or_slug}/",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Update a monitor.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "monitor_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Update a Monitor"
+    },
+    {
+      "id": "Delete a Monitor or Monitor Environments",
+      "method": "DELETE",
+      "path": "/api/0/organizations/{organization_id_or_slug}/monitors/{monitor_id_or_slug}/",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete a monitor or monitor environments.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "monitor_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Delete a Monitor or Monitor Environments"
+    },
+    {
+      "id": "Retrieve Check-Ins for a Monitor",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/monitors/{monitor_id_or_slug}/checkins/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Retrieve a list of check-ins for a monitor",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "monitor_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call Retrieve Check-Ins for a Monitor"
+    },
+    {
+      "id": "List Spike Protection Notifications",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/notifications/actions/",
+      "kind": "search",
+      "risk": "read",
+      "summary": "Returns all Spike Protection Notification Actions for an organization.\n\nNotification Actions notify a set of members when an action has been triggered through a notification service such as Slack or Sentry.\nFor example, organization owners and managers can receive an email when a spike occurs.\n\nYou can use either the `project` or `projectSlug` query parameter to filter for certain projects. Note that if both are present, `projectSlug` takes priority.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call List Spike Protection Notifications"
+    },
+    {
+      "id": "Create a Spike Protection Notification Action",
+      "method": "POST",
+      "path": "/api/0/organizations/{organization_id_or_slug}/notifications/actions/",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Creates a new Notification Action for Spike Protection.\n\nNotification Actions notify a set of members when an action has been triggered through a notification service such as Slack or Sentry.\nFor example, organization owners and managers can receive an email when a spike occurs.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Create a Spike Protection Notification Action"
+    },
+    {
+      "id": "Retrieve a Spike Protection Notification Action",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/notifications/actions/{action_id}/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Returns a serialized Spike Protection Notification Action object.\n\nNotification Actions notify a set of members when an action has been triggered through a notification service such as Slack or Sentry.\nFor example, organization owners and managers can receive an email when a spike occurs.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "action_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve a Spike Protection Notification Action"
+    },
+    {
+      "id": "Update a Spike Protection Notification Action",
+      "method": "PUT",
+      "path": "/api/0/organizations/{organization_id_or_slug}/notifications/actions/{action_id}/",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Updates a Spike Protection Notification Action.\n\nNotification Actions notify a set of members when an action has been triggered through a notification service such as Slack or Sentry.\nFor example, organization owners and managers can receive an email when a spike occurs.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "action_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Update a Spike Protection Notification Action"
+    },
+    {
+      "id": "Delete a Spike Protection Notification Action",
+      "method": "DELETE",
+      "path": "/api/0/organizations/{organization_id_or_slug}/notifications/actions/{action_id}/",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Deletes a Spike Protection Notification Action.\n\nNotification Actions notify a set of members when an action has been triggered through a notification service such as Slack or Sentry.\nFor example, organization owners and managers can receive an email when a spike occurs.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "action_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Delete a Spike Protection Notification Action"
+    },
+    {
+      "id": "Retrieve install info for a given artifact",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/preprodartifacts/{artifact_id}/install-details/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Retrieve install info for a given artifact.\n\nReturns distribution and installation details for a specific preprod artifact,\nincluding whether the artifact is installable, the install URL, download count,\nand iOS-specific code signing information.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "artifact_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve install info for a given artifact"
+    },
+    {
+      "id": "Retrieve Size Analysis results for a given artifact",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/preprodartifacts/{artifact_id}/size-analysis/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Retrieve size analysis results for a given artifact.\n\nReturns size metrics including download size, install size, and optional insights.\nWhen a base artifact exists (either from commit comparison or via the `baseArtifactId` parameter),\ncomparison data showing size differences is included.\n\nThe response `state` field indicates the analysis status:\n- `PENDING`: Analysis has not started yet.\n- `PROCESSING`: Analysis is currently running.\n- `FAILED` / `NOT_RAN`: Analysis did not complete; `errorCode` and `errorMessage` are included.\n- `COMPLETED`: Analysis finished successfully with full size data.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "artifact_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve Size Analysis results for a given artifact"
+    },
+    {
+      "id": "Retrieves list of repositories for a given owner",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/prevent/owner/{owner}/repositories/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Retrieves repository data for a given owner.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "owner",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call Retrieves list of repositories for a given owner"
+    },
+    {
+      "id": "Gets syncing status for repositories for an integrated org",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/prevent/owner/{owner}/repositories/sync/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Gets syncing status for repositories for an integrated organization.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "owner",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Gets syncing status for repositories for an integrated org"
+    },
+    {
+      "id": "Syncs repositories from an integrated org with GitHub",
+      "method": "POST",
+      "path": "/api/0/organizations/{organization_id_or_slug}/prevent/owner/{owner}/repositories/sync/",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Syncs repositories for an integrated organization with GitHub.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "owner",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Syncs repositories from an integrated org with GitHub"
+    },
+    {
+      "id": "Retrieves a paginated list of repository tokens for a given owner",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/prevent/owner/{owner}/repositories/tokens/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Retrieves a paginated list of repository tokens for a given owner.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "owner",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call Retrieves a paginated list of repository tokens for a given owner"
+    },
+    {
+      "id": "Retrieves a single repository for a given owner",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/prevent/owner/{owner}/repository/{repository}/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Retrieves repository data for a single repository.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "owner",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "repository",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieves a single repository for a given owner"
+    },
+    {
+      "id": "Retrieves list of branches for a given owner and repository",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/prevent/owner/{owner}/repository/{repository}/branches/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Retrieves branch data for a given owner and repository.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "owner",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "repository",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call Retrieves list of branches for a given owner and repository"
+    },
+    {
+      "id": "Retrieve paginated list of test results for repository, owner, and organization",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/prevent/owner/{owner}/repository/{repository}/test-results/",
+      "kind": "search",
+      "risk": "read",
+      "summary": "Retrieves the list of test results for a given repository and owner. Also accepts a number of query parameters to filter the results.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "owner",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "repository",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call Retrieve paginated list of test results for repository, owner, and organization"
+    },
+    {
+      "id": "Retrieve aggregated test result metrics for repository, owner, and organization",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/prevent/owner/{owner}/repository/{repository}/test-results-aggregates/",
+      "kind": "search",
+      "risk": "read",
+      "summary": "Retrieves aggregated test result metrics for a given repository and owner.\nAlso accepts a query parameter to specify the time period for the metrics.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "owner",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "repository",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve aggregated test result metrics for repository, owner, and organization"
+    },
+    {
+      "id": "Retrieve test suites belonging to a repository's test results",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/prevent/owner/{owner}/repository/{repository}/test-suites/",
+      "kind": "search",
+      "risk": "read",
+      "summary": "Retrieves test suites belonging to a repository's test results.\nIt accepts a list of test suites as a query parameter to specify individual test suites.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "owner",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "repository",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve test suites belonging to a repository's test results"
+    },
+    {
+      "id": "Regenerates a repository upload token and returns the new token",
+      "method": "POST",
+      "path": "/api/0/organizations/{organization_id_or_slug}/prevent/owner/{owner}/repository/{repository}/token/regenerate/",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Regenerates a repository upload token and returns the new token.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "owner",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "repository",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Regenerates a repository upload token and returns the new token"
+    },
+    {
+      "id": "List an Organization's Client Keys",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/project-keys/",
+      "kind": "search",
+      "risk": "read",
+      "summary": "Return a list of client keys (DSNs) for all projects in an organization.\n\nThis paginated endpoint lists client keys across all projects in an organization. Each key includes the project ID\nto identify which project it belongs to.\n\nQuery Parameters:\n- team: Filter by team slug or ID to get keys only for that team's projects\n- status: Filter by 'active' or 'inactive' to get keys with specific status",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List an Organization's Client Keys"
+    },
+    {
+      "id": "List an Organization's Projects",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/projects/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return a list of projects bound to a organization.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List an Organization's Projects"
+    },
+    {
+      "id": "Create a Monitor for a Project",
+      "method": "POST",
+      "path": "/api/0/organizations/{organization_id_or_slug}/projects/{project_id_or_slug}/detectors/",
+      "kind": "create",
+      "risk": "write",
+      "summary": "⚠️ This endpoint is currently in **beta** and may be subject to change. It is supported by [New Monitors and Alerts](/product/new-monitors-and-alerts/) and may not be viewable in the UI today.\n\nCreate a Monitor for a project",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Create a Monitor for a Project"
+    },
+    {
+      "id": "List an Organization's trusted Relays",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/relay_usage/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return a list of trusted relays bound to an organization.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call List an Organization's trusted Relays"
+    },
+    {
+      "id": "Retrieve Statuses of Release Thresholds (Alpha)",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/release-threshold-statuses/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "**`[WARNING]`**: This API is an experimental Alpha feature and is subject to change!\n\nList all derived statuses of releases that fall within the provided start/end datetimes.\n\nConstructs a response key'd off \\{`release_version`\\}-\\{`project_slug`\\} that lists thresholds with their status for *specified* projects.\nEach returned enriched threshold will contain the full serialized `release_threshold` instance as well as it's derived health statuses.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "start",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "end",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve Statuses of Release Thresholds (Alpha)"
+    },
+    {
+      "id": "Retrieve an Organization's Release",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/releases/{version}/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return details on an individual release.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "version",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve an Organization's Release"
+    },
+    {
+      "id": "Update an Organization's Release",
+      "method": "PUT",
+      "path": "/api/0/organizations/{organization_id_or_slug}/releases/{version}/",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Update a release. This can change some metadata associated with\nthe release (the ref, url, and dates).",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "version",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Update an Organization's Release"
+    },
+    {
+      "id": "Delete an Organization's Release",
+      "method": "DELETE",
+      "path": "/api/0/organizations/{organization_id_or_slug}/releases/{version}/",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Permanently remove a release and all of its files.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "version",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Delete an Organization's Release"
+    },
+    {
+      "id": "List a Release's Deploys",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/releases/{version}/deploys/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Returns a list of deploys based on the organization, version, and project.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "version",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List a Release's Deploys"
+    },
+    {
+      "id": "Create a Deploy",
+      "method": "POST",
+      "path": "/api/0/organizations/{organization_id_or_slug}/releases/{version}/deploys/",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a deploy for a given release.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "version",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Create a Deploy"
+    },
+    {
+      "id": "Retrieve a Count of Replays for a Given Issue or Transaction",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/replay-count/",
+      "kind": "search",
+      "risk": "read",
+      "summary": "Return a count of replays for a list of issue or transaction IDs.\n\nThe `query` parameter is required. It is a search query that includes exactly one of `issue.id`, `transaction`, or `replay_id` (string or list of strings).",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve a Count of Replays for a Given Issue or Transaction"
+    },
+    {
+      "id": "List an Organization's Selectors",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/replay-selectors/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return a list of selectors for a given organization.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List an Organization's Selectors"
+    },
+    {
+      "id": "List an Organization's Replays",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/replays/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return a list of replays belonging to an organization.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List an Organization's Replays"
+    },
+    {
+      "id": "Retrieve a Replay Instance",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/replays/{replay_id}/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return details on an individual replay.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "replay_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call Retrieve a Replay Instance"
+    },
+    {
+      "id": "List a Repository's Commits",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/repos/{repo_id}/commits/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List a Repository's Commits",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "repo_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List a Repository's Commits"
+    },
+    {
+      "id": "List an Organization's Paginated Teams",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/scim/v2/Groups",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Returns a paginated list of teams bound to a organization with a SCIM Groups GET Request.\n\nNote that the members field will only contain up to 10,000 members.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call List an Organization's Paginated Teams"
+    },
+    {
+      "id": "Provision a New Team",
+      "method": "POST",
+      "path": "/api/0/organizations/{organization_id_or_slug}/scim/v2/Groups",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a new team bound to an organization via a SCIM Groups POST\nRequest. The slug will have a normalization of uppercases/spaces to\nlowercases and dashes.\n\nNote that teams are always created with an empty member set.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Provision a New Team"
+    },
+    {
+      "id": "Query an Individual Team",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/scim/v2/Groups/{team_id_or_slug}",
+      "kind": "search",
+      "risk": "read",
+      "summary": "Query an individual team with a SCIM Group GET Request.\n- Note that the members field will only contain up to 10000 members.",
+      "requiredParams": [
+        {
+          "name": "team_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Query an Individual Team"
+    },
+    {
+      "id": "Update a Team's Attributes",
+      "method": "PATCH",
+      "path": "/api/0/organizations/{organization_id_or_slug}/scim/v2/Groups/{team_id_or_slug}",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Update a team's attributes with a SCIM Group PATCH Request.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "team_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Update a Team's Attributes"
+    },
+    {
+      "id": "Delete an Individual Team",
+      "method": "DELETE",
+      "path": "/api/0/organizations/{organization_id_or_slug}/scim/v2/Groups/{team_id_or_slug}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete a team with a SCIM Group DELETE Request.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "team_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Delete an Individual Team"
+    },
+    {
+      "id": "List an Organization's SCIM Members",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/scim/v2/Users",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Returns a paginated list of members bound to a organization with a SCIM Users GET Request.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call List an Organization's SCIM Members"
+    },
+    {
+      "id": "Provision a New Organization Member",
+      "method": "POST",
+      "path": "/api/0/organizations/{organization_id_or_slug}/scim/v2/Users",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a new Organization Member via a SCIM Users POST Request.\n\nNote that this API does not support setting secondary emails.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Provision a New Organization Member"
+    },
+    {
+      "id": "Query an Individual Organization Member",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/scim/v2/Users/{member_id}",
+      "kind": "search",
+      "risk": "read",
+      "summary": "Query an individual organization member with a SCIM User GET Request.\n- The `name` object will contain fields `firstName` and `lastName` with the values of `N/A`.\nSentry's SCIM API does not currently support these fields but returns them for compatibility purposes.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "member_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Query an Individual Organization Member"
+    },
+    {
+      "id": "Update an Organization Member's Attributes",
+      "method": "PATCH",
+      "path": "/api/0/organizations/{organization_id_or_slug}/scim/v2/Users/{member_id}",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Update an organization member's attributes with a SCIM PATCH Request.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "member_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Update an Organization Member's Attributes"
+    },
+    {
+      "id": "Delete an Organization Member via SCIM",
+      "method": "DELETE",
+      "path": "/api/0/organizations/{organization_id_or_slug}/scim/v2/Users/{member_id}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete an organization member with a SCIM User DELETE Request.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "member_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Delete an Organization Member via SCIM"
+    },
+    {
+      "id": "Retrieve the custom integrations created by an organization",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/sentry-apps/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Retrieve the custom integrations for an organization",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve the custom integrations created by an organization"
+    },
+    {
+      "id": "Retrieve Release Health Session Statistics",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/sessions/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Returns a time series of release health session statistics for projects bound to an organization.\n\nThe interval and date range are subject to certain restrictions and rounding rules.\n\nThe date range is rounded to align with the interval, and is rounded to at least one\nhour. The interval can at most be one day and at least one hour currently. It has to cleanly\ndivide one day, for rounding reasons.\n\nBecause of technical limitations, this endpoint returns\nat most 10000 data points. For example, if you select a 90 day window grouped by releases,\nyou will see at most `floor(10k / (90 + 1)) = 109` releases. To get more results, reduce the\n`statsPeriod`.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "field",
+          "in": "query",
+          "type": "array"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve Release Health Session Statistics"
+    },
+    {
+      "id": "Resolve a Short ID",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/shortids/{issue_id}/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Resolve a short ID to the project slug and group details.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "issue_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Resolve a Short ID"
+    },
+    {
+      "id": "Retrieve an Organization's Events Count by Project",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/stats-summary/",
+      "kind": "search",
+      "risk": "read",
+      "summary": "Query summarized event counts by project for your Organization. Also see https://docs.sentry.io/api/organizations/retrieve-event-counts-for-an-organization-v2/ for reference.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "field",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve an Organization's Events Count by Project"
+    },
+    {
+      "id": "Retrieve Event Counts for an Organization (v2)",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/stats_v2/",
+      "kind": "search",
+      "risk": "read",
+      "summary": "Query event counts for your Organization.\nSelect a field, define a date range, and group or filter by columns.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "groupBy",
+          "in": "query",
+          "type": "array"
+        },
+        {
+          "name": "field",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve Event Counts for an Organization (v2)"
+    },
+    {
+      "id": "List an Organization's Teams",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/teams/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Returns a list of teams bound to a organization.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List an Organization's Teams"
+    },
+    {
+      "id": "Create a New Team",
+      "method": "POST",
+      "path": "/api/0/organizations/{organization_id_or_slug}/teams/",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a new team bound to an organization. Requires at least one of the `name`\nor `slug` body params to be set.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Create a New Team"
+    },
+    {
+      "id": "List a User's Teams for an Organization",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/user-teams/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Returns a list of teams the user has access to in the specified organization.\nNote that this endpoint is restricted to [user auth tokens](https://docs.sentry.io/account/auth-tokens/#user-auth-tokens).",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call List a User's Teams for an Organization"
+    },
+    {
+      "id": "Fetch Alerts",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/workflows/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "⚠️ This endpoint is currently in **beta** and may be subject to change. It is supported by [New Monitors and Alerts](/product/new-monitors-and-alerts/) and may not be viewable in the UI today.\n\nReturns a list of alerts for a given organization",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Fetch Alerts"
+    },
+    {
+      "id": "Create an Alert for an Organization",
+      "method": "POST",
+      "path": "/api/0/organizations/{organization_id_or_slug}/workflows/",
+      "kind": "create",
+      "risk": "write",
+      "summary": "⚠️ This endpoint is currently in **beta** and may be subject to change. It is supported by [New Monitors and Alerts](/product/new-monitors-and-alerts/) and may not be viewable in the UI today.\n\nCreates an alert for an organization",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Create an Alert for an Organization"
+    },
+    {
+      "id": "Mutate an Organization's Alerts",
+      "method": "PUT",
+      "path": "/api/0/organizations/{organization_id_or_slug}/workflows/",
+      "kind": "update",
+      "risk": "write",
+      "summary": "⚠️ This endpoint is currently in **beta** and may be subject to change. It is supported by [New Monitors and Alerts](/product/new-monitors-and-alerts/) and may not be viewable in the UI today.\n\nBulk enable or disable alerts for a given Organization",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Mutate an Organization's Alerts"
+    },
+    {
+      "id": "Bulk Delete Alerts",
+      "method": "DELETE",
+      "path": "/api/0/organizations/{organization_id_or_slug}/workflows/",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "⚠️ This endpoint is currently in **beta** and may be subject to change. It is supported by [New Monitors and Alerts](/product/new-monitors-and-alerts/) and may not be viewable in the UI today.\n\nBulk delete alerts for a given organization",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Bulk Delete Alerts"
+    },
+    {
+      "id": "Fetch an Alert",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/workflows/{workflow_id}/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "⚠️ This endpoint is currently in **beta** and may be subject to change. It is supported by [New Monitors and Alerts](/product/new-monitors-and-alerts/) and may not be viewable in the UI today.\n\nReturns an alert.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "workflow_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Fetch an Alert"
+    },
+    {
+      "id": "Update an Alert by ID",
+      "method": "PUT",
+      "path": "/api/0/organizations/{organization_id_or_slug}/workflows/{workflow_id}/",
+      "kind": "update",
+      "risk": "write",
+      "summary": "⚠️ This endpoint is currently in **beta** and may be subject to change. It is supported by [New Monitors and Alerts](/product/new-monitors-and-alerts/) and may not be viewable in the UI today.\n\nUpdates an alert.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "workflow_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Update an Alert by ID"
+    },
+    {
+      "id": "Delete an Alert",
+      "method": "DELETE",
+      "path": "/api/0/organizations/{organization_id_or_slug}/workflows/{workflow_id}/",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "⚠️ This endpoint is currently in **beta** and may be subject to change. It is supported by [New Monitors and Alerts](/product/new-monitors-and-alerts/) and may not be viewable in the UI today.\n\nDeletes an alert.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "workflow_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Delete an Alert"
+    },
+    {
+      "id": "Retrieve a Project",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return details on an individual project.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve a Project"
+    },
+    {
+      "id": "Update a Project",
+      "method": "PUT",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Update various attributes and configurable settings for the given project.\n\nNote that solely having the **`project:read`** scope restricts updatable settings to\n`isBookmarked`, `autofixAutomationTuning`, `seerScannerAutomation`,\n`preprodSizeStatusChecksEnabled`, `preprodSizeStatusChecksRules`,\n`preprodSizeEnabledQuery`, `preprodDistributionEnabledQuery`,\n`preprodSizeEnabledByCustomer`, `preprodDistributionEnabledByCustomer`,\nand `preprodDistributionPrCommentsEnabledByCustomer`.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Update a Project"
+    },
+    {
+      "id": "Delete a Project",
+      "method": "DELETE",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Schedules a project for deletion.\n\nDeletion happens asynchronously and therefore is not immediate. However once deletion has\nbegun the state of a project changes and will be hidden from most public views.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Delete a Project"
+    },
+    {
+      "id": "List a Project's Environments",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/environments/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Lists a project's environments.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call List a Project's Environments"
+    },
+    {
+      "id": "Retrieve a Project Environment",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/environments/{environment}/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return details on a project environment.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "environment",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve a Project Environment"
+    },
+    {
+      "id": "Update a Project Environment",
+      "method": "PUT",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/environments/{environment}/",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Update the visibility for a project environment.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "environment",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Update a Project Environment"
+    },
+    {
+      "id": "List a Project's Error Events",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/events/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return a list of events bound to a project.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List a Project's Error Events"
+    },
+    {
+      "id": "Debug Issues Related to Source Maps for a Given Event",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/events/{event_id}/source-map-debug/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return a list of source map errors for a given event.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "event_id",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "frame_idx",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "exception_idx",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Debug Issues Related to Source Maps for a Given Event"
+    },
+    {
+      "id": "List a Project's Data Filters",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/filters/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Retrieve a list of filters for a given project.\n`active` will be either a boolean or a list for the legacy browser filters.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call List a Project's Data Filters"
+    },
+    {
+      "id": "Update an Inbound Data Filter",
+      "method": "PUT",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/filters/{filter_id}/",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Update various inbound data filters for a project.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "filter_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Update an Inbound Data Filter"
+    },
+    {
+      "id": "List a Project's Client Keys",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/keys/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return a list of client keys bound to a project.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List a Project's Client Keys"
+    },
+    {
+      "id": "Create a New Client Key",
+      "method": "POST",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/keys/",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a new client key bound to a project.  The key's secret and public key\nare generated by the server.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Create a New Client Key"
+    },
+    {
+      "id": "Retrieve a Client Key",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/keys/{key_id}/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return a client key bound to a project.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "key_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve a Client Key"
+    },
+    {
+      "id": "Update a Client Key",
+      "method": "PUT",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/keys/{key_id}/",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Update various settings for a client key.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "key_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Update a Client Key"
+    },
+    {
+      "id": "Delete a Client Key",
+      "method": "DELETE",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/keys/{key_id}/",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete a client key for a given project.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "key_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Delete a Client Key"
+    },
+    {
+      "id": "List a Project's Organization Members",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/members/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Returns a list of active organization members that belong to any team assigned to the project.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call List a Project's Organization Members"
+    },
+    {
+      "id": "Retrieve a Monitor for a Project",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/monitors/{monitor_id_or_slug}/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Retrieves details for a monitor.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "monitor_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve a Monitor for a Project"
+    },
+    {
+      "id": "Update a Monitor for a Project",
+      "method": "PUT",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/monitors/{monitor_id_or_slug}/",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Update a monitor.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "monitor_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Update a Monitor for a Project"
+    },
+    {
+      "id": "Delete a Monitor or Monitor Environments for a Project",
+      "method": "DELETE",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/monitors/{monitor_id_or_slug}/",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete a monitor or monitor environments.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "monitor_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Delete a Monitor or Monitor Environments for a Project"
+    },
+    {
+      "id": "Retrieve Check-Ins for a Monitor by Project",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/monitors/{monitor_id_or_slug}/checkins/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Retrieve a list of check-ins for a monitor",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "monitor_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve Check-Ins for a Monitor by Project"
+    },
+    {
+      "id": "Retrieve Ownership Configuration for a Project",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/ownership/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Returns details on a project's ownership configuration.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve Ownership Configuration for a Project"
+    },
+    {
+      "id": "Update Ownership Configuration for a Project",
+      "method": "PUT",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/ownership/",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Updates ownership configurations for a project. Note that only the\nattributes submitted are modified.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Update Ownership Configuration for a Project"
+    },
+    {
+      "id": "Retrieve Size Analysis status check rules for a project",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/preprod/size-analysis/status-check-rules/",
+      "kind": "search",
+      "risk": "read",
+      "summary": "Retrieve the current Size Analysis status check rules configured for a project.\n\nUse this endpoint after receiving a `size_analysis.completed` webhook when you\nwant external CI to evaluate the same Size Analysis status check thresholds that\nSentry uses. The endpoint returns the current project configuration, not a\nhistorical snapshot from when the webhook was emitted.\n\nThe response includes whether status check enforcement is enabled and the\nnormalized rule list Sentry uses when evaluating Size Analysis thresholds.\n\nThis endpoint requires a bearer token with `project:read` access. Project\ndistribution tokens are not supported.\n\nResponse notes:\n\n- `enabled: false` means status-check enforcement is disabled for the project.\n- `rules: []` means there are no configured thresholds to evaluate.\n- `value` is returned as a string. For `absolute` and `absolute_diff`\n  measurements it is a byte value; for `relative_diff` it is a percentage.\n- `filterQuery` is the original configured filter string.\n- `filters` is the machine-readable version of `filterQuery`.\n- `filters: []` means the rule has no filters and applies to all builds.\n- `filters: null` means the saved filter query could not be parsed; Sentry's\n  status check trigger treats that rule as non-matching.\n\nRule evaluation semantics:\n\n- Threshold comparisons are strict: a rule triggers only when the computed value\n  is greater than the configured threshold, not greater than or equal to it.\n- `absolute_diff` and `relative_diff` require a matching base metric/build.\n- `relative_diff` does not trigger when the base size is zero.\n- `artifactType` identifies the artifact scope the rule evaluates.\n  `main_artifact`, `watch_artifact`, `android_dynamic_feature_artifact`,\n  and `app_clip_artifact` target their matching artifact metric.\n  `all_artifacts` evaluates all available artifact metrics.\n- Rule filters support the keys `app_id`, `git_head_ref`,\n  `build_configuration_name`, and `platform_name`.\n- Filter objects are combined with AND. Multiple `conditions` inside one\n  filter object are combined with OR.\n- Each condition uses `values`; single-value operators still return a\n  one-item array.\n- Values in `filters` are decoded literal values for exact/simple operators,\n  not query syntax. For example, `app_id:\\*com` in `filterQuery` becomes\n  `values: [\"*com\"]` with `operator: \"equals\"`.\n- The same key can appear in more than one filter object when positive and\n  negative conditions both exist; those filter objects are still combined with\n  AND.\n- Supported filter operators are `equals`, `notEquals`, `in`, `notIn`,\n  `contains`, `notContains`, `startsWith`, `notStartsWith`, `endsWith`,\n  `notEndsWith`, `matches`, and `notMatches`.\n- `matches` and `notMatches` values use Sentry wildcard pattern syntax, not\n  regular expressions. `*` matches zero or more characters, escaped `\\*`\n  matches a literal asterisk, and a pattern without `*` is an exact match.\n- `in` and `notIn` are evaluated as one condition against all values, matching\n  Sentry's status check trigger behavior.\n- A rule applies only when the build metadata matches all filters. If a\n  referenced metadata key is missing, the filter does not match, even for\n  negated operators.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve Size Analysis status check rules for a project"
+    },
+    {
+      "id": "Get the latest installable build for a project",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/preprodartifacts/build-distribution/latest/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get the latest installable build for a project.\n\nReturns the latest installable build matching filter criteria.\nWhen buildVersion is provided, also returns the current build and\nwhether an update is available.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "appId",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "platform",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Get the latest installable build for a project"
+    },
+    {
+      "id": "Delete a Replay Instance",
+      "method": "DELETE",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/replays/{replay_id}/",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete a replay.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "replay_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Delete a Replay Instance"
+    },
+    {
+      "id": "List Clicked Nodes",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/replays/{replay_id}/clicks/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Retrieve a collection of RRWeb DOM node-ids and the timestamp they were clicked.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "replay_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List Clicked Nodes"
+    },
+    {
+      "id": "List Recording Segments",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/replays/{replay_id}/recording-segments/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return a collection of replay recording segments.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "replay_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List Recording Segments"
+    },
+    {
+      "id": "Retrieve a Recording Segment",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/replays/{replay_id}/recording-segments/{segment_id}/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return a replay recording segment.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "replay_id",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "segment_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve a Recording Segment"
+    },
+    {
+      "id": "List Users Who Have Viewed a Replay",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/replays/{replay_id}/viewed-by/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return a list of users who have viewed a replay.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "replay_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call List Users Who Have Viewed a Replay"
+    },
+    {
+      "id": "List Replay Batch-Deletion Jobs",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/replays/jobs/delete/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Retrieve a collection of replay delete jobs.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call List Replay Batch-Deletion Jobs"
+    },
+    {
+      "id": "Create Replay Batch Deletion Job",
+      "method": "POST",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/replays/jobs/delete/",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a new replay deletion job.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Create Replay Batch Deletion Job"
+    },
+    {
+      "id": "Retrieve a Replay Batch-Deletion Job",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/replays/jobs/delete/{job_id}/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Fetch a replay delete job instance.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "job_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve a Replay Batch-Deletion Job"
+    },
+    {
+      "id": "Retrieve a Project's Symbol Sources",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/symbol-sources/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List custom symbol sources configured for a project.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve a Project's Symbol Sources"
+    },
+    {
+      "id": "Add a Symbol Source to a Project",
+      "method": "POST",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/symbol-sources/",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Add a custom symbol source to a project.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Add a Symbol Source to a Project"
+    },
+    {
+      "id": "Update a Project's Symbol Source",
+      "method": "PUT",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/symbol-sources/",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Update a custom symbol source in a project.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Update a Project's Symbol Source"
+    },
+    {
+      "id": "Delete a Symbol Source from a Project",
+      "method": "DELETE",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/symbol-sources/",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete a custom symbol source from a project.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Delete a Symbol Source from a Project"
+    },
+    {
+      "id": "List a Project's Teams",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/teams/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return a list of teams that have access to this project.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List a Project's Teams"
+    },
+    {
+      "id": "Add a Team to a Project",
+      "method": "POST",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/teams/{team_id_or_slug}/",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Give a team access to a project.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "team_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Add a Team to a Project"
+    },
+    {
+      "id": "Delete a Team from a Project",
+      "method": "DELETE",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/teams/{team_id_or_slug}/",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Revoke a team's access to a project.\n\nNote that Team Admins can only revoke access to teams they are admins of.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "team_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Delete a Team from a Project"
+    },
+    {
+      "id": "List Seer AI Models",
+      "method": "GET",
+      "path": "/api/0/seer/models/",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "Get list of actively used LLM model names from Seer.\n\nReturns the list of AI models that are currently used in production in Seer.\nThis endpoint does not require authentication and can be used to discover which models Seer uses.\n\nRequests to this endpoint should use the region-specific domain\neg. `us.sentry.io` or `de.sentry.io`",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "sentry call List Seer AI Models"
+    },
+    {
+      "id": "Retrieve a custom integration by ID or slug.",
+      "method": "GET",
+      "path": "/api/0/sentry-apps/{sentry_app_id_or_slug}/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Retrieve a custom integration.",
+      "requiredParams": [
+        {
+          "name": "sentry_app_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve a custom integration by ID or slug."
+    },
+    {
+      "id": "Update an existing custom integration.",
+      "method": "PUT",
+      "path": "/api/0/sentry-apps/{sentry_app_id_or_slug}/",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Update an existing custom integration.",
+      "requiredParams": [
+        {
+          "name": "sentry_app_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Update an existing custom integration."
+    },
+    {
+      "id": "Delete a custom integration.",
+      "method": "DELETE",
+      "path": "/api/0/sentry-apps/{sentry_app_id_or_slug}/",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete a custom integration.",
+      "requiredParams": [
+        {
+          "name": "sentry_app_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Delete a custom integration."
+    },
+    {
+      "id": "Retrieve a Team",
+      "method": "GET",
+      "path": "/api/0/teams/{organization_id_or_slug}/{team_id_or_slug}/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return details on an individual team.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "team_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve a Team"
+    },
+    {
+      "id": "Update a Team",
+      "method": "PUT",
+      "path": "/api/0/teams/{organization_id_or_slug}/{team_id_or_slug}/",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Update various attributes and configurable settings for the given\nteam.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "team_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Update a Team"
+    },
+    {
+      "id": "Delete a Team",
+      "method": "DELETE",
+      "path": "/api/0/teams/{organization_id_or_slug}/{team_id_or_slug}/",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Schedules a team for deletion.\n\n**Note:** Deletion happens asynchronously and therefore is not\nimmediate. Teams will have their slug released while waiting for deletion.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "team_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Delete a Team"
+    },
+    {
+      "id": "Create an External Team",
+      "method": "POST",
+      "path": "/api/0/teams/{organization_id_or_slug}/{team_id_or_slug}/external-teams/",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Link a team from an external provider to a Sentry team.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "team_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Create an External Team"
+    },
+    {
+      "id": "Update an External Team",
+      "method": "PUT",
+      "path": "/api/0/teams/{organization_id_or_slug}/{team_id_or_slug}/external-teams/{external_team_id}/",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Update a team in an external provider that is currently linked to a Sentry team.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "team_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "external_team_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Update an External Team"
+    },
+    {
+      "id": "Delete an External Team",
+      "method": "DELETE",
+      "path": "/api/0/teams/{organization_id_or_slug}/{team_id_or_slug}/external-teams/{external_team_id}/",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete the link between a team from an external provider and a Sentry team.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "team_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "external_team_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Delete an External Team"
+    },
+    {
+      "id": "List a Team's Members",
+      "method": "GET",
+      "path": "/api/0/teams/{organization_id_or_slug}/{team_id_or_slug}/members/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List all members on a team.\n\nThe response will not include members with pending invites.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "team_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List a Team's Members"
+    },
+    {
+      "id": "List a Team's Projects",
+      "method": "GET",
+      "path": "/api/0/teams/{organization_id_or_slug}/{team_id_or_slug}/projects/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return a list of projects bound to a team.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "team_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List a Team's Projects"
+    },
+    {
+      "id": "Create a New Project",
+      "method": "POST",
+      "path": "/api/0/teams/{organization_id_or_slug}/{team_id_or_slug}/projects/",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a new project bound to a team.\n\n        Note: If your organization has disabled member project creation, the `org:write` or `team:admin` scope is required.\n        ",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "team_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Create a New Project"
+    },
+    {
+      "id": "List an Organization's Repositories",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/repos/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return a list of version control repositories for a given organization.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List an Organization's Repositories"
+    },
+    {
+      "id": "List a Project's Debug Information Files",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/files/dsyms/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Retrieve a list of debug information files for a given project.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call List a Project's Debug Information Files"
+    },
+    {
+      "id": "Upload a New File",
+      "method": "POST",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/files/dsyms/",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Upload a new debug information file for the given release.\n\nUnlike other API requests, files must be uploaded using the\ntraditional multipart/form-data content-type.\n\nRequests to this endpoint should use the region-specific domain eg. `us.sentry.io` or `de.sentry.io`.\n\nThe file uploaded is a zip archive of an Apple .dSYM folder which\ncontains the individual debug images.  Uploading through this endpoint\nwill create different files for the contained images.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Upload a New File"
+    },
+    {
+      "id": "Delete a Specific Project's Debug Information File",
+      "method": "DELETE",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/files/dsyms/",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete a debug information file for a given project.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Delete a Specific Project's Debug Information File"
+    },
+    {
+      "id": "List a Project's Users",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/users/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return a list of users seen within this project.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List a Project's Users"
+    },
+    {
+      "id": "List a Tag's Values",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/tags/{key}/values/",
+      "kind": "search",
+      "risk": "read",
+      "summary": "Return a list of values associated with this key.  The `query`\nparameter can be used to to perform a \"contains\" match on\nvalues. \n\nWhen [paginated](/api/pagination) can return at most 1000 values.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "key",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List a Tag's Values"
+    },
+    {
+      "id": "Retrieve Event Counts for a Project",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/stats/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Caution\nThis endpoint may change in the future without  notice.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve Event Counts for a Project"
+    },
+    {
+      "id": "List a Project's User Feedback",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/user-feedback/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return a list of user feedback items within this project.\n\n*This list does not include submissions from the [User Feedback Widget](https://docs.sentry.io/product/user-feedback/#user-feedback-widget). This is because it is based on an older format called User Reports - read more [here](https://develop.sentry.dev/application/feedback-architecture/#user-reports). To return a list of user feedback items from the widget, please use the [issue API](https://docs.sentry.io/api/events/list-a-projects-issues/) with the filter `issue.category:feedback`.*",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List a Project's User Feedback"
+    },
+    {
+      "id": "Submit User Feedback",
+      "method": "POST",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/user-feedback/",
+      "kind": "create",
+      "risk": "write",
+      "summary": "*This endpoint is DEPRECATED. We document it here for older SDKs and users who are still migrating to the [User Feedback Widget](https://docs.sentry.io/product/user-feedback/#user-feedback-widget) or [API](https://docs.sentry.io/platforms/javascript/user-feedback/#user-feedback-api)(multi-platform). If you are a new user, do not use this endpoint - unless you don't have a JS frontend, and your platform's SDK does not offer a feedback API.*\n\nFeedback must be received by the server no more than 30 minutes after the event was saved.\n\nAdditionally, within 5 minutes of submitting feedback it may also be overwritten. This is useful in situations where you may need to retry sending a request due to network failures.\n\nIf feedback is rejected due to a mutability threshold, a 409 status code will be returned.\n\nNote: Feedback may be submitted with DSN authentication (see auth documentation).",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Submit User Feedback"
+    },
+    {
+      "id": "List a Project's Service Hooks",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/hooks/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return a list of service hooks bound to a project.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List a Project's Service Hooks"
+    },
+    {
+      "id": "Register a New Service Hook",
+      "method": "POST",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/hooks/",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Register a new service hook on a project.\n\nEvents include:\n\n- event.alert: An alert is generated for an event (via rules).\n- event.created: A new event has been processed.\n\nThis endpoint requires the 'servicehooks' feature to be enabled for your project.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Register a New Service Hook"
+    },
+    {
+      "id": "Retrieve a Service Hook",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/hooks/{hook_id}/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return a service hook bound to a project.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "hook_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve a Service Hook"
+    },
+    {
+      "id": "Update a Service Hook",
+      "method": "PUT",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/hooks/{hook_id}/",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Update a service hook.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "hook_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Update a Service Hook"
+    },
+    {
+      "id": "Remove a Service Hook",
+      "method": "DELETE",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/hooks/{hook_id}/",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Remove a service hook.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "hook_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Remove a Service Hook"
+    },
+    {
+      "id": "Retrieve an Event for a Project",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/events/{event_id}/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return details on an individual event.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "event_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve an Event for a Project"
+    },
+    {
+      "id": "List a Project's Issues",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/issues/",
+      "kind": "search",
+      "risk": "read",
+      "summary": "**Deprecated**: This endpoint has been replaced with the [Organization Issues endpoint](/api/events/list-an-organizations-issues/) which\nsupports filtering on project and additional functionality.\n\nReturn a list of issues (groups) bound to a project.  All parameters are supplied as query string parameters. \n\n A default query of ``is:unresolved`` is applied. To return results with other statuses send an new query value (i.e. ``?query=`` for all results).\n\nThe ``statsPeriod`` parameter can be used to select the timeline stats which should be present. Possible values are: ``\"\"`` (disable),``\"24h\"`` (default), ``\"14d\"``\n\nUser feedback items from the [User Feedback Widget](https://docs.sentry.io/product/user-feedback/#user-feedback-widget) are built off the issue platform, so to return a list of user feedback items for a specific project, filter for `issue.category:feedback`.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List a Project's Issues"
+    },
+    {
+      "id": "Bulk Mutate a List of Issues",
+      "method": "PUT",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/issues/",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Bulk mutate various attributes on issues.  The list of issues to modify is given through the `id` query parameter.  It is repeated for each issue that should be modified.\n\n- For non-status updates, the `id` query parameter is required.\n- For status updates, the `id` query parameter may be omitted\nfor a batch \"update all\" query.\n- An optional `status` query parameter may be used to restrict\nmutations to only events with the given status.\n\nThe following attributes can be modified and are supplied as JSON object in the body:\n\nIf any IDs are out of scope this operation will succeed without any data mutation.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Bulk Mutate a List of Issues"
+    },
+    {
+      "id": "Bulk Remove a List of Issues",
+      "method": "DELETE",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/issues/",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Permanently remove the given issues. The list of issues to modify is given through the `id` query parameter.  It is repeated for each issue that should be removed.\n\nOnly queries by 'id' are accepted.\n\nIf any IDs are out of scope this operation will succeed without any data mutation.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Bulk Remove a List of Issues"
+    },
+    {
+      "id": "List a Tag's Values for an Issue",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/issues/{issue_id}/tags/{key}/values/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Returns a list of values associated with this key for an issue.\nReturns at most 1000 values when paginated.",
+      "requiredParams": [
+        {
+          "name": "issue_id",
+          "in": "path",
+          "type": "integer"
+        },
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "key",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call List a Tag's Values for an Issue"
+    },
+    {
+      "id": "List an Issue's Hashes",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/issues/{issue_id}/hashes/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "This endpoint lists an issue's hashes, which are the generated checksums used to aggregate individual events.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "issue_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List an Issue's Hashes"
+    },
+    {
+      "id": "Retrieve an Issue",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/issues/{issue_id}/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return details on an individual issue. This returns the basic stats for the issue (title, last seen, first seen), some overall numbers (number of comments, user reports) as well as the summarized event data.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "issue_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve an Issue"
+    },
+    {
+      "id": "Update an Issue",
+      "method": "PUT",
+      "path": "/api/0/organizations/{organization_id_or_slug}/issues/{issue_id}/",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Updates an individual issue's attributes.  Only the attributes submitted are modified.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "issue_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Update an Issue"
+    },
+    {
+      "id": "Remove an Issue",
+      "method": "DELETE",
+      "path": "/api/0/organizations/{organization_id_or_slug}/issues/{issue_id}/",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Removes an individual issue.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "issue_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Remove an Issue"
+    },
+    {
+      "id": "List an Organization's Releases",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/releases/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return a list of releases for a given organization.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List an Organization's Releases"
+    },
+    {
+      "id": "Create a New Release for an Organization",
+      "method": "POST",
+      "path": "/api/0/organizations/{organization_id_or_slug}/releases/",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a new release for the given organization.  Releases are used by\nSentry to improve its error reporting abilities by correlating\nfirst seen events with the release that might have introduced the\nproblem.\nReleases are also necessary for source maps and other debug features\nthat require manual upload for functioning well.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Create a New Release for an Organization"
+    },
+    {
+      "id": "List an Organization's Release Files",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/releases/{version}/files/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return a list of files for a given release.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "version",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List an Organization's Release Files"
+    },
+    {
+      "id": "Upload a New Organization Release File",
+      "method": "POST",
+      "path": "/api/0/organizations/{organization_id_or_slug}/releases/{version}/files/",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Upload a new file for the given release.\n\nUnlike other API requests, files must be uploaded using the traditional multipart/form-data content-type.\n\nRequests to this endpoint should use the region-specific domain eg. `us.sentry.io` or `de.sentry.io`.\n\nThe optional 'name' attribute should reflect the absolute path that this file will be referenced as. For example, in the case of JavaScript you might specify the full web URI.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "version",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Upload a New Organization Release File"
+    },
+    {
+      "id": "List a Project's Release Files",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/releases/{version}/files/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return a list of files for a given release.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "version",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List a Project's Release Files"
+    },
+    {
+      "id": "Upload a New Project Release File",
+      "method": "POST",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/releases/{version}/files/",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Upload a new file for the given release.\n\nUnlike other API requests, files must be uploaded using the traditional multipart/form-data content-type.\n\nRequests to this endpoint should use the region-specific domain eg. `us.sentry.io` or `de.sentry.io`\n\nThe optional 'name' attribute should reflect the absolute path that this file will be referenced as. For example, in the case of JavaScript you might specify the full web URI.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "version",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Upload a New Project Release File"
+    },
+    {
+      "id": "Retrieve an Organization Release's File",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/releases/{version}/files/{file_id}/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Retrieve a file for a given release.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "version",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "file_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve an Organization Release's File"
+    },
+    {
+      "id": "Update an Organization Release File",
+      "method": "PUT",
+      "path": "/api/0/organizations/{organization_id_or_slug}/releases/{version}/files/{file_id}/",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Update an organization release file.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "version",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "file_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Update an Organization Release File"
+    },
+    {
+      "id": "Delete an Organization Release's File",
+      "method": "DELETE",
+      "path": "/api/0/organizations/{organization_id_or_slug}/releases/{version}/files/{file_id}/",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete a file for a given release.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "version",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "file_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Delete an Organization Release's File"
+    },
+    {
+      "id": "Retrieve a Project Release's File",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/releases/{version}/files/{file_id}/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Retrieve a file for a given release.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "version",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "file_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve a Project Release's File"
+    },
+    {
+      "id": "Update a Project Release File",
+      "method": "PUT",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/releases/{version}/files/{file_id}/",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Update a project release file.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "version",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "file_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Update a Project Release File"
+    },
+    {
+      "id": "Delete a Project Release's File",
+      "method": "DELETE",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/releases/{version}/files/{file_id}/",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete a file for a given release.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "version",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "file_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Delete a Project Release's File"
+    },
+    {
+      "id": "List an Organization Release's Commits",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/releases/{version}/commits/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List an organization release's commits.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "version",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List an Organization Release's Commits"
+    },
+    {
+      "id": "List a Project Release's Commits",
+      "method": "GET",
+      "path": "/api/0/projects/{organization_id_or_slug}/{project_id_or_slug}/releases/{version}/commits/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List a project release's commits.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "project_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "version",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List a Project Release's Commits"
+    },
+    {
+      "id": "Retrieve Files Changed in a Release's Commits",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/releases/{version}/commitfiles/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Retrieve files changed in a release's commits",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "version",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Retrieve Files Changed in a Release's Commits"
+    },
+    {
+      "id": "List an Organization's Integration Platform Installations",
+      "method": "GET",
+      "path": "/api/0/organizations/{organization_id_or_slug}/sentry-app-installations/",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Return a list of integration platform installations for a given organization.",
+      "requiredParams": [
+        {
+          "name": "organization_id_or_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "sentry call List an Organization's Integration Platform Installations"
+    },
+    {
+      "id": "Create or update an External Issue",
+      "method": "POST",
+      "path": "/api/0/sentry-app-installations/{uuid}/external-issues/",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create or update an external issue from an integration platform integration.",
+      "requiredParams": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "sentry call Create or update an External Issue"
+    }
+  ],
+  "baseUrl": "https://{region}.sentry.io",
+  "safety": {
+    "writeRequiresConfirmation": true,
+    "confirmationFlag": "--yes",
+    "dryRunByDefault": true
+  },
+  "provenance": {
+    "generatedAt": "2026-05-16T01:33:25.936Z",
+    "gutenbergVersion": "0.1.0",
+    "specSha": "94d354dc45cf"
+  }
+}

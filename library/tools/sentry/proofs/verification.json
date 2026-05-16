@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "gutenberg.verification.v1",
+  "projectDir": "library/tools/sentry",
+  "tool": "sentry",
+  "language": "go",
+  "startedAt": "2026-05-16T01:38:05.638Z",
+  "finishedAt": "2026-05-16T01:38:29.258Z",
+  "ok": true,
+  "checks": [
+    {
+      "id": "go-mod-tidy",
+      "label": "go mod tidy",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 1834,
+      "log": "proofs/go-mod-tidy.log",
+      "artifact": null
+    },
+    {
+      "id": "go-test",
+      "label": "go test ./...",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 11816,
+      "log": "proofs/go-test.log",
+      "artifact": null
+    },
+    {
+      "id": "go-build",
+      "label": "go build CLI binary",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 8524,
+      "log": "proofs/go-build.log",
+      "artifact": "library/tools/sentry/proofs/bin/sentry"
+    },
+    {
+      "id": "cli-smoke",
+      "label": "CLI operations smoke",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 248,
+      "log": "proofs/cli-smoke.log",
+      "artifact": null
+    },
+    {
+      "id": "mcp-handshake",
+      "label": "MCP initialize + tools/list",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 246,
+      "log": "proofs/mcp-handshake.log",
+      "artifact": null
+    }
+  ],
+  "artifacts": {
+    "proofDir": "library/tools/sentry/proofs",
+    "manifest": "library/tools/sentry/gutenberg.manifest.json",
+    "source": {
+      "path": "sentry-api.json",
+      "sha256": "94d354dc45cf56de7ee81227925ab384c5e05ad0a1e9fc37778193764365043e",
+      "size": 3259546
+    },
+    "binary": "library/tools/sentry/proofs/bin/sentry",
+    "binarySha256": "2987e6287aa3438a9b5a1f3e39a6c2cc2fd085fc0f5523be91b4c64cc2d21b33"
+  },
+  "badges": [
+    "Gutenberg Verified",
+    "Build Verified",
+    "MCP Ready",
+    "Risk Gated"
+  ]
+}
