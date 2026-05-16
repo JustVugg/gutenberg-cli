@@ -1,0 +1,45 @@
+{
+  "data": {
+    "__schema": {
+      "queryType": { "name": "Query" },
+      "mutationType": { "name": "Mutation" },
+      "types": [
+        {
+          "kind": "OBJECT",
+          "name": "Query",
+          "fields": [
+            {
+              "name": "repository",
+              "description": "Lookup a repository by owner and name.",
+              "args": [
+                { "name": "owner", "type": { "kind": "NON_NULL", "name": null, "ofType": { "kind": "SCALAR", "name": "String" } } },
+                { "name": "name", "type": { "kind": "NON_NULL", "name": null, "ofType": { "kind": "SCALAR", "name": "String" } } }
+              ],
+              "type": { "kind": "OBJECT", "name": "Repository" }
+            },
+            {
+              "name": "viewer",
+              "description": "The currently authenticated user.",
+              "args": [],
+              "type": { "kind": "OBJECT", "name": "User" }
+            }
+          ]
+        },
+        {
+          "kind": "OBJECT",
+          "name": "Mutation",
+          "fields": [
+            {
+              "name": "addStar",
+              "description": "Add a star to a starrable object.",
+              "args": [
+                { "name": "input", "type": { "kind": "NON_NULL", "name": null, "ofType": { "kind": "INPUT_OBJECT", "name": "AddStarInput" } } }
+              ],
+              "type": { "kind": "OBJECT", "name": "AddStarPayload" }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
