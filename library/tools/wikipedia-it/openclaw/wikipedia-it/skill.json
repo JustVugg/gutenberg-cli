@@ -1,0 +1,149 @@
+{
+  "schemaVersion": "openclaw.skill.v1",
+  "name": "wikipedia-it",
+  "displayName": "wikipedia-it",
+  "description": "wikipedia-it should become a local, searchable operational workspace, not only an endpoint wrapper.",
+  "runtime": {
+    "cli": "wikipedia-it",
+    "mcp": "wikipedia-it mcp"
+  },
+  "auth": {
+    "mode": "none",
+    "oauth": false,
+    "env": null,
+    "setupCommand": null
+  },
+  "capabilities": {
+    "readOperations": 5,
+    "writeOperations": 0,
+    "destructiveOperations": 0,
+    "cacheable": 5,
+    "total": 5
+  },
+  "actions": [
+    {
+      "name": "bologna",
+      "operationId": "getPageSummaryBologna",
+      "summary": "GET /api/rest_v1/page/summary/Bologna",
+      "method": "GET",
+      "path": "/api/rest_v1/page/summary/Bologna",
+      "defaultParams": {},
+      "invoke": "wikipedia-it bologna",
+      "safe": true
+    },
+    {
+      "name": "roma",
+      "operationId": "getPageSummaryRoma",
+      "summary": "GET /api/rest_v1/page/summary/Roma",
+      "method": "GET",
+      "path": "/api/rest_v1/page/summary/Roma",
+      "defaultParams": {},
+      "invoke": "wikipedia-it roma",
+      "safe": true
+    },
+    {
+      "name": "italia",
+      "operationId": "getPageRelatedItalia",
+      "summary": "GET /api/rest_v1/page/related/Italia",
+      "method": "GET",
+      "path": "/api/rest_v1/page/related/Italia",
+      "defaultParams": {},
+      "invoke": "wikipedia-it italia",
+      "safe": true
+    },
+    {
+      "name": "summary",
+      "operationId": "getPageRandomSummary",
+      "summary": "GET /api/rest_v1/page/random/summary",
+      "method": "GET",
+      "path": "/api/rest_v1/page/random/summary",
+      "defaultParams": {},
+      "invoke": "wikipedia-it summary",
+      "safe": true
+    }
+  ],
+  "operations": [
+    {
+      "id": "getPageSummaryBologna",
+      "method": "GET",
+      "path": "/api/rest_v1/page/summary/Bologna",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /api/rest_v1/page/summary/Bologna",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "wikipedia-it call getPageSummaryBologna"
+    },
+    {
+      "id": "getPageSummaryRoma",
+      "method": "GET",
+      "path": "/api/rest_v1/page/summary/Roma",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /api/rest_v1/page/summary/Roma",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "wikipedia-it call getPageSummaryRoma"
+    },
+    {
+      "id": "getPageRelatedItalia",
+      "method": "GET",
+      "path": "/api/rest_v1/page/related/Italia",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /api/rest_v1/page/related/Italia",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "wikipedia-it call getPageRelatedItalia"
+    },
+    {
+      "id": "getPageRandomSummary",
+      "method": "GET",
+      "path": "/api/rest_v1/page/random/summary",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /api/rest_v1/page/random/summary",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "wikipedia-it call getPageRandomSummary"
+    },
+    {
+      "id": "getFeedFeatured",
+      "method": "GET",
+      "path": "/api/rest_v1/feed/featured/{year}/{month}/{day}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "GET /api/rest_v1/feed/featured/{year}/{month}/{day}",
+      "requiredParams": [
+        {
+          "name": "year",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "month",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "day",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "wikipedia-it call getFeedFeatured"
+    }
+  ],
+  "baseUrl": "https://it.wikipedia.org",
+  "safety": {
+    "writeRequiresConfirmation": true,
+    "confirmationFlag": "--yes",
+    "dryRunByDefault": true
+  },
+  "provenance": {
+    "generatedAt": "2026-05-16T01:34:04.777Z",
+    "gutenbergVersion": "0.1.0",
+    "specSha": "b9903e9b05d2"
+  }
+}

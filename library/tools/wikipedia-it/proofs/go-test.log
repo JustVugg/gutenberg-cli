@@ -1,0 +1,11 @@
+$ /mnt/c/Users/sarah/Desktop/gutenberg/scripts/use-go.sh test ./...
+cwd: /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/wikipedia-it
+status: 0
+signal: 
+
+stdout:
+?   	gutenberg.local/wikipedia-it/cmd/wikipedia-it	[no test files]
+ok  	gutenberg.local/wikipedia-it/internal/forge	0.063s
+
+
+stderr:

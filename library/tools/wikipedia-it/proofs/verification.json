@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "gutenberg.verification.v1",
+  "projectDir": "library/tools/wikipedia-it",
+  "tool": "wikipedia-it",
+  "language": "go",
+  "startedAt": "2026-05-16T01:39:00.599Z",
+  "finishedAt": "2026-05-16T01:39:31.200Z",
+  "ok": true,
+  "checks": [
+    {
+      "id": "go-mod-tidy",
+      "label": "go mod tidy",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 4644,
+      "log": "proofs/go-mod-tidy.log",
+      "artifact": null
+    },
+    {
+      "id": "go-test",
+      "label": "go test ./...",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 14041,
+      "log": "proofs/go-test.log",
+      "artifact": null
+    },
+    {
+      "id": "go-build",
+      "label": "go build CLI binary",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 9141,
+      "log": "proofs/go-build.log",
+      "artifact": "library/tools/wikipedia-it/proofs/bin/wikipedia-it"
+    },
+    {
+      "id": "cli-smoke",
+      "label": "CLI operations smoke",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 410,
+      "log": "proofs/cli-smoke.log",
+      "artifact": null
+    },
+    {
+      "id": "mcp-handshake",
+      "label": "MCP initialize + tools/list",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 409,
+      "log": "proofs/mcp-handshake.log",
+      "artifact": null
+    }
+  ],
+  "artifacts": {
+    "proofDir": "library/tools/wikipedia-it/proofs",
+    "manifest": "library/tools/wikipedia-it/gutenberg.manifest.json",
+    "source": {
+      "path": "wiki4.openapi.json",
+      "sha256": "b9903e9b05d2bbf7530a633e9b392b749acd23004d3b68ad31f24d08b4d85218",
+      "size": 2632
+    },
+    "binary": "library/tools/wikipedia-it/proofs/bin/wikipedia-it",
+    "binarySha256": "3a33c57f4be8dac464d2c37d1e4219dfba2167a4870a4ac2ff76d9128764abcf"
+  },
+  "badges": [
+    "Gutenberg Verified",
+    "Build Verified",
+    "MCP Ready",
+    "Risk Gated"
+  ]
+}

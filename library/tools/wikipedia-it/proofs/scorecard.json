@@ -1,0 +1,224 @@
+{
+  "projectDir": "library/tools/wikipedia-it",
+  "score": 190,
+  "maxScore": 190,
+  "ratio": 1,
+  "grade": "A",
+  "checks": [
+    {
+      "id": "file:README.md",
+      "label": "Required artifact: README.md",
+      "passed": true,
+      "points": 5
+    },
+    {
+      "id": "file:docs/COOKBOOK.md",
+      "label": "Required artifact: docs/COOKBOOK.md",
+      "passed": true,
+      "points": 5
+    },
+    {
+      "id": "file:.env.example",
+      "label": "Required artifact: .env.example",
+      "passed": true,
+      "points": 5
+    },
+    {
+      "id": "file:go.mod",
+      "label": "Required artifact: go.mod",
+      "passed": true,
+      "points": 5
+    },
+    {
+      "id": "file:cmd",
+      "label": "Required artifact: cmd",
+      "passed": true,
+      "points": 5
+    },
+    {
+      "id": "file:internal/forge/manifest.go",
+      "label": "Required artifact: internal/forge/manifest.go",
+      "passed": true,
+      "points": 5
+    },
+    {
+      "id": "file:internal/forge/client.go",
+      "label": "Required artifact: internal/forge/client.go",
+      "passed": true,
+      "points": 5
+    },
+    {
+      "id": "file:internal/forge/store.go",
+      "label": "Required artifact: internal/forge/store.go",
+      "passed": true,
+      "points": 5
+    },
+    {
+      "id": "file:internal/forge/auth.go",
+      "label": "Required artifact: internal/forge/auth.go",
+      "passed": true,
+      "points": 5
+    },
+    {
+      "id": "file:internal/forge/mcp.go",
+      "label": "Required artifact: internal/forge/mcp.go",
+      "passed": true,
+      "points": 5
+    },
+    {
+      "id": "file:internal/forge/forge_test.go",
+      "label": "Required artifact: internal/forge/forge_test.go",
+      "passed": true,
+      "points": 5
+    },
+    {
+      "id": "manifest:file",
+      "label": "Manifest is present",
+      "passed": true,
+      "points": 5
+    },
+    {
+      "id": "manifest:operations",
+      "label": "Manifest contains operations",
+      "passed": true,
+      "points": 10
+    },
+    {
+      "id": "manifest:insights",
+      "label": "Manifest contains non-obvious product insights",
+      "passed": true,
+      "points": 10
+    },
+    {
+      "id": "manifest:risk",
+      "label": "Mutating operations are risk classified",
+      "passed": true,
+      "points": 10
+    },
+    {
+      "id": "manifest:cache",
+      "label": "Cacheable read operations are identified",
+      "passed": true,
+      "points": 10
+    },
+    {
+      "id": "go:module",
+      "label": "Go module is present",
+      "passed": true,
+      "points": 10
+    },
+    {
+      "id": "go:mcp",
+      "label": "Go MCP runtime is present",
+      "passed": true,
+      "points": 10
+    },
+    {
+      "id": "go:sqlite",
+      "label": "Go SQLite/FTS5 store is present",
+      "passed": true,
+      "points": 10
+    },
+    {
+      "id": "go:oauth",
+      "label": "Go OAuth helper is present",
+      "passed": true,
+      "points": 10
+    },
+    {
+      "id": "verify:proof",
+      "label": "Verification proof is present",
+      "passed": true,
+      "points": 10
+    },
+    {
+      "id": "verify:build",
+      "label": "Build is verified",
+      "passed": true,
+      "points": 10
+    },
+    {
+      "id": "verify:cli",
+      "label": "CLI smoke test is verified",
+      "passed": true,
+      "points": 10
+    },
+    {
+      "id": "verify:mcp",
+      "label": "MCP handshake is verified",
+      "passed": true,
+      "points": 10
+    },
+    {
+      "id": "verify:test",
+      "label": "Generated tests are verified",
+      "passed": true,
+      "points": 10
+    }
+  ],
+  "dimensions": {
+    "structure": {
+      "score": 55,
+      "max": 55,
+      "ratio": 1,
+      "count": 11,
+      "passed": 11
+    },
+    "manifest": {
+      "score": 45,
+      "max": 45,
+      "ratio": 1,
+      "count": 5,
+      "passed": 5
+    },
+    "runtime": {
+      "score": 40,
+      "max": 40,
+      "ratio": 1,
+      "count": 4,
+      "passed": 4
+    },
+    "verification": {
+      "score": 50,
+      "max": 50,
+      "ratio": 1,
+      "count": 5,
+      "passed": 5
+    },
+    "coverage": {
+      "score": 25,
+      "max": 30,
+      "ratio": 0.8333333333333334,
+      "operations": 5,
+      "cacheable": 5,
+      "reads": 5,
+      "tagged": 0
+    },
+    "safety": {
+      "score": 20,
+      "max": 20,
+      "ratio": 1,
+      "writes": 0,
+      "classified": true,
+      "guardSourcePresent": true
+    },
+    "examples": {
+      "score": 15,
+      "max": 15,
+      "ratio": 1
+    },
+    "skill": {
+      "score": 10,
+      "max": 10,
+      "ratio": 1,
+      "present": true
+    }
+  },
+  "badges": [
+    "Gutenberg Verified",
+    "Build Verified",
+    "MCP Ready",
+    "Risk Gated"
+  ],
+  "summary": "wikipedia-it: 5 operation(s), 1 domain group(s)."
+}

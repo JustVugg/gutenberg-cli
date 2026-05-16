@@ -1,0 +1,5 @@
+Content-Length: 153
+
+{"id":1,"jsonrpc":"2.0","result":{"capabilities":{"tools":{}},"protocolVersion":"2024-11-05","serverInfo":{"name":"wikipedia-it-mcp","version":"0.1.0"}}}Content-Length: 566
+
+{"id":2,"jsonrpc":"2.0","result":{"tools":[{"description":"List operations","inputSchema":{"properties":{},"type":"object"},"name":"wikipedia-it_operations"},{"description":"Call an operation","inputSchema":{"properties":{"operationId":{"type":"string"},"params":{"type":"object"},"path":{"type":"object"},"yes":{"type":"boolean"}},"required":["operationId"],"type":"object"},"name":"wikipedia-it_call"},{"description":"Search cache","inputSchema":{"properties":{"query":{"type":"string"}},"required":["query"],"type":"object"},"name":"wikipedia-it_search_cache"}]}}

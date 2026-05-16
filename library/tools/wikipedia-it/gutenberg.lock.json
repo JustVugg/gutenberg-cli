@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "gutenberg.lock.v1",
+  "generatedAt": "2026-05-16T01:34:04.777Z",
+  "gutenbergVersion": "0.1.0",
+  "name": "wikipedia-it",
+  "spec": {
+    "path": "/tmp/wiki4.openapi.json",
+    "sha256": "b9903e9b05d2bbf7530a633e9b392b749acd23004d3b68ad31f24d08b4d85218",
+    "size": 2632
+  },
+  "recipe": null,
+  "targets": [
+    "go",
+    "mcp",
+    "skill",
+    "openclaw"
+  ]
+}
