@@ -1,0 +1,11 @@
+$ /mnt/c/Users/sarah/Desktop/gutenberg/scripts/use-go.sh test ./...
+cwd: /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/tvmaze-quick
+status: 0
+signal: 
+
+stdout:
+?   	gutenberg.local/tvmaze-quick/cmd/tvmaze-quick	[no test files]
+ok  	gutenberg.local/tvmaze-quick/internal/forge	(cached)
+
+
+stderr:

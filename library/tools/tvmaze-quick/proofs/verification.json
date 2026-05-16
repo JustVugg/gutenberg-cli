@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "gutenberg.verification.v1",
+  "projectDir": "library/tools/tvmaze-quick",
+  "tool": "tvmaze-quick",
+  "language": "go",
+  "startedAt": "2026-05-16T23:12:19.644Z",
+  "finishedAt": "2026-05-16T23:13:15.917Z",
+  "ok": true,
+  "checks": [
+    {
+      "id": "go-test",
+      "label": "go test ./...",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 25514,
+      "log": "proofs/go-test.log",
+      "artifact": null
+    },
+    {
+      "id": "go-build",
+      "label": "go build CLI binary",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 12177,
+      "log": "proofs/go-build.log",
+      "artifact": "library/tools/tvmaze-quick/proofs/bin/tvmaze-quick"
+    },
+    {
+      "id": "cli-smoke",
+      "label": "CLI operations smoke",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 1437,
+      "log": "proofs/cli-smoke.log",
+      "artifact": null
+    },
+    {
+      "id": "mcp-handshake",
+      "label": "MCP initialize + tools/list",
+      "passed": true,
+      "required": true,
+      "detail": "validated output",
+      "elapsedMs": 10080,
+      "log": "proofs/mcp-handshake.log",
+      "artifact": null
+    }
+  ],
+  "artifacts": {
+    "proofDir": "library/tools/tvmaze-quick/proofs",
+    "manifest": "library/tools/tvmaze-quick/gutenberg.manifest.json",
+    "source": {
+      "path": "tvmaze-quick-1778930973773.openapi.json",
+      "sha256": "d63f85e9894582527d7fb3096bae22d85643606fb04d1b515783e7c24c31ced7",
+      "size": 7774
+    },
+    "binary": "library/tools/tvmaze-quick/proofs/bin/tvmaze-quick",
+    "binarySha256": "b58102919544b82fd070e2483395fb0b6bd7957fc9be62a89fc82016f34ac37a"
+  },
+  "badges": [
+    "Gutenberg Verified",
+    "Build Verified",
+    "MCP Ready",
+    "Risk Gated"
+  ]
+}

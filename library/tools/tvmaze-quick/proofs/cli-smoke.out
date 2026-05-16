@@ -1,0 +1,26 @@
+[
+  {
+    "id": "getShows",
+    "method": "GET",
+    "path": "/shows/{id}",
+    "tag": "shows",
+    "summary": "GET /shows/{id}",
+    "description": "",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": "",
+        "type": "string"
+      }
+    ],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "read-detail"
+  }
+]

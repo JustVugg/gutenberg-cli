@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "gutenberg.lock.v1",
+  "generatedAt": "2026-05-16T11:29:33.821Z",
+  "gutenbergVersion": "0.1.0",
+  "name": "tvmaze-quick",
+  "spec": {
+    "path": "/tmp/tvmaze-quick-1778930973773.openapi.json",
+    "sha256": "d63f85e9894582527d7fb3096bae22d85643606fb04d1b515783e7c24c31ced7",
+    "size": 7774
+  },
+  "recipe": null,
+  "targets": [
+    "go",
+    "mcp",
+    "skill"
+  ]
+}

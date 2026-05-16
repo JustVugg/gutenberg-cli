@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "openclaw.skill.v1",
+  "name": "tvmaze-quick",
+  "displayName": "tvmaze-quick",
+  "description": "tvmaze-quick should become a local, searchable operational workspace, not only an endpoint wrapper.",
+  "runtime": {
+    "cli": "tvmaze-quick",
+    "mcp": "tvmaze-quick mcp"
+  },
+  "auth": {
+    "mode": "none",
+    "oauth": false,
+    "env": null,
+    "setupCommand": null
+  },
+  "capabilities": {
+    "readOperations": 1,
+    "writeOperations": 0,
+    "destructiveOperations": 0,
+    "cacheable": 1,
+    "total": 1
+  },
+  "actions": [],
+  "operations": [
+    {
+      "id": "getShows",
+      "method": "GET",
+      "path": "/shows/{id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "GET /shows/{id}",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "tvmaze-quick call getShows"
+    }
+  ],
+  "baseUrl": "https://api.tvmaze.com",
+  "safety": {
+    "writeRequiresConfirmation": true,
+    "confirmationFlag": "--yes",
+    "dryRunByDefault": true
+  },
+  "provenance": {
+    "generatedAt": "2026-05-16T11:29:33.821Z",
+    "gutenbergVersion": "0.1.0",
+    "specSha": "d63f85e98945"
+  }
+}
