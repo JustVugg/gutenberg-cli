@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "openclaw.skill.v1",
+  "name": "dev-pulse",
+  "displayName": "Dev Pulse aggregator",
+  "description": "Second real proof of the aggregator pattern: fan-out over GitHub REST and ESPN scoreboards. Demonstrates that the same generator handles wildly different source shapes.",
+  "runtime": {
+    "cli": "dev-pulse",
+    "mcp": null
+  },
+  "auth": {
+    "mode": "none",
+    "oauth": false,
+    "env": null,
+    "setupCommand": null
+  },
+  "capabilities": {
+    "readOperations": 0,
+    "writeOperations": 0,
+    "destructiveOperations": 0,
+    "cacheable": 0,
+    "total": 2
+  },
+  "actions": [
+    {
+      "name": "github",
+      "operationId": "meta/root",
+      "summary": "github",
+      "method": "GET",
+      "path": "meta/root",
+      "defaultParams": {},
+      "invoke": "dev-pulse fan-out",
+      "safe": true
+    },
+    {
+      "name": "espn",
+      "operationId": "getApisSiteV2SportsBasketballNbaScoreboard",
+      "summary": "espn",
+      "method": "GET",
+      "path": "getApisSiteV2SportsBasketballNbaScoreboard",
+      "defaultParams": {},
+      "invoke": "dev-pulse fan-out",
+      "safe": true
+    }
+  ],
+  "operations": [
+    {
+      "id": "github",
+      "method": "GET",
+      "path": "meta/root",
+      "kind": "source",
+      "risk": "read",
+      "summary": "github",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "dev-pulse fan-out"
+    },
+    {
+      "id": "espn",
+      "method": "GET",
+      "path": "getApisSiteV2SportsBasketballNbaScoreboard",
+      "kind": "source",
+      "risk": "read",
+      "summary": "espn",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "dev-pulse fan-out"
+    }
+  ],
+  "baseUrl": "",
+  "safety": {
+    "writeRequiresConfirmation": true,
+    "confirmationFlag": "--yes",
+    "dryRunByDefault": true
+  },
+  "provenance": null
+}

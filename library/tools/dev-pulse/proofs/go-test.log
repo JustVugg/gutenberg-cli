@@ -1,0 +1,11 @@
+$ /mnt/c/Users/sarah/Desktop/gutenberg/scripts/use-go.sh test ./...
+cwd: /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/dev-pulse
+status: 0
+signal: 
+
+stdout:
+?   	gutenberg.local/dev-pulse/cmd/dev-pulse	[no test files]
+ok  	gutenberg.local/dev-pulse/internal/aggr	(cached)
+
+
+stderr:

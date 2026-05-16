@@ -1,0 +1,212 @@
+{
+  "projectDir": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/dev-pulse",
+  "score": 185,
+  "maxScore": 185,
+  "ratio": 1,
+  "grade": "A",
+  "checks": [
+    {
+      "id": "file:README.md",
+      "label": "Required artifact: README.md",
+      "passed": true,
+      "points": 5
+    },
+    {
+      "id": "file:.env.example",
+      "label": "Required artifact: .env.example",
+      "passed": true,
+      "points": 5
+    },
+    {
+      "id": "file:go.mod",
+      "label": "Required artifact: go.mod",
+      "passed": true,
+      "points": 5
+    },
+    {
+      "id": "file:cmd",
+      "label": "Required artifact: cmd",
+      "passed": true,
+      "points": 5
+    },
+    {
+      "id": "file:internal/aggr/manifests.go",
+      "label": "Required artifact: internal/aggr/manifests.go",
+      "passed": true,
+      "points": 5
+    },
+    {
+      "id": "file:internal/aggr/client.go",
+      "label": "Required artifact: internal/aggr/client.go",
+      "passed": true,
+      "points": 5
+    },
+    {
+      "id": "file:internal/aggr/merge.go",
+      "label": "Required artifact: internal/aggr/merge.go",
+      "passed": true,
+      "points": 5
+    },
+    {
+      "id": "file:internal/aggr/rank.go",
+      "label": "Required artifact: internal/aggr/rank.go",
+      "passed": true,
+      "points": 5
+    },
+    {
+      "id": "file:internal/aggr/types.go",
+      "label": "Required artifact: internal/aggr/types.go",
+      "passed": true,
+      "points": 5
+    },
+    {
+      "id": "file:internal/aggr/aggr_test.go",
+      "label": "Required artifact: internal/aggr/aggr_test.go",
+      "passed": true,
+      "points": 5
+    },
+    {
+      "id": "manifest:file",
+      "label": "Manifest is present",
+      "passed": true,
+      "points": 5
+    },
+    {
+      "id": "manifest:operations",
+      "label": "Aggregator manifest lists sources",
+      "passed": true,
+      "points": 10
+    },
+    {
+      "id": "manifest:insights",
+      "label": "Manifest contains non-obvious product insights",
+      "passed": true,
+      "points": 10
+    },
+    {
+      "id": "manifest:risk",
+      "label": "Mutating operations are risk classified",
+      "passed": true,
+      "points": 10
+    },
+    {
+      "id": "manifest:cache",
+      "label": "Cacheable read operations are identified",
+      "passed": true,
+      "points": 10
+    },
+    {
+      "id": "go:module",
+      "label": "Go module is present",
+      "passed": true,
+      "points": 10
+    },
+    {
+      "id": "go:aggregator",
+      "label": "Aggregator client present",
+      "passed": true,
+      "points": 10
+    },
+    {
+      "id": "go:merge",
+      "label": "Aggregator merge.go present",
+      "passed": true,
+      "points": 10
+    },
+    {
+      "id": "go:rank",
+      "label": "Aggregator rank.go present",
+      "passed": true,
+      "points": 10
+    },
+    {
+      "id": "verify:proof",
+      "label": "Verification proof is present",
+      "passed": true,
+      "points": 10
+    },
+    {
+      "id": "verify:build",
+      "label": "Build is verified",
+      "passed": true,
+      "points": 10
+    },
+    {
+      "id": "verify:cli",
+      "label": "CLI smoke test is verified",
+      "passed": true,
+      "points": 10
+    },
+    {
+      "id": "verify:mcp",
+      "label": "MCP handshake is verified",
+      "passed": true,
+      "points": 10
+    },
+    {
+      "id": "verify:test",
+      "label": "Generated tests are verified",
+      "passed": true,
+      "points": 10
+    }
+  ],
+  "dimensions": {
+    "structure": {
+      "score": 50,
+      "max": 50,
+      "ratio": 1,
+      "count": 10,
+      "passed": 10
+    },
+    "manifest": {
+      "score": 45,
+      "max": 45,
+      "ratio": 1,
+      "count": 5,
+      "passed": 5
+    },
+    "runtime": {
+      "score": 40,
+      "max": 40,
+      "ratio": 1,
+      "count": 4,
+      "passed": 4
+    },
+    "verification": {
+      "score": 50,
+      "max": 50,
+      "ratio": 1,
+      "count": 5,
+      "passed": 5
+    },
+    "coverage": {
+      "score": 30,
+      "max": 30,
+      "ratio": 1,
+      "sources": 2
+    },
+    "safety": {
+      "score": 20,
+      "max": 20,
+      "ratio": 1,
+      "note": "aggregator: fan-out only, no write ops"
+    },
+    "examples": {
+      "score": 0,
+      "max": 15,
+      "ratio": 0
+    },
+    "skill": {
+      "score": 0,
+      "max": 10,
+      "ratio": 0,
+      "present": false
+    }
+  },
+  "badges": [
+    "Gutenberg Verified",
+    "Build Verified",
+    "MCP Ready"
+  ],
+  "summary": "Dev Pulse aggregator: aggregator with 2 source(s)."
+}
