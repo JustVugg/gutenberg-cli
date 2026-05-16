@@ -1,0 +1,58 @@
+$ /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/npm-registry/proofs/bin/npm-registry operations --json
+cwd: /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/npm-registry
+status: 0
+signal: 
+
+stdout:
+[
+  {
+    "id": "getExpress",
+    "method": "GET",
+    "path": "/express",
+    "tag": "express",
+    "summary": "GET /express",
+    "description": "",
+    "parameters": [],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "read-list"
+  },
+  {
+    "id": "getSearch",
+    "method": "GET",
+    "path": "/-/v1/search",
+    "tag": "-",
+    "summary": "GET /-/v1/search",
+    "description": "",
+    "parameters": [
+      {
+        "name": "text",
+        "in": "query",
+        "required": false,
+        "description": "",
+        "type": "string"
+      },
+      {
+        "name": "size",
+        "in": "query",
+        "required": false,
+        "description": "",
+        "type": "number"
+      }
+    ],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "search"
+  }
+]
+
+
+stderr:

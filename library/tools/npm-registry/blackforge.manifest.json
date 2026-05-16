@@ -1,0 +1,277 @@
+{
+  "schemaVersion": "gutenberg.blueprint.v1",
+  "source": "/tmp/npm-registry.openapi.json",
+  "name": "npm-registry",
+  "slug": "npm-registry",
+  "envPrefix": "NPM_REGISTRY",
+  "description": "Generated from a browser HAR capture by Gutenberg.",
+  "version": "0.1.0",
+  "baseUrls": [
+    "https://registry.npmjs.org"
+  ],
+  "auth": {
+    "mode": "none",
+    "schemes": [],
+    "env": null
+  },
+  "tags": [
+    "-",
+    "express"
+  ],
+  "operations": [
+    {
+      "id": "getExpress",
+      "method": "GET",
+      "path": "/express",
+      "tag": "express",
+      "summary": "GET /express",
+      "description": "",
+      "parameters": [],
+      "hasRequestBody": false,
+      "risk": "read",
+      "cacheable": true,
+      "responseCodes": [
+        "200"
+      ],
+      "inputHints": {
+        "path": [],
+        "query": [],
+        "headers": [],
+        "body": false
+      },
+      "graphql": null,
+      "kind": "read-list",
+      "pagination": null,
+      "related": []
+    },
+    {
+      "id": "getSearch",
+      "method": "GET",
+      "path": "/-/v1/search",
+      "tag": "-",
+      "summary": "GET /-/v1/search",
+      "description": "",
+      "parameters": [
+        {
+          "name": "text",
+          "in": "query",
+          "required": false,
+          "description": "",
+          "type": "string"
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false,
+          "description": "",
+          "type": "number"
+        }
+      ],
+      "hasRequestBody": false,
+      "risk": "read",
+      "cacheable": true,
+      "responseCodes": [
+        "200"
+      ],
+      "inputHints": {
+        "path": [],
+        "query": [
+          "text",
+          "size"
+        ],
+        "headers": [],
+        "body": false
+      },
+      "graphql": null,
+      "kind": "search",
+      "pagination": null,
+      "related": []
+    }
+  ],
+  "heroes": [
+    {
+      "alias": "express",
+      "operationId": "getExpress",
+      "summary": "GET /express",
+      "method": "GET",
+      "path": "/express",
+      "defaultParams": {},
+      "explicit": false
+    },
+    {
+      "alias": "search",
+      "operationId": "getSearch",
+      "summary": "GET /-/v1/search",
+      "method": "GET",
+      "path": "/-/v1/search",
+      "defaultParams": {},
+      "explicit": false
+    }
+  ],
+  "insights": {
+    "thesis": "npm-registry should become a local, searchable operational workspace, not only an endpoint wrapper.",
+    "generatedAdvantages": [
+      "One command surface for humans and agents",
+      "Shared core between CLI and MCP server",
+      "Local cache with search and replay metadata",
+      "Risk-aware dry-run defaults for write/destructive calls",
+      "Machine-readable manifest for catalogs and scorecards"
+    ],
+    "recommendedCommands": [
+      "sync: cache list endpoints locally",
+      "search: query cached API responses offline"
+    ],
+    "domainMap": [
+      {
+        "tag": "-",
+        "operations": 1
+      },
+      {
+        "tag": "express",
+        "operations": 1
+      }
+    ],
+    "riskNotes": []
+  },
+  "generatedAt": "2026-05-16T10:45:17.519Z",
+  "provenance": {
+    "schemaVersion": "gutenberg.provenance.v1",
+    "generatedAt": "2026-05-16T10:45:17.558Z",
+    "gutenbergVersion": "0.1.0",
+    "name": "npm-registry",
+    "spec": {
+      "path": "/tmp/npm-registry.openapi.json",
+      "sha256": "eb3a7a281b2217aa0ecfc753cbae0bccaeab582d7d5c7ba89ff27a8af1290c2c",
+      "size": 4093357
+    },
+    "recipe": null,
+    "targets": [
+      "go",
+      "mcp",
+      "skill",
+      "openclaw"
+    ],
+    "scorecard": {
+      "score": 140,
+      "maxScore": 190,
+      "grade": "C",
+      "dimensions": {
+        "structure": {
+          "score": 55,
+          "max": 55,
+          "ratio": 1,
+          "count": 11,
+          "passed": 11
+        },
+        "manifest": {
+          "score": 45,
+          "max": 45,
+          "ratio": 1,
+          "count": 5,
+          "passed": 5
+        },
+        "runtime": {
+          "score": 40,
+          "max": 40,
+          "ratio": 1,
+          "count": 4,
+          "passed": 4
+        },
+        "verification": {
+          "score": 0,
+          "max": 50,
+          "ratio": 0,
+          "count": 5,
+          "passed": 0
+        },
+        "coverage": {
+          "score": 20,
+          "max": 30,
+          "ratio": 0.6666666666666666,
+          "operations": 2,
+          "cacheable": 2,
+          "reads": 2,
+          "tagged": 0
+        },
+        "safety": {
+          "score": 20,
+          "max": 20,
+          "ratio": 1,
+          "writes": 0,
+          "classified": true,
+          "guardSourcePresent": true
+        },
+        "examples": {
+          "score": 15,
+          "max": 15,
+          "ratio": 1
+        },
+        "skill": {
+          "score": 10,
+          "max": 10,
+          "ratio": 1,
+          "present": true
+        }
+      }
+    },
+    "verification": {
+      "schemaVersion": "gutenberg.verification.summary.v1",
+      "verifiedAt": "2026-05-16T10:46:47.651Z",
+      "ok": true,
+      "badges": [
+        "Gutenberg Verified",
+        "Build Verified",
+        "MCP Ready",
+        "Risk Gated"
+      ],
+      "proofFile": "proofs/verification.json"
+    }
+  },
+  "defaultHeaders": {},
+  "policy": {
+    "schemaVersion": "gutenberg.policy.v1",
+    "rules": [
+      {
+        "risk": "read",
+        "action": "allow",
+        "requiresYes": false
+      },
+      {
+        "risk": "write",
+        "action": "confirm",
+        "requiresYes": true
+      },
+      {
+        "risk": "destructive",
+        "action": "confirm",
+        "requiresYes": true
+      }
+    ],
+    "redaction": [
+      "authorization",
+      "cookie",
+      "token",
+      "secret",
+      "api-key",
+      "apikey",
+      "client-secret",
+      "session"
+    ]
+  },
+  "packageName": "gutenberg.local/npm-registry",
+  "generatedBy": "gutenberg",
+  "generatedByVersion": "0.3.0",
+  "language": "go",
+  "verification": {
+    "schemaVersion": "gutenberg.verification.summary.v1",
+    "verifiedAt": "2026-05-16T10:46:47.651Z",
+    "ok": true,
+    "badges": [
+      "Gutenberg Verified",
+      "Build Verified",
+      "MCP Ready",
+      "Risk Gated"
+    ],
+    "proofFile": "proofs/verification.json"
+  }
+}

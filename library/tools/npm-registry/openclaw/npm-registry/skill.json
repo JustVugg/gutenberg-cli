@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "openclaw.skill.v1",
+  "name": "npm-registry",
+  "displayName": "npm-registry",
+  "description": "npm-registry should become a local, searchable operational workspace, not only an endpoint wrapper.",
+  "runtime": {
+    "cli": "npm-registry",
+    "mcp": "npm-registry mcp"
+  },
+  "auth": {
+    "mode": "none",
+    "oauth": false,
+    "env": null,
+    "setupCommand": null
+  },
+  "capabilities": {
+    "readOperations": 2,
+    "writeOperations": 0,
+    "destructiveOperations": 0,
+    "cacheable": 2,
+    "total": 2
+  },
+  "actions": [
+    {
+      "name": "express",
+      "operationId": "getExpress",
+      "summary": "GET /express",
+      "method": "GET",
+      "path": "/express",
+      "defaultParams": {},
+      "invoke": "npm-registry express",
+      "safe": true
+    },
+    {
+      "name": "search",
+      "operationId": "getSearch",
+      "summary": "GET /-/v1/search",
+      "method": "GET",
+      "path": "/-/v1/search",
+      "defaultParams": {},
+      "invoke": "npm-registry search",
+      "safe": true
+    }
+  ],
+  "operations": [
+    {
+      "id": "getExpress",
+      "method": "GET",
+      "path": "/express",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /express",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "npm-registry call getExpress"
+    },
+    {
+      "id": "getSearch",
+      "method": "GET",
+      "path": "/-/v1/search",
+      "kind": "search",
+      "risk": "read",
+      "summary": "GET /-/v1/search",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "npm-registry call getSearch"
+    }
+  ],
+  "baseUrl": "https://registry.npmjs.org",
+  "safety": {
+    "writeRequiresConfirmation": true,
+    "confirmationFlag": "--yes",
+    "dryRunByDefault": true
+  },
+  "provenance": {
+    "generatedAt": "2026-05-16T10:45:17.558Z",
+    "gutenbergVersion": "0.1.0",
+    "specSha": "eb3a7a281b22"
+  }
+}

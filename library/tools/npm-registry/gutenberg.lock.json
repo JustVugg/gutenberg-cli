@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "gutenberg.lock.v1",
+  "generatedAt": "2026-05-16T10:45:17.558Z",
+  "gutenbergVersion": "0.1.0",
+  "name": "npm-registry",
+  "spec": {
+    "path": "/tmp/npm-registry.openapi.json",
+    "sha256": "eb3a7a281b2217aa0ecfc753cbae0bccaeab582d7d5c7ba89ff27a8af1290c2c",
+    "size": 4093357
+  },
+  "recipe": null,
+  "targets": [
+    "go",
+    "mcp",
+    "skill",
+    "openclaw"
+  ]
+}

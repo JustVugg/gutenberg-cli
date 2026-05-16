@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "gutenberg.verification.v1",
+  "projectDir": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/npm-registry",
+  "tool": "npm-registry",
+  "language": "go",
+  "startedAt": "2026-05-16T10:46:08.542Z",
+  "finishedAt": "2026-05-16T10:46:47.651Z",
+  "ok": true,
+  "checks": [
+    {
+      "id": "go-mod-tidy",
+      "label": "go mod tidy",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 3567,
+      "log": "proofs/go-mod-tidy.log",
+      "artifact": null
+    },
+    {
+      "id": "go-test",
+      "label": "go test ./...",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 19737,
+      "log": "proofs/go-test.log",
+      "artifact": null
+    },
+    {
+      "id": "go-build",
+      "label": "go build CLI binary",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 12064,
+      "log": "proofs/go-build.log",
+      "artifact": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/npm-registry/proofs/bin/npm-registry"
+    },
+    {
+      "id": "cli-smoke",
+      "label": "CLI operations smoke",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 431,
+      "log": "proofs/cli-smoke.log",
+      "artifact": null
+    },
+    {
+      "id": "mcp-handshake",
+      "label": "MCP initialize + tools/list",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 1730,
+      "log": "proofs/mcp-handshake.log",
+      "artifact": null
+    }
+  ],
+  "artifacts": {
+    "proofDir": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/npm-registry/proofs",
+    "manifest": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/npm-registry/gutenberg.manifest.json",
+    "source": {
+      "path": "/tmp/npm-registry.openapi.json",
+      "sha256": "eb3a7a281b2217aa0ecfc753cbae0bccaeab582d7d5c7ba89ff27a8af1290c2c",
+      "size": 4093357
+    },
+    "binary": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/npm-registry/proofs/bin/npm-registry",
+    "binarySha256": "05fbc37094fcd34049872937cabe357ad53fdbb0bcaa9d1064e40b2782478652"
+  },
+  "badges": [
+    "Gutenberg Verified",
+    "Build Verified",
+    "MCP Ready",
+    "Risk Gated"
+  ]
+}

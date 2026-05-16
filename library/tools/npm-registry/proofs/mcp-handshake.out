@@ -1,0 +1,5 @@
+Content-Length: 153
+
+{"id":1,"jsonrpc":"2.0","result":{"capabilities":{"tools":{}},"protocolVersion":"2024-11-05","serverInfo":{"name":"npm-registry-mcp","version":"0.1.0"}}}Content-Length: 566
+
+{"id":2,"jsonrpc":"2.0","result":{"tools":[{"description":"List operations","inputSchema":{"properties":{},"type":"object"},"name":"npm-registry_operations"},{"description":"Call an operation","inputSchema":{"properties":{"operationId":{"type":"string"},"params":{"type":"object"},"path":{"type":"object"},"yes":{"type":"boolean"}},"required":["operationId"],"type":"object"},"name":"npm-registry_call"},{"description":"Search cache","inputSchema":{"properties":{"query":{"type":"string"}},"required":["query"],"type":"object"},"name":"npm-registry_search_cache"}]}}
