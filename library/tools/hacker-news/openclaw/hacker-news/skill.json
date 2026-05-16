@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "openclaw.skill.v1",
+  "name": "hacker-news",
+  "displayName": "hacker-news",
+  "description": "hacker-news should become a local, searchable operational workspace, not only an endpoint wrapper.",
+  "runtime": {
+    "cli": "hacker-news",
+    "mcp": "hacker-news mcp"
+  },
+  "auth": {
+    "mode": "none",
+    "oauth": false,
+    "env": null,
+    "setupCommand": null
+  },
+  "capabilities": {
+    "readOperations": 5,
+    "writeOperations": 0,
+    "destructiveOperations": 0,
+    "cacheable": 5,
+    "total": 5
+  },
+  "actions": [
+    {
+      "name": "topstories-json",
+      "operationId": "getTopstoriesJson",
+      "summary": "GET /v0/topstories.json",
+      "method": "GET",
+      "path": "/v0/topstories.json",
+      "defaultParams": {},
+      "invoke": "hacker-news topstories-json",
+      "safe": true
+    },
+    {
+      "name": "newstories-json",
+      "operationId": "getNewstoriesJson",
+      "summary": "GET /v0/newstories.json",
+      "method": "GET",
+      "path": "/v0/newstories.json",
+      "defaultParams": {},
+      "invoke": "hacker-news newstories-json",
+      "safe": true
+    },
+    {
+      "name": "beststories-json",
+      "operationId": "getBeststoriesJson",
+      "summary": "GET /v0/beststories.json",
+      "method": "GET",
+      "path": "/v0/beststories.json",
+      "defaultParams": {},
+      "invoke": "hacker-news beststories-json",
+      "safe": true
+    },
+    {
+      "name": "8863-json",
+      "operationId": "getItem8863Json",
+      "summary": "GET /v0/item/8863.json",
+      "method": "GET",
+      "path": "/v0/item/8863.json",
+      "defaultParams": {},
+      "invoke": "hacker-news 8863-json",
+      "safe": true
+    },
+    {
+      "name": "maxitem-json",
+      "operationId": "getMaxitemJson",
+      "summary": "GET /v0/maxitem.json",
+      "method": "GET",
+      "path": "/v0/maxitem.json",
+      "defaultParams": {},
+      "invoke": "hacker-news maxitem-json",
+      "safe": true
+    }
+  ],
+  "operations": [
+    {
+      "id": "getTopstoriesJson",
+      "method": "GET",
+      "path": "/v0/topstories.json",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /v0/topstories.json",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "hacker-news call getTopstoriesJson"
+    },
+    {
+      "id": "getNewstoriesJson",
+      "method": "GET",
+      "path": "/v0/newstories.json",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /v0/newstories.json",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "hacker-news call getNewstoriesJson"
+    },
+    {
+      "id": "getBeststoriesJson",
+      "method": "GET",
+      "path": "/v0/beststories.json",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /v0/beststories.json",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "hacker-news call getBeststoriesJson"
+    },
+    {
+      "id": "getItem8863Json",
+      "method": "GET",
+      "path": "/v0/item/8863.json",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /v0/item/8863.json",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "hacker-news call getItem8863Json"
+    },
+    {
+      "id": "getMaxitemJson",
+      "method": "GET",
+      "path": "/v0/maxitem.json",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /v0/maxitem.json",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "hacker-news call getMaxitemJson"
+    }
+  ],
+  "baseUrl": "https://hacker-news.firebaseio.com",
+  "safety": {
+    "writeRequiresConfirmation": true,
+    "confirmationFlag": "--yes",
+    "dryRunByDefault": true
+  },
+  "provenance": {
+    "generatedAt": "2026-05-16T05:52:09.168Z",
+    "gutenbergVersion": "0.1.0",
+    "specSha": "a6f00877507e"
+  }
+}

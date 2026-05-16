@@ -1,0 +1,9 @@
+$ /mnt/c/Users/sarah/Desktop/gutenberg/scripts/use-go.sh build -o /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/hacker-news/proofs/bin/hacker-news ./cmd/hacker-news
+cwd: /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/hacker-news
+status: 0
+signal: 
+
+stdout:
+
+
+stderr:

@@ -1,0 +1,11 @@
+$ /mnt/c/Users/sarah/Desktop/gutenberg/scripts/use-go.sh test ./...
+cwd: /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/hacker-news
+status: 0
+signal: 
+
+stdout:
+?   	gutenberg.local/hacker-news/cmd/hacker-news	[no test files]
+ok  	gutenberg.local/hacker-news/internal/forge	0.058s
+
+
+stderr:

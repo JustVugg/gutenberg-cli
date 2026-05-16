@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "gutenberg.verification.v1",
+  "projectDir": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/hacker-news",
+  "tool": "hacker-news",
+  "language": "go",
+  "startedAt": "2026-05-16T05:53:00.117Z",
+  "finishedAt": "2026-05-16T05:53:30.263Z",
+  "ok": true,
+  "checks": [
+    {
+      "id": "go-mod-tidy",
+      "label": "go mod tidy",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 3509,
+      "log": "proofs/go-mod-tidy.log",
+      "artifact": null
+    },
+    {
+      "id": "go-test",
+      "label": "go test ./...",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 15622,
+      "log": "proofs/go-test.log",
+      "artifact": null
+    },
+    {
+      "id": "go-build",
+      "label": "go build CLI binary",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 9521,
+      "log": "proofs/go-build.log",
+      "artifact": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/hacker-news/proofs/bin/hacker-news"
+    },
+    {
+      "id": "cli-smoke",
+      "label": "CLI operations smoke",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 293,
+      "log": "proofs/cli-smoke.log",
+      "artifact": null
+    },
+    {
+      "id": "mcp-handshake",
+      "label": "MCP initialize + tools/list",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 201,
+      "log": "proofs/mcp-handshake.log",
+      "artifact": null
+    }
+  ],
+  "artifacts": {
+    "proofDir": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/hacker-news/proofs",
+    "manifest": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/hacker-news/gutenberg.manifest.json",
+    "source": {
+      "path": "/tmp/hacker-news.openapi.json",
+      "sha256": "a6f00877507ed63908747ce13c2872cf81e6b37b2c2ccb744bdd40ec558aeb6f",
+      "size": 3985
+    },
+    "binary": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/hacker-news/proofs/bin/hacker-news",
+    "binarySha256": "d275e2b501157184623e96afca5ac2533ee049174d5ad00df9d97e6802770179"
+  },
+  "badges": [
+    "Gutenberg Verified",
+    "Build Verified",
+    "MCP Ready",
+    "Risk Gated"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "gutenberg.lock.v1",
+  "generatedAt": "2026-05-16T05:52:09.168Z",
+  "gutenbergVersion": "0.1.0",
+  "name": "hacker-news",
+  "spec": {
+    "path": "/tmp/hacker-news.openapi.json",
+    "sha256": "a6f00877507ed63908747ce13c2872cf81e6b37b2c2ccb744bdd40ec558aeb6f",
+    "size": 3985
+  },
+  "recipe": null,
+  "targets": [
+    "go",
+    "mcp",
+    "skill",
+    "openclaw"
+  ]
+}

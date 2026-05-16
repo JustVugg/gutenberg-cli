@@ -1,0 +1,91 @@
+$ /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/hacker-news/proofs/bin/hacker-news operations --json
+cwd: /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/hacker-news
+status: 0
+signal: 
+
+stdout:
+[
+  {
+    "id": "getTopstoriesJson",
+    "method": "GET",
+    "path": "/v0/topstories.json",
+    "tag": "v0",
+    "summary": "GET /v0/topstories.json",
+    "description": "",
+    "parameters": [],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "read-list"
+  },
+  {
+    "id": "getNewstoriesJson",
+    "method": "GET",
+    "path": "/v0/newstories.json",
+    "tag": "v0",
+    "summary": "GET /v0/newstories.json",
+    "description": "",
+    "parameters": [],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "read-list"
+  },
+  {
+    "id": "getBeststoriesJson",
+    "method": "GET",
+    "path": "/v0/beststories.json",
+    "tag": "v0",
+    "summary": "GET /v0/beststories.json",
+    "description": "",
+    "parameters": [],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "read-list"
+  },
+  {
+    "id": "getItem8863Json",
+    "method": "GET",
+    "path": "/v0/item/8863.json",
+    "tag": "v0",
+    "summary": "GET /v0/item/8863.json",
+    "description": "",
+    "parameters": [],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "read-list"
+  },
+  {
+    "id": "getMaxitemJson",
+    "method": "GET",
+    "path": "/v0/maxitem.json",
+    "tag": "v0",
+    "summary": "GET /v0/maxitem.json",
+    "description": "",
+    "parameters": [],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "read-list"
+  }
+]
+
+
+stderr:
