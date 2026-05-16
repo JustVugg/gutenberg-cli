@@ -6,8 +6,7 @@
   "private": true,
   "license": "MIT",
   "bin": {
-    "gutenberg": "./bin/gutenberg.js",
-    "black-forge": "./bin/black-forge.js"
+    "gutenberg": "./bin/gutenberg.js"
   },
   "scripts": {
     "doctor": "node bin/gutenberg.js doctor",
