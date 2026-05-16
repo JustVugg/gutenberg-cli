@@ -1,6 +1,9 @@
+# Gutenberg Agents-Cli
+
 <p align="center">
   <img src="gutenberg-cli.jpg" alt="gutenberg-cli_logo" width="500"/>
 </p>
+
 
 **A verified tool factory for AI agents.** From any API surface to safe, verified tools any agent runtime can use — Go CLI + MCP server + agent skills + SQLite/FTS5 cache + dry-run-by-default policy + hash-verifiable proof artifacts.
 
@@ -62,20 +65,73 @@ Most AI-agent infrastructure today gives you a model and tells you "bring your o
 | **`aggregator` kind** | One recipe → a fan-out Go CLI over N JSON sources with `merge.go` + `rank.go` |
 | **`heroes`** | Zero-friction aliases auto-detected (or curated via `x-gutenberg-hero`) — e.g. `espn nba`, `github meta`, `tvmaze shows` |
 
-## Quick Start
+## Installation
+
+Gutenberg is currently installed from the GitHub repository. The npm package is not published yet, so do not use `npx gutenberg` for now.
+
+Prerequisites for the full workflow:
+
+- Node.js 20+
+- Go installed on `PATH` (`go version` must work), or `GUTENBERG_GOROOT=/path/to/go`
+- Git and curl
+- Optional: `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, or Ollama for `extract` / LLM-routed `run`
+
+Install from source:
 
 ```bash
-npm install                                            # install deps (playwright, yaml)
-node bin/gutenberg.js doctor                           # check runtime + LLM providers + Browserbase
+git clone https://github.com/JustVugg/gutenberg.git
+cd gutenberg
+npm install
+node bin/gutenberg.js doctor
+```
 
-# Generate from a public OpenAPI
+Use it directly from the repo:
+
+```bash
+node bin/gutenberg.js search "top hacker news stories"
+node bin/gutenberg.js try https://api.tvmaze.com/shows/1
+```
+
+Or install the `gutenberg` command globally from this local checkout:
+
+```bash
+npm link
+gutenberg doctor
+```
+
+Generated tools are installed into `~/.local/bin`. Make sure it is on your `PATH`:
+
+```bash
+export PATH="$HOME/.local/bin:$PATH"
+```
+
+For browser recording flows only, install a Playwright browser:
+
+```bash
+npx playwright install chromium
+```
+
+## First Tool
+
+The fastest end-to-end test is `quick`: it probes a URL, generates a tool, verifies it, and installs the generated CLI.
+
+```bash
+gutenberg quick https://catfact.ninja/fact
+catfact fact
+```
+
+If you did not run `npm link`, use `node bin/gutenberg.js` instead of `gutenberg`.
+
+Generate from a public OpenAPI spec:
+
+```bash
 curl -fsSL -o /tmp/github.json \
   https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.json
-node bin/gutenberg.js generate /tmp/github.json --out library/tools/github --name github --force --strict
-node bin/gutenberg.js verify library/tools/github
-node bin/gutenberg.js install library/tools/github     # builds + installs to ~/.local/bin/
+gutenberg generate /tmp/github.json --out library/tools/github --name github --force --strict
+gutenberg verify library/tools/github
+gutenberg install library/tools/github
 
-github meta                                            # zero-friction hero, returns digest of GitHub API root
+github meta
 github call search/repos --param q=claude-code --select '[*].full_name'
 ```
 
@@ -231,3 +287,4 @@ MIT.
 - ✅ Verified end-to-end on GitHub, Stripe, Sentry, ESPN, Wikipedia IT, TVMaze and the public-API starter catalog
 - ✅ 21 catalog entries shipped, 16+ recipe templates
 - ❌ Cannot bypass Cloudflare Turnstile / strong anti-bot. Use `record --backend browserbase` or an official partner API for that class of site.
+
