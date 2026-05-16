@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "gutenberg.create.v1",
+  "id": "coingecko",
+  "kind": "har",
+  "source": "https://api.coingecko.com",
+  "goal": "CoinGecko crypto prices free public API.",
+  "auth": "none",
+  "inputs": {
+    "urls": [
+      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1",
+      "https://api.coingecko.com/api/v3/coins/bitcoin",
+      "https://api.coingecko.com/api/v3/coins/ethereum",
+      "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd",
+      "https://api.coingecko.com/api/v3/global"
+    ]
+  },
+  "nextCommands": [
+    "node bin/gutenberg.js seed-har <urls> --out /tmp/coingecko.har.json",
+    "node bin/gutenberg.js import-har /tmp/coingecko.har.json --out /tmp/coingecko.openapi.json --name coingecko --origin https://api.coingecko.com",
+    "node bin/gutenberg.js generate /tmp/coingecko.openapi.json --out library/tools/coingecko --name coingecko --force"
+  ]
+}
