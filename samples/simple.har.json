@@ -1,0 +1,62 @@
+{
+  "log": {
+    "version": "1.2",
+    "creator": {
+      "name": "Gutenberg sample",
+      "version": "0.1.0"
+    },
+    "entries": [
+      {
+        "request": {
+          "method": "GET",
+          "url": "https://api.example.com/v1/customers?limit=25",
+          "queryString": [
+            { "name": "limit", "value": "25" }
+          ]
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "content": { "mimeType": "application/json" }
+        }
+      },
+      {
+        "request": {
+          "method": "GET",
+          "url": "https://api.example.com/v1/customers/123",
+          "queryString": []
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "content": { "mimeType": "application/json" }
+        }
+      },
+      {
+        "request": {
+          "method": "POST",
+          "url": "https://api.example.com/v1/customers",
+          "queryString": [],
+          "postData": { "mimeType": "application/json", "text": "{\"name\":\"Ada\"}" }
+        },
+        "response": {
+          "status": 201,
+          "statusText": "Created",
+          "content": { "mimeType": "application/json" }
+        }
+      },
+      {
+        "request": {
+          "method": "GET",
+          "url": "https://api.example.com/assets/app.js",
+          "queryString": []
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "content": { "mimeType": "application/javascript" }
+        }
+      }
+    ]
+  }
+}
