@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "gutenberg.lock.v1",
+  "generatedAt": "2026-05-16T11:27:19.868Z",
+  "gutenbergVersion": "0.1.0",
+  "name": "catfact",
+  "spec": {
+    "path": "/tmp/catfact-1778930839668.openapi.json",
+    "sha256": "e5a4ac5f48fb59e05df2c6ee56b8a656c3238ff81c0f291d24d028bb4cafa93e",
+    "size": 5030
+  },
+  "recipe": null,
+  "targets": [
+    "go",
+    "mcp",
+    "skill"
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "gutenberg.verification.v1",
+  "projectDir": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/catfact",
+  "tool": "catfact",
+  "language": "go",
+  "startedAt": "2026-05-16T11:28:01.908Z",
+  "finishedAt": "2026-05-16T11:28:32.367Z",
+  "ok": true,
+  "checks": [
+    {
+      "id": "go-mod-tidy",
+      "label": "go mod tidy",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 2575,
+      "log": "proofs/go-mod-tidy.log",
+      "artifact": null
+    },
+    {
+      "id": "go-test",
+      "label": "go test ./...",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 15188,
+      "log": "proofs/go-test.log",
+      "artifact": null
+    },
+    {
+      "id": "go-build",
+      "label": "go build CLI binary",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 9654,
+      "log": "proofs/go-build.log",
+      "artifact": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/catfact/proofs/bin/catfact"
+    },
+    {
+      "id": "cli-smoke",
+      "label": "CLI operations smoke",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 1238,
+      "log": "proofs/cli-smoke.log",
+      "artifact": null
+    },
+    {
+      "id": "mcp-handshake",
+      "label": "MCP initialize + tools/list",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 233,
+      "log": "proofs/mcp-handshake.log",
+      "artifact": null
+    }
+  ],
+  "artifacts": {
+    "proofDir": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/catfact/proofs",
+    "manifest": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/catfact/gutenberg.manifest.json",
+    "source": {
+      "path": "/tmp/catfact-1778930839668.openapi.json",
+      "sha256": "e5a4ac5f48fb59e05df2c6ee56b8a656c3238ff81c0f291d24d028bb4cafa93e",
+      "size": 5030
+    },
+    "binary": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/catfact/proofs/bin/catfact",
+    "binarySha256": "fc6f64dd79cbf6246a098e7196a9a919b3a8f87e2e9aa7887b481a1d2eec1d5e"
+  },
+  "badges": [
+    "Gutenberg Verified",
+    "Build Verified",
+    "MCP Ready",
+    "Risk Gated"
+  ]
+}

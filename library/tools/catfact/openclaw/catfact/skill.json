@@ -1,0 +1,101 @@
+{
+  "schemaVersion": "openclaw.skill.v1",
+  "name": "catfact",
+  "displayName": "catfact",
+  "description": "catfact should become a local, searchable operational workspace, not only an endpoint wrapper.",
+  "runtime": {
+    "cli": "catfact",
+    "mcp": "catfact mcp"
+  },
+  "auth": {
+    "mode": "detected",
+    "oauth": false,
+    "env": "API_KEY",
+    "setupCommand": "export CATFACT_API_KEY=<your-key>"
+  },
+  "capabilities": {
+    "readOperations": 3,
+    "writeOperations": 0,
+    "destructiveOperations": 0,
+    "cacheable": 3,
+    "total": 3
+  },
+  "actions": [
+    {
+      "name": "breeds",
+      "operationId": "getBreeds",
+      "summary": "Get a list of breeds",
+      "method": "GET",
+      "path": "/breeds",
+      "defaultParams": {},
+      "invoke": "catfact breeds",
+      "safe": true
+    },
+    {
+      "name": "fact",
+      "operationId": "getRandomFact",
+      "summary": "Get Random Fact",
+      "method": "GET",
+      "path": "/fact",
+      "defaultParams": {},
+      "invoke": "catfact fact",
+      "safe": true
+    },
+    {
+      "name": "facts",
+      "operationId": "getFacts",
+      "summary": "Get a list of facts",
+      "method": "GET",
+      "path": "/facts",
+      "defaultParams": {},
+      "invoke": "catfact facts",
+      "safe": true
+    }
+  ],
+  "operations": [
+    {
+      "id": "getBreeds",
+      "method": "GET",
+      "path": "/breeds",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "Get a list of breeds",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "catfact call getBreeds"
+    },
+    {
+      "id": "getRandomFact",
+      "method": "GET",
+      "path": "/fact",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "Get Random Fact",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "catfact call getRandomFact"
+    },
+    {
+      "id": "getFacts",
+      "method": "GET",
+      "path": "/facts",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "Get a list of facts",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "catfact call getFacts"
+    }
+  ],
+  "baseUrl": "https://catfact.ninja",
+  "safety": {
+    "writeRequiresConfirmation": true,
+    "confirmationFlag": "--yes",
+    "dryRunByDefault": true
+  },
+  "provenance": {
+    "generatedAt": "2026-05-16T11:27:19.868Z",
+    "gutenbergVersion": "0.1.0",
+    "specSha": "e5a4ac5f48fb"
+  }
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "id": "getBreeds",
+    "method": "GET",
+    "path": "/breeds",
+    "tag": "Breeds",
+    "summary": "Get a list of breeds",
+    "description": "Returns a a list of breeds",
+    "parameters": [
+      {
+        "name": "limit",
+        "in": "query",
+        "required": false,
+        "description": "limit the amount of results returned",
+        "type": "integer"
+      }
+    ],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "read-list"
+  },
+  {
+    "id": "getRandomFact",
+    "method": "GET",
+    "path": "/fact",
+    "tag": "Facts",
+    "summary": "Get Random Fact",
+    "description": "Returns a random fact",
+    "parameters": [
+      {
+        "name": "max_length",
+        "in": "query",
+        "required": false,
+        "description": "maximum length of returned fact",
+        "type": "integer"
+      }
+    ],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200",
+      "404"
+    ],
+    "kind": "read-list"
+  },
+  {
+    "id": "getFacts",
+    "method": "GET",
+    "path": "/facts",
+    "tag": "Facts",
+    "summary": "Get a list of facts",
+    "description": "Returns a a list of facts",
+    "parameters": [
+      {
+        "name": "max_length",
+        "in": "query",
+        "required": false,
+        "description": "maximum length of returned fact",
+        "type": "integer"
+      },
+      {
+        "name": "limit",
+        "in": "query",
+        "required": false,
+        "description": "limit the amount of results returned",
+        "type": "integer"
+      }
+    ],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "read-list"
+  }
+]
