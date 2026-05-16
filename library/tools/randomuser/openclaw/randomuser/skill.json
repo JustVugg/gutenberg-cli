@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "openclaw.skill.v1",
+  "name": "randomuser",
+  "displayName": "randomuser",
+  "description": "randomuser should become a local, searchable operational workspace, not only an endpoint wrapper.",
+  "runtime": {
+    "cli": "randomuser",
+    "mcp": "randomuser mcp"
+  },
+  "auth": {
+    "mode": "none",
+    "oauth": false,
+    "env": null,
+    "setupCommand": null
+  },
+  "capabilities": {
+    "readOperations": 1,
+    "writeOperations": 0,
+    "destructiveOperations": 0,
+    "cacheable": 1,
+    "total": 1
+  },
+  "actions": [
+    {
+      "name": "api",
+      "operationId": "getRoot",
+      "summary": "GET /api",
+      "method": "GET",
+      "path": "/api",
+      "defaultParams": {},
+      "invoke": "randomuser api",
+      "safe": true
+    }
+  ],
+  "operations": [
+    {
+      "id": "getRoot",
+      "method": "GET",
+      "path": "/api",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /api",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "randomuser call getRoot"
+    }
+  ],
+  "baseUrl": "https://randomuser.me",
+  "safety": {
+    "writeRequiresConfirmation": true,
+    "confirmationFlag": "--yes",
+    "dryRunByDefault": true
+  },
+  "provenance": {
+    "generatedAt": "2026-05-16T07:12:08.966Z",
+    "gutenbergVersion": "0.1.0",
+    "specSha": "9dc1546fbf7e"
+  }
+}

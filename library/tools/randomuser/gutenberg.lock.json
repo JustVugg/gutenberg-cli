@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "gutenberg.lock.v1",
+  "generatedAt": "2026-05-16T07:12:08.966Z",
+  "gutenbergVersion": "0.1.0",
+  "name": "randomuser",
+  "spec": {
+    "path": "/tmp/randomuser.openapi.json",
+    "sha256": "9dc1546fbf7ec7752a7e17d1f305dfa341e8ad6ee091dd21f107d3de1e256d7e",
+    "size": 10800
+  },
+  "recipe": null,
+  "targets": [
+    "go",
+    "mcp",
+    "skill",
+    "openclaw"
+  ]
+}

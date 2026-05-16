@@ -1,0 +1,11 @@
+$ /mnt/c/Users/sarah/Desktop/gutenberg/scripts/use-go.sh test ./...
+cwd: /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/randomuser
+status: 0
+signal: 
+
+stdout:
+?   	gutenberg.local/randomuser/cmd/randomuser	[no test files]
+ok  	gutenberg.local/randomuser/internal/forge	0.031s
+
+
+stderr:

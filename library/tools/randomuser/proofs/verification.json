@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "gutenberg.verification.v1",
+  "projectDir": "library/tools/randomuser",
+  "tool": "randomuser",
+  "language": "go",
+  "startedAt": "2026-05-16T07:12:43.442Z",
+  "finishedAt": "2026-05-16T07:13:07.678Z",
+  "ok": true,
+  "checks": [
+    {
+      "id": "go-mod-tidy",
+      "label": "go mod tidy",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 1840,
+      "log": "proofs/go-mod-tidy.log",
+      "artifact": null
+    },
+    {
+      "id": "go-test",
+      "label": "go test ./...",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 13726,
+      "log": "proofs/go-test.log",
+      "artifact": null
+    },
+    {
+      "id": "go-build",
+      "label": "go build CLI binary",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 7027,
+      "log": "proofs/go-build.log",
+      "artifact": "library/tools/randomuser/proofs/bin/randomuser"
+    },
+    {
+      "id": "cli-smoke",
+      "label": "CLI operations smoke",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 251,
+      "log": "proofs/cli-smoke.log",
+      "artifact": null
+    },
+    {
+      "id": "mcp-handshake",
+      "label": "MCP initialize + tools/list",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 221,
+      "log": "proofs/mcp-handshake.log",
+      "artifact": null
+    }
+  ],
+  "artifacts": {
+    "proofDir": "library/tools/randomuser/proofs",
+    "manifest": "library/tools/randomuser/gutenberg.manifest.json",
+    "source": {
+      "path": "/tmp/randomuser.openapi.json",
+      "sha256": "9dc1546fbf7ec7752a7e17d1f305dfa341e8ad6ee091dd21f107d3de1e256d7e",
+      "size": 10800
+    },
+    "binary": "library/tools/randomuser/proofs/bin/randomuser",
+    "binarySha256": "5c837da661cb29bc9f6ebdbe4ca63c6563bd4df46465a90018773383f5c42d2b"
+  },
+  "badges": [
+    "Gutenberg Verified",
+    "Build Verified",
+    "MCP Ready",
+    "Risk Gated"
+  ]
+}

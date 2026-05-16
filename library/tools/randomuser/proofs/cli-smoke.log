@@ -1,0 +1,42 @@
+$ /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/randomuser/proofs/bin/randomuser operations --json
+cwd: /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/randomuser
+status: 0
+signal: 
+
+stdout:
+[
+  {
+    "id": "getRoot",
+    "method": "GET",
+    "path": "/api",
+    "tag": "api",
+    "summary": "GET /api",
+    "description": "",
+    "parameters": [
+      {
+        "name": "results",
+        "in": "query",
+        "required": false,
+        "description": "",
+        "type": "number"
+      },
+      {
+        "name": "nat",
+        "in": "query",
+        "required": false,
+        "description": "",
+        "type": "string"
+      }
+    ],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "read-list"
+  }
+]
+
+
+stderr:
