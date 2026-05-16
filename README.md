@@ -1,4 +1,4 @@
-# Gutenberg Agents-Cli
+# Gutenberg CLI
 
 <p align="center">
   <img src="gutenberg-cli.jpg" alt="gutenberg-cli_logo" width="500"/>
