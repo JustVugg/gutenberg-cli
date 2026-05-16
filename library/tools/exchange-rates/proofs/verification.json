@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "gutenberg.verification.v1",
+  "projectDir": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/exchange-rates",
+  "tool": "exchange-rates",
+  "language": "go",
+  "startedAt": "2026-05-16T10:52:36.167Z",
+  "finishedAt": "2026-05-16T10:53:12.340Z",
+  "ok": true,
+  "checks": [
+    {
+      "id": "go-mod-tidy",
+      "label": "go mod tidy",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 3933,
+      "log": "proofs/go-mod-tidy.log",
+      "artifact": null
+    },
+    {
+      "id": "go-test",
+      "label": "go test ./...",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 18530,
+      "log": "proofs/go-test.log",
+      "artifact": null
+    },
+    {
+      "id": "go-build",
+      "label": "go build CLI binary",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 10718,
+      "log": "proofs/go-build.log",
+      "artifact": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/exchange-rates/proofs/bin/exchange-rates"
+    },
+    {
+      "id": "cli-smoke",
+      "label": "CLI operations smoke",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 452,
+      "log": "proofs/cli-smoke.log",
+      "artifact": null
+    },
+    {
+      "id": "mcp-handshake",
+      "label": "MCP initialize + tools/list",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 568,
+      "log": "proofs/mcp-handshake.log",
+      "artifact": null
+    }
+  ],
+  "artifacts": {
+    "proofDir": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/exchange-rates/proofs",
+    "manifest": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/exchange-rates/gutenberg.manifest.json",
+    "source": {
+      "path": "/tmp/exchange-rates.openapi.json",
+      "sha256": "a57a672093bc07dde74e9282980fab893aeb2a69cb7915df5ab44a74c8cbf955",
+      "size": 38113
+    },
+    "binary": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/exchange-rates/proofs/bin/exchange-rates",
+    "binarySha256": "b9a625130d95293589bf3ae1077d40a83416985d837a48b7b4e8211ae07a4ae4"
+  },
+  "badges": [
+    "Gutenberg Verified",
+    "Build Verified",
+    "MCP Ready",
+    "Risk Gated"
+  ]
+}

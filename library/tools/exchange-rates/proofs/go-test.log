@@ -1,0 +1,11 @@
+$ /mnt/c/Users/sarah/Desktop/gutenberg/scripts/use-go.sh test ./...
+cwd: /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/exchange-rates
+status: 0
+signal: 
+
+stdout:
+?   	gutenberg.local/exchange-rates/cmd/exchange-rates	[no test files]
+ok  	gutenberg.local/exchange-rates/internal/forge	0.058s
+
+
+stderr:

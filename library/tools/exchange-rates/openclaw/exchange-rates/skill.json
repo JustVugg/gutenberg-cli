@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "openclaw.skill.v1",
+  "name": "exchange-rates",
+  "displayName": "exchange-rates",
+  "description": "exchange-rates should become a local, searchable operational workspace, not only an endpoint wrapper.",
+  "runtime": {
+    "cli": "exchange-rates",
+    "mcp": "exchange-rates mcp"
+  },
+  "auth": {
+    "mode": "none",
+    "oauth": false,
+    "env": null,
+    "setupCommand": null
+  },
+  "capabilities": {
+    "readOperations": 2,
+    "writeOperations": 0,
+    "destructiveOperations": 0,
+    "cacheable": 2,
+    "total": 2
+  },
+  "actions": [
+    {
+      "name": "usd",
+      "operationId": "getLatestUsd",
+      "summary": "GET /v6/latest/USD",
+      "method": "GET",
+      "path": "/v6/latest/USD",
+      "defaultParams": {},
+      "invoke": "exchange-rates usd",
+      "safe": true
+    },
+    {
+      "name": "eur",
+      "operationId": "getLatestEur",
+      "summary": "GET /v6/latest/EUR",
+      "method": "GET",
+      "path": "/v6/latest/EUR",
+      "defaultParams": {},
+      "invoke": "exchange-rates eur",
+      "safe": true
+    }
+  ],
+  "operations": [
+    {
+      "id": "getLatestUsd",
+      "method": "GET",
+      "path": "/v6/latest/USD",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /v6/latest/USD",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "exchange-rates call getLatestUsd"
+    },
+    {
+      "id": "getLatestEur",
+      "method": "GET",
+      "path": "/v6/latest/EUR",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /v6/latest/EUR",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "exchange-rates call getLatestEur"
+    }
+  ],
+  "baseUrl": "https://open.er-api.com",
+  "safety": {
+    "writeRequiresConfirmation": true,
+    "confirmationFlag": "--yes",
+    "dryRunByDefault": true
+  },
+  "provenance": {
+    "generatedAt": "2026-05-16T10:51:30.784Z",
+    "gutenbergVersion": "0.1.0",
+    "specSha": "a57a672093bc"
+  }
+}

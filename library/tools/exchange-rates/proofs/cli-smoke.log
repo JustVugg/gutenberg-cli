@@ -1,0 +1,43 @@
+$ /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/exchange-rates/proofs/bin/exchange-rates operations --json
+cwd: /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/exchange-rates
+status: 0
+signal: 
+
+stdout:
+[
+  {
+    "id": "getLatestUsd",
+    "method": "GET",
+    "path": "/v6/latest/USD",
+    "tag": "v6",
+    "summary": "GET /v6/latest/USD",
+    "description": "",
+    "parameters": [],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "read-list"
+  },
+  {
+    "id": "getLatestEur",
+    "method": "GET",
+    "path": "/v6/latest/EUR",
+    "tag": "v6",
+    "summary": "GET /v6/latest/EUR",
+    "description": "",
+    "parameters": [],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "read-list"
+  }
+]
+
+
+stderr:

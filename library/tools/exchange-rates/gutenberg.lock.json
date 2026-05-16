@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "gutenberg.lock.v1",
+  "generatedAt": "2026-05-16T10:51:30.784Z",
+  "gutenbergVersion": "0.1.0",
+  "name": "exchange-rates",
+  "spec": {
+    "path": "/tmp/exchange-rates.openapi.json",
+    "sha256": "a57a672093bc07dde74e9282980fab893aeb2a69cb7915df5ab44a74c8cbf955",
+    "size": 38113
+  },
+  "recipe": null,
+  "targets": [
+    "go",
+    "mcp",
+    "skill",
+    "openclaw"
+  ]
+}

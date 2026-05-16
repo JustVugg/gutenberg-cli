@@ -1,0 +1,254 @@
+{
+  "schemaVersion": "gutenberg.blueprint.v1",
+  "source": "/tmp/exchange-rates.openapi.json",
+  "name": "exchange-rates",
+  "slug": "exchange-rates",
+  "envPrefix": "EXCHANGE_RATES",
+  "description": "Generated from a browser HAR capture by Gutenberg.",
+  "version": "0.1.0",
+  "baseUrls": [
+    "https://open.er-api.com"
+  ],
+  "auth": {
+    "mode": "none",
+    "schemes": [],
+    "env": null
+  },
+  "tags": [
+    "v6"
+  ],
+  "operations": [
+    {
+      "id": "getLatestUsd",
+      "method": "GET",
+      "path": "/v6/latest/USD",
+      "tag": "v6",
+      "summary": "GET /v6/latest/USD",
+      "description": "",
+      "parameters": [],
+      "hasRequestBody": false,
+      "risk": "read",
+      "cacheable": true,
+      "responseCodes": [
+        "200"
+      ],
+      "inputHints": {
+        "path": [],
+        "query": [],
+        "headers": [],
+        "body": false
+      },
+      "graphql": null,
+      "kind": "read-list",
+      "pagination": null,
+      "related": []
+    },
+    {
+      "id": "getLatestEur",
+      "method": "GET",
+      "path": "/v6/latest/EUR",
+      "tag": "v6",
+      "summary": "GET /v6/latest/EUR",
+      "description": "",
+      "parameters": [],
+      "hasRequestBody": false,
+      "risk": "read",
+      "cacheable": true,
+      "responseCodes": [
+        "200"
+      ],
+      "inputHints": {
+        "path": [],
+        "query": [],
+        "headers": [],
+        "body": false
+      },
+      "graphql": null,
+      "kind": "read-list",
+      "pagination": null,
+      "related": []
+    }
+  ],
+  "heroes": [
+    {
+      "alias": "usd",
+      "operationId": "getLatestUsd",
+      "summary": "GET /v6/latest/USD",
+      "method": "GET",
+      "path": "/v6/latest/USD",
+      "defaultParams": {},
+      "explicit": false
+    },
+    {
+      "alias": "eur",
+      "operationId": "getLatestEur",
+      "summary": "GET /v6/latest/EUR",
+      "method": "GET",
+      "path": "/v6/latest/EUR",
+      "defaultParams": {},
+      "explicit": false
+    }
+  ],
+  "insights": {
+    "thesis": "exchange-rates should become a local, searchable operational workspace, not only an endpoint wrapper.",
+    "generatedAdvantages": [
+      "One command surface for humans and agents",
+      "Shared core between CLI and MCP server",
+      "Local cache with search and replay metadata",
+      "Risk-aware dry-run defaults for write/destructive calls",
+      "Machine-readable manifest for catalogs and scorecards"
+    ],
+    "recommendedCommands": [
+      "sync: cache list endpoints locally",
+      "search: query cached API responses offline"
+    ],
+    "domainMap": [
+      {
+        "tag": "v6",
+        "operations": 2
+      }
+    ],
+    "riskNotes": []
+  },
+  "generatedAt": "2026-05-16T10:51:30.747Z",
+  "provenance": {
+    "schemaVersion": "gutenberg.provenance.v1",
+    "generatedAt": "2026-05-16T10:51:30.784Z",
+    "gutenbergVersion": "0.1.0",
+    "name": "exchange-rates",
+    "spec": {
+      "path": "/tmp/exchange-rates.openapi.json",
+      "sha256": "a57a672093bc07dde74e9282980fab893aeb2a69cb7915df5ab44a74c8cbf955",
+      "size": 38113
+    },
+    "recipe": null,
+    "targets": [
+      "go",
+      "mcp",
+      "skill",
+      "openclaw"
+    ],
+    "scorecard": {
+      "score": 140,
+      "maxScore": 190,
+      "grade": "C",
+      "dimensions": {
+        "structure": {
+          "score": 55,
+          "max": 55,
+          "ratio": 1,
+          "count": 11,
+          "passed": 11
+        },
+        "manifest": {
+          "score": 45,
+          "max": 45,
+          "ratio": 1,
+          "count": 5,
+          "passed": 5
+        },
+        "runtime": {
+          "score": 40,
+          "max": 40,
+          "ratio": 1,
+          "count": 4,
+          "passed": 4
+        },
+        "verification": {
+          "score": 0,
+          "max": 50,
+          "ratio": 0,
+          "count": 5,
+          "passed": 0
+        },
+        "coverage": {
+          "score": 20,
+          "max": 30,
+          "ratio": 0.6666666666666666,
+          "operations": 2,
+          "cacheable": 2,
+          "reads": 2,
+          "tagged": 0
+        },
+        "safety": {
+          "score": 20,
+          "max": 20,
+          "ratio": 1,
+          "writes": 0,
+          "classified": true,
+          "guardSourcePresent": true
+        },
+        "examples": {
+          "score": 15,
+          "max": 15,
+          "ratio": 1
+        },
+        "skill": {
+          "score": 10,
+          "max": 10,
+          "ratio": 1,
+          "present": true
+        }
+      }
+    },
+    "verification": {
+      "schemaVersion": "gutenberg.verification.summary.v1",
+      "verifiedAt": "2026-05-16T10:53:12.340Z",
+      "ok": true,
+      "badges": [
+        "Gutenberg Verified",
+        "Build Verified",
+        "MCP Ready",
+        "Risk Gated"
+      ],
+      "proofFile": "proofs/verification.json"
+    }
+  },
+  "defaultHeaders": {},
+  "policy": {
+    "schemaVersion": "gutenberg.policy.v1",
+    "rules": [
+      {
+        "risk": "read",
+        "action": "allow",
+        "requiresYes": false
+      },
+      {
+        "risk": "write",
+        "action": "confirm",
+        "requiresYes": true
+      },
+      {
+        "risk": "destructive",
+        "action": "confirm",
+        "requiresYes": true
+      }
+    ],
+    "redaction": [
+      "authorization",
+      "cookie",
+      "token",
+      "secret",
+      "api-key",
+      "apikey",
+      "client-secret",
+      "session"
+    ]
+  },
+  "packageName": "gutenberg.local/exchange-rates",
+  "generatedBy": "gutenberg",
+  "generatedByVersion": "0.3.0",
+  "language": "go",
+  "verification": {
+    "schemaVersion": "gutenberg.verification.summary.v1",
+    "verifiedAt": "2026-05-16T10:53:12.340Z",
+    "ok": true,
+    "badges": [
+      "Gutenberg Verified",
+      "Build Verified",
+      "MCP Ready",
+      "Risk Gated"
+    ],
+    "proofFile": "proofs/verification.json"
+  }
+}
