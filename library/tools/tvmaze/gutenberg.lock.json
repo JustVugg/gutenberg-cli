@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "gutenberg.lock.v1",
+  "generatedAt": "2026-05-16T01:34:42.122Z",
+  "gutenbergVersion": "0.1.0",
+  "name": "tvmaze",
+  "spec": {
+    "path": "/tmp/tvmaze.openapi.json",
+    "sha256": "e6955bfd5afbe37fd438931fc157c67bafd0dbc92a1559cebdfdad5e460d9e52",
+    "size": 38281
+  },
+  "recipe": null,
+  "targets": [
+    "go",
+    "mcp",
+    "skill",
+    "openclaw"
+  ]
+}

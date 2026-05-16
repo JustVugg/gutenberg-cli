@@ -1,0 +1,131 @@
+{
+  "schemaVersion": "openclaw.skill.v1",
+  "name": "tvmaze",
+  "displayName": "tvmaze",
+  "description": "tvmaze should become a local, searchable operational workspace, not only an endpoint wrapper.",
+  "runtime": {
+    "cli": "tvmaze",
+    "mcp": "tvmaze mcp"
+  },
+  "auth": {
+    "mode": "none",
+    "oauth": false,
+    "env": null,
+    "setupCommand": null
+  },
+  "capabilities": {
+    "readOperations": 5,
+    "writeOperations": 0,
+    "destructiveOperations": 0,
+    "cacheable": 5,
+    "total": 5
+  },
+  "actions": [
+    {
+      "name": "shows",
+      "operationId": "getSearchShows",
+      "summary": "GET /search/shows",
+      "method": "GET",
+      "path": "/search/shows",
+      "defaultParams": {},
+      "invoke": "tvmaze shows",
+      "safe": true
+    },
+    {
+      "name": "schedule",
+      "operationId": "getSchedule",
+      "summary": "GET /schedule",
+      "method": "GET",
+      "path": "/schedule",
+      "defaultParams": {},
+      "invoke": "tvmaze schedule",
+      "safe": true
+    }
+  ],
+  "operations": [
+    {
+      "id": "getSearchShows",
+      "method": "GET",
+      "path": "/search/shows",
+      "kind": "search",
+      "risk": "read",
+      "summary": "GET /search/shows",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "tvmaze call getSearchShows"
+    },
+    {
+      "id": "getShows",
+      "method": "GET",
+      "path": "/shows/{id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "GET /shows/{id}",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "tvmaze call getShows"
+    },
+    {
+      "id": "getShowsIdEpisodes",
+      "method": "GET",
+      "path": "/shows/{id}/episodes",
+      "kind": "read",
+      "risk": "read",
+      "summary": "GET /shows/{id}/episodes",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "tvmaze call getShowsIdEpisodes"
+    },
+    {
+      "id": "getSchedule",
+      "method": "GET",
+      "path": "/schedule",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /schedule",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "tvmaze call getSchedule"
+    },
+    {
+      "id": "getPeople",
+      "method": "GET",
+      "path": "/people/{id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "GET /people/{id}",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "tvmaze call getPeople"
+    }
+  ],
+  "baseUrl": "https://api.tvmaze.com",
+  "safety": {
+    "writeRequiresConfirmation": true,
+    "confirmationFlag": "--yes",
+    "dryRunByDefault": true
+  },
+  "provenance": {
+    "generatedAt": "2026-05-16T01:34:42.122Z",
+    "gutenbergVersion": "0.1.0",
+    "specSha": "e6955bfd5afb"
+  }
+}

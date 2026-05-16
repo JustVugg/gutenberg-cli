@@ -1,0 +1,403 @@
+{
+  "schemaVersion": "gutenberg.blueprint.v1",
+  "source": "/tmp/tvmaze.openapi.json",
+  "name": "tvmaze",
+  "slug": "tvmaze",
+  "envPrefix": "TVMAZE",
+  "description": "Generated from a browser HAR capture by Gutenberg.",
+  "version": "0.1.0",
+  "baseUrls": [
+    "https://api.tvmaze.com"
+  ],
+  "auth": {
+    "mode": "none",
+    "schemes": [],
+    "env": null
+  },
+  "tags": [
+    "people",
+    "schedule",
+    "search",
+    "shows"
+  ],
+  "operations": [
+    {
+      "id": "getSearchShows",
+      "method": "GET",
+      "path": "/search/shows",
+      "tag": "search",
+      "summary": "GET /search/shows",
+      "description": "",
+      "parameters": [
+        {
+          "name": "q",
+          "in": "query",
+          "required": false,
+          "description": "",
+          "type": "string"
+        }
+      ],
+      "hasRequestBody": false,
+      "risk": "read",
+      "cacheable": true,
+      "responseCodes": [
+        "200"
+      ],
+      "inputHints": {
+        "path": [],
+        "query": [
+          "q"
+        ],
+        "headers": [],
+        "body": false
+      },
+      "graphql": null,
+      "kind": "search",
+      "pagination": null,
+      "related": []
+    },
+    {
+      "id": "getShows",
+      "method": "GET",
+      "path": "/shows/{id}",
+      "tag": "shows",
+      "summary": "GET /shows/{id}",
+      "description": "",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "type": "string"
+        }
+      ],
+      "hasRequestBody": false,
+      "risk": "read",
+      "cacheable": true,
+      "responseCodes": [
+        "200"
+      ],
+      "inputHints": {
+        "path": [
+          "id"
+        ],
+        "query": [],
+        "headers": [],
+        "body": false
+      },
+      "graphql": null,
+      "kind": "read-detail",
+      "pagination": null,
+      "related": []
+    },
+    {
+      "id": "getShowsIdEpisodes",
+      "method": "GET",
+      "path": "/shows/{id}/episodes",
+      "tag": "shows",
+      "summary": "GET /shows/{id}/episodes",
+      "description": "",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "type": "string"
+        }
+      ],
+      "hasRequestBody": false,
+      "risk": "read",
+      "cacheable": true,
+      "responseCodes": [
+        "200"
+      ],
+      "inputHints": {
+        "path": [
+          "id"
+        ],
+        "query": [],
+        "headers": [],
+        "body": false
+      },
+      "graphql": null,
+      "kind": "read",
+      "pagination": null,
+      "related": []
+    },
+    {
+      "id": "getSchedule",
+      "method": "GET",
+      "path": "/schedule",
+      "tag": "schedule",
+      "summary": "GET /schedule",
+      "description": "",
+      "parameters": [
+        {
+          "name": "country",
+          "in": "query",
+          "required": false,
+          "description": "",
+          "type": "string"
+        },
+        {
+          "name": "date",
+          "in": "query",
+          "required": false,
+          "description": "",
+          "type": "string"
+        }
+      ],
+      "hasRequestBody": false,
+      "risk": "read",
+      "cacheable": true,
+      "responseCodes": [
+        "200"
+      ],
+      "inputHints": {
+        "path": [],
+        "query": [
+          "country",
+          "date"
+        ],
+        "headers": [],
+        "body": false
+      },
+      "graphql": null,
+      "kind": "read-list",
+      "pagination": null,
+      "related": []
+    },
+    {
+      "id": "getPeople",
+      "method": "GET",
+      "path": "/people/{id}",
+      "tag": "people",
+      "summary": "GET /people/{id}",
+      "description": "",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "type": "string"
+        }
+      ],
+      "hasRequestBody": false,
+      "risk": "read",
+      "cacheable": true,
+      "responseCodes": [
+        "200"
+      ],
+      "inputHints": {
+        "path": [
+          "id"
+        ],
+        "query": [],
+        "headers": [],
+        "body": false
+      },
+      "graphql": null,
+      "kind": "read-detail",
+      "pagination": null,
+      "related": []
+    }
+  ],
+  "heroes": [
+    {
+      "alias": "shows",
+      "operationId": "getSearchShows",
+      "summary": "GET /search/shows",
+      "method": "GET",
+      "path": "/search/shows",
+      "defaultParams": {},
+      "explicit": false
+    },
+    {
+      "alias": "schedule",
+      "operationId": "getSchedule",
+      "summary": "GET /schedule",
+      "method": "GET",
+      "path": "/schedule",
+      "defaultParams": {},
+      "explicit": false
+    }
+  ],
+  "insights": {
+    "thesis": "tvmaze should become a local, searchable operational workspace, not only an endpoint wrapper.",
+    "generatedAdvantages": [
+      "One command surface for humans and agents",
+      "Shared core between CLI and MCP server",
+      "Local cache with search and replay metadata",
+      "Risk-aware dry-run defaults for write/destructive calls",
+      "Machine-readable manifest for catalogs and scorecards"
+    ],
+    "recommendedCommands": [
+      "sync: cache list endpoints locally",
+      "inspect: fetch entity details by id",
+      "search: query cached API responses offline"
+    ],
+    "domainMap": [
+      {
+        "tag": "people",
+        "operations": 1
+      },
+      {
+        "tag": "schedule",
+        "operations": 1
+      },
+      {
+        "tag": "search",
+        "operations": 1
+      },
+      {
+        "tag": "shows",
+        "operations": 2
+      }
+    ],
+    "riskNotes": []
+  },
+  "generatedAt": "2026-05-16T01:34:42.114Z",
+  "provenance": {
+    "schemaVersion": "gutenberg.provenance.v1",
+    "generatedAt": "2026-05-16T01:34:42.122Z",
+    "gutenbergVersion": "0.1.0",
+    "name": "tvmaze",
+    "spec": {
+      "path": "/tmp/tvmaze.openapi.json",
+      "sha256": "e6955bfd5afbe37fd438931fc157c67bafd0dbc92a1559cebdfdad5e460d9e52",
+      "size": 38281
+    },
+    "recipe": null,
+    "targets": [
+      "go",
+      "mcp",
+      "skill",
+      "openclaw"
+    ],
+    "scorecard": {
+      "score": 190,
+      "maxScore": 190,
+      "grade": "A",
+      "dimensions": {
+        "structure": {
+          "score": 55,
+          "max": 55,
+          "ratio": 1,
+          "count": 11,
+          "passed": 11
+        },
+        "manifest": {
+          "score": 45,
+          "max": 45,
+          "ratio": 1,
+          "count": 5,
+          "passed": 5
+        },
+        "runtime": {
+          "score": 40,
+          "max": 40,
+          "ratio": 1,
+          "count": 4,
+          "passed": 4
+        },
+        "verification": {
+          "score": 50,
+          "max": 50,
+          "ratio": 1,
+          "count": 5,
+          "passed": 5
+        },
+        "coverage": {
+          "score": 25,
+          "max": 30,
+          "ratio": 0.8333333333333334,
+          "operations": 5,
+          "cacheable": 5,
+          "reads": 5,
+          "tagged": 0
+        },
+        "safety": {
+          "score": 20,
+          "max": 20,
+          "ratio": 1,
+          "writes": 0,
+          "classified": true,
+          "guardSourcePresent": true
+        },
+        "examples": {
+          "score": 15,
+          "max": 15,
+          "ratio": 1
+        },
+        "skill": {
+          "score": 10,
+          "max": 10,
+          "ratio": 1,
+          "present": true
+        }
+      }
+    },
+    "verification": {
+      "schemaVersion": "gutenberg.verification.summary.v1",
+      "verifiedAt": "2026-05-16T01:40:16.546Z",
+      "ok": true,
+      "badges": [
+        "Gutenberg Verified",
+        "Build Verified",
+        "MCP Ready",
+        "Risk Gated"
+      ],
+      "proofFile": "proofs/verification.json"
+    }
+  },
+  "defaultHeaders": {},
+  "policy": {
+    "schemaVersion": "gutenberg.policy.v1",
+    "rules": [
+      {
+        "risk": "read",
+        "action": "allow",
+        "requiresYes": false
+      },
+      {
+        "risk": "write",
+        "action": "confirm",
+        "requiresYes": true
+      },
+      {
+        "risk": "destructive",
+        "action": "confirm",
+        "requiresYes": true
+      }
+    ],
+    "redaction": [
+      "authorization",
+      "cookie",
+      "token",
+      "secret",
+      "api-key",
+      "apikey",
+      "client-secret",
+      "session"
+    ]
+  },
+  "packageName": "gutenberg.local/tvmaze",
+  "generatedBy": "gutenberg",
+  "generatedByVersion": "0.3.0",
+  "language": "go",
+  "verification": {
+    "schemaVersion": "gutenberg.verification.summary.v1",
+    "verifiedAt": "2026-05-16T01:40:16.546Z",
+    "ok": true,
+    "badges": [
+      "Gutenberg Verified",
+      "Build Verified",
+      "MCP Ready",
+      "Risk Gated"
+    ],
+    "proofFile": "proofs/verification.json"
+  }
+}

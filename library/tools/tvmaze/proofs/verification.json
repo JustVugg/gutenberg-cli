@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "gutenberg.verification.v1",
+  "projectDir": "library/tools/tvmaze",
+  "tool": "tvmaze",
+  "language": "go",
+  "startedAt": "2026-05-16T01:39:50.131Z",
+  "finishedAt": "2026-05-16T01:40:16.546Z",
+  "ok": true,
+  "checks": [
+    {
+      "id": "go-mod-tidy",
+      "label": "go mod tidy",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 2287,
+      "log": "proofs/go-mod-tidy.log",
+      "artifact": null
+    },
+    {
+      "id": "go-test",
+      "label": "go test ./...",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 11972,
+      "log": "proofs/go-test.log",
+      "artifact": null
+    },
+    {
+      "id": "go-build",
+      "label": "go build CLI binary",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 10095,
+      "log": "proofs/go-build.log",
+      "artifact": "library/tools/tvmaze/proofs/bin/tvmaze"
+    },
+    {
+      "id": "cli-smoke",
+      "label": "CLI operations smoke",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 283,
+      "log": "proofs/cli-smoke.log",
+      "artifact": null
+    },
+    {
+      "id": "mcp-handshake",
+      "label": "MCP initialize + tools/list",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 235,
+      "log": "proofs/mcp-handshake.log",
+      "artifact": null
+    }
+  ],
+  "artifacts": {
+    "proofDir": "library/tools/tvmaze/proofs",
+    "manifest": "library/tools/tvmaze/gutenberg.manifest.json",
+    "source": {
+      "path": "tvmaze.openapi.json",
+      "sha256": "e6955bfd5afbe37fd438931fc157c67bafd0dbc92a1559cebdfdad5e460d9e52",
+      "size": 38281
+    },
+    "binary": "library/tools/tvmaze/proofs/bin/tvmaze",
+    "binarySha256": "a21b35ddb9b8d9f1b5543384667ac8d631efd0c69cbb11614cc891aa30141403"
+  },
+  "badges": [
+    "Gutenberg Verified",
+    "Build Verified",
+    "MCP Ready",
+    "Risk Gated"
+  ]
+}
