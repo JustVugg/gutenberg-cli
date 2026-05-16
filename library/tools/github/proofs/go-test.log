@@ -1,0 +1,11 @@
+$ /mnt/c/Users/sarah/Desktop/gutenberg/scripts/use-go.sh test ./...
+cwd: /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/github
+status: 0
+signal: 
+
+stdout:
+?   	gutenberg.local/github/cmd/github	[no test files]
+ok  	gutenberg.local/github/internal/forge	2.528s
+
+
+stderr:

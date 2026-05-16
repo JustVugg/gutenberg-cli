@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "gutenberg.lock.v1",
+  "generatedAt": "2026-05-16T01:32:07.620Z",
+  "gutenbergVersion": "0.1.0",
+  "name": "github",
+  "spec": {
+    "path": "/tmp/github-api.json",
+    "sha256": "a915806209de9e2a6ad20564a901add5b066b3b6474a3a2c666783c1076634ba",
+    "size": 12498849
+  },
+  "recipe": null,
+  "targets": [
+    "go",
+    "mcp",
+    "skill",
+    "openclaw"
+  ]
+}

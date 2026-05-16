@@ -1,0 +1,3939 @@
+{
+  "schemaVersion": "openclaw.skill.v1",
+  "name": "github",
+  "displayName": "github",
+  "description": "github should become a local, searchable operational workspace, not only an endpoint wrapper.",
+  "runtime": {
+    "cli": "github",
+    "mcp": "github mcp"
+  },
+  "auth": {
+    "mode": "none",
+    "oauth": false,
+    "env": null,
+    "setupCommand": null
+  },
+  "capabilities": {
+    "readOperations": 616,
+    "writeOperations": 373,
+    "destructiveOperations": 194,
+    "cacheable": 616,
+    "total": 1183
+  },
+  "actions": [
+    {
+      "name": "meta",
+      "operationId": "meta/root",
+      "summary": "GitHub API Root",
+      "method": "GET",
+      "path": "/",
+      "defaultParams": {},
+      "invoke": "github meta",
+      "safe": true
+    },
+    {
+      "name": "advisories",
+      "operationId": "security-advisories/list-global-advisories",
+      "summary": "List global security advisories",
+      "method": "GET",
+      "path": "/advisories",
+      "defaultParams": {},
+      "invoke": "github advisories",
+      "safe": true
+    },
+    {
+      "name": "tasks",
+      "operationId": "agent-tasks/list-tasks",
+      "summary": "List tasks",
+      "method": "GET",
+      "path": "/agents/tasks",
+      "defaultParams": {},
+      "invoke": "github tasks",
+      "safe": true
+    },
+    {
+      "name": "app",
+      "operationId": "apps/get-authenticated",
+      "summary": "Get the authenticated app",
+      "method": "GET",
+      "path": "/app",
+      "defaultParams": {},
+      "invoke": "github app",
+      "safe": true
+    },
+    {
+      "name": "config",
+      "operationId": "apps/get-webhook-config-for-app",
+      "summary": "Get a webhook configuration for an app",
+      "method": "GET",
+      "path": "/app/hook/config",
+      "defaultParams": {},
+      "invoke": "github config",
+      "safe": true
+    },
+    {
+      "name": "deliveries",
+      "operationId": "apps/list-webhook-deliveries",
+      "summary": "List deliveries for an app webhook",
+      "method": "GET",
+      "path": "/app/hook/deliveries",
+      "defaultParams": {},
+      "invoke": "github deliveries",
+      "safe": true
+    },
+    {
+      "name": "installation-requests",
+      "operationId": "apps/list-installation-requests-for-authenticated-app",
+      "summary": "List installation requests for the authenticated app",
+      "method": "GET",
+      "path": "/app/installation-requests",
+      "defaultParams": {},
+      "invoke": "github installation-requests",
+      "safe": true
+    },
+    {
+      "name": "installations",
+      "operationId": "apps/list-installations",
+      "summary": "List installations for the authenticated app",
+      "method": "GET",
+      "path": "/app/installations",
+      "defaultParams": {},
+      "invoke": "github installations",
+      "safe": true
+    },
+    {
+      "name": "classrooms",
+      "operationId": "classroom/list-classrooms",
+      "summary": "List classrooms",
+      "method": "GET",
+      "path": "/classrooms",
+      "defaultParams": {},
+      "invoke": "github classrooms",
+      "safe": true
+    },
+    {
+      "name": "codes-of-conduct",
+      "operationId": "codes-of-conduct/get-all-codes-of-conduct",
+      "summary": "Get all codes of conduct",
+      "method": "GET",
+      "path": "/codes_of_conduct",
+      "defaultParams": {},
+      "invoke": "github codes-of-conduct",
+      "safe": true
+    },
+    {
+      "name": "emojis",
+      "operationId": "emojis/get",
+      "summary": "Get emojis",
+      "method": "GET",
+      "path": "/emojis",
+      "defaultParams": {},
+      "invoke": "github emojis",
+      "safe": true
+    },
+    {
+      "name": "events",
+      "operationId": "activity/list-public-events",
+      "summary": "List public events",
+      "method": "GET",
+      "path": "/events",
+      "defaultParams": {},
+      "invoke": "github events",
+      "safe": true
+    },
+    {
+      "name": "feeds",
+      "operationId": "activity/get-feeds",
+      "summary": "Get feeds",
+      "method": "GET",
+      "path": "/feeds",
+      "defaultParams": {},
+      "invoke": "github feeds",
+      "safe": true
+    },
+    {
+      "name": "gists",
+      "operationId": "gists/list",
+      "summary": "List gists for the authenticated user",
+      "method": "GET",
+      "path": "/gists",
+      "defaultParams": {},
+      "invoke": "github gists",
+      "safe": true
+    },
+    {
+      "name": "gists-2",
+      "operationId": "gists/list-public",
+      "summary": "List public gists",
+      "method": "GET",
+      "path": "/gists/public",
+      "defaultParams": {},
+      "invoke": "github gists-2",
+      "safe": true
+    },
+    {
+      "name": "starred",
+      "operationId": "gists/list-starred",
+      "summary": "List starred gists",
+      "method": "GET",
+      "path": "/gists/starred",
+      "defaultParams": {},
+      "invoke": "github starred",
+      "safe": true
+    },
+    {
+      "name": "templates",
+      "operationId": "gitignore/get-all-templates",
+      "summary": "Get all gitignore templates",
+      "method": "GET",
+      "path": "/gitignore/templates",
+      "defaultParams": {},
+      "invoke": "github templates",
+      "safe": true
+    },
+    {
+      "name": "repositories",
+      "operationId": "apps/list-repos-accessible-to-installation",
+      "summary": "List repositories accessible to the app installation",
+      "method": "GET",
+      "path": "/installation/repositories",
+      "defaultParams": {},
+      "invoke": "github repositories",
+      "safe": true
+    },
+    {
+      "name": "issues",
+      "operationId": "issues/list",
+      "summary": "List issues assigned to the authenticated user",
+      "method": "GET",
+      "path": "/issues",
+      "defaultParams": {},
+      "invoke": "github issues",
+      "safe": true
+    },
+    {
+      "name": "licenses",
+      "operationId": "licenses/get-all-commonly-used",
+      "summary": "Get all commonly used licenses",
+      "method": "GET",
+      "path": "/licenses",
+      "defaultParams": {},
+      "invoke": "github licenses",
+      "safe": true
+    }
+  ],
+  "operations": [
+    {
+      "id": "meta/root",
+      "method": "GET",
+      "path": "/",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GitHub API Root",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "github call meta/root"
+    },
+    {
+      "id": "security-advisories/list-global-advisories",
+      "method": "GET",
+      "path": "/advisories",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List global security advisories",
+      "requiredParams": [],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "after"
+      },
+      "invoke": "github call security-advisories/list-global-advisories"
+    },
+    {
+      "id": "security-advisories/get-global-advisory",
+      "method": "GET",
+      "path": "/advisories/{ghsa_id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Get a global security advisory",
+      "requiredParams": [
+        {
+          "name": "ghsa_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call security-advisories/get-global-advisory"
+    },
+    {
+      "id": "agent-tasks/list-tasks-for-repo",
+      "method": "GET",
+      "path": "/agents/repos/{owner}/{repo}/tasks",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List tasks for repository",
+      "requiredParams": [
+        {
+          "name": "owner",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "repo",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call agent-tasks/list-tasks-for-repo"
+    },
+    {
+      "id": "agent-tasks/create-task-in-repo",
+      "method": "POST",
+      "path": "/agents/repos/{owner}/{repo}/tasks",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Start a task",
+      "requiredParams": [
+        {
+          "name": "owner",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "repo",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call agent-tasks/create-task-in-repo"
+    },
+    {
+      "id": "agent-tasks/get-task-by-repo-and-id",
+      "method": "GET",
+      "path": "/agents/repos/{owner}/{repo}/tasks/{task_id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Get a task by repo",
+      "requiredParams": [
+        {
+          "name": "owner",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "repo",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "task_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call agent-tasks/get-task-by-repo-and-id"
+    },
+    {
+      "id": "agent-tasks/list-tasks",
+      "method": "GET",
+      "path": "/agents/tasks",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List tasks",
+      "requiredParams": [],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call agent-tasks/list-tasks"
+    },
+    {
+      "id": "agent-tasks/get-task-by-id",
+      "method": "GET",
+      "path": "/agents/tasks/{task_id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Get a task by ID",
+      "requiredParams": [
+        {
+          "name": "task_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call agent-tasks/get-task-by-id"
+    },
+    {
+      "id": "apps/get-authenticated",
+      "method": "GET",
+      "path": "/app",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "Get the authenticated app",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "github call apps/get-authenticated"
+    },
+    {
+      "id": "apps/create-from-manifest",
+      "method": "POST",
+      "path": "/app-manifests/{code}/conversions",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a GitHub App from a manifest",
+      "requiredParams": [
+        {
+          "name": "code",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call apps/create-from-manifest"
+    },
+    {
+      "id": "apps/get-webhook-config-for-app",
+      "method": "GET",
+      "path": "/app/hook/config",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "Get a webhook configuration for an app",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "github call apps/get-webhook-config-for-app"
+    },
+    {
+      "id": "apps/update-webhook-config-for-app",
+      "method": "PATCH",
+      "path": "/app/hook/config",
+      "kind": "upsert",
+      "risk": "write",
+      "summary": "Update a webhook configuration for an app",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "github call apps/update-webhook-config-for-app"
+    },
+    {
+      "id": "apps/list-webhook-deliveries",
+      "method": "GET",
+      "path": "/app/hook/deliveries",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List deliveries for an app webhook",
+      "requiredParams": [],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "cursor"
+      },
+      "invoke": "github call apps/list-webhook-deliveries"
+    },
+    {
+      "id": "apps/get-webhook-delivery",
+      "method": "GET",
+      "path": "/app/hook/deliveries/{delivery_id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Get a delivery for an app webhook",
+      "requiredParams": [
+        {
+          "name": "delivery_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call apps/get-webhook-delivery"
+    },
+    {
+      "id": "apps/redeliver-webhook-delivery",
+      "method": "POST",
+      "path": "/app/hook/deliveries/{delivery_id}/attempts",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Redeliver a delivery for an app webhook",
+      "requiredParams": [
+        {
+          "name": "delivery_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call apps/redeliver-webhook-delivery"
+    },
+    {
+      "id": "apps/list-installation-requests-for-authenticated-app",
+      "method": "GET",
+      "path": "/app/installation-requests",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List installation requests for the authenticated app",
+      "requiredParams": [],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call apps/list-installation-requests-for-authenticated-app"
+    },
+    {
+      "id": "apps/list-installations",
+      "method": "GET",
+      "path": "/app/installations",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List installations for the authenticated app",
+      "requiredParams": [],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call apps/list-installations"
+    },
+    {
+      "id": "apps/get-installation",
+      "method": "GET",
+      "path": "/app/installations/{installation_id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Get an installation for the authenticated app",
+      "requiredParams": [
+        {
+          "name": "installation_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call apps/get-installation"
+    },
+    {
+      "id": "apps/delete-installation",
+      "method": "DELETE",
+      "path": "/app/installations/{installation_id}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete an installation for the authenticated app",
+      "requiredParams": [
+        {
+          "name": "installation_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call apps/delete-installation"
+    },
+    {
+      "id": "apps/create-installation-access-token",
+      "method": "POST",
+      "path": "/app/installations/{installation_id}/access_tokens",
+      "kind": "action",
+      "risk": "write",
+      "summary": "Create an installation access token for an app",
+      "requiredParams": [
+        {
+          "name": "installation_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call apps/create-installation-access-token"
+    },
+    {
+      "id": "apps/suspend-installation",
+      "method": "PUT",
+      "path": "/app/installations/{installation_id}/suspended",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Suspend an app installation",
+      "requiredParams": [
+        {
+          "name": "installation_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call apps/suspend-installation"
+    },
+    {
+      "id": "apps/unsuspend-installation",
+      "method": "DELETE",
+      "path": "/app/installations/{installation_id}/suspended",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Unsuspend an app installation",
+      "requiredParams": [
+        {
+          "name": "installation_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call apps/unsuspend-installation"
+    },
+    {
+      "id": "apps/delete-authorization",
+      "method": "DELETE",
+      "path": "/applications/{client_id}/grant",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete an app authorization",
+      "requiredParams": [
+        {
+          "name": "client_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call apps/delete-authorization"
+    },
+    {
+      "id": "apps/check-token",
+      "method": "POST",
+      "path": "/applications/{client_id}/token",
+      "kind": "action",
+      "risk": "write",
+      "summary": "Check a token",
+      "requiredParams": [
+        {
+          "name": "client_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call apps/check-token"
+    },
+    {
+      "id": "apps/reset-token",
+      "method": "PATCH",
+      "path": "/applications/{client_id}/token",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Reset a token",
+      "requiredParams": [
+        {
+          "name": "client_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call apps/reset-token"
+    },
+    {
+      "id": "apps/delete-token",
+      "method": "DELETE",
+      "path": "/applications/{client_id}/token",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete an app token",
+      "requiredParams": [
+        {
+          "name": "client_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call apps/delete-token"
+    },
+    {
+      "id": "apps/scope-token",
+      "method": "POST",
+      "path": "/applications/{client_id}/token/scoped",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a scoped access token",
+      "requiredParams": [
+        {
+          "name": "client_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call apps/scope-token"
+    },
+    {
+      "id": "apps/get-by-slug",
+      "method": "GET",
+      "path": "/apps/{app_slug}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Get an app",
+      "requiredParams": [
+        {
+          "name": "app_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call apps/get-by-slug"
+    },
+    {
+      "id": "classroom/get-an-assignment",
+      "method": "GET",
+      "path": "/assignments/{assignment_id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Get an assignment",
+      "requiredParams": [
+        {
+          "name": "assignment_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call classroom/get-an-assignment"
+    },
+    {
+      "id": "classroom/list-accepted-assignments-for-an-assignment",
+      "method": "GET",
+      "path": "/assignments/{assignment_id}/accepted_assignments",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List accepted assignments for an assignment",
+      "requiredParams": [
+        {
+          "name": "assignment_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call classroom/list-accepted-assignments-for-an-assignment"
+    },
+    {
+      "id": "classroom/get-assignment-grades",
+      "method": "GET",
+      "path": "/assignments/{assignment_id}/grades",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get assignment grades",
+      "requiredParams": [
+        {
+          "name": "assignment_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call classroom/get-assignment-grades"
+    },
+    {
+      "id": "classroom/list-classrooms",
+      "method": "GET",
+      "path": "/classrooms",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List classrooms",
+      "requiredParams": [],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call classroom/list-classrooms"
+    },
+    {
+      "id": "classroom/get-a-classroom",
+      "method": "GET",
+      "path": "/classrooms/{classroom_id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Get a classroom",
+      "requiredParams": [
+        {
+          "name": "classroom_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call classroom/get-a-classroom"
+    },
+    {
+      "id": "classroom/list-assignments-for-a-classroom",
+      "method": "GET",
+      "path": "/classrooms/{classroom_id}/assignments",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List assignments for a classroom",
+      "requiredParams": [
+        {
+          "name": "classroom_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call classroom/list-assignments-for-a-classroom"
+    },
+    {
+      "id": "codes-of-conduct/get-all-codes-of-conduct",
+      "method": "GET",
+      "path": "/codes_of_conduct",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "Get all codes of conduct",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "github call codes-of-conduct/get-all-codes-of-conduct"
+    },
+    {
+      "id": "codes-of-conduct/get-conduct-code",
+      "method": "GET",
+      "path": "/codes_of_conduct/{key}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Get a code of conduct",
+      "requiredParams": [
+        {
+          "name": "key",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call codes-of-conduct/get-conduct-code"
+    },
+    {
+      "id": "credentials/revoke",
+      "method": "POST",
+      "path": "/credentials/revoke",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Revoke a list of credentials",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "github call credentials/revoke"
+    },
+    {
+      "id": "emojis/get",
+      "method": "GET",
+      "path": "/emojis",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "Get emojis",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "github call emojis/get"
+    },
+    {
+      "id": "actions/get-actions-cache-retention-limit-for-enterprise",
+      "method": "GET",
+      "path": "/enterprises/{enterprise}/actions/cache/retention-limit",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get GitHub Actions cache retention limit for an enterprise",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/get-actions-cache-retention-limit-for-enterprise"
+    },
+    {
+      "id": "actions/set-actions-cache-retention-limit-for-enterprise",
+      "method": "PUT",
+      "path": "/enterprises/{enterprise}/actions/cache/retention-limit",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Set GitHub Actions cache retention limit for an enterprise",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/set-actions-cache-retention-limit-for-enterprise"
+    },
+    {
+      "id": "actions/get-actions-cache-storage-limit-for-enterprise",
+      "method": "GET",
+      "path": "/enterprises/{enterprise}/actions/cache/storage-limit",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get GitHub Actions cache storage limit for an enterprise",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/get-actions-cache-storage-limit-for-enterprise"
+    },
+    {
+      "id": "actions/set-actions-cache-storage-limit-for-enterprise",
+      "method": "PUT",
+      "path": "/enterprises/{enterprise}/actions/cache/storage-limit",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Set GitHub Actions cache storage limit for an enterprise",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/set-actions-cache-storage-limit-for-enterprise"
+    },
+    {
+      "id": "oidc/list-oidc-custom-property-inclusions-for-enterprise",
+      "method": "GET",
+      "path": "/enterprises/{enterprise}/actions/oidc/customization/properties/repo",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List OIDC custom property inclusions for an enterprise",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call oidc/list-oidc-custom-property-inclusions-for-enterprise"
+    },
+    {
+      "id": "oidc/create-oidc-custom-property-inclusion-for-enterprise",
+      "method": "POST",
+      "path": "/enterprises/{enterprise}/actions/oidc/customization/properties/repo",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create an OIDC custom property inclusion for an enterprise",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call oidc/create-oidc-custom-property-inclusion-for-enterprise"
+    },
+    {
+      "id": "oidc/delete-oidc-custom-property-inclusion-for-enterprise",
+      "method": "DELETE",
+      "path": "/enterprises/{enterprise}/actions/oidc/customization/properties/repo/{custom_property_name}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete an OIDC custom property inclusion for an enterprise",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "custom_property_name",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call oidc/delete-oidc-custom-property-inclusion-for-enterprise"
+    },
+    {
+      "id": "code-security/get-configurations-for-enterprise",
+      "method": "GET",
+      "path": "/enterprises/{enterprise}/code-security/configurations",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get code security configurations for an enterprise",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "after"
+      },
+      "invoke": "github call code-security/get-configurations-for-enterprise"
+    },
+    {
+      "id": "code-security/create-configuration-for-enterprise",
+      "method": "POST",
+      "path": "/enterprises/{enterprise}/code-security/configurations",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a code security configuration for an enterprise",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call code-security/create-configuration-for-enterprise"
+    },
+    {
+      "id": "code-security/get-default-configurations-for-enterprise",
+      "method": "GET",
+      "path": "/enterprises/{enterprise}/code-security/configurations/defaults",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get default code security configurations for an enterprise",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call code-security/get-default-configurations-for-enterprise"
+    },
+    {
+      "id": "code-security/get-single-configuration-for-enterprise",
+      "method": "GET",
+      "path": "/enterprises/{enterprise}/code-security/configurations/{configuration_id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve a code security configuration of an enterprise",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "configuration_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call code-security/get-single-configuration-for-enterprise"
+    },
+    {
+      "id": "code-security/update-enterprise-configuration",
+      "method": "PATCH",
+      "path": "/enterprises/{enterprise}/code-security/configurations/{configuration_id}",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Update a custom code security configuration for an enterprise",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "configuration_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call code-security/update-enterprise-configuration"
+    },
+    {
+      "id": "code-security/delete-configuration-for-enterprise",
+      "method": "DELETE",
+      "path": "/enterprises/{enterprise}/code-security/configurations/{configuration_id}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete a code security configuration for an enterprise",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "configuration_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call code-security/delete-configuration-for-enterprise"
+    },
+    {
+      "id": "code-security/attach-enterprise-configuration",
+      "method": "POST",
+      "path": "/enterprises/{enterprise}/code-security/configurations/{configuration_id}/attach",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Attach an enterprise configuration to repositories",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "configuration_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call code-security/attach-enterprise-configuration"
+    },
+    {
+      "id": "code-security/set-configuration-as-default-for-enterprise",
+      "method": "PUT",
+      "path": "/enterprises/{enterprise}/code-security/configurations/{configuration_id}/defaults",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Set a code security configuration as a default for an enterprise",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "configuration_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call code-security/set-configuration-as-default-for-enterprise"
+    },
+    {
+      "id": "code-security/get-repositories-for-enterprise-configuration",
+      "method": "GET",
+      "path": "/enterprises/{enterprise}/code-security/configurations/{configuration_id}/repositories",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get repositories associated with an enterprise code security configuration",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "configuration_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "after"
+      },
+      "invoke": "github call code-security/get-repositories-for-enterprise-configuration"
+    },
+    {
+      "id": "copilot/copilot-enterprise-one-day-usage-metrics",
+      "method": "GET",
+      "path": "/enterprises/{enterprise}/copilot/metrics/reports/enterprise-1-day",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get Copilot enterprise usage metrics for a specific day",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "day",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call copilot/copilot-enterprise-one-day-usage-metrics"
+    },
+    {
+      "id": "copilot/copilot-enterprise-usage-metrics",
+      "method": "GET",
+      "path": "/enterprises/{enterprise}/copilot/metrics/reports/enterprise-28-day/latest",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get Copilot enterprise usage metrics",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call copilot/copilot-enterprise-usage-metrics"
+    },
+    {
+      "id": "copilot/copilot-users-one-day-usage-metrics",
+      "method": "GET",
+      "path": "/enterprises/{enterprise}/copilot/metrics/reports/users-1-day",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get Copilot users usage metrics for a specific day",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "day",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call copilot/copilot-users-one-day-usage-metrics"
+    },
+    {
+      "id": "copilot/copilot-users-usage-metrics",
+      "method": "GET",
+      "path": "/enterprises/{enterprise}/copilot/metrics/reports/users-28-day/latest",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get Copilot users usage metrics",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call copilot/copilot-users-usage-metrics"
+    },
+    {
+      "id": "copilot/set-enterprise-coding-agent-policy",
+      "method": "PUT",
+      "path": "/enterprises/{enterprise}/copilot/policies/coding_agent",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Set the coding agent policy for an enterprise",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call copilot/set-enterprise-coding-agent-policy"
+    },
+    {
+      "id": "copilot/add-organizations-to-enterprise-coding-agent-policy",
+      "method": "POST",
+      "path": "/enterprises/{enterprise}/copilot/policies/coding_agent/organizations",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Add organizations to the enterprise coding agent policy",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call copilot/add-organizations-to-enterprise-coding-agent-policy"
+    },
+    {
+      "id": "copilot/remove-organizations-from-enterprise-coding-agent-policy",
+      "method": "DELETE",
+      "path": "/enterprises/{enterprise}/copilot/policies/coding_agent/organizations",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Remove organizations from the enterprise coding agent policy",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call copilot/remove-organizations-from-enterprise-coding-agent-policy"
+    },
+    {
+      "id": "dependabot/list-alerts-for-enterprise",
+      "method": "GET",
+      "path": "/enterprises/{enterprise}/dependabot/alerts",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List Dependabot alerts for an enterprise",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "cursor",
+        "cursorParam": "after"
+      },
+      "invoke": "github call dependabot/list-alerts-for-enterprise"
+    },
+    {
+      "id": "dependabot/repository-access-for-enterprise",
+      "method": "GET",
+      "path": "/enterprises/{enterprise}/dependabot/repository-access",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Lists the repositories Dependabot can access in an enterprise",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call dependabot/repository-access-for-enterprise"
+    },
+    {
+      "id": "dependabot/update-repository-access-for-enterprise",
+      "method": "PATCH",
+      "path": "/enterprises/{enterprise}/dependabot/repository-access",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Updates Dependabot's repository access list for an enterprise",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call dependabot/update-repository-access-for-enterprise"
+    },
+    {
+      "id": "dependabot/set-repository-access-default-level-for-enterprise",
+      "method": "PUT",
+      "path": "/enterprises/{enterprise}/dependabot/repository-access/default-level",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Set the default repository access level for Dependabot in an enterprise",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call dependabot/set-repository-access-default-level-for-enterprise"
+    },
+    {
+      "id": "enterprise-teams/list",
+      "method": "GET",
+      "path": "/enterprises/{enterprise}/teams",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List enterprise teams",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call enterprise-teams/list"
+    },
+    {
+      "id": "enterprise-teams/create",
+      "method": "POST",
+      "path": "/enterprises/{enterprise}/teams",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create an enterprise team",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call enterprise-teams/create"
+    },
+    {
+      "id": "enterprise-team-memberships/list",
+      "method": "GET",
+      "path": "/enterprises/{enterprise}/teams/{enterprise-team}/memberships",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List members in an enterprise team",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "enterprise-team",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call enterprise-team-memberships/list"
+    },
+    {
+      "id": "enterprise-team-memberships/bulk-add",
+      "method": "POST",
+      "path": "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/add",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Bulk add team members",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "enterprise-team",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call enterprise-team-memberships/bulk-add"
+    },
+    {
+      "id": "enterprise-team-memberships/bulk-remove",
+      "method": "POST",
+      "path": "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/remove",
+      "kind": "create",
+      "risk": "destructive",
+      "summary": "Bulk remove team members",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "enterprise-team",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call enterprise-team-memberships/bulk-remove"
+    },
+    {
+      "id": "enterprise-team-memberships/get",
+      "method": "GET",
+      "path": "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/{username}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Get enterprise team membership",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "enterprise-team",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "username",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call enterprise-team-memberships/get"
+    },
+    {
+      "id": "enterprise-team-memberships/add",
+      "method": "PUT",
+      "path": "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/{username}",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Add team member",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "enterprise-team",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "username",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call enterprise-team-memberships/add"
+    },
+    {
+      "id": "enterprise-team-memberships/remove",
+      "method": "DELETE",
+      "path": "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/{username}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Remove team membership",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "enterprise-team",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "username",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call enterprise-team-memberships/remove"
+    },
+    {
+      "id": "enterprise-team-organizations/get-assignments",
+      "method": "GET",
+      "path": "/enterprises/{enterprise}/teams/{enterprise-team}/organizations",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get organization assignments",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "enterprise-team",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call enterprise-team-organizations/get-assignments"
+    },
+    {
+      "id": "enterprise-team-organizations/bulk-add",
+      "method": "POST",
+      "path": "/enterprises/{enterprise}/teams/{enterprise-team}/organizations/add",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Add organization assignments",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "enterprise-team",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call enterprise-team-organizations/bulk-add"
+    },
+    {
+      "id": "enterprise-team-organizations/bulk-remove",
+      "method": "POST",
+      "path": "/enterprises/{enterprise}/teams/{enterprise-team}/organizations/remove",
+      "kind": "create",
+      "risk": "destructive",
+      "summary": "Remove organization assignments",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "enterprise-team",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call enterprise-team-organizations/bulk-remove"
+    },
+    {
+      "id": "enterprise-team-organizations/get-assignment",
+      "method": "GET",
+      "path": "/enterprises/{enterprise}/teams/{enterprise-team}/organizations/{org}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Get organization assignment",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "enterprise-team",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call enterprise-team-organizations/get-assignment"
+    },
+    {
+      "id": "enterprise-team-organizations/add",
+      "method": "PUT",
+      "path": "/enterprises/{enterprise}/teams/{enterprise-team}/organizations/{org}",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Add an organization assignment",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "enterprise-team",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call enterprise-team-organizations/add"
+    },
+    {
+      "id": "enterprise-team-organizations/delete",
+      "method": "DELETE",
+      "path": "/enterprises/{enterprise}/teams/{enterprise-team}/organizations/{org}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete an organization assignment",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "enterprise-team",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call enterprise-team-organizations/delete"
+    },
+    {
+      "id": "enterprise-teams/get",
+      "method": "GET",
+      "path": "/enterprises/{enterprise}/teams/{team_slug}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Get an enterprise team",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "team_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call enterprise-teams/get"
+    },
+    {
+      "id": "enterprise-teams/update",
+      "method": "PATCH",
+      "path": "/enterprises/{enterprise}/teams/{team_slug}",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Update an enterprise team",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "team_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call enterprise-teams/update"
+    },
+    {
+      "id": "enterprise-teams/delete",
+      "method": "DELETE",
+      "path": "/enterprises/{enterprise}/teams/{team_slug}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete an enterprise team",
+      "requiredParams": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "team_slug",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call enterprise-teams/delete"
+    },
+    {
+      "id": "activity/list-public-events",
+      "method": "GET",
+      "path": "/events",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List public events",
+      "requiredParams": [],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call activity/list-public-events"
+    },
+    {
+      "id": "activity/get-feeds",
+      "method": "GET",
+      "path": "/feeds",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "Get feeds",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "github call activity/get-feeds"
+    },
+    {
+      "id": "gists/list",
+      "method": "GET",
+      "path": "/gists",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List gists for the authenticated user",
+      "requiredParams": [],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call gists/list"
+    },
+    {
+      "id": "gists/create",
+      "method": "POST",
+      "path": "/gists",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a gist",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "github call gists/create"
+    },
+    {
+      "id": "gists/list-public",
+      "method": "GET",
+      "path": "/gists/public",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List public gists",
+      "requiredParams": [],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call gists/list-public"
+    },
+    {
+      "id": "gists/list-starred",
+      "method": "GET",
+      "path": "/gists/starred",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List starred gists",
+      "requiredParams": [],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call gists/list-starred"
+    },
+    {
+      "id": "gists/get",
+      "method": "GET",
+      "path": "/gists/{gist_id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Get a gist",
+      "requiredParams": [
+        {
+          "name": "gist_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call gists/get"
+    },
+    {
+      "id": "gists/update",
+      "method": "PATCH",
+      "path": "/gists/{gist_id}",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Update a gist",
+      "requiredParams": [
+        {
+          "name": "gist_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call gists/update"
+    },
+    {
+      "id": "gists/delete",
+      "method": "DELETE",
+      "path": "/gists/{gist_id}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete a gist",
+      "requiredParams": [
+        {
+          "name": "gist_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call gists/delete"
+    },
+    {
+      "id": "gists/list-comments",
+      "method": "GET",
+      "path": "/gists/{gist_id}/comments",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List gist comments",
+      "requiredParams": [
+        {
+          "name": "gist_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call gists/list-comments"
+    },
+    {
+      "id": "gists/create-comment",
+      "method": "POST",
+      "path": "/gists/{gist_id}/comments",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a gist comment",
+      "requiredParams": [
+        {
+          "name": "gist_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call gists/create-comment"
+    },
+    {
+      "id": "gists/get-comment",
+      "method": "GET",
+      "path": "/gists/{gist_id}/comments/{comment_id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Get a gist comment",
+      "requiredParams": [
+        {
+          "name": "gist_id",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "comment_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call gists/get-comment"
+    },
+    {
+      "id": "gists/update-comment",
+      "method": "PATCH",
+      "path": "/gists/{gist_id}/comments/{comment_id}",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Update a gist comment",
+      "requiredParams": [
+        {
+          "name": "gist_id",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "comment_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call gists/update-comment"
+    },
+    {
+      "id": "gists/delete-comment",
+      "method": "DELETE",
+      "path": "/gists/{gist_id}/comments/{comment_id}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete a gist comment",
+      "requiredParams": [
+        {
+          "name": "gist_id",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "comment_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call gists/delete-comment"
+    },
+    {
+      "id": "gists/list-commits",
+      "method": "GET",
+      "path": "/gists/{gist_id}/commits",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List gist commits",
+      "requiredParams": [
+        {
+          "name": "gist_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call gists/list-commits"
+    },
+    {
+      "id": "gists/list-forks",
+      "method": "GET",
+      "path": "/gists/{gist_id}/forks",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List gist forks",
+      "requiredParams": [
+        {
+          "name": "gist_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call gists/list-forks"
+    },
+    {
+      "id": "gists/fork",
+      "method": "POST",
+      "path": "/gists/{gist_id}/forks",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Fork a gist",
+      "requiredParams": [
+        {
+          "name": "gist_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call gists/fork"
+    },
+    {
+      "id": "gists/check-is-starred",
+      "method": "GET",
+      "path": "/gists/{gist_id}/star",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Check if a gist is starred",
+      "requiredParams": [
+        {
+          "name": "gist_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call gists/check-is-starred"
+    },
+    {
+      "id": "gists/star",
+      "method": "PUT",
+      "path": "/gists/{gist_id}/star",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Star a gist",
+      "requiredParams": [
+        {
+          "name": "gist_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call gists/star"
+    },
+    {
+      "id": "gists/unstar",
+      "method": "DELETE",
+      "path": "/gists/{gist_id}/star",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Unstar a gist",
+      "requiredParams": [
+        {
+          "name": "gist_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call gists/unstar"
+    },
+    {
+      "id": "gists/get-revision",
+      "method": "GET",
+      "path": "/gists/{gist_id}/{sha}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Get a gist revision",
+      "requiredParams": [
+        {
+          "name": "gist_id",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "sha",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call gists/get-revision"
+    },
+    {
+      "id": "gitignore/get-all-templates",
+      "method": "GET",
+      "path": "/gitignore/templates",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "Get all gitignore templates",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "github call gitignore/get-all-templates"
+    },
+    {
+      "id": "gitignore/get-template",
+      "method": "GET",
+      "path": "/gitignore/templates/{name}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Get a gitignore template",
+      "requiredParams": [
+        {
+          "name": "name",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call gitignore/get-template"
+    },
+    {
+      "id": "apps/list-repos-accessible-to-installation",
+      "method": "GET",
+      "path": "/installation/repositories",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List repositories accessible to the app installation",
+      "requiredParams": [],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call apps/list-repos-accessible-to-installation"
+    },
+    {
+      "id": "apps/revoke-installation-access-token",
+      "method": "DELETE",
+      "path": "/installation/token",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Revoke an installation access token",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "github call apps/revoke-installation-access-token"
+    },
+    {
+      "id": "issues/list",
+      "method": "GET",
+      "path": "/issues",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List issues assigned to the authenticated user",
+      "requiredParams": [],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call issues/list"
+    },
+    {
+      "id": "licenses/get-all-commonly-used",
+      "method": "GET",
+      "path": "/licenses",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "Get all commonly used licenses",
+      "requiredParams": [],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call licenses/get-all-commonly-used"
+    },
+    {
+      "id": "licenses/get",
+      "method": "GET",
+      "path": "/licenses/{license}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Get a license",
+      "requiredParams": [
+        {
+          "name": "license",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call licenses/get"
+    },
+    {
+      "id": "markdown/render",
+      "method": "POST",
+      "path": "/markdown",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Render a Markdown document",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "github call markdown/render"
+    },
+    {
+      "id": "markdown/render-raw",
+      "method": "POST",
+      "path": "/markdown/raw",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Render a Markdown document in raw mode",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "github call markdown/render-raw"
+    },
+    {
+      "id": "apps/get-subscription-plan-for-account",
+      "method": "GET",
+      "path": "/marketplace_listing/accounts/{account_id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Get a subscription plan for an account",
+      "requiredParams": [
+        {
+          "name": "account_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call apps/get-subscription-plan-for-account"
+    },
+    {
+      "id": "apps/list-plans",
+      "method": "GET",
+      "path": "/marketplace_listing/plans",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List plans",
+      "requiredParams": [],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call apps/list-plans"
+    },
+    {
+      "id": "apps/list-accounts-for-plan",
+      "method": "GET",
+      "path": "/marketplace_listing/plans/{plan_id}/accounts",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List accounts for a plan",
+      "requiredParams": [
+        {
+          "name": "plan_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call apps/list-accounts-for-plan"
+    },
+    {
+      "id": "apps/get-subscription-plan-for-account-stubbed",
+      "method": "GET",
+      "path": "/marketplace_listing/stubbed/accounts/{account_id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Get a subscription plan for an account (stubbed)",
+      "requiredParams": [
+        {
+          "name": "account_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call apps/get-subscription-plan-for-account-stubbed"
+    },
+    {
+      "id": "apps/list-plans-stubbed",
+      "method": "GET",
+      "path": "/marketplace_listing/stubbed/plans",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List plans (stubbed)",
+      "requiredParams": [],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call apps/list-plans-stubbed"
+    },
+    {
+      "id": "apps/list-accounts-for-plan-stubbed",
+      "method": "GET",
+      "path": "/marketplace_listing/stubbed/plans/{plan_id}/accounts",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List accounts for a plan (stubbed)",
+      "requiredParams": [
+        {
+          "name": "plan_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call apps/list-accounts-for-plan-stubbed"
+    },
+    {
+      "id": "meta/get",
+      "method": "GET",
+      "path": "/meta",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "Get GitHub meta information",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "github call meta/get"
+    },
+    {
+      "id": "activity/list-public-events-for-repo-network",
+      "method": "GET",
+      "path": "/networks/{owner}/{repo}/events",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List public events for a network of repositories",
+      "requiredParams": [
+        {
+          "name": "owner",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "repo",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call activity/list-public-events-for-repo-network"
+    },
+    {
+      "id": "activity/list-notifications-for-authenticated-user",
+      "method": "GET",
+      "path": "/notifications",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List notifications for the authenticated user",
+      "requiredParams": [],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call activity/list-notifications-for-authenticated-user"
+    },
+    {
+      "id": "activity/mark-notifications-as-read",
+      "method": "PUT",
+      "path": "/notifications",
+      "kind": "upsert",
+      "risk": "write",
+      "summary": "Mark notifications as read",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "github call activity/mark-notifications-as-read"
+    },
+    {
+      "id": "activity/get-thread",
+      "method": "GET",
+      "path": "/notifications/threads/{thread_id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Get a thread",
+      "requiredParams": [
+        {
+          "name": "thread_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call activity/get-thread"
+    },
+    {
+      "id": "activity/mark-thread-as-read",
+      "method": "PATCH",
+      "path": "/notifications/threads/{thread_id}",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Mark a thread as read",
+      "requiredParams": [
+        {
+          "name": "thread_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call activity/mark-thread-as-read"
+    },
+    {
+      "id": "activity/mark-thread-as-done",
+      "method": "DELETE",
+      "path": "/notifications/threads/{thread_id}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Mark a thread as done",
+      "requiredParams": [
+        {
+          "name": "thread_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call activity/mark-thread-as-done"
+    },
+    {
+      "id": "activity/get-thread-subscription-for-authenticated-user",
+      "method": "GET",
+      "path": "/notifications/threads/{thread_id}/subscription",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get a thread subscription for the authenticated user",
+      "requiredParams": [
+        {
+          "name": "thread_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call activity/get-thread-subscription-for-authenticated-user"
+    },
+    {
+      "id": "activity/set-thread-subscription",
+      "method": "PUT",
+      "path": "/notifications/threads/{thread_id}/subscription",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Set a thread subscription",
+      "requiredParams": [
+        {
+          "name": "thread_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call activity/set-thread-subscription"
+    },
+    {
+      "id": "activity/delete-thread-subscription",
+      "method": "DELETE",
+      "path": "/notifications/threads/{thread_id}/subscription",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete a thread subscription",
+      "requiredParams": [
+        {
+          "name": "thread_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call activity/delete-thread-subscription"
+    },
+    {
+      "id": "meta/get-octocat",
+      "method": "GET",
+      "path": "/octocat",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "Get Octocat",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "github call meta/get-octocat"
+    },
+    {
+      "id": "orgs/list",
+      "method": "GET",
+      "path": "/organizations",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List organizations",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "github call orgs/list"
+    },
+    {
+      "id": "actions/get-actions-cache-retention-limit-for-organization",
+      "method": "GET",
+      "path": "/organizations/{org}/actions/cache/retention-limit",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get GitHub Actions cache retention limit for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/get-actions-cache-retention-limit-for-organization"
+    },
+    {
+      "id": "actions/set-actions-cache-retention-limit-for-organization",
+      "method": "PUT",
+      "path": "/organizations/{org}/actions/cache/retention-limit",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Set GitHub Actions cache retention limit for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/set-actions-cache-retention-limit-for-organization"
+    },
+    {
+      "id": "actions/get-actions-cache-storage-limit-for-organization",
+      "method": "GET",
+      "path": "/organizations/{org}/actions/cache/storage-limit",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get GitHub Actions cache storage limit for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/get-actions-cache-storage-limit-for-organization"
+    },
+    {
+      "id": "actions/set-actions-cache-storage-limit-for-organization",
+      "method": "PUT",
+      "path": "/organizations/{org}/actions/cache/storage-limit",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Set GitHub Actions cache storage limit for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/set-actions-cache-storage-limit-for-organization"
+    },
+    {
+      "id": "billing/get-all-budgets-org",
+      "method": "GET",
+      "path": "/organizations/{org}/settings/billing/budgets",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get all budgets for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call billing/get-all-budgets-org"
+    },
+    {
+      "id": "billing/get-budget-org",
+      "method": "GET",
+      "path": "/organizations/{org}/settings/billing/budgets/{budget_id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Get a budget by ID for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "budget_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call billing/get-budget-org"
+    },
+    {
+      "id": "billing/update-budget-org",
+      "method": "PATCH",
+      "path": "/organizations/{org}/settings/billing/budgets/{budget_id}",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Update a budget for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "budget_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call billing/update-budget-org"
+    },
+    {
+      "id": "billing/delete-budget-org",
+      "method": "DELETE",
+      "path": "/organizations/{org}/settings/billing/budgets/{budget_id}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete a budget for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "budget_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call billing/delete-budget-org"
+    },
+    {
+      "id": "billing/get-github-billing-premium-request-usage-report-org",
+      "method": "GET",
+      "path": "/organizations/{org}/settings/billing/premium_request/usage",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get billing premium request usage report for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call billing/get-github-billing-premium-request-usage-report-org"
+    },
+    {
+      "id": "billing/get-github-billing-usage-report-org",
+      "method": "GET",
+      "path": "/organizations/{org}/settings/billing/usage",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get billing usage report for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call billing/get-github-billing-usage-report-org"
+    },
+    {
+      "id": "billing/get-github-billing-usage-summary-report-org",
+      "method": "GET",
+      "path": "/organizations/{org}/settings/billing/usage/summary",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get billing usage summary for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call billing/get-github-billing-usage-summary-report-org"
+    },
+    {
+      "id": "orgs/get",
+      "method": "GET",
+      "path": "/orgs/{org}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Get an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call orgs/get"
+    },
+    {
+      "id": "orgs/update",
+      "method": "PATCH",
+      "path": "/orgs/{org}",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Update an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call orgs/update"
+    },
+    {
+      "id": "orgs/delete",
+      "method": "DELETE",
+      "path": "/orgs/{org}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call orgs/delete"
+    },
+    {
+      "id": "actions/get-actions-cache-usage-for-org",
+      "method": "GET",
+      "path": "/orgs/{org}/actions/cache/usage",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get GitHub Actions cache usage for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/get-actions-cache-usage-for-org"
+    },
+    {
+      "id": "actions/get-actions-cache-usage-by-repo-for-org",
+      "method": "GET",
+      "path": "/orgs/{org}/actions/cache/usage-by-repository",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List repositories with GitHub Actions cache usage for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call actions/get-actions-cache-usage-by-repo-for-org"
+    },
+    {
+      "id": "actions/list-hosted-runners-for-org",
+      "method": "GET",
+      "path": "/orgs/{org}/actions/hosted-runners",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List GitHub-hosted runners for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call actions/list-hosted-runners-for-org"
+    },
+    {
+      "id": "actions/create-hosted-runner-for-org",
+      "method": "POST",
+      "path": "/orgs/{org}/actions/hosted-runners",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a GitHub-hosted runner for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/create-hosted-runner-for-org"
+    },
+    {
+      "id": "actions/list-custom-images-for-org",
+      "method": "GET",
+      "path": "/orgs/{org}/actions/hosted-runners/images/custom",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List custom images for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/list-custom-images-for-org"
+    },
+    {
+      "id": "actions/get-custom-image-for-org",
+      "method": "GET",
+      "path": "/orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Get a custom image definition for GitHub Actions Hosted Runners",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "image_definition_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/get-custom-image-for-org"
+    },
+    {
+      "id": "actions/delete-custom-image-from-org",
+      "method": "DELETE",
+      "path": "/orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete a custom image from the organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "image_definition_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/delete-custom-image-from-org"
+    },
+    {
+      "id": "actions/list-custom-image-versions-for-org",
+      "method": "GET",
+      "path": "/orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}/versions",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List image versions of a custom image for an organization",
+      "requiredParams": [
+        {
+          "name": "image_definition_id",
+          "in": "path",
+          "type": "integer"
+        },
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/list-custom-image-versions-for-org"
+    },
+    {
+      "id": "actions/get-custom-image-version-for-org",
+      "method": "GET",
+      "path": "/orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}/versions/{version}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Get an image version of a custom image for GitHub Actions Hosted Runners",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "image_definition_id",
+          "in": "path",
+          "type": "integer"
+        },
+        {
+          "name": "version",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/get-custom-image-version-for-org"
+    },
+    {
+      "id": "actions/delete-custom-image-version-from-org",
+      "method": "DELETE",
+      "path": "/orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}/versions/{version}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete an image version of custom image from the organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "image_definition_id",
+          "in": "path",
+          "type": "integer"
+        },
+        {
+          "name": "version",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/delete-custom-image-version-from-org"
+    },
+    {
+      "id": "actions/get-hosted-runners-github-owned-images-for-org",
+      "method": "GET",
+      "path": "/orgs/{org}/actions/hosted-runners/images/github-owned",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get GitHub-owned images for GitHub-hosted runners in an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/get-hosted-runners-github-owned-images-for-org"
+    },
+    {
+      "id": "actions/get-hosted-runners-partner-images-for-org",
+      "method": "GET",
+      "path": "/orgs/{org}/actions/hosted-runners/images/partner",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get partner images for GitHub-hosted runners in an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/get-hosted-runners-partner-images-for-org"
+    },
+    {
+      "id": "actions/get-hosted-runners-limits-for-org",
+      "method": "GET",
+      "path": "/orgs/{org}/actions/hosted-runners/limits",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get limits on GitHub-hosted runners for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/get-hosted-runners-limits-for-org"
+    },
+    {
+      "id": "actions/get-hosted-runners-machine-specs-for-org",
+      "method": "GET",
+      "path": "/orgs/{org}/actions/hosted-runners/machine-sizes",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get GitHub-hosted runners machine specs for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/get-hosted-runners-machine-specs-for-org"
+    },
+    {
+      "id": "actions/get-hosted-runners-platforms-for-org",
+      "method": "GET",
+      "path": "/orgs/{org}/actions/hosted-runners/platforms",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get platforms for GitHub-hosted runners in an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/get-hosted-runners-platforms-for-org"
+    },
+    {
+      "id": "actions/get-hosted-runner-for-org",
+      "method": "GET",
+      "path": "/orgs/{org}/actions/hosted-runners/{hosted_runner_id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Get a GitHub-hosted runner for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "hosted_runner_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/get-hosted-runner-for-org"
+    },
+    {
+      "id": "actions/update-hosted-runner-for-org",
+      "method": "PATCH",
+      "path": "/orgs/{org}/actions/hosted-runners/{hosted_runner_id}",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Update a GitHub-hosted runner for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "hosted_runner_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/update-hosted-runner-for-org"
+    },
+    {
+      "id": "actions/delete-hosted-runner-for-org",
+      "method": "DELETE",
+      "path": "/orgs/{org}/actions/hosted-runners/{hosted_runner_id}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete a GitHub-hosted runner for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "hosted_runner_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/delete-hosted-runner-for-org"
+    },
+    {
+      "id": "oidc/list-oidc-custom-property-inclusions-for-org",
+      "method": "GET",
+      "path": "/orgs/{org}/actions/oidc/customization/properties/repo",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List OIDC custom property inclusions for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call oidc/list-oidc-custom-property-inclusions-for-org"
+    },
+    {
+      "id": "oidc/create-oidc-custom-property-inclusion-for-org",
+      "method": "POST",
+      "path": "/orgs/{org}/actions/oidc/customization/properties/repo",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create an OIDC custom property inclusion for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call oidc/create-oidc-custom-property-inclusion-for-org"
+    },
+    {
+      "id": "oidc/delete-oidc-custom-property-inclusion-for-org",
+      "method": "DELETE",
+      "path": "/orgs/{org}/actions/oidc/customization/properties/repo/{custom_property_name}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete an OIDC custom property inclusion for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "custom_property_name",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call oidc/delete-oidc-custom-property-inclusion-for-org"
+    },
+    {
+      "id": "oidc/get-oidc-custom-sub-template-for-org",
+      "method": "GET",
+      "path": "/orgs/{org}/actions/oidc/customization/sub",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get the customization template for an OIDC subject claim for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call oidc/get-oidc-custom-sub-template-for-org"
+    },
+    {
+      "id": "oidc/update-oidc-custom-sub-template-for-org",
+      "method": "PUT",
+      "path": "/orgs/{org}/actions/oidc/customization/sub",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Set the customization template for an OIDC subject claim for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call oidc/update-oidc-custom-sub-template-for-org"
+    },
+    {
+      "id": "actions/get-github-actions-permissions-organization",
+      "method": "GET",
+      "path": "/orgs/{org}/actions/permissions",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get GitHub Actions permissions for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/get-github-actions-permissions-organization"
+    },
+    {
+      "id": "actions/set-github-actions-permissions-organization",
+      "method": "PUT",
+      "path": "/orgs/{org}/actions/permissions",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Set GitHub Actions permissions for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/set-github-actions-permissions-organization"
+    },
+    {
+      "id": "actions/get-artifact-and-log-retention-settings-organization",
+      "method": "GET",
+      "path": "/orgs/{org}/actions/permissions/artifact-and-log-retention",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get artifact and log retention settings for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/get-artifact-and-log-retention-settings-organization"
+    },
+    {
+      "id": "actions/set-artifact-and-log-retention-settings-organization",
+      "method": "PUT",
+      "path": "/orgs/{org}/actions/permissions/artifact-and-log-retention",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Set artifact and log retention settings for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/set-artifact-and-log-retention-settings-organization"
+    },
+    {
+      "id": "actions/get-fork-pr-contributor-approval-permissions-organization",
+      "method": "GET",
+      "path": "/orgs/{org}/actions/permissions/fork-pr-contributor-approval",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get fork PR contributor approval permissions for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/get-fork-pr-contributor-approval-permissions-organization"
+    },
+    {
+      "id": "actions/set-fork-pr-contributor-approval-permissions-organization",
+      "method": "PUT",
+      "path": "/orgs/{org}/actions/permissions/fork-pr-contributor-approval",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Set fork PR contributor approval permissions for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/set-fork-pr-contributor-approval-permissions-organization"
+    },
+    {
+      "id": "actions/get-private-repo-fork-pr-workflows-settings-organization",
+      "method": "GET",
+      "path": "/orgs/{org}/actions/permissions/fork-pr-workflows-private-repos",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get private repo fork PR workflow settings for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/get-private-repo-fork-pr-workflows-settings-organization"
+    },
+    {
+      "id": "actions/set-private-repo-fork-pr-workflows-settings-organization",
+      "method": "PUT",
+      "path": "/orgs/{org}/actions/permissions/fork-pr-workflows-private-repos",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Set private repo fork PR workflow settings for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/set-private-repo-fork-pr-workflows-settings-organization"
+    },
+    {
+      "id": "actions/list-selected-repositories-enabled-github-actions-organization",
+      "method": "GET",
+      "path": "/orgs/{org}/actions/permissions/repositories",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List selected repositories enabled for GitHub Actions in an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call actions/list-selected-repositories-enabled-github-actions-organization"
+    },
+    {
+      "id": "actions/set-selected-repositories-enabled-github-actions-organization",
+      "method": "PUT",
+      "path": "/orgs/{org}/actions/permissions/repositories",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Set selected repositories enabled for GitHub Actions in an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/set-selected-repositories-enabled-github-actions-organization"
+    },
+    {
+      "id": "actions/enable-selected-repository-github-actions-organization",
+      "method": "PUT",
+      "path": "/orgs/{org}/actions/permissions/repositories/{repository_id}",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Enable a selected repository for GitHub Actions in an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "repository_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/enable-selected-repository-github-actions-organization"
+    },
+    {
+      "id": "actions/disable-selected-repository-github-actions-organization",
+      "method": "DELETE",
+      "path": "/orgs/{org}/actions/permissions/repositories/{repository_id}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Disable a selected repository for GitHub Actions in an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "repository_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/disable-selected-repository-github-actions-organization"
+    },
+    {
+      "id": "actions/get-allowed-actions-organization",
+      "method": "GET",
+      "path": "/orgs/{org}/actions/permissions/selected-actions",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get allowed actions and reusable workflows for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/get-allowed-actions-organization"
+    },
+    {
+      "id": "actions/set-allowed-actions-organization",
+      "method": "PUT",
+      "path": "/orgs/{org}/actions/permissions/selected-actions",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Set allowed actions and reusable workflows for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/set-allowed-actions-organization"
+    },
+    {
+      "id": "actions/get-self-hosted-runners-permissions-organization",
+      "method": "GET",
+      "path": "/orgs/{org}/actions/permissions/self-hosted-runners",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get self-hosted runners settings for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/get-self-hosted-runners-permissions-organization"
+    },
+    {
+      "id": "actions/set-self-hosted-runners-permissions-organization",
+      "method": "PUT",
+      "path": "/orgs/{org}/actions/permissions/self-hosted-runners",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Set self-hosted runners settings for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/set-self-hosted-runners-permissions-organization"
+    },
+    {
+      "id": "actions/list-selected-repositories-self-hosted-runners-organization",
+      "method": "GET",
+      "path": "/orgs/{org}/actions/permissions/self-hosted-runners/repositories",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List repositories allowed to use self-hosted runners in an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call actions/list-selected-repositories-self-hosted-runners-organization"
+    },
+    {
+      "id": "actions/set-selected-repositories-self-hosted-runners-organization",
+      "method": "PUT",
+      "path": "/orgs/{org}/actions/permissions/self-hosted-runners/repositories",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Set repositories allowed to use self-hosted runners in an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/set-selected-repositories-self-hosted-runners-organization"
+    },
+    {
+      "id": "actions/enable-selected-repository-self-hosted-runners-organization",
+      "method": "PUT",
+      "path": "/orgs/{org}/actions/permissions/self-hosted-runners/repositories/{repository_id}",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Add a repository to the list of repositories allowed to use self-hosted runners in an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "repository_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/enable-selected-repository-self-hosted-runners-organization"
+    },
+    {
+      "id": "actions/disable-selected-repository-self-hosted-runners-organization",
+      "method": "DELETE",
+      "path": "/orgs/{org}/actions/permissions/self-hosted-runners/repositories/{repository_id}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Remove a repository from the list of repositories allowed to use self-hosted runners in an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "repository_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/disable-selected-repository-self-hosted-runners-organization"
+    },
+    {
+      "id": "actions/get-github-actions-default-workflow-permissions-organization",
+      "method": "GET",
+      "path": "/orgs/{org}/actions/permissions/workflow",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Get default workflow permissions for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/get-github-actions-default-workflow-permissions-organization"
+    },
+    {
+      "id": "actions/set-github-actions-default-workflow-permissions-organization",
+      "method": "PUT",
+      "path": "/orgs/{org}/actions/permissions/workflow",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Set default workflow permissions for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/set-github-actions-default-workflow-permissions-organization"
+    },
+    {
+      "id": "actions/list-self-hosted-runner-groups-for-org",
+      "method": "GET",
+      "path": "/orgs/{org}/actions/runner-groups",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List self-hosted runner groups for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call actions/list-self-hosted-runner-groups-for-org"
+    },
+    {
+      "id": "actions/create-self-hosted-runner-group-for-org",
+      "method": "POST",
+      "path": "/orgs/{org}/actions/runner-groups",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a self-hosted runner group for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/create-self-hosted-runner-group-for-org"
+    },
+    {
+      "id": "actions/get-self-hosted-runner-group-for-org",
+      "method": "GET",
+      "path": "/orgs/{org}/actions/runner-groups/{runner_group_id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Get a self-hosted runner group for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "runner_group_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/get-self-hosted-runner-group-for-org"
+    },
+    {
+      "id": "actions/update-self-hosted-runner-group-for-org",
+      "method": "PATCH",
+      "path": "/orgs/{org}/actions/runner-groups/{runner_group_id}",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Update a self-hosted runner group for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "runner_group_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/update-self-hosted-runner-group-for-org"
+    },
+    {
+      "id": "actions/delete-self-hosted-runner-group-from-org",
+      "method": "DELETE",
+      "path": "/orgs/{org}/actions/runner-groups/{runner_group_id}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete a self-hosted runner group from an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "runner_group_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/delete-self-hosted-runner-group-from-org"
+    },
+    {
+      "id": "actions/list-github-hosted-runners-in-group-for-org",
+      "method": "GET",
+      "path": "/orgs/{org}/actions/runner-groups/{runner_group_id}/hosted-runners",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List GitHub-hosted runners in a group for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "runner_group_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call actions/list-github-hosted-runners-in-group-for-org"
+    },
+    {
+      "id": "actions/list-repo-access-to-self-hosted-runner-group-in-org",
+      "method": "GET",
+      "path": "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List repository access to a self-hosted runner group in an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "runner_group_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call actions/list-repo-access-to-self-hosted-runner-group-in-org"
+    },
+    {
+      "id": "actions/set-repo-access-to-self-hosted-runner-group-in-org",
+      "method": "PUT",
+      "path": "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Set repository access for a self-hosted runner group in an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "runner_group_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/set-repo-access-to-self-hosted-runner-group-in-org"
+    },
+    {
+      "id": "actions/add-repo-access-to-self-hosted-runner-group-in-org",
+      "method": "PUT",
+      "path": "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}",
+      "kind": "update",
+      "risk": "write",
+      "summary": "Add repository access to a self-hosted runner group in an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "runner_group_id",
+          "in": "path",
+          "type": "integer"
+        },
+        {
+          "name": "repository_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/add-repo-access-to-self-hosted-runner-group-in-org"
+    },
+    {
+      "id": "actions/remove-repo-access-to-self-hosted-runner-group-in-org",
+      "method": "DELETE",
+      "path": "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Remove repository access to a self-hosted runner group in an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "runner_group_id",
+          "in": "path",
+          "type": "integer"
+        },
+        {
+          "name": "repository_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "github call actions/remove-repo-access-to-self-hosted-runner-group-in-org"
+    },
+    {
+      "id": "actions/list-self-hosted-runners-in-group-for-org",
+      "method": "GET",
+      "path": "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List self-hosted runners in a group for an organization",
+      "requiredParams": [
+        {
+          "name": "org",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "runner_group_id",
+          "in": "path",
+          "type": "integer"
+        }
+      ],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "github call actions/list-self-hosted-runners-in-group-for-org"
+    }
+  ],
+  "baseUrl": "https://api.github.com",
+  "safety": {
+    "writeRequiresConfirmation": true,
+    "confirmationFlag": "--yes",
+    "dryRunByDefault": true
+  },
+  "provenance": {
+    "generatedAt": "2026-05-16T01:32:07.620Z",
+    "gutenbergVersion": "0.1.0",
+    "specSha": "a915806209de"
+  }
+}

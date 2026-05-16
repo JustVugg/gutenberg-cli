@@ -1,0 +1,9 @@
+$ /mnt/c/Users/sarah/Desktop/gutenberg/scripts/use-go.sh build -o /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/github/proofs/bin/github ./cmd/github
+cwd: /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/github
+status: 0
+signal: 
+
+stdout:
+
+
+stderr:
