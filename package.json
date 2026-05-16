@@ -1,0 +1,29 @@
+{
+  "name": "gutenberg",
+  "version": "0.1.0",
+  "description": "Verified tool factory for AI agents: generate CLI, MCP servers, agent skills, SQLite stores, scorecards, and web catalogs from APIs, GraphQL, HAR, curl, and websites.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "bin": {
+    "gutenberg": "./bin/gutenberg.js",
+    "black-forge": "./bin/black-forge.js"
+  },
+  "scripts": {
+    "doctor": "node bin/gutenberg.js doctor",
+    "test": "node --test tests/*.test.js",
+    "sample:analyze": "node bin/gutenberg.js analyze samples/petstore-openapi.json",
+    "sample:har": "node bin/gutenberg.js import-har samples/simple.har.json --out generated/capture.openapi.json --name captured-api",
+    "sample:graphql": "node bin/gutenberg.js import-graphql samples/github-introspection.json --out generated/github-graphql.openapi.json --name github-graphql",
+    "sample:generate": "node bin/gutenberg.js generate samples/petstore-openapi.json --out generated/petstore-go --name petstore --force",
+    "sample:score": "node bin/gutenberg.js scorecard generated/petstore-go",
+    "site": "node bin/gutenberg.js site"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "playwright": "^1.59.1",
+    "yaml": "^2.8.4"
+  }
+}
