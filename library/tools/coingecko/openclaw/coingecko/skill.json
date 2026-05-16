@@ -1,0 +1,126 @@
+{
+  "schemaVersion": "openclaw.skill.v1",
+  "name": "coingecko",
+  "displayName": "coingecko",
+  "description": "coingecko should become a local, searchable operational workspace, not only an endpoint wrapper.",
+  "runtime": {
+    "cli": "coingecko",
+    "mcp": "coingecko mcp"
+  },
+  "auth": {
+    "mode": "none",
+    "oauth": false,
+    "env": null,
+    "setupCommand": null
+  },
+  "capabilities": {
+    "readOperations": 4,
+    "writeOperations": 0,
+    "destructiveOperations": 0,
+    "cacheable": 4,
+    "total": 4
+  },
+  "actions": [
+    {
+      "name": "markets",
+      "operationId": "getCoinsMarkets",
+      "summary": "GET /api/v3/coins/markets",
+      "method": "GET",
+      "path": "/api/v3/coins/markets",
+      "defaultParams": {},
+      "invoke": "coingecko markets",
+      "safe": true
+    },
+    {
+      "name": "bitcoin",
+      "operationId": "getCoinsBitcoin",
+      "summary": "GET /api/v3/coins/bitcoin",
+      "method": "GET",
+      "path": "/api/v3/coins/bitcoin",
+      "defaultParams": {},
+      "invoke": "coingecko bitcoin",
+      "safe": true
+    },
+    {
+      "name": "price",
+      "operationId": "getSimplePrice",
+      "summary": "GET /api/v3/simple/price",
+      "method": "GET",
+      "path": "/api/v3/simple/price",
+      "defaultParams": {},
+      "invoke": "coingecko price",
+      "safe": true
+    },
+    {
+      "name": "global",
+      "operationId": "getGlobal",
+      "summary": "GET /api/v3/global",
+      "method": "GET",
+      "path": "/api/v3/global",
+      "defaultParams": {},
+      "invoke": "coingecko global",
+      "safe": true
+    }
+  ],
+  "operations": [
+    {
+      "id": "getCoinsMarkets",
+      "method": "GET",
+      "path": "/api/v3/coins/markets",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /api/v3/coins/markets",
+      "requiredParams": [],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "per_page"
+      },
+      "invoke": "coingecko call getCoinsMarkets"
+    },
+    {
+      "id": "getCoinsBitcoin",
+      "method": "GET",
+      "path": "/api/v3/coins/bitcoin",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /api/v3/coins/bitcoin",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "coingecko call getCoinsBitcoin"
+    },
+    {
+      "id": "getSimplePrice",
+      "method": "GET",
+      "path": "/api/v3/simple/price",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /api/v3/simple/price",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "coingecko call getSimplePrice"
+    },
+    {
+      "id": "getGlobal",
+      "method": "GET",
+      "path": "/api/v3/global",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /api/v3/global",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "coingecko call getGlobal"
+    }
+  ],
+  "baseUrl": "https://api.coingecko.com",
+  "safety": {
+    "writeRequiresConfirmation": true,
+    "confirmationFlag": "--yes",
+    "dryRunByDefault": true
+  },
+  "provenance": {
+    "generatedAt": "2026-05-16T05:54:51.313Z",
+    "gutenbergVersion": "0.1.0",
+    "specSha": "d392ebeb9514"
+  }
+}

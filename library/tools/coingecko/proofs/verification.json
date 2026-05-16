@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "gutenberg.verification.v1",
+  "projectDir": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/coingecko",
+  "tool": "coingecko",
+  "language": "go",
+  "startedAt": "2026-05-16T05:55:44.976Z",
+  "finishedAt": "2026-05-16T05:56:16.012Z",
+  "ok": true,
+  "checks": [
+    {
+      "id": "go-mod-tidy",
+      "label": "go mod tidy",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 2748,
+      "log": "proofs/go-mod-tidy.log",
+      "artifact": null
+    },
+    {
+      "id": "go-test",
+      "label": "go test ./...",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 17228,
+      "log": "proofs/go-test.log",
+      "artifact": null
+    },
+    {
+      "id": "go-build",
+      "label": "go build CLI binary",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 8881,
+      "log": "proofs/go-build.log",
+      "artifact": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/coingecko/proofs/bin/coingecko"
+    },
+    {
+      "id": "cli-smoke",
+      "label": "CLI operations smoke",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 269,
+      "log": "proofs/cli-smoke.log",
+      "artifact": null
+    },
+    {
+      "id": "mcp-handshake",
+      "label": "MCP initialize + tools/list",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 251,
+      "log": "proofs/mcp-handshake.log",
+      "artifact": null
+    }
+  ],
+  "artifacts": {
+    "proofDir": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/coingecko/proofs",
+    "manifest": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/coingecko/gutenberg.manifest.json",
+    "source": {
+      "path": "/tmp/coingecko.openapi.json",
+      "sha256": "d392ebeb9514fcc2f90bb366b7386b0e8237c0b7bc4cf219887771e8dc22d9e8",
+      "size": 229092
+    },
+    "binary": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/coingecko/proofs/bin/coingecko",
+    "binarySha256": "42cf98faba13985281ac87c441c1ad050ad967eb5a79dc476d9a6c8875d316a9"
+  },
+  "badges": [
+    "Gutenberg Verified",
+    "Build Verified",
+    "MCP Ready",
+    "Risk Gated"
+  ]
+}

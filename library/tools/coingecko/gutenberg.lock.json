@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "gutenberg.lock.v1",
+  "generatedAt": "2026-05-16T05:54:51.313Z",
+  "gutenbergVersion": "0.1.0",
+  "name": "coingecko",
+  "spec": {
+    "path": "/tmp/coingecko.openapi.json",
+    "sha256": "d392ebeb9514fcc2f90bb366b7386b0e8237c0b7bc4cf219887771e8dc22d9e8",
+    "size": 229092
+  },
+  "recipe": null,
+  "targets": [
+    "go",
+    "mcp",
+    "skill",
+    "openclaw"
+  ]
+}
