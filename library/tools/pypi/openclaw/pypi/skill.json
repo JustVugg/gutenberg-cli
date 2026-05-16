@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "openclaw.skill.v1",
+  "name": "pypi",
+  "displayName": "pypi",
+  "description": "pypi should become a local, searchable operational workspace, not only an endpoint wrapper.",
+  "runtime": {
+    "cli": "pypi",
+    "mcp": "pypi mcp"
+  },
+  "auth": {
+    "mode": "none",
+    "oauth": false,
+    "env": null,
+    "setupCommand": null
+  },
+  "capabilities": {
+    "readOperations": 2,
+    "writeOperations": 0,
+    "destructiveOperations": 0,
+    "cacheable": 2,
+    "total": 2
+  },
+  "actions": [
+    {
+      "name": "requests",
+      "operationId": "getPypiRequests",
+      "summary": "GET /pypi/requests/json",
+      "method": "GET",
+      "path": "/pypi/requests/json",
+      "defaultParams": {},
+      "invoke": "pypi requests",
+      "safe": true
+    },
+    {
+      "name": "numpy",
+      "operationId": "getPypiNumpy",
+      "summary": "GET /pypi/numpy/json",
+      "method": "GET",
+      "path": "/pypi/numpy/json",
+      "defaultParams": {},
+      "invoke": "pypi numpy",
+      "safe": true
+    }
+  ],
+  "operations": [
+    {
+      "id": "getPypiRequests",
+      "method": "GET",
+      "path": "/pypi/requests/json",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /pypi/requests/json",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "pypi call getPypiRequests"
+    },
+    {
+      "id": "getPypiNumpy",
+      "method": "GET",
+      "path": "/pypi/numpy/json",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /pypi/numpy/json",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "pypi call getPypiNumpy"
+    }
+  ],
+  "baseUrl": "https://pypi.org",
+  "safety": {
+    "writeRequiresConfirmation": true,
+    "confirmationFlag": "--yes",
+    "dryRunByDefault": true
+  },
+  "provenance": {
+    "generatedAt": "2026-05-16T10:47:47.943Z",
+    "gutenbergVersion": "0.1.0",
+    "specSha": "8a0e881a3b6c"
+  }
+}

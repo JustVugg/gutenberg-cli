@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "gutenberg.verification.v1",
+  "projectDir": "library/tools/pypi",
+  "tool": "pypi",
+  "language": "go",
+  "startedAt": "2026-05-16T10:48:48.069Z",
+  "finishedAt": "2026-05-16T10:49:31.000Z",
+  "ok": true,
+  "checks": [
+    {
+      "id": "go-mod-tidy",
+      "label": "go mod tidy",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 6197,
+      "log": "proofs/go-mod-tidy.log",
+      "artifact": null
+    },
+    {
+      "id": "go-test",
+      "label": "go test ./...",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 20536,
+      "log": "proofs/go-test.log",
+      "artifact": null
+    },
+    {
+      "id": "go-build",
+      "label": "go build CLI binary",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 13099,
+      "log": "proofs/go-build.log",
+      "artifact": "library/tools/pypi/proofs/bin/pypi"
+    },
+    {
+      "id": "cli-smoke",
+      "label": "CLI operations smoke",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 368,
+      "log": "proofs/cli-smoke.log",
+      "artifact": null
+    },
+    {
+      "id": "mcp-handshake",
+      "label": "MCP initialize + tools/list",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 551,
+      "log": "proofs/mcp-handshake.log",
+      "artifact": null
+    }
+  ],
+  "artifacts": {
+    "proofDir": "library/tools/pypi/proofs",
+    "manifest": "library/tools/pypi/gutenberg.manifest.json",
+    "source": {
+      "path": "/tmp/pypi.openapi.json",
+      "sha256": "8a0e881a3b6c3daf7ad020da3013355b6031a728cb6f6aa3102b5903f4166bb3",
+      "size": 920167
+    },
+    "binary": "library/tools/pypi/proofs/bin/pypi",
+    "binarySha256": "3b90e2cda412ef1f0e47ebd014ff8cf531daae779534c51de6f1f4c3ca4dd3d8"
+  },
+  "badges": [
+    "Gutenberg Verified",
+    "Build Verified",
+    "MCP Ready",
+    "Risk Gated"
+  ]
+}

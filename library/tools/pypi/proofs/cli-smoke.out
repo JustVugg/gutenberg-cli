@@ -1,0 +1,34 @@
+[
+  {
+    "id": "getPypiRequests",
+    "method": "GET",
+    "path": "/pypi/requests/json",
+    "tag": "pypi",
+    "summary": "GET /pypi/requests/json",
+    "description": "",
+    "parameters": [],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "read-list"
+  },
+  {
+    "id": "getPypiNumpy",
+    "method": "GET",
+    "path": "/pypi/numpy/json",
+    "tag": "pypi",
+    "summary": "GET /pypi/numpy/json",
+    "description": "",
+    "parameters": [],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "read-list"
+  }
+]

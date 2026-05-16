@@ -1,0 +1,9 @@
+$ /mnt/c/Users/sarah/Desktop/gutenberg/scripts/use-go.sh mod tidy
+cwd: /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/pypi
+status: 0
+signal: 
+
+stdout:
+
+
+stderr:

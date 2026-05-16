@@ -1,0 +1,9 @@
+$ /mnt/c/Users/sarah/Desktop/gutenberg/scripts/use-go.sh build -o /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/pypi/proofs/bin/pypi ./cmd/pypi
+cwd: /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/pypi
+status: 0
+signal: 
+
+stdout:
+
+
+stderr:

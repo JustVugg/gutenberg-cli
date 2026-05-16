@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "gutenberg.lock.v1",
+  "generatedAt": "2026-05-16T10:47:47.943Z",
+  "gutenbergVersion": "0.1.0",
+  "name": "pypi",
+  "spec": {
+    "path": "/tmp/pypi.openapi.json",
+    "sha256": "8a0e881a3b6c3daf7ad020da3013355b6031a728cb6f6aa3102b5903f4166bb3",
+    "size": 920167
+  },
+  "recipe": null,
+  "targets": [
+    "go",
+    "mcp",
+    "skill",
+    "openclaw"
+  ]
+}
