@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "gutenberg.verification.v1",
+  "projectDir": "library/tools/rest-countries",
+  "tool": "rest-countries",
+  "language": "go",
+  "startedAt": "2026-05-16T07:05:54.312Z",
+  "finishedAt": "2026-05-16T07:06:29.944Z",
+  "ok": true,
+  "checks": [
+    {
+      "id": "go-mod-tidy",
+      "label": "go mod tidy",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 4066,
+      "log": "proofs/go-mod-tidy.log",
+      "artifact": null
+    },
+    {
+      "id": "go-test",
+      "label": "go test ./...",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 20354,
+      "log": "proofs/go-test.log",
+      "artifact": null
+    },
+    {
+      "id": "go-build",
+      "label": "go build CLI binary",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 8916,
+      "log": "proofs/go-build.log",
+      "artifact": "library/tools/rest-countries/proofs/bin/rest-countries"
+    },
+    {
+      "id": "cli-smoke",
+      "label": "CLI operations smoke",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 395,
+      "log": "proofs/cli-smoke.log",
+      "artifact": null
+    },
+    {
+      "id": "mcp-handshake",
+      "label": "MCP initialize + tools/list",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 274,
+      "log": "proofs/mcp-handshake.log",
+      "artifact": null
+    }
+  ],
+  "artifacts": {
+    "proofDir": "library/tools/rest-countries/proofs",
+    "manifest": "library/tools/rest-countries/gutenberg.manifest.json",
+    "source": {
+      "path": "rest-countries.openapi.json",
+      "sha256": "7f5bf459114f880518956942993c8946d7e2f649f93a3e56476d712627e91b72",
+      "size": 42172
+    },
+    "binary": "library/tools/rest-countries/proofs/bin/rest-countries",
+    "binarySha256": "12697a32620af9009ab77e9417296020f5ab933918c9bb2d0e079f0615fd35a5"
+  },
+  "badges": [
+    "Gutenberg Verified",
+    "Build Verified",
+    "MCP Ready",
+    "Risk Gated"
+  ]
+}

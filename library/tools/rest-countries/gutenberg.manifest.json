@@ -1,0 +1,316 @@
+{
+  "schemaVersion": "gutenberg.blueprint.v1",
+  "source": "/tmp/rest-countries.openapi.json",
+  "name": "rest-countries",
+  "slug": "rest-countries",
+  "envPrefix": "REST_COUNTRIES",
+  "description": "Generated from a browser HAR capture by Gutenberg.",
+  "version": "0.1.0",
+  "baseUrls": [
+    "https://restcountries.com"
+  ],
+  "auth": {
+    "mode": "none",
+    "schemes": [],
+    "env": null
+  },
+  "tags": [
+    "v3.1"
+  ],
+  "operations": [
+    {
+      "id": "getNameItaly",
+      "method": "GET",
+      "path": "/v3.1/name/italy",
+      "tag": "v3.1",
+      "summary": "GET /v3.1/name/italy",
+      "description": "",
+      "parameters": [],
+      "hasRequestBody": false,
+      "risk": "read",
+      "cacheable": true,
+      "responseCodes": [
+        "200"
+      ],
+      "inputHints": {
+        "path": [],
+        "query": [],
+        "headers": [],
+        "body": false
+      },
+      "graphql": null,
+      "kind": "read-list",
+      "pagination": null,
+      "related": []
+    },
+    {
+      "id": "getRegionEurope",
+      "method": "GET",
+      "path": "/v3.1/region/europe",
+      "tag": "v3.1",
+      "summary": "GET /v3.1/region/europe",
+      "description": "",
+      "parameters": [
+        {
+          "name": "fields",
+          "in": "query",
+          "required": false,
+          "description": "",
+          "type": "string"
+        }
+      ],
+      "hasRequestBody": false,
+      "risk": "read",
+      "cacheable": true,
+      "responseCodes": [
+        "200"
+      ],
+      "inputHints": {
+        "path": [],
+        "query": [
+          "fields"
+        ],
+        "headers": [],
+        "body": false
+      },
+      "graphql": null,
+      "kind": "read-list",
+      "pagination": null,
+      "related": []
+    },
+    {
+      "id": "getIndependent",
+      "method": "GET",
+      "path": "/v3.1/independent",
+      "tag": "v3.1",
+      "summary": "GET /v3.1/independent",
+      "description": "",
+      "parameters": [
+        {
+          "name": "status",
+          "in": "query",
+          "required": false,
+          "description": "",
+          "type": "boolean"
+        },
+        {
+          "name": "fields",
+          "in": "query",
+          "required": false,
+          "description": "",
+          "type": "string"
+        }
+      ],
+      "hasRequestBody": false,
+      "risk": "read",
+      "cacheable": true,
+      "responseCodes": [
+        "200"
+      ],
+      "inputHints": {
+        "path": [],
+        "query": [
+          "status",
+          "fields"
+        ],
+        "headers": [],
+        "body": false
+      },
+      "graphql": null,
+      "kind": "read-list",
+      "pagination": null,
+      "related": []
+    }
+  ],
+  "heroes": [
+    {
+      "alias": "italy",
+      "operationId": "getNameItaly",
+      "summary": "GET /v3.1/name/italy",
+      "method": "GET",
+      "path": "/v3.1/name/italy",
+      "defaultParams": {},
+      "explicit": false
+    },
+    {
+      "alias": "europe",
+      "operationId": "getRegionEurope",
+      "summary": "GET /v3.1/region/europe",
+      "method": "GET",
+      "path": "/v3.1/region/europe",
+      "defaultParams": {},
+      "explicit": false
+    },
+    {
+      "alias": "independent",
+      "operationId": "getIndependent",
+      "summary": "GET /v3.1/independent",
+      "method": "GET",
+      "path": "/v3.1/independent",
+      "defaultParams": {},
+      "explicit": false
+    }
+  ],
+  "insights": {
+    "thesis": "rest-countries should become a local, searchable operational workspace, not only an endpoint wrapper.",
+    "generatedAdvantages": [
+      "One command surface for humans and agents",
+      "Shared core between CLI and MCP server",
+      "Local cache with search and replay metadata",
+      "Risk-aware dry-run defaults for write/destructive calls",
+      "Machine-readable manifest for catalogs and scorecards"
+    ],
+    "recommendedCommands": [
+      "sync: cache list endpoints locally",
+      "search: query cached API responses offline"
+    ],
+    "domainMap": [
+      {
+        "tag": "v3.1",
+        "operations": 3
+      }
+    ],
+    "riskNotes": []
+  },
+  "generatedAt": "2026-05-16T07:05:05.064Z",
+  "provenance": {
+    "schemaVersion": "gutenberg.provenance.v1",
+    "generatedAt": "2026-05-16T07:05:05.084Z",
+    "gutenbergVersion": "0.1.0",
+    "name": "rest-countries",
+    "spec": {
+      "path": "/tmp/rest-countries.openapi.json",
+      "sha256": "7f5bf459114f880518956942993c8946d7e2f649f93a3e56476d712627e91b72",
+      "size": 42172
+    },
+    "recipe": null,
+    "targets": [
+      "go",
+      "mcp",
+      "skill",
+      "openclaw"
+    ],
+    "scorecard": {
+      "score": 140,
+      "maxScore": 190,
+      "grade": "C",
+      "dimensions": {
+        "structure": {
+          "score": 55,
+          "max": 55,
+          "ratio": 1,
+          "count": 11,
+          "passed": 11
+        },
+        "manifest": {
+          "score": 45,
+          "max": 45,
+          "ratio": 1,
+          "count": 5,
+          "passed": 5
+        },
+        "runtime": {
+          "score": 40,
+          "max": 40,
+          "ratio": 1,
+          "count": 4,
+          "passed": 4
+        },
+        "verification": {
+          "score": 0,
+          "max": 50,
+          "ratio": 0,
+          "count": 5,
+          "passed": 0
+        },
+        "coverage": {
+          "score": 20,
+          "max": 30,
+          "ratio": 0.6666666666666666,
+          "operations": 3,
+          "cacheable": 3,
+          "reads": 3,
+          "tagged": 0
+        },
+        "safety": {
+          "score": 20,
+          "max": 20,
+          "ratio": 1,
+          "writes": 0,
+          "classified": true,
+          "guardSourcePresent": true
+        },
+        "examples": {
+          "score": 15,
+          "max": 15,
+          "ratio": 1
+        },
+        "skill": {
+          "score": 10,
+          "max": 10,
+          "ratio": 1,
+          "present": true
+        }
+      }
+    },
+    "verification": {
+      "schemaVersion": "gutenberg.verification.summary.v1",
+      "verifiedAt": "2026-05-16T07:06:29.944Z",
+      "ok": true,
+      "badges": [
+        "Gutenberg Verified",
+        "Build Verified",
+        "MCP Ready",
+        "Risk Gated"
+      ],
+      "proofFile": "proofs/verification.json"
+    }
+  },
+  "defaultHeaders": {},
+  "policy": {
+    "schemaVersion": "gutenberg.policy.v1",
+    "rules": [
+      {
+        "risk": "read",
+        "action": "allow",
+        "requiresYes": false
+      },
+      {
+        "risk": "write",
+        "action": "confirm",
+        "requiresYes": true
+      },
+      {
+        "risk": "destructive",
+        "action": "confirm",
+        "requiresYes": true
+      }
+    ],
+    "redaction": [
+      "authorization",
+      "cookie",
+      "token",
+      "secret",
+      "api-key",
+      "apikey",
+      "client-secret",
+      "session"
+    ]
+  },
+  "packageName": "gutenberg.local/rest-countries",
+  "generatedBy": "gutenberg",
+  "generatedByVersion": "0.3.0",
+  "language": "go",
+  "verification": {
+    "schemaVersion": "gutenberg.verification.summary.v1",
+    "verifiedAt": "2026-05-16T07:06:29.944Z",
+    "ok": true,
+    "badges": [
+      "Gutenberg Verified",
+      "Build Verified",
+      "MCP Ready",
+      "Risk Gated"
+    ],
+    "proofFile": "proofs/verification.json"
+  }
+}

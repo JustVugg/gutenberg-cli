@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "gutenberg.lock.v1",
+  "generatedAt": "2026-05-16T07:05:05.084Z",
+  "gutenbergVersion": "0.1.0",
+  "name": "rest-countries",
+  "spec": {
+    "path": "/tmp/rest-countries.openapi.json",
+    "sha256": "7f5bf459114f880518956942993c8946d7e2f649f93a3e56476d712627e91b72",
+    "size": 42172
+  },
+  "recipe": null,
+  "targets": [
+    "go",
+    "mcp",
+    "skill",
+    "openclaw"
+  ]
+}

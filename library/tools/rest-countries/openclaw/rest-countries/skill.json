@@ -1,0 +1,101 @@
+{
+  "schemaVersion": "openclaw.skill.v1",
+  "name": "rest-countries",
+  "displayName": "rest-countries",
+  "description": "rest-countries should become a local, searchable operational workspace, not only an endpoint wrapper.",
+  "runtime": {
+    "cli": "rest-countries",
+    "mcp": "rest-countries mcp"
+  },
+  "auth": {
+    "mode": "none",
+    "oauth": false,
+    "env": null,
+    "setupCommand": null
+  },
+  "capabilities": {
+    "readOperations": 3,
+    "writeOperations": 0,
+    "destructiveOperations": 0,
+    "cacheable": 3,
+    "total": 3
+  },
+  "actions": [
+    {
+      "name": "italy",
+      "operationId": "getNameItaly",
+      "summary": "GET /v3.1/name/italy",
+      "method": "GET",
+      "path": "/v3.1/name/italy",
+      "defaultParams": {},
+      "invoke": "rest-countries italy",
+      "safe": true
+    },
+    {
+      "name": "europe",
+      "operationId": "getRegionEurope",
+      "summary": "GET /v3.1/region/europe",
+      "method": "GET",
+      "path": "/v3.1/region/europe",
+      "defaultParams": {},
+      "invoke": "rest-countries europe",
+      "safe": true
+    },
+    {
+      "name": "independent",
+      "operationId": "getIndependent",
+      "summary": "GET /v3.1/independent",
+      "method": "GET",
+      "path": "/v3.1/independent",
+      "defaultParams": {},
+      "invoke": "rest-countries independent",
+      "safe": true
+    }
+  ],
+  "operations": [
+    {
+      "id": "getNameItaly",
+      "method": "GET",
+      "path": "/v3.1/name/italy",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /v3.1/name/italy",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "rest-countries call getNameItaly"
+    },
+    {
+      "id": "getRegionEurope",
+      "method": "GET",
+      "path": "/v3.1/region/europe",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /v3.1/region/europe",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "rest-countries call getRegionEurope"
+    },
+    {
+      "id": "getIndependent",
+      "method": "GET",
+      "path": "/v3.1/independent",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /v3.1/independent",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "rest-countries call getIndependent"
+    }
+  ],
+  "baseUrl": "https://restcountries.com",
+  "safety": {
+    "writeRequiresConfirmation": true,
+    "confirmationFlag": "--yes",
+    "dryRunByDefault": true
+  },
+  "provenance": {
+    "generatedAt": "2026-05-16T07:05:05.084Z",
+    "gutenbergVersion": "0.1.0",
+    "specSha": "7f5bf459114f"
+  }
+}

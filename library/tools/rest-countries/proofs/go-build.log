@@ -1,0 +1,9 @@
+$ /mnt/c/Users/sarah/Desktop/gutenberg/scripts/use-go.sh build -o /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/rest-countries/proofs/bin/rest-countries ./cmd/rest-countries
+cwd: /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/rest-countries
+status: 0
+signal: 
+
+stdout:
+
+
+stderr:
