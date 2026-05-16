@@ -23,7 +23,7 @@ export function verifyProject(projectDir, options = {}) {
 
   const result = {
     schemaVersion: "gutenberg.verification.v1",
-    projectDir: resolvedDir,
+    projectDir: publicPath(resolvedDir),
     tool: manifest.slug,
     language: manifest.language || (fs.existsSync(path.join(resolvedDir, "go.mod")) ? "go" : "node"),
     startedAt: new Date().toISOString(),
@@ -31,9 +31,9 @@ export function verifyProject(projectDir, options = {}) {
     ok: false,
     checks: [],
     artifacts: {
-      proofDir,
-      manifest: manifestPath,
-      source: manifest.provenance?.spec || null
+      proofDir: publicPath(proofDir),
+      manifest: publicPath(manifestPath),
+      source: publicArtifactRef(manifest.provenance?.spec || null)
     }
   };
 
@@ -70,14 +70,14 @@ export function verifyProject(projectDir, options = {}) {
     writeJson(path.join(resolvedDir, "blackforge.manifest.json"), updatedManifest);
   }
 
-  const score = scoreProject(resolvedDir);
+  const score = sanitizeProofValue(scoreProject(resolvedDir));
   writeJson(path.join(proofDir, "scorecard.json"), score);
   return { ...result, scorecard: score };
 }
 
 function verifyGoProject(projectDir, manifest, proofDir, result, options) {
   if (!fs.existsSync(useGo)) {
-    addCheck(result, "go-wrapper", false, `missing ${useGo}`, { required: true });
+    addCheck(result, "go-wrapper", false, `missing ${publicPath(useGo)}`, { required: true });
     return;
   }
   if (!options.noTidy) {
@@ -106,7 +106,7 @@ function verifyGoProject(projectDir, manifest, proofDir, result, options) {
     artifact: binPath
   });
   if (fs.existsSync(binPath)) {
-    result.artifacts.binary = binPath;
+    result.artifacts.binary = publicPath(binPath);
     const hash = hashFile(binPath);
     if (hash) result.artifacts.binarySha256 = hash.sha256;
   }
@@ -221,8 +221,8 @@ function runCommandCheck(result, proofDir, spec) {
   const check = addCheck(result, spec.id, passed, detail, {
     label: spec.label,
     elapsedMs,
-    log: path.relative(result.projectDir, path.join(proofDir, `${spec.id}.log`)),
-    artifact: spec.artifact || null
+    log: path.relative(spec.cwd, path.join(proofDir, `${spec.id}.log`)).replaceAll(path.sep, "/"),
+    artifact: spec.artifact ? publicPath(spec.artifact) : null
   });
   return { ...check, stdout, stderr };
 }
@@ -233,10 +233,10 @@ function addCheck(result, id, passed, detail, extra = {}) {
     label: extra.label || id,
     passed: Boolean(passed),
     required: extra.required !== false,
-    detail,
+    detail: sanitizeProofValue(detail),
     elapsedMs: extra.elapsedMs || 0,
-    log: extra.log || null,
-    artifact: extra.artifact || null
+    log: sanitizeProofValue(extra.log || null),
+    artifact: sanitizeProofValue(extra.artifact || null)
   };
   result.checks.push(check);
   return check;
@@ -292,4 +292,52 @@ function verificationBadges(result, manifest) {
   const ops = manifest.operations || [];
   if (ops.every((op) => ["read", "write", "destructive"].includes(op.risk))) badges.push("Risk Gated");
   return badges;
+}
+
+function publicPath(filePath) {
+  if (!filePath) return filePath;
+  if (/^[a-z]:[\\/]/i.test(filePath)) return path.win32.basename(filePath) || "[external-path]";
+  const resolved = path.resolve(filePath);
+  const relative = path.relative(rootDir, resolved);
+  if (relative && !relative.startsWith("..") && !path.isAbsolute(relative)) {
+    return relative.replaceAll(path.sep, "/");
+  }
+  if (relative === "") return ".";
+  return path.basename(filePath) || "[external-path]";
+}
+
+function publicArtifactRef(value) {
+  if (Array.isArray(value)) return value.map((item) => publicArtifactRef(item));
+  if (value && typeof value === "object") {
+    return Object.fromEntries(
+      Object.entries(value).map(([key, item]) => [key, publicArtifactRef(item)])
+    );
+  }
+  if (typeof value !== "string" || value.length === 0) return value;
+  if (/^[a-z][a-z0-9+.-]*:/i.test(value)) return value;
+  if (path.isAbsolute(value) || /^[a-z]:[\\/]/i.test(value)) return publicPath(value);
+  return value.replaceAll("\\", "/");
+}
+
+function sanitizeProofValue(value) {
+  if (typeof value === "string") return sanitizeProofString(value);
+  if (Array.isArray(value)) return value.map((item) => sanitizeProofValue(item));
+  if (value && typeof value === "object") {
+    return Object.fromEntries(
+      Object.entries(value).map(([key, item]) => [key, sanitizeProofValue(item)])
+    );
+  }
+  return value;
+}
+
+function sanitizeProofString(value) {
+  const normalizedRoot = rootDir.replaceAll("\\", "/");
+  let output = value.replaceAll("\\", "/");
+  output = output.split(`${normalizedRoot}/`).join("");
+  output = output.split(normalizedRoot).join(".");
+  output = output.replace(/\/mnt\/[a-z]\/Users\/[^/]+/gi, "~");
+  output = output.replace(/[a-z]:\/Users\/[^/]+/gi, "~");
+  output = output.replace(/\/home\/[^/]+/g, "~");
+  if (path.isAbsolute(output)) return path.basename(output) || "[external-path]";
+  return output;
 }
