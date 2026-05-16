@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "gutenberg.lock.v1",
+  "generatedAt": "2026-05-16T07:07:29.409Z",
+  "gutenbergVersion": "0.1.0",
+  "name": "open-meteo",
+  "spec": {
+    "path": "/tmp/open-meteo.openapi.json",
+    "sha256": "a465628fa971688f843c26e5a21eab9b9075a27a264501ddf025ad6c32c1a74f",
+    "size": 4036
+  },
+  "recipe": null,
+  "targets": [
+    "go",
+    "mcp",
+    "skill",
+    "openclaw"
+  ]
+}

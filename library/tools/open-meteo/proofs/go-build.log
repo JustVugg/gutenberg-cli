@@ -1,0 +1,9 @@
+$ /mnt/c/Users/sarah/Desktop/gutenberg/scripts/use-go.sh build -o /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/open-meteo/proofs/bin/open-meteo ./cmd/open-meteo
+cwd: /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/open-meteo
+status: 0
+signal: 
+
+stdout:
+
+
+stderr:

@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "gutenberg.verification.v1",
+  "projectDir": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/open-meteo",
+  "tool": "open-meteo",
+  "language": "go",
+  "startedAt": "2026-05-16T07:08:20.710Z",
+  "finishedAt": "2026-05-16T07:08:51.195Z",
+  "ok": true,
+  "checks": [
+    {
+      "id": "go-mod-tidy",
+      "label": "go mod tidy",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 3964,
+      "log": "proofs/go-mod-tidy.log",
+      "artifact": null
+    },
+    {
+      "id": "go-test",
+      "label": "go test ./...",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 15197,
+      "log": "proofs/go-test.log",
+      "artifact": null
+    },
+    {
+      "id": "go-build",
+      "label": "go build CLI binary",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 9036,
+      "log": "proofs/go-build.log",
+      "artifact": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/open-meteo/proofs/bin/open-meteo"
+    },
+    {
+      "id": "cli-smoke",
+      "label": "CLI operations smoke",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 264,
+      "log": "proofs/cli-smoke.log",
+      "artifact": null
+    },
+    {
+      "id": "mcp-handshake",
+      "label": "MCP initialize + tools/list",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 432,
+      "log": "proofs/mcp-handshake.log",
+      "artifact": null
+    }
+  ],
+  "artifacts": {
+    "proofDir": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/open-meteo/proofs",
+    "manifest": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/open-meteo/gutenberg.manifest.json",
+    "source": {
+      "path": "/tmp/open-meteo.openapi.json",
+      "sha256": "a465628fa971688f843c26e5a21eab9b9075a27a264501ddf025ad6c32c1a74f",
+      "size": 4036
+    },
+    "binary": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/open-meteo/proofs/bin/open-meteo",
+    "binarySha256": "0e0b356655f9332e9cde4f25042a2b5ee12db64588ddbb36b6ae8f6ade18acf3"
+  },
+  "badges": [
+    "Gutenberg Verified",
+    "Build Verified",
+    "MCP Ready",
+    "Risk Gated"
+  ]
+}

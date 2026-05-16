@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "openclaw.skill.v1",
+  "name": "open-meteo",
+  "displayName": "open-meteo",
+  "description": "open-meteo should become a local, searchable operational workspace, not only an endpoint wrapper.",
+  "runtime": {
+    "cli": "open-meteo",
+    "mcp": "open-meteo mcp"
+  },
+  "auth": {
+    "mode": "none",
+    "oauth": false,
+    "env": null,
+    "setupCommand": null
+  },
+  "capabilities": {
+    "readOperations": 1,
+    "writeOperations": 0,
+    "destructiveOperations": 0,
+    "cacheable": 1,
+    "total": 1
+  },
+  "actions": [
+    {
+      "name": "forecast",
+      "operationId": "getForecast",
+      "summary": "GET /v1/forecast",
+      "method": "GET",
+      "path": "/v1/forecast",
+      "defaultParams": {},
+      "invoke": "open-meteo forecast",
+      "safe": true
+    }
+  ],
+  "operations": [
+    {
+      "id": "getForecast",
+      "method": "GET",
+      "path": "/v1/forecast",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /v1/forecast",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "open-meteo call getForecast"
+    }
+  ],
+  "baseUrl": "https://api.open-meteo.com",
+  "safety": {
+    "writeRequiresConfirmation": true,
+    "confirmationFlag": "--yes",
+    "dryRunByDefault": true
+  },
+  "provenance": {
+    "generatedAt": "2026-05-16T07:07:29.409Z",
+    "gutenbergVersion": "0.1.0",
+    "specSha": "a465628fa971"
+  }
+}

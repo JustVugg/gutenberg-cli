@@ -1,0 +1,63 @@
+$ /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/open-meteo/proofs/bin/open-meteo operations --json
+cwd: /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/open-meteo
+status: 0
+signal: 
+
+stdout:
+[
+  {
+    "id": "getForecast",
+    "method": "GET",
+    "path": "/v1/forecast",
+    "tag": "v1",
+    "summary": "GET /v1/forecast",
+    "description": "",
+    "parameters": [
+      {
+        "name": "latitude",
+        "in": "query",
+        "required": false,
+        "description": "",
+        "type": "number"
+      },
+      {
+        "name": "longitude",
+        "in": "query",
+        "required": false,
+        "description": "",
+        "type": "number"
+      },
+      {
+        "name": "current",
+        "in": "query",
+        "required": false,
+        "description": "",
+        "type": "string"
+      },
+      {
+        "name": "daily",
+        "in": "query",
+        "required": false,
+        "description": "",
+        "type": "string"
+      },
+      {
+        "name": "timezone",
+        "in": "query",
+        "required": false,
+        "description": "",
+        "type": "string"
+      }
+    ],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "read-list"
+  }
+]
+
+
+stderr:
