@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "gutenberg.verification.v1",
+  "projectDir": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/pokeapi",
+  "tool": "pokeapi",
+  "language": "go",
+  "startedAt": "2026-05-16T07:03:36.214Z",
+  "finishedAt": "2026-05-16T07:04:08.724Z",
+  "ok": true,
+  "checks": [
+    {
+      "id": "go-mod-tidy",
+      "label": "go mod tidy",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 3244,
+      "log": "proofs/go-mod-tidy.log",
+      "artifact": null
+    },
+    {
+      "id": "go-test",
+      "label": "go test ./...",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 14796,
+      "log": "proofs/go-test.log",
+      "artifact": null
+    },
+    {
+      "id": "go-build",
+      "label": "go build CLI binary",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 11782,
+      "log": "proofs/go-build.log",
+      "artifact": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/pokeapi/proofs/bin/pokeapi"
+    },
+    {
+      "id": "cli-smoke",
+      "label": "CLI operations smoke",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 569,
+      "log": "proofs/cli-smoke.log",
+      "artifact": null
+    },
+    {
+      "id": "mcp-handshake",
+      "label": "MCP initialize + tools/list",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 269,
+      "log": "proofs/mcp-handshake.log",
+      "artifact": null
+    }
+  ],
+  "artifacts": {
+    "proofDir": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/pokeapi/proofs",
+    "manifest": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/pokeapi/gutenberg.manifest.json",
+    "source": {
+      "path": "/tmp/pokeapi.openapi.json",
+      "sha256": "89beed3944598d1ad5b8ecd29892f7bba0ab2d1f10d78f4e845f8cd979173a85",
+      "size": 65059
+    },
+    "binary": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/pokeapi/proofs/bin/pokeapi",
+    "binarySha256": "9155880fa79ac67aa9b9f8b673cfc918debfb2edb18445ab7fcbcaadfc6df0e4"
+  },
+  "badges": [
+    "Gutenberg Verified",
+    "Build Verified",
+    "MCP Ready",
+    "Risk Gated"
+  ]
+}

@@ -1,0 +1,342 @@
+{
+  "schemaVersion": "gutenberg.blueprint.v1",
+  "source": "/tmp/pokeapi.openapi.json",
+  "name": "pokeapi",
+  "slug": "pokeapi",
+  "envPrefix": "POKEAPI",
+  "description": "Generated from a browser HAR capture by Gutenberg.",
+  "version": "0.1.0",
+  "baseUrls": [
+    "https://pokeapi.co"
+  ],
+  "auth": {
+    "mode": "none",
+    "schemes": [],
+    "env": null
+  },
+  "tags": [
+    "api"
+  ],
+  "operations": [
+    {
+      "id": "getPokemon",
+      "method": "GET",
+      "path": "/api/v2/pokemon",
+      "tag": "api",
+      "summary": "GET /api/v2/pokemon",
+      "description": "",
+      "parameters": [
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false,
+          "description": "",
+          "type": "number"
+        }
+      ],
+      "hasRequestBody": false,
+      "risk": "read",
+      "cacheable": true,
+      "responseCodes": [
+        "200"
+      ],
+      "inputHints": {
+        "path": [],
+        "query": [
+          "limit"
+        ],
+        "headers": [],
+        "body": false
+      },
+      "graphql": null,
+      "kind": "read-list",
+      "pagination": null,
+      "related": []
+    },
+    {
+      "id": "getPokemonPikachu",
+      "method": "GET",
+      "path": "/api/v2/pokemon/pikachu",
+      "tag": "api",
+      "summary": "GET /api/v2/pokemon/pikachu",
+      "description": "",
+      "parameters": [],
+      "hasRequestBody": false,
+      "risk": "read",
+      "cacheable": true,
+      "responseCodes": [
+        "200"
+      ],
+      "inputHints": {
+        "path": [],
+        "query": [],
+        "headers": [],
+        "body": false
+      },
+      "graphql": null,
+      "kind": "read-list",
+      "pagination": null,
+      "related": []
+    },
+    {
+      "id": "getType",
+      "method": "GET",
+      "path": "/api/v2/type",
+      "tag": "api",
+      "summary": "GET /api/v2/type",
+      "description": "",
+      "parameters": [],
+      "hasRequestBody": false,
+      "risk": "read",
+      "cacheable": true,
+      "responseCodes": [
+        "200"
+      ],
+      "inputHints": {
+        "path": [],
+        "query": [],
+        "headers": [],
+        "body": false
+      },
+      "graphql": null,
+      "kind": "read-list",
+      "pagination": null,
+      "related": []
+    },
+    {
+      "id": "getAbility",
+      "method": "GET",
+      "path": "/api/v2/ability",
+      "tag": "api",
+      "summary": "GET /api/v2/ability",
+      "description": "",
+      "parameters": [
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false,
+          "description": "",
+          "type": "number"
+        }
+      ],
+      "hasRequestBody": false,
+      "risk": "read",
+      "cacheable": true,
+      "responseCodes": [
+        "200"
+      ],
+      "inputHints": {
+        "path": [],
+        "query": [
+          "limit"
+        ],
+        "headers": [],
+        "body": false
+      },
+      "graphql": null,
+      "kind": "read-list",
+      "pagination": null,
+      "related": []
+    }
+  ],
+  "heroes": [
+    {
+      "alias": "pokemon",
+      "operationId": "getPokemon",
+      "summary": "GET /api/v2/pokemon",
+      "method": "GET",
+      "path": "/api/v2/pokemon",
+      "defaultParams": {},
+      "explicit": false
+    },
+    {
+      "alias": "pikachu",
+      "operationId": "getPokemonPikachu",
+      "summary": "GET /api/v2/pokemon/pikachu",
+      "method": "GET",
+      "path": "/api/v2/pokemon/pikachu",
+      "defaultParams": {},
+      "explicit": false
+    },
+    {
+      "alias": "type",
+      "operationId": "getType",
+      "summary": "GET /api/v2/type",
+      "method": "GET",
+      "path": "/api/v2/type",
+      "defaultParams": {},
+      "explicit": false
+    },
+    {
+      "alias": "ability",
+      "operationId": "getAbility",
+      "summary": "GET /api/v2/ability",
+      "method": "GET",
+      "path": "/api/v2/ability",
+      "defaultParams": {},
+      "explicit": false
+    }
+  ],
+  "insights": {
+    "thesis": "pokeapi should become a local, searchable operational workspace, not only an endpoint wrapper.",
+    "generatedAdvantages": [
+      "One command surface for humans and agents",
+      "Shared core between CLI and MCP server",
+      "Local cache with search and replay metadata",
+      "Risk-aware dry-run defaults for write/destructive calls",
+      "Machine-readable manifest for catalogs and scorecards"
+    ],
+    "recommendedCommands": [
+      "sync: cache list endpoints locally",
+      "search: query cached API responses offline"
+    ],
+    "domainMap": [
+      {
+        "tag": "api",
+        "operations": 4
+      }
+    ],
+    "riskNotes": []
+  },
+  "generatedAt": "2026-05-16T07:02:49.298Z",
+  "provenance": {
+    "schemaVersion": "gutenberg.provenance.v1",
+    "generatedAt": "2026-05-16T07:02:49.305Z",
+    "gutenbergVersion": "0.1.0",
+    "name": "pokeapi",
+    "spec": {
+      "path": "/tmp/pokeapi.openapi.json",
+      "sha256": "89beed3944598d1ad5b8ecd29892f7bba0ab2d1f10d78f4e845f8cd979173a85",
+      "size": 65059
+    },
+    "recipe": null,
+    "targets": [
+      "go",
+      "mcp",
+      "skill",
+      "openclaw"
+    ],
+    "scorecard": {
+      "score": 140,
+      "maxScore": 190,
+      "grade": "C",
+      "dimensions": {
+        "structure": {
+          "score": 55,
+          "max": 55,
+          "ratio": 1,
+          "count": 11,
+          "passed": 11
+        },
+        "manifest": {
+          "score": 45,
+          "max": 45,
+          "ratio": 1,
+          "count": 5,
+          "passed": 5
+        },
+        "runtime": {
+          "score": 40,
+          "max": 40,
+          "ratio": 1,
+          "count": 4,
+          "passed": 4
+        },
+        "verification": {
+          "score": 0,
+          "max": 50,
+          "ratio": 0,
+          "count": 5,
+          "passed": 0
+        },
+        "coverage": {
+          "score": 20,
+          "max": 30,
+          "ratio": 0.6666666666666666,
+          "operations": 4,
+          "cacheable": 4,
+          "reads": 4,
+          "tagged": 0
+        },
+        "safety": {
+          "score": 20,
+          "max": 20,
+          "ratio": 1,
+          "writes": 0,
+          "classified": true,
+          "guardSourcePresent": true
+        },
+        "examples": {
+          "score": 15,
+          "max": 15,
+          "ratio": 1
+        },
+        "skill": {
+          "score": 10,
+          "max": 10,
+          "ratio": 1,
+          "present": true
+        }
+      }
+    },
+    "verification": {
+      "schemaVersion": "gutenberg.verification.summary.v1",
+      "verifiedAt": "2026-05-16T07:04:08.724Z",
+      "ok": true,
+      "badges": [
+        "Gutenberg Verified",
+        "Build Verified",
+        "MCP Ready",
+        "Risk Gated"
+      ],
+      "proofFile": "proofs/verification.json"
+    }
+  },
+  "defaultHeaders": {},
+  "policy": {
+    "schemaVersion": "gutenberg.policy.v1",
+    "rules": [
+      {
+        "risk": "read",
+        "action": "allow",
+        "requiresYes": false
+      },
+      {
+        "risk": "write",
+        "action": "confirm",
+        "requiresYes": true
+      },
+      {
+        "risk": "destructive",
+        "action": "confirm",
+        "requiresYes": true
+      }
+    ],
+    "redaction": [
+      "authorization",
+      "cookie",
+      "token",
+      "secret",
+      "api-key",
+      "apikey",
+      "client-secret",
+      "session"
+    ]
+  },
+  "packageName": "gutenberg.local/pokeapi",
+  "generatedBy": "gutenberg",
+  "generatedByVersion": "0.3.0",
+  "language": "go",
+  "verification": {
+    "schemaVersion": "gutenberg.verification.summary.v1",
+    "verifiedAt": "2026-05-16T07:04:08.724Z",
+    "ok": true,
+    "badges": [
+      "Gutenberg Verified",
+      "Build Verified",
+      "MCP Ready",
+      "Risk Gated"
+    ],
+    "proofFile": "proofs/verification.json"
+  }
+}

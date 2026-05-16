@@ -1,0 +1,91 @@
+$ /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/pokeapi/proofs/bin/pokeapi operations --json
+cwd: /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/pokeapi
+status: 0
+signal: 
+
+stdout:
+[
+  {
+    "id": "getPokemon",
+    "method": "GET",
+    "path": "/api/v2/pokemon",
+    "tag": "api",
+    "summary": "GET /api/v2/pokemon",
+    "description": "",
+    "parameters": [
+      {
+        "name": "limit",
+        "in": "query",
+        "required": false,
+        "description": "",
+        "type": "number"
+      }
+    ],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "read-list"
+  },
+  {
+    "id": "getPokemonPikachu",
+    "method": "GET",
+    "path": "/api/v2/pokemon/pikachu",
+    "tag": "api",
+    "summary": "GET /api/v2/pokemon/pikachu",
+    "description": "",
+    "parameters": [],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "read-list"
+  },
+  {
+    "id": "getType",
+    "method": "GET",
+    "path": "/api/v2/type",
+    "tag": "api",
+    "summary": "GET /api/v2/type",
+    "description": "",
+    "parameters": [],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "read-list"
+  },
+  {
+    "id": "getAbility",
+    "method": "GET",
+    "path": "/api/v2/ability",
+    "tag": "api",
+    "summary": "GET /api/v2/ability",
+    "description": "",
+    "parameters": [
+      {
+        "name": "limit",
+        "in": "query",
+        "required": false,
+        "description": "",
+        "type": "number"
+      }
+    ],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "read-list"
+  }
+]
+
+
+stderr:

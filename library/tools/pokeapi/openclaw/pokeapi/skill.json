@@ -1,0 +1,122 @@
+{
+  "schemaVersion": "openclaw.skill.v1",
+  "name": "pokeapi",
+  "displayName": "pokeapi",
+  "description": "pokeapi should become a local, searchable operational workspace, not only an endpoint wrapper.",
+  "runtime": {
+    "cli": "pokeapi",
+    "mcp": "pokeapi mcp"
+  },
+  "auth": {
+    "mode": "none",
+    "oauth": false,
+    "env": null,
+    "setupCommand": null
+  },
+  "capabilities": {
+    "readOperations": 4,
+    "writeOperations": 0,
+    "destructiveOperations": 0,
+    "cacheable": 4,
+    "total": 4
+  },
+  "actions": [
+    {
+      "name": "pokemon",
+      "operationId": "getPokemon",
+      "summary": "GET /api/v2/pokemon",
+      "method": "GET",
+      "path": "/api/v2/pokemon",
+      "defaultParams": {},
+      "invoke": "pokeapi pokemon",
+      "safe": true
+    },
+    {
+      "name": "pikachu",
+      "operationId": "getPokemonPikachu",
+      "summary": "GET /api/v2/pokemon/pikachu",
+      "method": "GET",
+      "path": "/api/v2/pokemon/pikachu",
+      "defaultParams": {},
+      "invoke": "pokeapi pikachu",
+      "safe": true
+    },
+    {
+      "name": "type",
+      "operationId": "getType",
+      "summary": "GET /api/v2/type",
+      "method": "GET",
+      "path": "/api/v2/type",
+      "defaultParams": {},
+      "invoke": "pokeapi type",
+      "safe": true
+    },
+    {
+      "name": "ability",
+      "operationId": "getAbility",
+      "summary": "GET /api/v2/ability",
+      "method": "GET",
+      "path": "/api/v2/ability",
+      "defaultParams": {},
+      "invoke": "pokeapi ability",
+      "safe": true
+    }
+  ],
+  "operations": [
+    {
+      "id": "getPokemon",
+      "method": "GET",
+      "path": "/api/v2/pokemon",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /api/v2/pokemon",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "pokeapi call getPokemon"
+    },
+    {
+      "id": "getPokemonPikachu",
+      "method": "GET",
+      "path": "/api/v2/pokemon/pikachu",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /api/v2/pokemon/pikachu",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "pokeapi call getPokemonPikachu"
+    },
+    {
+      "id": "getType",
+      "method": "GET",
+      "path": "/api/v2/type",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /api/v2/type",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "pokeapi call getType"
+    },
+    {
+      "id": "getAbility",
+      "method": "GET",
+      "path": "/api/v2/ability",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /api/v2/ability",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "pokeapi call getAbility"
+    }
+  ],
+  "baseUrl": "https://pokeapi.co",
+  "safety": {
+    "writeRequiresConfirmation": true,
+    "confirmationFlag": "--yes",
+    "dryRunByDefault": true
+  },
+  "provenance": {
+    "generatedAt": "2026-05-16T07:02:49.305Z",
+    "gutenbergVersion": "0.1.0",
+    "specSha": "89beed394459"
+  }
+}
