@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "gutenberg.aggregator-manifest.v1",
+  "name": "Multi-source demo aggregator",
+  "slug": "multi-demo",
+  "envPrefix": "MULTI_DEMO",
+  "packageName": "gutenberg.local/multi-demo",
+  "generatedBy": "gutenberg",
+  "generatedByVersion": "0.1.0",
+  "language": "go",
+  "kind": "aggregator",
+  "description": "Real proof of the aggregator pattern: fan-out over ESPN scoreboards and Open-Meteo weather. Both sources are public, no auth. Generated to validate that gutenberg can fan-out N OpenAPI sources, merge results, and ship a compiling Go CLI.",
+  "sources": [
+    {
+      "slug": "espn",
+      "displayName": "espn",
+      "operation": "getApisSiteV2SportsBasketballNbaScoreboard",
+      "baseUrls": [
+        "https://site.api.espn.com"
+      ]
+    },
+    {
+      "slug": "open-meteo",
+      "displayName": "open-meteo",
+      "operation": "getV1Forecast",
+      "baseUrls": [
+        "https://api.open-meteo.com"
+      ]
+    }
+  ],
+  "merge": "concatenate",
+  "rank": "by-source-order",
+  "verification": {
+    "schemaVersion": "gutenberg.verification.summary.v1",
+    "verifiedAt": "2026-05-16T00:29:21.309Z",
+    "ok": true,
+    "badges": [
+      "Gutenberg Verified",
+      "Build Verified",
+      "MCP Ready",
+      "Risk Gated"
+    ],
+    "proofFile": "proofs/verification.json"
+  }
+}

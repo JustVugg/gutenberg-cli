@@ -1,0 +1,11 @@
+$ /mnt/c/Users/sarah/Desktop/gutenberg/scripts/use-go.sh test ./...
+cwd: /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/multi-demo
+status: 0
+signal: 
+
+stdout:
+?   	gutenberg.local/multi-demo/cmd/multi-demo	[no test files]
+ok  	gutenberg.local/multi-demo/internal/aggr	(cached)
+
+
+stderr:

@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "openclaw.skill.v1",
+  "name": "multi-demo",
+  "displayName": "Multi-source demo aggregator",
+  "description": "Real proof of the aggregator pattern: fan-out over ESPN scoreboards and Open-Meteo weather. Both sources are public, no auth. Generated to validate that gutenberg can fan-out N OpenAPI sources, merge results, and ship a compiling Go CLI.",
+  "runtime": {
+    "cli": "multi-demo",
+    "mcp": null
+  },
+  "auth": {
+    "mode": "none",
+    "oauth": false,
+    "env": null,
+    "setupCommand": null
+  },
+  "capabilities": {
+    "readOperations": 0,
+    "writeOperations": 0,
+    "destructiveOperations": 0,
+    "cacheable": 0,
+    "total": 2
+  },
+  "actions": [
+    {
+      "name": "espn",
+      "operationId": "getApisSiteV2SportsBasketballNbaScoreboard",
+      "summary": "espn",
+      "method": "GET",
+      "path": "getApisSiteV2SportsBasketballNbaScoreboard",
+      "defaultParams": {},
+      "invoke": "multi-demo fan-out",
+      "safe": true
+    },
+    {
+      "name": "open-meteo",
+      "operationId": "getV1Forecast",
+      "summary": "open-meteo",
+      "method": "GET",
+      "path": "getV1Forecast",
+      "defaultParams": {},
+      "invoke": "multi-demo fan-out",
+      "safe": true
+    }
+  ],
+  "operations": [
+    {
+      "id": "espn",
+      "method": "GET",
+      "path": "getApisSiteV2SportsBasketballNbaScoreboard",
+      "kind": "source",
+      "risk": "read",
+      "summary": "espn",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "multi-demo fan-out"
+    },
+    {
+      "id": "open-meteo",
+      "method": "GET",
+      "path": "getV1Forecast",
+      "kind": "source",
+      "risk": "read",
+      "summary": "open-meteo",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "multi-demo fan-out"
+    }
+  ],
+  "baseUrl": "",
+  "safety": {
+    "writeRequiresConfirmation": true,
+    "confirmationFlag": "--yes",
+    "dryRunByDefault": true
+  },
+  "provenance": null
+}

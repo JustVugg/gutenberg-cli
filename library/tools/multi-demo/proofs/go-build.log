@@ -1,0 +1,9 @@
+$ /mnt/c/Users/sarah/Desktop/gutenberg/scripts/use-go.sh build -o /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/multi-demo/proofs/bin/multi-demo ./cmd/multi-demo
+cwd: /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/multi-demo
+status: 0
+signal: 
+
+stdout:
+
+
+stderr:

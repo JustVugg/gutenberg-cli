@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "gutenberg.verification.v1",
+  "projectDir": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/multi-demo",
+  "tool": "multi-demo",
+  "language": "go",
+  "startedAt": "2026-05-16T00:29:04.785Z",
+  "finishedAt": "2026-05-16T00:29:21.309Z",
+  "ok": true,
+  "checks": [
+    {
+      "id": "go-mod-tidy",
+      "label": "go mod tidy",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 1939,
+      "log": "proofs/go-mod-tidy.log",
+      "artifact": null
+    },
+    {
+      "id": "go-test",
+      "label": "go test ./...",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 5818,
+      "log": "proofs/go-test.log",
+      "artifact": null
+    },
+    {
+      "id": "go-build",
+      "label": "go build CLI binary",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 7158,
+      "log": "proofs/go-build.log",
+      "artifact": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/multi-demo/proofs/bin/multi-demo"
+    },
+    {
+      "id": "cli-smoke",
+      "label": "CLI sources smoke",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 588,
+      "log": "proofs/cli-smoke.log",
+      "artifact": null
+    },
+    {
+      "id": "mcp-handshake",
+      "label": "mcp-handshake",
+      "passed": true,
+      "required": false,
+      "detail": "not applicable for aggregator",
+      "elapsedMs": 0,
+      "log": null,
+      "artifact": null
+    }
+  ],
+  "artifacts": {
+    "proofDir": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/multi-demo/proofs",
+    "manifest": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/multi-demo/gutenberg.manifest.json",
+    "source": null,
+    "binary": "/mnt/c/Users/sarah/Desktop/gutenberg/library/tools/multi-demo/proofs/bin/multi-demo",
+    "binarySha256": "d14605cdc26cd77b40cd7ede78b75b17a8e6e4081e43bc798a27e9dd9153e494"
+  },
+  "badges": [
+    "Gutenberg Verified",
+    "Build Verified",
+    "MCP Ready",
+    "Risk Gated"
+  ]
+}
