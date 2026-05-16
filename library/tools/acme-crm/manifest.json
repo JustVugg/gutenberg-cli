@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "gutenberg.tool.v1",
+  "slug": "acme-crm",
+  "name": "Acme CRM",
+  "status": "prototype",
+  "source": "samples/petstore-openapi.json",
+  "surfaces": ["cli", "mcp", "cache", "catalog"],
+  "qualityGates": [
+    "OpenAPI blueprint",
+    "Risk classification",
+    "Dry-run writes",
+    "Local cache search",
+    "Smoke tests"
+  ]
+}
