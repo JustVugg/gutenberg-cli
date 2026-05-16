@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "gutenberg.create.v1",
+  "id": "randomuser",
+  "kind": "har",
+  "source": "https://randomuser.me",
+  "goal": "RandomUser.me — synthetic user data for prototyping.",
+  "auth": "none",
+  "inputs": {
+    "urls": [
+      "https://randomuser.me/api/?results=5",
+      "https://randomuser.me/api/?nat=it&results=3"
+    ]
+  }
+}

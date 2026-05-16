@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "gutenberg.create.v1",
+  "id": "pypi",
+  "kind": "har",
+  "source": "https://pypi.org",
+  "goal": "PyPI JSON metadata for Python packages.",
+  "auth": "none",
+  "inputs": {
+    "urls": [
+      "https://pypi.org/pypi/requests/json",
+      "https://pypi.org/pypi/numpy/json"
+    ]
+  }
+}

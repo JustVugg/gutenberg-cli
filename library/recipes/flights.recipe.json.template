@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "gutenberg.aggregator.v1",
+  "name": "flights",
+  "displayName": "Flights Aggregator",
+  "description": "Real flights aggregator over Amadeus + Kayak + Google Flights. Template — fill in the source specs/HAR captures and rename to flights.recipe.json.",
+  "sources": [
+    {
+      "name": "amadeus",
+      "spec": "TODO: path to Amadeus Flight Offers OpenAPI (download from your Amadeus developer dashboard)",
+      "operation": "searchFlightOffers",
+      "_blocker": "AMADEUS_ACCESS_TOKEN must be set in the environment at runtime (the aggregator forwards it as Bearer)."
+    },
+    {
+      "name": "kayak",
+      "spec": "TODO: path to a Kayak OpenAPI bridge generated from a HAR capture",
+      "operation": "searchFlights",
+      "_blocker": "Run: gutenberg login https://www.kayak.com --out state.json (interactive) then gutenberg record https://www.kayak.com/flights/MXP-CDG/2026-06-15 --storage-state state.json --out kayak.har.json && gutenberg import-har kayak.har.json --out kayak.openapi.json --name kayak"
+    },
+    {
+      "name": "google-flights",
+      "spec": "TODO: same flow as Kayak — record a HAR session and import",
+      "operation": "searchFlights",
+      "_blocker": "Same as kayak; respect site terms — recording does not bypass anti-bot."
+    }
+  ],
+  "merge": "concatenate",
+  "rank": "by-price",
+  "_notes": [
+    "Once the three spec paths above are real files, run: node bin/gutenberg.js generate library/recipes/flights.recipe.json --kind aggregator --out library/tools/flights --name flights --force",
+    "Edit internal/aggr/merge.go to dedupe by carrier+departure+arrival.",
+    "Edit internal/aggr/rank.go to sort by price (parsed from each source response)."
+  ]
+}

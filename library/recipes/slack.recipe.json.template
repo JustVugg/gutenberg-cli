@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "gutenberg.create.v1",
+  "id": "slack",
+  "kind": "openapi",
+  "source": "https://github.com/slackapi/slack-api-specs",
+  "goal": "Slack Web API. Requires bot/user token.",
+  "auth": "bearer",
+  "_blocker": "Create Slack app, install in workspace, copy Bot User OAuth Token (xoxb-...). Set SLACK_API_KEY at runtime."
+}

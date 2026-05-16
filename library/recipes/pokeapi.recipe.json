@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "gutenberg.create.v1",
+  "id": "pokeapi",
+  "kind": "har",
+  "source": "https://pokeapi.co",
+  "goal": "PokeAPI public REST endpoint.",
+  "auth": "none",
+  "inputs": {
+    "urls": [
+      "https://pokeapi.co/api/v2/pokemon?limit=20",
+      "https://pokeapi.co/api/v2/pokemon/pikachu",
+      "https://pokeapi.co/api/v2/pokemon/charizard",
+      "https://pokeapi.co/api/v2/ability?limit=10",
+      "https://pokeapi.co/api/v2/type"
+    ]
+  }
+}

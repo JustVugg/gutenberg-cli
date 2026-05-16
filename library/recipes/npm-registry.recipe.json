@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "gutenberg.create.v1",
+  "id": "npm-registry",
+  "kind": "har",
+  "source": "https://registry.npmjs.org",
+  "goal": "npm registry: package metadata, downloads, search.",
+  "auth": "none",
+  "inputs": {
+    "urls": [
+      "https://registry.npmjs.org/express",
+      "https://registry.npmjs.org/-/v1/search?text=playwright&size=5",
+      "https://api.npmjs.org/downloads/point/last-week/express"
+    ]
+  }
+}

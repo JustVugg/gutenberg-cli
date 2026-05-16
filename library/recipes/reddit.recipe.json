@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "gutenberg.create.v1",
+  "id": "reddit",
+  "kind": "har",
+  "source": "https://www.reddit.com",
+  "goal": "Reddit public JSON feeds. Requires custom User-Agent.",
+  "auth": "user-agent",
+  "defaultHeaders": {
+    "User-Agent": "gutenberg-reddit/0.1 (your-handle)"
+  },
+  "inputs": {
+    "urls": [
+      "https://www.reddit.com/r/programming.json?limit=10",
+      "https://www.reddit.com/r/italy.json?limit=10",
+      "https://www.reddit.com/r/programming/top.json?t=day&limit=5"
+    ]
+  }
+}

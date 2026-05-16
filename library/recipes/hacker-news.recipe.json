@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "gutenberg.create.v1",
+  "id": "hacker-news",
+  "kind": "har",
+  "source": "https://hacker-news.firebaseio.com",
+  "goal": "Hacker News stories CLI with no auth.",
+  "auth": "none",
+  "inputs": {
+    "urls": [
+      "https://hacker-news.firebaseio.com/v0/topstories.json",
+      "https://hacker-news.firebaseio.com/v0/newstories.json",
+      "https://hacker-news.firebaseio.com/v0/beststories.json",
+      "https://hacker-news.firebaseio.com/v0/maxitem.json"
+    ]
+  },
+  "nextCommands": [
+    "node bin/gutenberg.js seed-har https://hacker-news.firebaseio.com/v0/topstories.json https://hacker-news.firebaseio.com/v0/newstories.json https://hacker-news.firebaseio.com/v0/beststories.json https://hacker-news.firebaseio.com/v0/maxitem.json --out /tmp/hn.har.json",
+    "node bin/gutenberg.js import-har /tmp/hn.har.json --out /tmp/hn.openapi.json --name hacker-news --origin https://hacker-news.firebaseio.com",
+    "node bin/gutenberg.js generate /tmp/hn.openapi.json --out library/tools/hacker-news --name hacker-news --force --strict --min-score 0.7"
+  ]
+}

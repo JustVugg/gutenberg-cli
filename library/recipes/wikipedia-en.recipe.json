@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "gutenberg.create.v1",
+  "id": "wikipedia-en",
+  "kind": "har",
+  "source": "https://en.wikipedia.org",
+  "goal": "Wikipedia English REST API. Requires identifying User-Agent.",
+  "auth": "user-agent",
+  "defaultHeaders": {
+    "User-Agent": "gutenberg-wikipedia-en/0.1 (your-email@example.com)"
+  },
+  "inputs": {
+    "urls": [
+      "https://en.wikipedia.org/api/rest_v1/page/summary/Italy",
+      "https://en.wikipedia.org/api/rest_v1/page/summary/Bologna",
+      "https://en.wikipedia.org/api/rest_v1/page/related/Italy",
+      "https://en.wikipedia.org/api/rest_v1/page/random/summary",
+      "https://en.wikipedia.org/api/rest_v1/feed/featured/2026/05/15"
+    ]
+  }
+}

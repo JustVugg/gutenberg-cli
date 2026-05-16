@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "gutenberg.aggregator.v1",
+  "name": "recipes",
+  "displayName": "Recipes Aggregator",
+  "description": "Aggregate recipes across 3-5 popular sites (e.g. allrecipes, seriouseats, bonappetit, food52, nytcooking). Template — populate sources from HAR captures of search pages.",
+  "sources": [
+    {
+      "name": "allrecipes",
+      "spec": "TODO: import-har of allrecipes search session",
+      "operation": "search",
+      "_blocker": "gutenberg record https://www.allrecipes.com/search?q=carbonara --out allrecipes.har.json && gutenberg import-har allrecipes.har.json --out allrecipes.openapi.json --name allrecipes"
+    },
+    {
+      "name": "seriouseats",
+      "spec": "TODO: same HAR-capture flow",
+      "operation": "search",
+      "_blocker": "Some sites need login; use gutenberg login then gutenberg record --storage-state."
+    },
+    {
+      "name": "food52",
+      "spec": "TODO",
+      "operation": "search",
+      "_blocker": "Same HAR flow."
+    }
+  ],
+  "merge": "concatenate",
+  "rank": "by-rating",
+  "_notes": [
+    "After populating: gutenberg generate library/recipes/recipes-aggregator.recipe.json --kind aggregator --out library/tools/recipes-aggregator --name recipes --force",
+    "Edit merge.go to dedupe recipes by normalized title.",
+    "Edit rank.go to sort by rating descending (parse from each source's response shape).",
+    "Be respectful of site ToS — recording does not bypass anti-bot, paywalls, or rate limits."
+  ]
+}

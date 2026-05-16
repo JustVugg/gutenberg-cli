@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "gutenberg.create.v1",
+  "id": "nominatim",
+  "kind": "har",
+  "source": "https://nominatim.openstreetmap.org",
+  "goal": "OpenStreetMap Nominatim geocoding/reverse-geocoding (respect ToS: max 1 req/sec, set User-Agent).",
+  "auth": "user-agent",
+  "defaultHeaders": {
+    "User-Agent": "gutenberg-nominatim/0.1 (your-email@example.com)"
+  },
+  "inputs": {
+    "urls": [
+      "https://nominatim.openstreetmap.org/search?q=Bologna&format=json&limit=3",
+      "https://nominatim.openstreetmap.org/reverse?lat=44.4938&lon=11.3426&format=json"
+    ]
+  }
+}

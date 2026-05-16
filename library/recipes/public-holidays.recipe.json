@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "gutenberg.create.v1",
+  "id": "public-holidays",
+  "kind": "har",
+  "source": "https://date.nager.at",
+  "goal": "Nager.Date public holidays for any country.",
+  "auth": "none",
+  "inputs": {
+    "urls": [
+      "https://date.nager.at/api/v3/PublicHolidays/2026/IT",
+      "https://date.nager.at/api/v3/PublicHolidays/2026/US",
+      "https://date.nager.at/api/v3/AvailableCountries",
+      "https://date.nager.at/api/v3/NextPublicHolidays/IT"
+    ]
+  }
+}

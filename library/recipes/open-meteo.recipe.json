@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "gutenberg.create.v1",
+  "id": "open-meteo",
+  "kind": "har",
+  "source": "https://api.open-meteo.com",
+  "goal": "Open-Meteo free weather forecast API.",
+  "auth": "none",
+  "inputs": {
+    "urls": [
+      "https://api.open-meteo.com/v1/forecast?latitude=45.46&longitude=9.19&current=temperature_2m,wind_speed_10m",
+      "https://api.open-meteo.com/v1/forecast?latitude=41.90&longitude=12.49&daily=temperature_2m_max,temperature_2m_min&timezone=Europe%2FRome",
+      "https://geocoding-api.open-meteo.com/v1/search?name=Bologna&count=5",
+      "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=45.46&longitude=9.19&current=pm10,pm2_5"
+    ]
+  }
+}

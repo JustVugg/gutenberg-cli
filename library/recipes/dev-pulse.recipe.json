@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "gutenberg.aggregator.v1",
+  "name": "dev-pulse",
+  "displayName": "Dev Pulse aggregator",
+  "description": "Second real proof of the aggregator pattern: fan-out over GitHub REST and ESPN scoreboards. Demonstrates that the same generator handles wildly different source shapes.",
+  "sources": [
+    {
+      "name": "github",
+      "spec": "/tmp/github-api.json",
+      "operation": "meta/root"
+    },
+    {
+      "name": "espn",
+      "spec": "/tmp/espn.openapi.json",
+      "operation": "getApisSiteV2SportsBasketballNbaScoreboard"
+    }
+  ],
+  "merge": "concatenate",
+  "rank": "by-source-order"
+}

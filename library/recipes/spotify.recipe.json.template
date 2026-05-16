@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "gutenberg.create.v1",
+  "id": "spotify",
+  "kind": "openapi",
+  "source": "https://developer.spotify.com/openapi/v1/openapi.yaml",
+  "goal": "Spotify Web API. Requires OAuth (client credentials for catalog, PKCE for user data).",
+  "auth": "oauth",
+  "_blocker": "Get client id+secret from developer.spotify.com. Then: gutenberg auth client-credentials --token-url https://accounts.spotify.com/api/token --client-id ... --client-secret ...",
+  "nextCommands": [
+    "curl -o /tmp/spotify.yaml https://developer.spotify.com/openapi/v1/openapi.yaml",
+    "node bin/gutenberg.js generate /tmp/spotify.yaml --out library/tools/spotify --name spotify --force"
+  ]
+}

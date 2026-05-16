@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "gutenberg.create.v1",
+  "id": "exchange-rates",
+  "kind": "har",
+  "source": "https://open.er-api.com",
+  "goal": "Open ExchangeRate-API (free tier, no auth).",
+  "auth": "none",
+  "inputs": {
+    "urls": [
+      "https://open.er-api.com/v6/latest/USD",
+      "https://open.er-api.com/v6/latest/EUR"
+    ]
+  }
+}

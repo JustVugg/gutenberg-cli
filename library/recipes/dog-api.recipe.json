@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "gutenberg.create.v1",
+  "id": "dog-api",
+  "kind": "har",
+  "source": "https://dog.ceo",
+  "goal": "Dog API — breeds + random images, public.",
+  "auth": "none",
+  "inputs": {
+    "urls": [
+      "https://dog.ceo/api/breeds/list/all",
+      "https://dog.ceo/api/breeds/image/random",
+      "https://dog.ceo/api/breed/hound/list"
+    ]
+  }
+}

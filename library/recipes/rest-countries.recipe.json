@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "gutenberg.create.v1",
+  "id": "rest-countries",
+  "kind": "har",
+  "source": "https://restcountries.com",
+  "goal": "REST Countries public info on every country.",
+  "auth": "none",
+  "inputs": {
+    "urls": [
+      "https://restcountries.com/v3.1/all?fields=name,capital,population",
+      "https://restcountries.com/v3.1/name/italy",
+      "https://restcountries.com/v3.1/region/europe",
+      "https://restcountries.com/v3.1/independent?status=true"
+    ]
+  }
+}
