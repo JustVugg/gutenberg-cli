@@ -1,0 +1,3548 @@
+{
+  "schemaVersion": "openclaw.skill.v1",
+  "name": "stripe",
+  "displayName": "stripe",
+  "description": "stripe should become a local, searchable operational workspace, not only an endpoint wrapper.",
+  "runtime": {
+    "cli": "stripe",
+    "mcp": "stripe mcp"
+  },
+  "auth": {
+    "mode": "detected",
+    "oauth": false,
+    "env": "API_KEY",
+    "setupCommand": "export STRIPE_API_KEY=<your-key>"
+  },
+  "capabilities": {
+    "readOperations": 262,
+    "writeOperations": 262,
+    "destructiveOperations": 63,
+    "cacheable": 262,
+    "total": 587
+  },
+  "actions": [
+    {
+      "name": "account",
+      "operationId": "GetAccount",
+      "summary": "Retrieve account",
+      "method": "GET",
+      "path": "/v1/account",
+      "defaultParams": {},
+      "invoke": "stripe account",
+      "safe": true
+    },
+    {
+      "name": "accounts",
+      "operationId": "GetAccounts",
+      "summary": "List all connected accounts",
+      "method": "GET",
+      "path": "/v1/accounts",
+      "defaultParams": {},
+      "invoke": "stripe accounts",
+      "safe": true
+    },
+    {
+      "name": "domains",
+      "operationId": "GetApplePayDomains",
+      "summary": "<p>List apple pay domains.</p>",
+      "method": "GET",
+      "path": "/v1/apple_pay/domains",
+      "defaultParams": {},
+      "invoke": "stripe domains",
+      "safe": true
+    },
+    {
+      "name": "application-fees",
+      "operationId": "GetApplicationFees",
+      "summary": "List all application fees",
+      "method": "GET",
+      "path": "/v1/application_fees",
+      "defaultParams": {},
+      "invoke": "stripe application-fees",
+      "safe": true
+    },
+    {
+      "name": "secrets",
+      "operationId": "GetAppsSecrets",
+      "summary": "List secrets",
+      "method": "GET",
+      "path": "/v1/apps/secrets",
+      "defaultParams": {},
+      "invoke": "stripe secrets",
+      "safe": true
+    },
+    {
+      "name": "balance",
+      "operationId": "GetBalance",
+      "summary": "Retrieve balance",
+      "method": "GET",
+      "path": "/v1/balance",
+      "defaultParams": {},
+      "invoke": "stripe balance",
+      "safe": true
+    },
+    {
+      "name": "history",
+      "operationId": "GetBalanceHistory",
+      "summary": "List all balance transactions",
+      "method": "GET",
+      "path": "/v1/balance/history",
+      "defaultParams": {},
+      "invoke": "stripe history",
+      "safe": true
+    },
+    {
+      "name": "balance-settings",
+      "operationId": "GetBalanceSettings",
+      "summary": "Retrieve balance settings",
+      "method": "GET",
+      "path": "/v1/balance_settings",
+      "defaultParams": {},
+      "invoke": "stripe balance-settings",
+      "safe": true
+    },
+    {
+      "name": "balance-transactions",
+      "operationId": "GetBalanceTransactions",
+      "summary": "List all balance transactions",
+      "method": "GET",
+      "path": "/v1/balance_transactions",
+      "defaultParams": {},
+      "invoke": "stripe balance-transactions",
+      "safe": true
+    },
+    {
+      "name": "alerts",
+      "operationId": "GetBillingAlerts",
+      "summary": "List billing alerts",
+      "method": "GET",
+      "path": "/v1/billing/alerts",
+      "defaultParams": {},
+      "invoke": "stripe alerts",
+      "safe": true
+    },
+    {
+      "name": "credit-balance-summary",
+      "operationId": "GetBillingCreditBalanceSummary",
+      "summary": "Retrieve the credit balance summary for a customer",
+      "method": "GET",
+      "path": "/v1/billing/credit_balance_summary",
+      "defaultParams": {},
+      "invoke": "stripe credit-balance-summary",
+      "safe": true
+    },
+    {
+      "name": "credit-balance-transactions",
+      "operationId": "GetBillingCreditBalanceTransactions",
+      "summary": "List credit balance transactions",
+      "method": "GET",
+      "path": "/v1/billing/credit_balance_transactions",
+      "defaultParams": {},
+      "invoke": "stripe credit-balance-transactions",
+      "safe": true
+    },
+    {
+      "name": "credit-grants",
+      "operationId": "GetBillingCreditGrants",
+      "summary": "List credit grants",
+      "method": "GET",
+      "path": "/v1/billing/credit_grants",
+      "defaultParams": {},
+      "invoke": "stripe credit-grants",
+      "safe": true
+    },
+    {
+      "name": "meters",
+      "operationId": "GetBillingMeters",
+      "summary": "List billing meters",
+      "method": "GET",
+      "path": "/v1/billing/meters",
+      "defaultParams": {},
+      "invoke": "stripe meters",
+      "safe": true
+    },
+    {
+      "name": "configurations",
+      "operationId": "GetBillingPortalConfigurations",
+      "summary": "List portal configurations",
+      "method": "GET",
+      "path": "/v1/billing_portal/configurations",
+      "defaultParams": {},
+      "invoke": "stripe configurations",
+      "safe": true
+    },
+    {
+      "name": "charges",
+      "operationId": "GetCharges",
+      "summary": "List all charges",
+      "method": "GET",
+      "path": "/v1/charges",
+      "defaultParams": {},
+      "invoke": "stripe charges",
+      "safe": true
+    },
+    {
+      "name": "search",
+      "operationId": "GetChargesSearch",
+      "summary": "Search charges",
+      "method": "GET",
+      "path": "/v1/charges/search",
+      "defaultParams": {},
+      "invoke": "stripe search",
+      "safe": true
+    },
+    {
+      "name": "sessions",
+      "operationId": "GetCheckoutSessions",
+      "summary": "List all Checkout Sessions",
+      "method": "GET",
+      "path": "/v1/checkout/sessions",
+      "defaultParams": {},
+      "invoke": "stripe sessions",
+      "safe": true
+    },
+    {
+      "name": "orders",
+      "operationId": "GetClimateOrders",
+      "summary": "List orders",
+      "method": "GET",
+      "path": "/v1/climate/orders",
+      "defaultParams": {},
+      "invoke": "stripe orders",
+      "safe": true
+    },
+    {
+      "name": "products",
+      "operationId": "GetClimateProducts",
+      "summary": "List products",
+      "method": "GET",
+      "path": "/v1/climate/products",
+      "defaultParams": {},
+      "invoke": "stripe products",
+      "safe": true
+    }
+  ],
+  "operations": [
+    {
+      "id": "GetAccount",
+      "method": "GET",
+      "path": "/v1/account",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "Retrieve account",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call GetAccount"
+    },
+    {
+      "id": "PostAccountLinks",
+      "method": "POST",
+      "path": "/v1/account_links",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create an account link",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call PostAccountLinks"
+    },
+    {
+      "id": "PostAccountSessions",
+      "method": "POST",
+      "path": "/v1/account_sessions",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create an Account Session",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call PostAccountSessions"
+    },
+    {
+      "id": "GetAccounts",
+      "method": "GET",
+      "path": "/v1/accounts",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List all connected accounts",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call GetAccounts"
+    },
+    {
+      "id": "PostAccounts",
+      "method": "POST",
+      "path": "/v1/accounts",
+      "kind": "create",
+      "risk": "write",
+      "summary": "<p>With <a href=\"/docs/connect\">Connect</a>, you can create Stripe accounts for your users.\nTo do this, you’ll first need to <a href=\"https://dashboard.stripe.com/account/applications/settings\">register your platform</a>.</p>\n\n<p>If you’ve already collected information for your connected accounts, you <a href=\"/docs/connect/best-practices#onboarding\">can prefill that information</a> when\ncreating the account. Connect Onboarding won’t ask for the prefilled information during account onboarding.\nYou can prefill any information on the account.</p>",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call PostAccounts"
+    },
+    {
+      "id": "DeleteAccountsAccount",
+      "method": "DELETE",
+      "path": "/v1/accounts/{account}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete an account",
+      "requiredParams": [
+        {
+          "name": "account",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call DeleteAccountsAccount"
+    },
+    {
+      "id": "GetAccountsAccount",
+      "method": "GET",
+      "path": "/v1/accounts/{account}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve account",
+      "requiredParams": [
+        {
+          "name": "account",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetAccountsAccount"
+    },
+    {
+      "id": "PostAccountsAccount",
+      "method": "POST",
+      "path": "/v1/accounts/{account}",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Update an account",
+      "requiredParams": [
+        {
+          "name": "account",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostAccountsAccount"
+    },
+    {
+      "id": "PostAccountsAccountBankAccounts",
+      "method": "POST",
+      "path": "/v1/accounts/{account}/bank_accounts",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create an external account",
+      "requiredParams": [
+        {
+          "name": "account",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostAccountsAccountBankAccounts"
+    },
+    {
+      "id": "DeleteAccountsAccountBankAccountsId",
+      "method": "DELETE",
+      "path": "/v1/accounts/{account}/bank_accounts/{id}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete an external account",
+      "requiredParams": [
+        {
+          "name": "account",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call DeleteAccountsAccountBankAccountsId"
+    },
+    {
+      "id": "GetAccountsAccountBankAccountsId",
+      "method": "GET",
+      "path": "/v1/accounts/{account}/bank_accounts/{id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve an external account",
+      "requiredParams": [
+        {
+          "name": "account",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetAccountsAccountBankAccountsId"
+    },
+    {
+      "id": "PostAccountsAccountBankAccountsId",
+      "method": "POST",
+      "path": "/v1/accounts/{account}/bank_accounts/{id}",
+      "kind": "create",
+      "risk": "write",
+      "summary": "<p>Updates the metadata, account holder name, account holder type of a bank account belonging to\na connected account and optionally sets it as the default for its currency. Other bank account\ndetails are not editable by design.</p>\n\n<p>You can only update bank accounts when <a href=\"/api/accounts/object#account_object-controller-requirement_collection\">account.controller.requirement_collection</a> is <code>application</code>, which includes <a href=\"/connect/custom-accounts\">Custom accounts</a>.</p>\n\n<p>You can re-enable a disabled bank account by performing an update call without providing any\narguments or changes.</p>",
+      "requiredParams": [
+        {
+          "name": "account",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostAccountsAccountBankAccountsId"
+    },
+    {
+      "id": "GetAccountsAccountCapabilities",
+      "method": "GET",
+      "path": "/v1/accounts/{account}/capabilities",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List all account capabilities",
+      "requiredParams": [
+        {
+          "name": "account",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetAccountsAccountCapabilities"
+    },
+    {
+      "id": "GetAccountsAccountCapabilitiesCapability",
+      "method": "GET",
+      "path": "/v1/accounts/{account}/capabilities/{capability}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve an Account Capability",
+      "requiredParams": [
+        {
+          "name": "account",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "capability",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetAccountsAccountCapabilitiesCapability"
+    },
+    {
+      "id": "PostAccountsAccountCapabilitiesCapability",
+      "method": "POST",
+      "path": "/v1/accounts/{account}/capabilities/{capability}",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Update an Account Capability",
+      "requiredParams": [
+        {
+          "name": "account",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "capability",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostAccountsAccountCapabilitiesCapability"
+    },
+    {
+      "id": "GetAccountsAccountExternalAccounts",
+      "method": "GET",
+      "path": "/v1/accounts/{account}/external_accounts",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List all external accounts",
+      "requiredParams": [
+        {
+          "name": "account",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetAccountsAccountExternalAccounts"
+    },
+    {
+      "id": "PostAccountsAccountExternalAccounts",
+      "method": "POST",
+      "path": "/v1/accounts/{account}/external_accounts",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create an external account",
+      "requiredParams": [
+        {
+          "name": "account",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostAccountsAccountExternalAccounts"
+    },
+    {
+      "id": "DeleteAccountsAccountExternalAccountsId",
+      "method": "DELETE",
+      "path": "/v1/accounts/{account}/external_accounts/{id}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete an external account",
+      "requiredParams": [
+        {
+          "name": "account",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call DeleteAccountsAccountExternalAccountsId"
+    },
+    {
+      "id": "GetAccountsAccountExternalAccountsId",
+      "method": "GET",
+      "path": "/v1/accounts/{account}/external_accounts/{id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve an external account",
+      "requiredParams": [
+        {
+          "name": "account",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetAccountsAccountExternalAccountsId"
+    },
+    {
+      "id": "PostAccountsAccountExternalAccountsId",
+      "method": "POST",
+      "path": "/v1/accounts/{account}/external_accounts/{id}",
+      "kind": "create",
+      "risk": "write",
+      "summary": "<p>Updates the metadata, account holder name, account holder type of a bank account belonging to\na connected account and optionally sets it as the default for its currency. Other bank account\ndetails are not editable by design.</p>\n\n<p>You can only update bank accounts when <a href=\"/api/accounts/object#account_object-controller-requirement_collection\">account.controller.requirement_collection</a> is <code>application</code>, which includes <a href=\"/connect/custom-accounts\">Custom accounts</a>.</p>\n\n<p>You can re-enable a disabled bank account by performing an update call without providing any\narguments or changes.</p>",
+      "requiredParams": [
+        {
+          "name": "account",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostAccountsAccountExternalAccountsId"
+    },
+    {
+      "id": "PostAccountsAccountLoginLinks",
+      "method": "POST",
+      "path": "/v1/accounts/{account}/login_links",
+      "kind": "action",
+      "risk": "write",
+      "summary": "Create a login link",
+      "requiredParams": [
+        {
+          "name": "account",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostAccountsAccountLoginLinks"
+    },
+    {
+      "id": "GetAccountsAccountPeople",
+      "method": "GET",
+      "path": "/v1/accounts/{account}/people",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List all persons",
+      "requiredParams": [
+        {
+          "name": "account",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetAccountsAccountPeople"
+    },
+    {
+      "id": "PostAccountsAccountPeople",
+      "method": "POST",
+      "path": "/v1/accounts/{account}/people",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a person",
+      "requiredParams": [
+        {
+          "name": "account",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostAccountsAccountPeople"
+    },
+    {
+      "id": "DeleteAccountsAccountPeoplePerson",
+      "method": "DELETE",
+      "path": "/v1/accounts/{account}/people/{person}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete a person",
+      "requiredParams": [
+        {
+          "name": "account",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "person",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call DeleteAccountsAccountPeoplePerson"
+    },
+    {
+      "id": "GetAccountsAccountPeoplePerson",
+      "method": "GET",
+      "path": "/v1/accounts/{account}/people/{person}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve a person",
+      "requiredParams": [
+        {
+          "name": "account",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "person",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetAccountsAccountPeoplePerson"
+    },
+    {
+      "id": "PostAccountsAccountPeoplePerson",
+      "method": "POST",
+      "path": "/v1/accounts/{account}/people/{person}",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Update a person",
+      "requiredParams": [
+        {
+          "name": "account",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "person",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostAccountsAccountPeoplePerson"
+    },
+    {
+      "id": "GetAccountsAccountPersons",
+      "method": "GET",
+      "path": "/v1/accounts/{account}/persons",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List all persons",
+      "requiredParams": [
+        {
+          "name": "account",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetAccountsAccountPersons"
+    },
+    {
+      "id": "PostAccountsAccountPersons",
+      "method": "POST",
+      "path": "/v1/accounts/{account}/persons",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a person",
+      "requiredParams": [
+        {
+          "name": "account",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostAccountsAccountPersons"
+    },
+    {
+      "id": "DeleteAccountsAccountPersonsPerson",
+      "method": "DELETE",
+      "path": "/v1/accounts/{account}/persons/{person}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete a person",
+      "requiredParams": [
+        {
+          "name": "account",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "person",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call DeleteAccountsAccountPersonsPerson"
+    },
+    {
+      "id": "GetAccountsAccountPersonsPerson",
+      "method": "GET",
+      "path": "/v1/accounts/{account}/persons/{person}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve a person",
+      "requiredParams": [
+        {
+          "name": "account",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "person",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetAccountsAccountPersonsPerson"
+    },
+    {
+      "id": "PostAccountsAccountPersonsPerson",
+      "method": "POST",
+      "path": "/v1/accounts/{account}/persons/{person}",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Update a person",
+      "requiredParams": [
+        {
+          "name": "account",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "person",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostAccountsAccountPersonsPerson"
+    },
+    {
+      "id": "PostAccountsAccountReject",
+      "method": "POST",
+      "path": "/v1/accounts/{account}/reject",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Reject an account",
+      "requiredParams": [
+        {
+          "name": "account",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostAccountsAccountReject"
+    },
+    {
+      "id": "GetApplePayDomains",
+      "method": "GET",
+      "path": "/v1/apple_pay/domains",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "<p>List apple pay domains.</p>",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call GetApplePayDomains"
+    },
+    {
+      "id": "PostApplePayDomains",
+      "method": "POST",
+      "path": "/v1/apple_pay/domains",
+      "kind": "create",
+      "risk": "write",
+      "summary": "<p>Create an apple pay domain.</p>",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call PostApplePayDomains"
+    },
+    {
+      "id": "DeleteApplePayDomainsDomain",
+      "method": "DELETE",
+      "path": "/v1/apple_pay/domains/{domain}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "<p>Delete an apple pay domain.</p>",
+      "requiredParams": [
+        {
+          "name": "domain",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call DeleteApplePayDomainsDomain"
+    },
+    {
+      "id": "GetApplePayDomainsDomain",
+      "method": "GET",
+      "path": "/v1/apple_pay/domains/{domain}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "<p>Retrieve an apple pay domain.</p>",
+      "requiredParams": [
+        {
+          "name": "domain",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetApplePayDomainsDomain"
+    },
+    {
+      "id": "GetApplicationFees",
+      "method": "GET",
+      "path": "/v1/application_fees",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List all application fees",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call GetApplicationFees"
+    },
+    {
+      "id": "GetApplicationFeesFeeRefundsId",
+      "method": "GET",
+      "path": "/v1/application_fees/{fee}/refunds/{id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve an application fee refund",
+      "requiredParams": [
+        {
+          "name": "fee",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetApplicationFeesFeeRefundsId"
+    },
+    {
+      "id": "PostApplicationFeesFeeRefundsId",
+      "method": "POST",
+      "path": "/v1/application_fees/{fee}/refunds/{id}",
+      "kind": "create",
+      "risk": "destructive",
+      "summary": "Update an application fee refund",
+      "requiredParams": [
+        {
+          "name": "fee",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostApplicationFeesFeeRefundsId"
+    },
+    {
+      "id": "GetApplicationFeesId",
+      "method": "GET",
+      "path": "/v1/application_fees/{id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve an application fee",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetApplicationFeesId"
+    },
+    {
+      "id": "PostApplicationFeesIdRefund",
+      "method": "POST",
+      "path": "/v1/application_fees/{id}/refund",
+      "kind": "create",
+      "risk": "write",
+      "summary": "PostApplicationFeesIdRefund",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostApplicationFeesIdRefund"
+    },
+    {
+      "id": "GetApplicationFeesIdRefunds",
+      "method": "GET",
+      "path": "/v1/application_fees/{id}/refunds",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List all application fee refunds",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetApplicationFeesIdRefunds"
+    },
+    {
+      "id": "PostApplicationFeesIdRefunds",
+      "method": "POST",
+      "path": "/v1/application_fees/{id}/refunds",
+      "kind": "create",
+      "risk": "destructive",
+      "summary": "Create an application fee refund",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostApplicationFeesIdRefunds"
+    },
+    {
+      "id": "GetAppsSecrets",
+      "method": "GET",
+      "path": "/v1/apps/secrets",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List secrets",
+      "requiredParams": [
+        {
+          "name": "scope",
+          "in": "query",
+          "type": "object"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetAppsSecrets"
+    },
+    {
+      "id": "PostAppsSecrets",
+      "method": "POST",
+      "path": "/v1/apps/secrets",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Set a Secret",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call PostAppsSecrets"
+    },
+    {
+      "id": "PostAppsSecretsDelete",
+      "method": "POST",
+      "path": "/v1/apps/secrets/delete",
+      "kind": "create",
+      "risk": "destructive",
+      "summary": "Delete a Secret",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call PostAppsSecretsDelete"
+    },
+    {
+      "id": "GetAppsSecretsFind",
+      "method": "GET",
+      "path": "/v1/apps/secrets/find",
+      "kind": "search",
+      "risk": "read",
+      "summary": "Find a Secret",
+      "requiredParams": [
+        {
+          "name": "name",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "scope",
+          "in": "query",
+          "type": "object"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetAppsSecretsFind"
+    },
+    {
+      "id": "GetBalance",
+      "method": "GET",
+      "path": "/v1/balance",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "Retrieve balance",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call GetBalance"
+    },
+    {
+      "id": "GetBalanceHistory",
+      "method": "GET",
+      "path": "/v1/balance/history",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List all balance transactions",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call GetBalanceHistory"
+    },
+    {
+      "id": "GetBalanceHistoryId",
+      "method": "GET",
+      "path": "/v1/balance/history/{id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve a balance transaction",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetBalanceHistoryId"
+    },
+    {
+      "id": "GetBalanceSettings",
+      "method": "GET",
+      "path": "/v1/balance_settings",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "Retrieve balance settings",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call GetBalanceSettings"
+    },
+    {
+      "id": "PostBalanceSettings",
+      "method": "POST",
+      "path": "/v1/balance_settings",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Update balance settings",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call PostBalanceSettings"
+    },
+    {
+      "id": "GetBalanceTransactions",
+      "method": "GET",
+      "path": "/v1/balance_transactions",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List all balance transactions",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call GetBalanceTransactions"
+    },
+    {
+      "id": "GetBalanceTransactionsId",
+      "method": "GET",
+      "path": "/v1/balance_transactions/{id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve a balance transaction",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetBalanceTransactionsId"
+    },
+    {
+      "id": "GetBillingAlerts",
+      "method": "GET",
+      "path": "/v1/billing/alerts",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List billing alerts",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call GetBillingAlerts"
+    },
+    {
+      "id": "PostBillingAlerts",
+      "method": "POST",
+      "path": "/v1/billing/alerts",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a billing alert",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call PostBillingAlerts"
+    },
+    {
+      "id": "GetBillingAlertsId",
+      "method": "GET",
+      "path": "/v1/billing/alerts/{id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve a billing alert",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetBillingAlertsId"
+    },
+    {
+      "id": "PostBillingAlertsIdActivate",
+      "method": "POST",
+      "path": "/v1/billing/alerts/{id}/activate",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Activate a billing alert",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostBillingAlertsIdActivate"
+    },
+    {
+      "id": "PostBillingAlertsIdArchive",
+      "method": "POST",
+      "path": "/v1/billing/alerts/{id}/archive",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Archive a billing alert",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostBillingAlertsIdArchive"
+    },
+    {
+      "id": "PostBillingAlertsIdDeactivate",
+      "method": "POST",
+      "path": "/v1/billing/alerts/{id}/deactivate",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Deactivate a billing alert",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostBillingAlertsIdDeactivate"
+    },
+    {
+      "id": "GetBillingCreditBalanceSummary",
+      "method": "GET",
+      "path": "/v1/billing/credit_balance_summary",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "Retrieve the credit balance summary for a customer",
+      "requiredParams": [
+        {
+          "name": "filter",
+          "in": "query",
+          "type": "object"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetBillingCreditBalanceSummary"
+    },
+    {
+      "id": "GetBillingCreditBalanceTransactions",
+      "method": "GET",
+      "path": "/v1/billing/credit_balance_transactions",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List credit balance transactions",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call GetBillingCreditBalanceTransactions"
+    },
+    {
+      "id": "GetBillingCreditBalanceTransactionsId",
+      "method": "GET",
+      "path": "/v1/billing/credit_balance_transactions/{id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve a credit balance transaction",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetBillingCreditBalanceTransactionsId"
+    },
+    {
+      "id": "GetBillingCreditGrants",
+      "method": "GET",
+      "path": "/v1/billing/credit_grants",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List credit grants",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call GetBillingCreditGrants"
+    },
+    {
+      "id": "PostBillingCreditGrants",
+      "method": "POST",
+      "path": "/v1/billing/credit_grants",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a credit grant",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call PostBillingCreditGrants"
+    },
+    {
+      "id": "GetBillingCreditGrantsId",
+      "method": "GET",
+      "path": "/v1/billing/credit_grants/{id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve a credit grant",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetBillingCreditGrantsId"
+    },
+    {
+      "id": "PostBillingCreditGrantsId",
+      "method": "POST",
+      "path": "/v1/billing/credit_grants/{id}",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Update a credit grant",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostBillingCreditGrantsId"
+    },
+    {
+      "id": "PostBillingCreditGrantsIdExpire",
+      "method": "POST",
+      "path": "/v1/billing/credit_grants/{id}/expire",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Expire a credit grant",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostBillingCreditGrantsIdExpire"
+    },
+    {
+      "id": "PostBillingCreditGrantsIdVoid",
+      "method": "POST",
+      "path": "/v1/billing/credit_grants/{id}/void",
+      "kind": "create",
+      "risk": "destructive",
+      "summary": "Void a credit grant",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostBillingCreditGrantsIdVoid"
+    },
+    {
+      "id": "PostBillingMeterEventAdjustments",
+      "method": "POST",
+      "path": "/v1/billing/meter_event_adjustments",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a billing meter event adjustment",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call PostBillingMeterEventAdjustments"
+    },
+    {
+      "id": "PostBillingMeterEvents",
+      "method": "POST",
+      "path": "/v1/billing/meter_events",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a billing meter event",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call PostBillingMeterEvents"
+    },
+    {
+      "id": "GetBillingMeters",
+      "method": "GET",
+      "path": "/v1/billing/meters",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List billing meters",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call GetBillingMeters"
+    },
+    {
+      "id": "PostBillingMeters",
+      "method": "POST",
+      "path": "/v1/billing/meters",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a billing meter",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call PostBillingMeters"
+    },
+    {
+      "id": "GetBillingMetersId",
+      "method": "GET",
+      "path": "/v1/billing/meters/{id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve a billing meter",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetBillingMetersId"
+    },
+    {
+      "id": "PostBillingMetersId",
+      "method": "POST",
+      "path": "/v1/billing/meters/{id}",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Update a billing meter",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostBillingMetersId"
+    },
+    {
+      "id": "PostBillingMetersIdDeactivate",
+      "method": "POST",
+      "path": "/v1/billing/meters/{id}/deactivate",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Deactivate a billing meter",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostBillingMetersIdDeactivate"
+    },
+    {
+      "id": "GetBillingMetersIdEventSummaries",
+      "method": "GET",
+      "path": "/v1/billing/meters/{id}/event_summaries",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List billing meter event summaries",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "end_time",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "start_time",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetBillingMetersIdEventSummaries"
+    },
+    {
+      "id": "PostBillingMetersIdReactivate",
+      "method": "POST",
+      "path": "/v1/billing/meters/{id}/reactivate",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Reactivate a billing meter",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostBillingMetersIdReactivate"
+    },
+    {
+      "id": "GetBillingPortalConfigurations",
+      "method": "GET",
+      "path": "/v1/billing_portal/configurations",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List portal configurations",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call GetBillingPortalConfigurations"
+    },
+    {
+      "id": "PostBillingPortalConfigurations",
+      "method": "POST",
+      "path": "/v1/billing_portal/configurations",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a portal configuration",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call PostBillingPortalConfigurations"
+    },
+    {
+      "id": "GetBillingPortalConfigurationsConfiguration",
+      "method": "GET",
+      "path": "/v1/billing_portal/configurations/{configuration}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve a portal configuration",
+      "requiredParams": [
+        {
+          "name": "configuration",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetBillingPortalConfigurationsConfiguration"
+    },
+    {
+      "id": "PostBillingPortalConfigurationsConfiguration",
+      "method": "POST",
+      "path": "/v1/billing_portal/configurations/{configuration}",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Update a portal configuration",
+      "requiredParams": [
+        {
+          "name": "configuration",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostBillingPortalConfigurationsConfiguration"
+    },
+    {
+      "id": "PostBillingPortalSessions",
+      "method": "POST",
+      "path": "/v1/billing_portal/sessions",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a portal session",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call PostBillingPortalSessions"
+    },
+    {
+      "id": "GetCharges",
+      "method": "GET",
+      "path": "/v1/charges",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List all charges",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call GetCharges"
+    },
+    {
+      "id": "PostCharges",
+      "method": "POST",
+      "path": "/v1/charges",
+      "kind": "create",
+      "risk": "write",
+      "summary": "<p>This method is no longer recommended—use the <a href=\"/docs/api/payment_intents\">Payment Intents API</a>\nto initiate a new payment instead. Confirmation of the PaymentIntent creates the <code>Charge</code>\nobject used to request payment.</p>",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call PostCharges"
+    },
+    {
+      "id": "GetChargesSearch",
+      "method": "GET",
+      "path": "/v1/charges/search",
+      "kind": "search",
+      "risk": "read",
+      "summary": "Search charges",
+      "requiredParams": [
+        {
+          "name": "query",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "limit"
+      },
+      "invoke": "stripe call GetChargesSearch"
+    },
+    {
+      "id": "GetChargesCharge",
+      "method": "GET",
+      "path": "/v1/charges/{charge}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve a charge",
+      "requiredParams": [
+        {
+          "name": "charge",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetChargesCharge"
+    },
+    {
+      "id": "PostChargesCharge",
+      "method": "POST",
+      "path": "/v1/charges/{charge}",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Update a charge",
+      "requiredParams": [
+        {
+          "name": "charge",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostChargesCharge"
+    },
+    {
+      "id": "PostChargesChargeCapture",
+      "method": "POST",
+      "path": "/v1/charges/{charge}/capture",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Capture a payment",
+      "requiredParams": [
+        {
+          "name": "charge",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostChargesChargeCapture"
+    },
+    {
+      "id": "GetChargesChargeDispute",
+      "method": "GET",
+      "path": "/v1/charges/{charge}/dispute",
+      "kind": "read",
+      "risk": "read",
+      "summary": "<p>Retrieve a dispute for a specified charge.</p>",
+      "requiredParams": [
+        {
+          "name": "charge",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetChargesChargeDispute"
+    },
+    {
+      "id": "PostChargesChargeDispute",
+      "method": "POST",
+      "path": "/v1/charges/{charge}/dispute",
+      "kind": "create",
+      "risk": "write",
+      "summary": "PostChargesChargeDispute",
+      "requiredParams": [
+        {
+          "name": "charge",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostChargesChargeDispute"
+    },
+    {
+      "id": "PostChargesChargeDisputeClose",
+      "method": "POST",
+      "path": "/v1/charges/{charge}/dispute/close",
+      "kind": "create",
+      "risk": "write",
+      "summary": "PostChargesChargeDisputeClose",
+      "requiredParams": [
+        {
+          "name": "charge",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostChargesChargeDisputeClose"
+    },
+    {
+      "id": "PostChargesChargeRefund",
+      "method": "POST",
+      "path": "/v1/charges/{charge}/refund",
+      "kind": "create",
+      "risk": "destructive",
+      "summary": "Create a refund",
+      "requiredParams": [
+        {
+          "name": "charge",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostChargesChargeRefund"
+    },
+    {
+      "id": "GetChargesChargeRefunds",
+      "method": "GET",
+      "path": "/v1/charges/{charge}/refunds",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List all refunds",
+      "requiredParams": [
+        {
+          "name": "charge",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetChargesChargeRefunds"
+    },
+    {
+      "id": "PostChargesChargeRefunds",
+      "method": "POST",
+      "path": "/v1/charges/{charge}/refunds",
+      "kind": "create",
+      "risk": "destructive",
+      "summary": "Create customer balance refund",
+      "requiredParams": [
+        {
+          "name": "charge",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostChargesChargeRefunds"
+    },
+    {
+      "id": "GetChargesChargeRefundsRefund",
+      "method": "GET",
+      "path": "/v1/charges/{charge}/refunds/{refund}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "<p>Retrieves the details of an existing refund.</p>",
+      "requiredParams": [
+        {
+          "name": "charge",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "refund",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetChargesChargeRefundsRefund"
+    },
+    {
+      "id": "PostChargesChargeRefundsRefund",
+      "method": "POST",
+      "path": "/v1/charges/{charge}/refunds/{refund}",
+      "kind": "create",
+      "risk": "write",
+      "summary": "<p>Update a specified refund.</p>",
+      "requiredParams": [
+        {
+          "name": "charge",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "refund",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostChargesChargeRefundsRefund"
+    },
+    {
+      "id": "GetCheckoutSessions",
+      "method": "GET",
+      "path": "/v1/checkout/sessions",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List all Checkout Sessions",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call GetCheckoutSessions"
+    },
+    {
+      "id": "PostCheckoutSessions",
+      "method": "POST",
+      "path": "/v1/checkout/sessions",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a Checkout Session",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call PostCheckoutSessions"
+    },
+    {
+      "id": "GetCheckoutSessionsSession",
+      "method": "GET",
+      "path": "/v1/checkout/sessions/{session}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve a Checkout Session",
+      "requiredParams": [
+        {
+          "name": "session",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetCheckoutSessionsSession"
+    },
+    {
+      "id": "PostCheckoutSessionsSession",
+      "method": "POST",
+      "path": "/v1/checkout/sessions/{session}",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Update a Checkout Session",
+      "requiredParams": [
+        {
+          "name": "session",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostCheckoutSessionsSession"
+    },
+    {
+      "id": "PostCheckoutSessionsSessionExpire",
+      "method": "POST",
+      "path": "/v1/checkout/sessions/{session}/expire",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Expire a Checkout Session",
+      "requiredParams": [
+        {
+          "name": "session",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostCheckoutSessionsSessionExpire"
+    },
+    {
+      "id": "GetCheckoutSessionsSessionLineItems",
+      "method": "GET",
+      "path": "/v1/checkout/sessions/{session}/line_items",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Retrieve a Checkout Session's line items",
+      "requiredParams": [
+        {
+          "name": "session",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetCheckoutSessionsSessionLineItems"
+    },
+    {
+      "id": "GetClimateOrders",
+      "method": "GET",
+      "path": "/v1/climate/orders",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List orders",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call GetClimateOrders"
+    },
+    {
+      "id": "PostClimateOrders",
+      "method": "POST",
+      "path": "/v1/climate/orders",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create an order",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call PostClimateOrders"
+    },
+    {
+      "id": "GetClimateOrdersOrder",
+      "method": "GET",
+      "path": "/v1/climate/orders/{order}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve an order",
+      "requiredParams": [
+        {
+          "name": "order",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetClimateOrdersOrder"
+    },
+    {
+      "id": "PostClimateOrdersOrder",
+      "method": "POST",
+      "path": "/v1/climate/orders/{order}",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Update an order",
+      "requiredParams": [
+        {
+          "name": "order",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostClimateOrdersOrder"
+    },
+    {
+      "id": "PostClimateOrdersOrderCancel",
+      "method": "POST",
+      "path": "/v1/climate/orders/{order}/cancel",
+      "kind": "create",
+      "risk": "destructive",
+      "summary": "Cancel an order",
+      "requiredParams": [
+        {
+          "name": "order",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostClimateOrdersOrderCancel"
+    },
+    {
+      "id": "GetClimateProducts",
+      "method": "GET",
+      "path": "/v1/climate/products",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List products",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call GetClimateProducts"
+    },
+    {
+      "id": "GetClimateProductsProduct",
+      "method": "GET",
+      "path": "/v1/climate/products/{product}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve a product",
+      "requiredParams": [
+        {
+          "name": "product",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetClimateProductsProduct"
+    },
+    {
+      "id": "GetClimateSuppliers",
+      "method": "GET",
+      "path": "/v1/climate/suppliers",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List suppliers",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call GetClimateSuppliers"
+    },
+    {
+      "id": "GetClimateSuppliersSupplier",
+      "method": "GET",
+      "path": "/v1/climate/suppliers/{supplier}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve a supplier",
+      "requiredParams": [
+        {
+          "name": "supplier",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetClimateSuppliersSupplier"
+    },
+    {
+      "id": "GetConfirmationTokensConfirmationToken",
+      "method": "GET",
+      "path": "/v1/confirmation_tokens/{confirmation_token}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve a ConfirmationToken",
+      "requiredParams": [
+        {
+          "name": "confirmation_token",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetConfirmationTokensConfirmationToken"
+    },
+    {
+      "id": "GetCountrySpecs",
+      "method": "GET",
+      "path": "/v1/country_specs",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List Country Specs",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call GetCountrySpecs"
+    },
+    {
+      "id": "GetCountrySpecsCountry",
+      "method": "GET",
+      "path": "/v1/country_specs/{country}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve a Country Spec",
+      "requiredParams": [
+        {
+          "name": "country",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetCountrySpecsCountry"
+    },
+    {
+      "id": "GetCoupons",
+      "method": "GET",
+      "path": "/v1/coupons",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List all coupons",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call GetCoupons"
+    },
+    {
+      "id": "PostCoupons",
+      "method": "POST",
+      "path": "/v1/coupons",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a coupon",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call PostCoupons"
+    },
+    {
+      "id": "DeleteCouponsCoupon",
+      "method": "DELETE",
+      "path": "/v1/coupons/{coupon}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete a coupon",
+      "requiredParams": [
+        {
+          "name": "coupon",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call DeleteCouponsCoupon"
+    },
+    {
+      "id": "GetCouponsCoupon",
+      "method": "GET",
+      "path": "/v1/coupons/{coupon}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve a coupon",
+      "requiredParams": [
+        {
+          "name": "coupon",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetCouponsCoupon"
+    },
+    {
+      "id": "PostCouponsCoupon",
+      "method": "POST",
+      "path": "/v1/coupons/{coupon}",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Update a coupon",
+      "requiredParams": [
+        {
+          "name": "coupon",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostCouponsCoupon"
+    },
+    {
+      "id": "GetCreditNotes",
+      "method": "GET",
+      "path": "/v1/credit_notes",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List all credit notes",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call GetCreditNotes"
+    },
+    {
+      "id": "PostCreditNotes",
+      "method": "POST",
+      "path": "/v1/credit_notes",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a credit note",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call PostCreditNotes"
+    },
+    {
+      "id": "GetCreditNotesPreview",
+      "method": "GET",
+      "path": "/v1/credit_notes/preview",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "Preview a credit note",
+      "requiredParams": [
+        {
+          "name": "invoice",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetCreditNotesPreview"
+    },
+    {
+      "id": "GetCreditNotesPreviewLines",
+      "method": "GET",
+      "path": "/v1/credit_notes/preview/lines",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "Retrieve a credit note preview's line items",
+      "requiredParams": [
+        {
+          "name": "invoice",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetCreditNotesPreviewLines"
+    },
+    {
+      "id": "GetCreditNotesCreditNoteLines",
+      "method": "GET",
+      "path": "/v1/credit_notes/{credit_note}/lines",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Retrieve a credit note's line items",
+      "requiredParams": [
+        {
+          "name": "credit_note",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetCreditNotesCreditNoteLines"
+    },
+    {
+      "id": "GetCreditNotesId",
+      "method": "GET",
+      "path": "/v1/credit_notes/{id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve a credit note",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetCreditNotesId"
+    },
+    {
+      "id": "PostCreditNotesId",
+      "method": "POST",
+      "path": "/v1/credit_notes/{id}",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Update a credit note",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostCreditNotesId"
+    },
+    {
+      "id": "PostCreditNotesIdVoid",
+      "method": "POST",
+      "path": "/v1/credit_notes/{id}/void",
+      "kind": "create",
+      "risk": "destructive",
+      "summary": "Void a credit note",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostCreditNotesIdVoid"
+    },
+    {
+      "id": "PostCustomerSessions",
+      "method": "POST",
+      "path": "/v1/customer_sessions",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a Customer Session",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call PostCustomerSessions"
+    },
+    {
+      "id": "GetCustomers",
+      "method": "GET",
+      "path": "/v1/customers",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List all customers",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call GetCustomers"
+    },
+    {
+      "id": "PostCustomers",
+      "method": "POST",
+      "path": "/v1/customers",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a customer",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call PostCustomers"
+    },
+    {
+      "id": "GetCustomersSearch",
+      "method": "GET",
+      "path": "/v1/customers/search",
+      "kind": "search",
+      "risk": "read",
+      "summary": "Search customers",
+      "requiredParams": [
+        {
+          "name": "query",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "pagination": {
+        "style": "page",
+        "pageParam": "page",
+        "perPageParam": "limit"
+      },
+      "invoke": "stripe call GetCustomersSearch"
+    },
+    {
+      "id": "DeleteCustomersCustomer",
+      "method": "DELETE",
+      "path": "/v1/customers/{customer}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete a customer",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call DeleteCustomersCustomer"
+    },
+    {
+      "id": "GetCustomersCustomer",
+      "method": "GET",
+      "path": "/v1/customers/{customer}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve a customer",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetCustomersCustomer"
+    },
+    {
+      "id": "PostCustomersCustomer",
+      "method": "POST",
+      "path": "/v1/customers/{customer}",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Update a customer",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostCustomersCustomer"
+    },
+    {
+      "id": "GetCustomersCustomerBalanceTransactions",
+      "method": "GET",
+      "path": "/v1/customers/{customer}/balance_transactions",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List customer balance transactions",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetCustomersCustomerBalanceTransactions"
+    },
+    {
+      "id": "PostCustomersCustomerBalanceTransactions",
+      "method": "POST",
+      "path": "/v1/customers/{customer}/balance_transactions",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a customer balance transaction",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostCustomersCustomerBalanceTransactions"
+    },
+    {
+      "id": "GetCustomersCustomerBalanceTransactionsTransaction",
+      "method": "GET",
+      "path": "/v1/customers/{customer}/balance_transactions/{transaction}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve a customer balance transaction",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "transaction",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetCustomersCustomerBalanceTransactionsTransaction"
+    },
+    {
+      "id": "PostCustomersCustomerBalanceTransactionsTransaction",
+      "method": "POST",
+      "path": "/v1/customers/{customer}/balance_transactions/{transaction}",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Update a customer credit balance transaction",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "transaction",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostCustomersCustomerBalanceTransactionsTransaction"
+    },
+    {
+      "id": "GetCustomersCustomerBankAccounts",
+      "method": "GET",
+      "path": "/v1/customers/{customer}/bank_accounts",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List all bank accounts",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetCustomersCustomerBankAccounts"
+    },
+    {
+      "id": "PostCustomersCustomerBankAccounts",
+      "method": "POST",
+      "path": "/v1/customers/{customer}/bank_accounts",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a card",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostCustomersCustomerBankAccounts"
+    },
+    {
+      "id": "DeleteCustomersCustomerBankAccountsId",
+      "method": "DELETE",
+      "path": "/v1/customers/{customer}/bank_accounts/{id}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete a customer source",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call DeleteCustomersCustomerBankAccountsId"
+    },
+    {
+      "id": "GetCustomersCustomerBankAccountsId",
+      "method": "GET",
+      "path": "/v1/customers/{customer}/bank_accounts/{id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve a bank account",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetCustomersCustomerBankAccountsId"
+    },
+    {
+      "id": "PostCustomersCustomerBankAccountsId",
+      "method": "POST",
+      "path": "/v1/customers/{customer}/bank_accounts/{id}",
+      "kind": "create",
+      "risk": "write",
+      "summary": "<p>Update a specified source for a given customer.</p>",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostCustomersCustomerBankAccountsId"
+    },
+    {
+      "id": "PostCustomersCustomerBankAccountsIdVerify",
+      "method": "POST",
+      "path": "/v1/customers/{customer}/bank_accounts/{id}/verify",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Verify a bank account",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostCustomersCustomerBankAccountsIdVerify"
+    },
+    {
+      "id": "GetCustomersCustomerCards",
+      "method": "GET",
+      "path": "/v1/customers/{customer}/cards",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List all cards",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetCustomersCustomerCards"
+    },
+    {
+      "id": "PostCustomersCustomerCards",
+      "method": "POST",
+      "path": "/v1/customers/{customer}/cards",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a card",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostCustomersCustomerCards"
+    },
+    {
+      "id": "DeleteCustomersCustomerCardsId",
+      "method": "DELETE",
+      "path": "/v1/customers/{customer}/cards/{id}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete a customer source",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call DeleteCustomersCustomerCardsId"
+    },
+    {
+      "id": "GetCustomersCustomerCardsId",
+      "method": "GET",
+      "path": "/v1/customers/{customer}/cards/{id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve a card",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetCustomersCustomerCardsId"
+    },
+    {
+      "id": "PostCustomersCustomerCardsId",
+      "method": "POST",
+      "path": "/v1/customers/{customer}/cards/{id}",
+      "kind": "create",
+      "risk": "write",
+      "summary": "<p>Update a specified source for a given customer.</p>",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostCustomersCustomerCardsId"
+    },
+    {
+      "id": "GetCustomersCustomerCashBalance",
+      "method": "GET",
+      "path": "/v1/customers/{customer}/cash_balance",
+      "kind": "read",
+      "risk": "read",
+      "summary": "Retrieve a cash balance",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetCustomersCustomerCashBalance"
+    },
+    {
+      "id": "PostCustomersCustomerCashBalance",
+      "method": "POST",
+      "path": "/v1/customers/{customer}/cash_balance",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Update a cash balance's settings",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostCustomersCustomerCashBalance"
+    },
+    {
+      "id": "GetCustomersCustomerCashBalanceTransactions",
+      "method": "GET",
+      "path": "/v1/customers/{customer}/cash_balance_transactions",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List cash balance transactions",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetCustomersCustomerCashBalanceTransactions"
+    },
+    {
+      "id": "GetCustomersCustomerCashBalanceTransactionsTransaction",
+      "method": "GET",
+      "path": "/v1/customers/{customer}/cash_balance_transactions/{transaction}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve a cash balance transaction",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "transaction",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetCustomersCustomerCashBalanceTransactionsTransaction"
+    },
+    {
+      "id": "DeleteCustomersCustomerDiscount",
+      "method": "DELETE",
+      "path": "/v1/customers/{customer}/discount",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete a customer discount",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call DeleteCustomersCustomerDiscount"
+    },
+    {
+      "id": "GetCustomersCustomerDiscount",
+      "method": "GET",
+      "path": "/v1/customers/{customer}/discount",
+      "kind": "read",
+      "risk": "read",
+      "summary": "GetCustomersCustomerDiscount",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetCustomersCustomerDiscount"
+    },
+    {
+      "id": "PostCustomersCustomerFundingInstructions",
+      "method": "POST",
+      "path": "/v1/customers/{customer}/funding_instructions",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create or retrieve funding instructions for a customer cash balance",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostCustomersCustomerFundingInstructions"
+    },
+    {
+      "id": "GetCustomersCustomerPaymentMethods",
+      "method": "GET",
+      "path": "/v1/customers/{customer}/payment_methods",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List a Customer's PaymentMethods",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetCustomersCustomerPaymentMethods"
+    },
+    {
+      "id": "GetCustomersCustomerPaymentMethodsPaymentMethod",
+      "method": "GET",
+      "path": "/v1/customers/{customer}/payment_methods/{payment_method}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve a Customer's PaymentMethod",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "payment_method",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetCustomersCustomerPaymentMethodsPaymentMethod"
+    },
+    {
+      "id": "GetCustomersCustomerSources",
+      "method": "GET",
+      "path": "/v1/customers/{customer}/sources",
+      "kind": "read",
+      "risk": "read",
+      "summary": "<p>List sources for a specified customer.</p>",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetCustomersCustomerSources"
+    },
+    {
+      "id": "PostCustomersCustomerSources",
+      "method": "POST",
+      "path": "/v1/customers/{customer}/sources",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a card",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostCustomersCustomerSources"
+    },
+    {
+      "id": "DeleteCustomersCustomerSourcesId",
+      "method": "DELETE",
+      "path": "/v1/customers/{customer}/sources/{id}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete a customer source",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call DeleteCustomersCustomerSourcesId"
+    },
+    {
+      "id": "GetCustomersCustomerSourcesId",
+      "method": "GET",
+      "path": "/v1/customers/{customer}/sources/{id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "<p>Retrieve a specified source for a given customer.</p>",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetCustomersCustomerSourcesId"
+    },
+    {
+      "id": "PostCustomersCustomerSourcesId",
+      "method": "POST",
+      "path": "/v1/customers/{customer}/sources/{id}",
+      "kind": "create",
+      "risk": "write",
+      "summary": "<p>Update a specified source for a given customer.</p>",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostCustomersCustomerSourcesId"
+    },
+    {
+      "id": "PostCustomersCustomerSourcesIdVerify",
+      "method": "POST",
+      "path": "/v1/customers/{customer}/sources/{id}/verify",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Verify a bank account",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostCustomersCustomerSourcesIdVerify"
+    },
+    {
+      "id": "GetCustomersCustomerSubscriptions",
+      "method": "GET",
+      "path": "/v1/customers/{customer}/subscriptions",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List active subscriptions",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetCustomersCustomerSubscriptions"
+    },
+    {
+      "id": "PostCustomersCustomerSubscriptions",
+      "method": "POST",
+      "path": "/v1/customers/{customer}/subscriptions",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a subscription",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostCustomersCustomerSubscriptions"
+    },
+    {
+      "id": "DeleteCustomersCustomerSubscriptionsSubscriptionExposedId",
+      "method": "DELETE",
+      "path": "/v1/customers/{customer}/subscriptions/{subscription_exposed_id}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Cancel a subscription",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "subscription_exposed_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call DeleteCustomersCustomerSubscriptionsSubscriptionExposedId"
+    },
+    {
+      "id": "GetCustomersCustomerSubscriptionsSubscriptionExposedId",
+      "method": "GET",
+      "path": "/v1/customers/{customer}/subscriptions/{subscription_exposed_id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve a subscription",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "subscription_exposed_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetCustomersCustomerSubscriptionsSubscriptionExposedId"
+    },
+    {
+      "id": "PostCustomersCustomerSubscriptionsSubscriptionExposedId",
+      "method": "POST",
+      "path": "/v1/customers/{customer}/subscriptions/{subscription_exposed_id}",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Update a subscription on a customer",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "subscription_exposed_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostCustomersCustomerSubscriptionsSubscriptionExposedId"
+    },
+    {
+      "id": "DeleteCustomersCustomerSubscriptionsSubscriptionExposedIdDiscount",
+      "method": "DELETE",
+      "path": "/v1/customers/{customer}/subscriptions/{subscription_exposed_id}/discount",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete a customer discount",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "subscription_exposed_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call DeleteCustomersCustomerSubscriptionsSubscriptionExposedIdDiscount"
+    },
+    {
+      "id": "GetCustomersCustomerSubscriptionsSubscriptionExposedIdDiscount",
+      "method": "GET",
+      "path": "/v1/customers/{customer}/subscriptions/{subscription_exposed_id}/discount",
+      "kind": "read",
+      "risk": "read",
+      "summary": "GetCustomersCustomerSubscriptionsSubscriptionExposedIdDiscount",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "subscription_exposed_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetCustomersCustomerSubscriptionsSubscriptionExposedIdDiscount"
+    },
+    {
+      "id": "GetCustomersCustomerTaxIds",
+      "method": "GET",
+      "path": "/v1/customers/{customer}/tax_ids",
+      "kind": "read",
+      "risk": "read",
+      "summary": "List all Customer tax IDs",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetCustomersCustomerTaxIds"
+    },
+    {
+      "id": "PostCustomersCustomerTaxIds",
+      "method": "POST",
+      "path": "/v1/customers/{customer}/tax_ids",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a Customer tax ID",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostCustomersCustomerTaxIds"
+    },
+    {
+      "id": "DeleteCustomersCustomerTaxIdsId",
+      "method": "DELETE",
+      "path": "/v1/customers/{customer}/tax_ids/{id}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Delete a Customer tax ID",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call DeleteCustomersCustomerTaxIdsId"
+    },
+    {
+      "id": "GetCustomersCustomerTaxIdsId",
+      "method": "GET",
+      "path": "/v1/customers/{customer}/tax_ids/{id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve a Customer tax ID",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "path",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetCustomersCustomerTaxIdsId"
+    },
+    {
+      "id": "GetDisputes",
+      "method": "GET",
+      "path": "/v1/disputes",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List all disputes",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call GetDisputes"
+    },
+    {
+      "id": "GetDisputesDispute",
+      "method": "GET",
+      "path": "/v1/disputes/{dispute}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve a dispute",
+      "requiredParams": [
+        {
+          "name": "dispute",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetDisputesDispute"
+    },
+    {
+      "id": "PostDisputesDispute",
+      "method": "POST",
+      "path": "/v1/disputes/{dispute}",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Update a dispute",
+      "requiredParams": [
+        {
+          "name": "dispute",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostDisputesDispute"
+    },
+    {
+      "id": "PostDisputesDisputeClose",
+      "method": "POST",
+      "path": "/v1/disputes/{dispute}/close",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Close a dispute",
+      "requiredParams": [
+        {
+          "name": "dispute",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostDisputesDisputeClose"
+    },
+    {
+      "id": "GetEntitlementsActiveEntitlements",
+      "method": "GET",
+      "path": "/v1/entitlements/active_entitlements",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List all active entitlements",
+      "requiredParams": [
+        {
+          "name": "customer",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetEntitlementsActiveEntitlements"
+    },
+    {
+      "id": "GetEntitlementsActiveEntitlementsId",
+      "method": "GET",
+      "path": "/v1/entitlements/active_entitlements/{id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve an active entitlement",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetEntitlementsActiveEntitlementsId"
+    },
+    {
+      "id": "GetEntitlementsFeatures",
+      "method": "GET",
+      "path": "/v1/entitlements/features",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List all features",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call GetEntitlementsFeatures"
+    },
+    {
+      "id": "PostEntitlementsFeatures",
+      "method": "POST",
+      "path": "/v1/entitlements/features",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a feature",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call PostEntitlementsFeatures"
+    },
+    {
+      "id": "GetEntitlementsFeaturesId",
+      "method": "GET",
+      "path": "/v1/entitlements/features/{id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve a feature",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetEntitlementsFeaturesId"
+    },
+    {
+      "id": "PostEntitlementsFeaturesId",
+      "method": "POST",
+      "path": "/v1/entitlements/features/{id}",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Updates a feature",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostEntitlementsFeaturesId"
+    },
+    {
+      "id": "PostEphemeralKeys",
+      "method": "POST",
+      "path": "/v1/ephemeral_keys",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create an ephemeral key",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call PostEphemeralKeys"
+    },
+    {
+      "id": "DeleteEphemeralKeysKey",
+      "method": "DELETE",
+      "path": "/v1/ephemeral_keys/{key}",
+      "kind": "delete",
+      "risk": "destructive",
+      "summary": "Immediately invalidate an ephemeral key",
+      "requiredParams": [
+        {
+          "name": "key",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call DeleteEphemeralKeysKey"
+    },
+    {
+      "id": "GetEvents",
+      "method": "GET",
+      "path": "/v1/events",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List all events",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call GetEvents"
+    },
+    {
+      "id": "GetEventsId",
+      "method": "GET",
+      "path": "/v1/events/{id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve an event",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetEventsId"
+    },
+    {
+      "id": "GetExchangeRates",
+      "method": "GET",
+      "path": "/v1/exchange_rates",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List all exchange rates",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call GetExchangeRates"
+    },
+    {
+      "id": "GetExchangeRatesRateId",
+      "method": "GET",
+      "path": "/v1/exchange_rates/{rate_id}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve an exchange rate",
+      "requiredParams": [
+        {
+          "name": "rate_id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetExchangeRatesRateId"
+    },
+    {
+      "id": "PostExternalAccountsId",
+      "method": "POST",
+      "path": "/v1/external_accounts/{id}",
+      "kind": "create",
+      "risk": "write",
+      "summary": "<p>Updates the metadata, account holder name, account holder type of a bank account belonging to\na connected account and optionally sets it as the default for its currency. Other bank account\ndetails are not editable by design.</p>\n\n<p>You can only update bank accounts when <a href=\"/api/accounts/object#account_object-controller-requirement_collection\">account.controller.requirement_collection</a> is <code>application</code>, which includes <a href=\"/connect/custom-accounts\">Custom accounts</a>.</p>\n\n<p>You can re-enable a disabled bank account by performing an update call without providing any\narguments or changes.</p>",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostExternalAccountsId"
+    },
+    {
+      "id": "GetFileLinks",
+      "method": "GET",
+      "path": "/v1/file_links",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List all file links",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call GetFileLinks"
+    },
+    {
+      "id": "PostFileLinks",
+      "method": "POST",
+      "path": "/v1/file_links",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a file link",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call PostFileLinks"
+    },
+    {
+      "id": "GetFileLinksLink",
+      "method": "GET",
+      "path": "/v1/file_links/{link}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve a file link",
+      "requiredParams": [
+        {
+          "name": "link",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetFileLinksLink"
+    },
+    {
+      "id": "PostFileLinksLink",
+      "method": "POST",
+      "path": "/v1/file_links/{link}",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Update a file link",
+      "requiredParams": [
+        {
+          "name": "link",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call PostFileLinksLink"
+    },
+    {
+      "id": "GetFiles",
+      "method": "GET",
+      "path": "/v1/files",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "List all files",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call GetFiles"
+    },
+    {
+      "id": "PostFiles",
+      "method": "POST",
+      "path": "/v1/files",
+      "kind": "create",
+      "risk": "write",
+      "summary": "Create a file",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "stripe call PostFiles"
+    },
+    {
+      "id": "GetFilesFile",
+      "method": "GET",
+      "path": "/v1/files/{file}",
+      "kind": "read-detail",
+      "risk": "read",
+      "summary": "Retrieve a file",
+      "requiredParams": [
+        {
+          "name": "file",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "stripe call GetFilesFile"
+    }
+  ],
+  "baseUrl": "https://api.stripe.com/",
+  "safety": {
+    "writeRequiresConfirmation": true,
+    "confirmationFlag": "--yes",
+    "dryRunByDefault": true
+  },
+  "provenance": {
+    "generatedAt": "2026-05-16T01:32:47.361Z",
+    "gutenbergVersion": "0.1.0",
+    "specSha": "6f7c5c122b98"
+  }
+}

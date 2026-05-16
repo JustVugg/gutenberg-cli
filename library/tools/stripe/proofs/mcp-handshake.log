@@ -1,0 +1,13 @@
+$ /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/stripe/proofs/bin/stripe mcp
+cwd: /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/stripe
+status: 0
+signal: 
+
+stdout:
+Content-Length: 147
+
+{"id":1,"jsonrpc":"2.0","result":{"capabilities":{"tools":{}},"protocolVersion":"2024-11-05","serverInfo":{"name":"stripe-mcp","version":"0.1.0"}}}Content-Length: 548
+
+{"id":2,"jsonrpc":"2.0","result":{"tools":[{"description":"List operations","inputSchema":{"properties":{},"type":"object"},"name":"stripe_operations"},{"description":"Call an operation","inputSchema":{"properties":{"operationId":{"type":"string"},"params":{"type":"object"},"path":{"type":"object"},"yes":{"type":"boolean"}},"required":["operationId"],"type":"object"},"name":"stripe_call"},{"description":"Search cache","inputSchema":{"properties":{"query":{"type":"string"}},"required":["query"],"type":"object"},"name":"stripe_search_cache"}]}}
+
+stderr:

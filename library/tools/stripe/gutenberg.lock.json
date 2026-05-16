@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "gutenberg.lock.v1",
+  "generatedAt": "2026-05-16T01:32:47.361Z",
+  "gutenbergVersion": "0.1.0",
+  "name": "stripe",
+  "spec": {
+    "path": "/tmp/stripe-api.json",
+    "sha256": "6f7c5c122b98ccca6218b3980cbbf48773ffd40dc2fc9a09c4783143b9261915",
+    "size": 7753660
+  },
+  "recipe": null,
+  "targets": [
+    "go",
+    "mcp",
+    "skill",
+    "openclaw"
+  ]
+}
