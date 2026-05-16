@@ -1,0 +1,13 @@
+$ /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/public-holidays/proofs/bin/public-holidays mcp
+cwd: /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/public-holidays
+status: 0
+signal: 
+
+stdout:
+Content-Length: 156
+
+{"id":1,"jsonrpc":"2.0","result":{"capabilities":{"tools":{}},"protocolVersion":"2024-11-05","serverInfo":{"name":"public-holidays-mcp","version":"0.1.0"}}}Content-Length: 575
+
+{"id":2,"jsonrpc":"2.0","result":{"tools":[{"description":"List operations","inputSchema":{"properties":{},"type":"object"},"name":"public-holidays_operations"},{"description":"Call an operation","inputSchema":{"properties":{"operationId":{"type":"string"},"params":{"type":"object"},"path":{"type":"object"},"yes":{"type":"boolean"}},"required":["operationId"],"type":"object"},"name":"public-holidays_call"},{"description":"Search cache","inputSchema":{"properties":{"query":{"type":"string"}},"required":["query"],"type":"object"},"name":"public-holidays_search_cache"}]}}
+
+stderr:

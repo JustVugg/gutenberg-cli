@@ -1,0 +1,114 @@
+{
+  "schemaVersion": "openclaw.skill.v1",
+  "name": "public-holidays",
+  "displayName": "public-holidays",
+  "description": "public-holidays should become a local, searchable operational workspace, not only an endpoint wrapper.",
+  "runtime": {
+    "cli": "public-holidays",
+    "mcp": "public-holidays mcp"
+  },
+  "auth": {
+    "mode": "none",
+    "oauth": false,
+    "env": null,
+    "setupCommand": null
+  },
+  "capabilities": {
+    "readOperations": 4,
+    "writeOperations": 0,
+    "destructiveOperations": 0,
+    "cacheable": 4,
+    "total": 4
+  },
+  "actions": [
+    {
+      "name": "availablecountries",
+      "operationId": "getAvailablecountries",
+      "summary": "GET /api/v3/AvailableCountries",
+      "method": "GET",
+      "path": "/api/v3/AvailableCountries",
+      "defaultParams": {},
+      "invoke": "public-holidays availablecountries",
+      "safe": true
+    },
+    {
+      "name": "it",
+      "operationId": "getNextpublicholidaysIt",
+      "summary": "GET /api/v3/NextPublicHolidays/IT",
+      "method": "GET",
+      "path": "/api/v3/NextPublicHolidays/IT",
+      "defaultParams": {},
+      "invoke": "public-holidays it",
+      "safe": true
+    }
+  ],
+  "operations": [
+    {
+      "id": "getPublicholidaysIdIt",
+      "method": "GET",
+      "path": "/api/v3/PublicHolidays/{id}/IT",
+      "kind": "read",
+      "risk": "read",
+      "summary": "GET /api/v3/PublicHolidays/{id}/IT",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "public-holidays call getPublicholidaysIdIt"
+    },
+    {
+      "id": "getPublicholidaysIdUs",
+      "method": "GET",
+      "path": "/api/v3/PublicHolidays/{id}/US",
+      "kind": "read",
+      "risk": "read",
+      "summary": "GET /api/v3/PublicHolidays/{id}/US",
+      "requiredParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "type": "string"
+        }
+      ],
+      "pagination": null,
+      "invoke": "public-holidays call getPublicholidaysIdUs"
+    },
+    {
+      "id": "getAvailablecountries",
+      "method": "GET",
+      "path": "/api/v3/AvailableCountries",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /api/v3/AvailableCountries",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "public-holidays call getAvailablecountries"
+    },
+    {
+      "id": "getNextpublicholidaysIt",
+      "method": "GET",
+      "path": "/api/v3/NextPublicHolidays/IT",
+      "kind": "read-list",
+      "risk": "read",
+      "summary": "GET /api/v3/NextPublicHolidays/IT",
+      "requiredParams": [],
+      "pagination": null,
+      "invoke": "public-holidays call getNextpublicholidaysIt"
+    }
+  ],
+  "baseUrl": "https://date.nager.at",
+  "safety": {
+    "writeRequiresConfirmation": true,
+    "confirmationFlag": "--yes",
+    "dryRunByDefault": true
+  },
+  "provenance": {
+    "generatedAt": "2026-05-16T07:09:49.607Z",
+    "gutenbergVersion": "0.1.0",
+    "specSha": "75bd443a83ca"
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "gutenberg.verification.v1",
+  "projectDir": "library/tools/public-holidays",
+  "tool": "public-holidays",
+  "language": "go",
+  "startedAt": "2026-05-16T07:10:38.695Z",
+  "finishedAt": "2026-05-16T07:11:08.277Z",
+  "ok": true,
+  "checks": [
+    {
+      "id": "go-mod-tidy",
+      "label": "go mod tidy",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 2593,
+      "log": "proofs/go-mod-tidy.log",
+      "artifact": null
+    },
+    {
+      "id": "go-test",
+      "label": "go test ./...",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 13032,
+      "log": "proofs/go-test.log",
+      "artifact": null
+    },
+    {
+      "id": "go-build",
+      "label": "go build CLI binary",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 11440,
+      "log": "proofs/go-build.log",
+      "artifact": "library/tools/public-holidays/proofs/bin/public-holidays"
+    },
+    {
+      "id": "cli-smoke",
+      "label": "CLI operations smoke",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 234,
+      "log": "proofs/cli-smoke.log",
+      "artifact": null
+    },
+    {
+      "id": "mcp-handshake",
+      "label": "MCP initialize + tools/list",
+      "passed": true,
+      "required": true,
+      "detail": "ok",
+      "elapsedMs": 1089,
+      "log": "proofs/mcp-handshake.log",
+      "artifact": null
+    }
+  ],
+  "artifacts": {
+    "proofDir": "library/tools/public-holidays/proofs",
+    "manifest": "library/tools/public-holidays/gutenberg.manifest.json",
+    "source": {
+      "path": "/tmp/public-holidays.openapi.json",
+      "sha256": "75bd443a83ca66912ca9910eb8552726bfd122d369835dc4b5035797bf8f7791",
+      "size": 7797
+    },
+    "binary": "library/tools/public-holidays/proofs/bin/public-holidays",
+    "binarySha256": "9ef20aea57bec4cd20b90b0e12664bedc1efd1afd9149e13cf9448655ac11ed2"
+  },
+  "badges": [
+    "Gutenberg Verified",
+    "Build Verified",
+    "MCP Ready",
+    "Risk Gated"
+  ]
+}

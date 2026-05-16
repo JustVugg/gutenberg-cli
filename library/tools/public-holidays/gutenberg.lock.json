@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "gutenberg.lock.v1",
+  "generatedAt": "2026-05-16T07:09:49.607Z",
+  "gutenbergVersion": "0.1.0",
+  "name": "public-holidays",
+  "spec": {
+    "path": "/tmp/public-holidays.openapi.json",
+    "sha256": "75bd443a83ca66912ca9910eb8552726bfd122d369835dc4b5035797bf8f7791",
+    "size": 7797
+  },
+  "recipe": null,
+  "targets": [
+    "go",
+    "mcp",
+    "skill",
+    "openclaw"
+  ]
+}

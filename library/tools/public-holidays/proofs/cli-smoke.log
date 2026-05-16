@@ -1,0 +1,91 @@
+$ /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/public-holidays/proofs/bin/public-holidays operations --json
+cwd: /mnt/c/Users/sarah/Desktop/gutenberg/library/tools/public-holidays
+status: 0
+signal: 
+
+stdout:
+[
+  {
+    "id": "getPublicholidaysIdIt",
+    "method": "GET",
+    "path": "/api/v3/PublicHolidays/{id}/IT",
+    "tag": "api",
+    "summary": "GET /api/v3/PublicHolidays/{id}/IT",
+    "description": "",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": "",
+        "type": "string"
+      }
+    ],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "read"
+  },
+  {
+    "id": "getPublicholidaysIdUs",
+    "method": "GET",
+    "path": "/api/v3/PublicHolidays/{id}/US",
+    "tag": "api",
+    "summary": "GET /api/v3/PublicHolidays/{id}/US",
+    "description": "",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": "",
+        "type": "string"
+      }
+    ],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "read"
+  },
+  {
+    "id": "getAvailablecountries",
+    "method": "GET",
+    "path": "/api/v3/AvailableCountries",
+    "tag": "api",
+    "summary": "GET /api/v3/AvailableCountries",
+    "description": "",
+    "parameters": [],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "read-list"
+  },
+  {
+    "id": "getNextpublicholidaysIt",
+    "method": "GET",
+    "path": "/api/v3/NextPublicHolidays/IT",
+    "tag": "api",
+    "summary": "GET /api/v3/NextPublicHolidays/IT",
+    "description": "",
+    "parameters": [],
+    "hasRequestBody": false,
+    "risk": "read",
+    "cacheable": true,
+    "responseCodes": [
+      "200"
+    ],
+    "kind": "read-list"
+  }
+]
+
+
+stderr:
