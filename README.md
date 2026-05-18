@@ -7,6 +7,11 @@
 
 **A verified tool factory for AI agents.** From any API surface to safe, verified tools any agent runtime can use — Go CLI + MCP server + agent skills + SQLite/FTS5 cache + dry-run-by-default policy + hash-verifiable proof artifacts.
 
+## 30 seconds DEMO
+
+<img src="gutenberg.gif" width="500" >
+
+
 ```bash
 $ gutenberg quick https://catfact.ninja/fact
 gutenberg quick: probing https://catfact.ninja/fact
